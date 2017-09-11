@@ -20,9 +20,10 @@ According to the data (reads or contigs), the pipeline allows:
 
 ### Optionnal 
 MetaPathExplorer allows also optionnal analysis:
-* tRNA and tmRNA _via_ [ARAGORN](http://mbio-serv2.mbioekol.lu.se/ARAGORN/)
+* tRNA and tmRNA prediction _via_ [ARAGORN](http://mbio-serv2.mbioekol.lu.se/ARAGORN/)
 * rDNA prediction _via_ [rna_hmm]()
 * rDNA annotation _via_ [blast+](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
+
 
 ## Installation 
 
@@ -56,9 +57,11 @@ git clone https://github.com/meb-team/MetaPathExplorer.git
 
 ## INI options 
 
+
 ## Bugs
 
 * Submit problems or requests here: https://github.com/meb-team/MetaPathExplorer/issues
+
 
 ### Citation
 
