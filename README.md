@@ -4,9 +4,9 @@ MetaPathExplorer is a pipeline for analysing genomics and metagenomics datasets.
 
 ## Contents 
 
-* [Introduction](https://github.com/meb-team/MetaPathExplorer/Introduction)
-* [Installation](https://github.com/meb-team/MetaPathExplorer/Installation)
-* [How to use?](https://github.com/meb-team/MetaPathExplorer/How_to_use)
+* [Introduction](https://github.com/meb-team/MetaPathExplorer/blob/master/README.md#introduction)
+* [Installation](https://github.com/meb-team/MetaPathExplorer/blob/master/README.md#installation)
+* [How to use?](https://github.com/meb-team/MetaPathExplorer/blob/master/README.md#how_to_use)
 * [Command line options]()
 * [INI options]()
 * [Bugs]()
