@@ -47,24 +47,54 @@ Clone the latest version of the repository:
 git clone https://github.com/meb-team/MetaPathExplorer.git
 ```
 
+## Global INI option line
+
+```perl
+=HEAD
+    Global options:
+
+    -h	--help		Print this help and exit.
+
+    -v	--verbose	Verbose mode.
+
+        --ini 		Option ini file for MetaPathExplorer.
+
+    -f	--force		Redownload files to make protein database. 
+    
+    -r	--re-use	Use already downloaded files to make protein 
+                  database. 
+=cut
+```
+
 ## How to use? 
 
 ### MetaPathExplorer_download
 
+```bash
+MetaPathExplorer_download --ini MetaPathExplorer.ini 
+```
+
 ### MetaPathExplorer
 
-## Command line options
+For contigs : 
+```bash
+MetaPathExplorer --ini MetaPathExplorer.ini --contigs seqfile1.fasta seqfile2.fasta ...
+# or 
+MetaPathExplorer --ini MetaPathExplorer.ini --contigs  $(<sample.path.list.txt)
+```
 
-## INI options 
-
+For reads : 
+```bash
+MetaPathExplorer --ini MetaPathExplorer.ini --reads --fast-reads  
+```
 
 ## Bugs
 
 * Submit problems or requests here: https://github.com/meb-team/MetaPathExplorer/issues
 
 
-### Citation
+## Citation
 
-# Authors
+### Authors
 * Hochart Corentin - [chochart](https://github.com/chochart)
 
