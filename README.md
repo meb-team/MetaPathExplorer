@@ -29,9 +29,9 @@ MetaPathExplorer allows also optionnal analysis:
 
 ### Prerequisites
 
-This pipeline is currently using [Perl](https://www.perl.org/) to work.
-
-It also uses [Python 2.7](https://www.python.org/download/releases/2.7/).
+ * [Perl](https://www.perl.org/) - scripting language
+ * [Python 2.7](https://www.python.org/download/releases/2.7/) - scripting language
+ * Linux commands: [wget](https://www.gnu.org/software/wget/), zcat
 
 ### GitHub
 
@@ -49,9 +49,9 @@ git clone https://github.com/meb-team/MetaPathExplorer.git
 
 ## How to use? 
 
-### Construct KEGG_Uniref database 
+### MetaPathExplorer_download
 
-### Launch Analysis 
+### MetaPathExplorer
 
 ## Command line options
 
