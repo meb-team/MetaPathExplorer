@@ -18,7 +18,7 @@ According to the data (reads or contigs), the pipeline allows:
 * similarity annotation _via_ [DIAMOND](https://github.com/bbuchfink/diamond), [USEARCH](http://www.drive5.com/usearch/) or [blast+](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
 * visualization of the main results on a HTML based permanent report.
 
-### Optionnal (not optimize for reads)
+### Optionnal (not optimized for reads)
 MetaPathExplorer allows also optionnal analysis:
 * tRNA and tmRNA prediction _via_ [ARAGORN](http://mbio-serv2.mbioekol.lu.se/ARAGORN/)
 * rDNA prediction _via_ [rna_hmm]()
