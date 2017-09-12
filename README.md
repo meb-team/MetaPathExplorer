@@ -47,10 +47,15 @@ Clone the latest version of the repository:
 git clone https://github.com/meb-team/MetaPathExplorer.git
 ```
 
-## Global INI option line
+## How to use? 
+
+### MetaPathExplorer_download
 
 ```perl
 =HEAD
+
+    Usage : MetaPathExplorer_download [options] 
+    
     Global options:
 
     -h	--help		Print this help and exit.
@@ -66,26 +71,42 @@ git clone https://github.com/meb-team/MetaPathExplorer.git
 =cut
 ```
 
-## How to use? 
-
-### MetaPathExplorer_download
-
-```bash
-MetaPathExplorer_download --ini MetaPathExplorer.ini 
-```
 
 ### MetaPathExplorer
 
-For contigs : 
-```bash
-MetaPathExplorer --ini MetaPathExplorer.ini --contigs seqfile1.fasta seqfile2.fasta ...
-# or 
-MetaPathExplorer --ini MetaPathExplorer.ini --contigs  $(<sample.path.list.txt)
-```
+```perl
+=HEAD1
+    Usage : MetaPathExplorer [options] seqfile1.fasta ... seqfileN.fasta
+    
+            MetaPathExplorer [options] $(<sample.seq.list.txt) 
 
-For reads : 
-```bash
-MetaPathExplorer --ini MetaPathExplorer.ini --reads --fast-reads  
+    Global options:
+
+    -h	--help		Print this help and exit.
+
+    -v	--verbose	Verbose mode. Can be used multiple times for increased
+                	verbosity.
+
+        --reads     Sequence fasta files are reads (no cds prediction - blastx like functionnal annotation)
+                	(incompatible with '--contigs').
+
+        --contigs   Sequence fasta files are contigs (cds prediction - blastp like functionnal annotation)
+                	(incompatible with '--reads').
+
+        --ini 		Option ini file for MetaPathExplorer.
+
+    -f	--force     /!\ Force the script by ERASE early project. 
+    
+        --re-use	Use already existing files (prediction, annotation, map ...) to
+                    produce the anlysis.
+
+        --nordna    Skip rDNA prediction and annotation.
+
+        --notrna	Skip tRNA prediction. 
+
+        --fast 		Only with reads option. Skip rDNA and tRNA + do not produce any GFF files. Only produce 
+                    KEGG pathway map and HTML based report. 
+=cut
 ```
 
 ## Bugs
