@@ -1,5 +1,7 @@
 # MetaPathExplorer
 
+_Available soon_
+
 ## Contents 
 
 * [Introduction](https://github.com/meb-team/MetaPathExplorer/blob/master/README.md#introduction)
@@ -51,8 +53,7 @@ git clone https://github.com/meb-team/MetaPathExplorer.git
 
 ### MetaPathExplorer_download
 
-```perl
-=HEAD
+```
 
     Usage : MetaPathExplorer_download [options] 
     
@@ -68,14 +69,14 @@ git clone https://github.com/meb-team/MetaPathExplorer.git
     
     -r	--re-use	Use already downloaded files to make protein 
                   database. 
-=cut
+
 ```
 
 
 ### MetaPathExplorer
 
-```perl
-=HEAD1
+```
+
     Usage : MetaPathExplorer [options] seqfile1.fasta ... seqfileN.fasta
     
             MetaPathExplorer [options] $(<sample.seq.list.txt) 
@@ -106,7 +107,7 @@ git clone https://github.com/meb-team/MetaPathExplorer.git
 
         --fast 		Only with reads option. Skip rDNA and tRNA + do not produce any GFF files. Only produce 
                     KEGG pathway map and HTML based report. 
-=cut
+
 ```
 
 ## Bugs
