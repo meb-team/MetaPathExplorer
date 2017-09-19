@@ -164,8 +164,8 @@
 317619.PRJNA158811.ANKN01000137	Prodigal:2.6.3	CDS	13999	14895	129.4	-	0	ID=13_00007;description=ABC-2.A%3B ABC-2 type transport system ATP-binding protein;product=K01990
 317619.PRJNA158811.ANKN01000137	Prodigal:2.6.3	CDS	15073	15861	119.0	-	0	ID=13_00008;description=ABC-2.P%3B ABC-2 type transport system permease protein;product=K01992
 317619.PRJNA158811.ANKN01000137	Prodigal:2.6.3	CDS	16447	17454	105.1	-	0	ID=13_00009;product=hypothetical protein
-seq_13	Aragorn:1.2.38	tRNA	17619	17703	.	+	.	ID=13_00010;product=tRNA-Ser
-seq_13	Aragorn:1.2.38	tRNA	17619	17703	.	+	.	ID=13_00011;product=tRNA-Ser
+seq_13	Aragorn:1.2.38	tRNA	17619	17703	.	+	.	ID=13_00010;product=product%3DtRNA-Ser
+seq_13	Aragorn:1.2.38	tRNA	17619	17703	.	+	.	ID=13_00011;product=product%3DtRNA-Ser
 317619.PRJNA158811.ANKN01000137	Prodigal:2.6.3	CDS	17784	17924	2.1	+	0	ID=13_00012;product=hypothetical protein
 317619.PRJNA158811.ANKN01000137	Prodigal:2.6.3	CDS	17999	18754	113.1	-	0	ID=13_00013;description=urtE%3B urea transport system ATP-binding protein;product=K11963
 317619.PRJNA158811.ANKN01000137	Prodigal:2.6.3	CDS	18930	19046	4.7	-	0	ID=13_00014;product=hypothetical protein
@@ -190,10 +190,10 @@ seq_13	Aragorn:1.2.38	tRNA	17619	17703	.	+	.	ID=13_00011;product=tRNA-Ser
 317619.PRJNA158811.ANKN01000081	Prodigal:2.6.3	CDS	5649	7034	229.4	+	0	ID=14_00008;description=secD%3B preprotein translocase subunit SecD;product=K03072
 317619.PRJNA158811.ANKN01000081	Prodigal:2.6.3	CDS	7259	8254	143.6	+	0	ID=14_00009;product=hypothetical protein
 317619.PRJNA158811.ANKN01000081	Prodigal:2.6.3	CDS	8384	8824	41.6	+	0	ID=14_00010;product=hypothetical protein
-seq_14	Aragorn:1.2.38	tRNA	9582	9667	.	+	.	ID=14_00011;product=tRNA-Tyr
-seq_14	Aragorn:1.2.38	tRNA	9582	9667	.	+	.	ID=14_00012;product=tRNA-Tyr
-seq_14	Aragorn:1.2.38	tRNA	9789	9860	.	+	.	ID=14_00013;product=tRNA-Thr
-seq_14	Aragorn:1.2.38	tRNA	9789	9860	.	+	.	ID=14_00014;product=tRNA-Thr
+seq_14	Aragorn:1.2.38	tRNA	9582	9667	.	+	.	ID=14_00011;product=product%3DtRNA-Tyr
+seq_14	Aragorn:1.2.38	tRNA	9582	9667	.	+	.	ID=14_00012;product=product%3DtRNA-Tyr
+seq_14	Aragorn:1.2.38	tRNA	9789	9860	.	+	.	ID=14_00013;product=product%3DtRNA-Thr
+seq_14	Aragorn:1.2.38	tRNA	9789	9860	.	+	.	ID=14_00014;product=product%3DtRNA-Thr
 317619.PRJNA158811.ANKN01000081	Prodigal:2.6.3	CDS	9999	11078	138.8	-	0	ID=14_00015;product=hypothetical protein
 317619.PRJNA158811.ANKN01000081	Prodigal:2.6.3	CDS	11295	11783	44.8	+	0	ID=14_00016;product=hypothetical protein
 317619.PRJNA158811.ANKN01000081	Prodigal:2.6.3	CDS	12112	12936	123.9	+	0	ID=14_00017;description=cysH%3B phosphoadenosine phosphosulfate reductase [EC:1.8.4.8 1.8.4.10];product=K00390
@@ -221,8 +221,8 @@ seq_14	Aragorn:1.2.38	tRNA	9789	9860	.	+	.	ID=14_00014;product=tRNA-Thr
 317619.PRJNA158811.ANKN01000139	Prodigal:2.6.3	CDS	307	582	20.8	-	0	ID=18_00002;product=hypothetical protein
 317619.PRJNA158811.ANKN01000139	Prodigal:2.6.3	CDS	602	1240	81.1	-	0	ID=18_00003;product=hypothetical protein
 317619.PRJNA158811.ANKN01000139	Prodigal:2.6.3	CDS	2227	3825	246.9	+	0	ID=18_00004;description=ndhD%3B NAD(P)H-quinone oxidoreductase subunit 4 [EC:1.6.5.3];product=K05575
-seq_18	Aragorn:1.2.38	tRNA	4069	4152	.	-	.	ID=18_00005;product=tRNA-Leu
-seq_18	Aragorn:1.2.38	tRNA	4069	4152	.	-	.	ID=18_00006;product=tRNA-Leu
+seq_18	Aragorn:1.2.38	tRNA	4069	4152	.	-	.	ID=18_00005;product=product%3DtRNA-Leu
+seq_18	Aragorn:1.2.38	tRNA	4069	4152	.	-	.	ID=18_00006;product=product%3DtRNA-Leu
 317619.PRJNA158811.ANKN01000139	Prodigal:2.6.3	CDS	4130	5005	135.7	-	0	ID=18_00007;product=hypothetical protein
 317619.PRJNA158811.ANKN01000139	Prodigal:2.6.3	CDS	5052	5864	116.9	-	0	ID=18_00008;product=hypothetical protein
 317619.PRJNA158811.ANKN01000139	Prodigal:2.6.3	CDS	6028	7224	180.3	-	0	ID=18_00009;product=hypothetical protein
@@ -463,8 +463,8 @@ seq_18	Aragorn:1.2.38	tRNA	4069	4152	.	-	.	ID=18_00006;product=tRNA-Leu
 317619.PRJNA158811.ANKN01000161	Prodigal:2.6.3	CDS	18474	19832	213.8	-	0	ID=26_00016;product=hypothetical protein
 317619.PRJNA158811.ANKN01000161	Prodigal:2.6.3	CDS	20045	20644	96.1	-	0	ID=26_00017;description=SOD2%3B superoxide dismutase%2C Fe-Mn family [EC:1.15.1.1];product=K04564
 317619.PRJNA158811.ANKN01000161	Prodigal:2.6.3	CDS	20931	21491	81.6	+	0	ID=26_00018;product=hypothetical protein
-seq_26	Aragorn:1.2.38	tRNA	21710	21781	.	+	.	ID=26_00019;product=tRNA-Asn
-seq_26	Aragorn:1.2.38	tRNA	21710	21781	.	+	.	ID=26_00020;product=tRNA-Asn
+seq_26	Aragorn:1.2.38	tRNA	21710	21781	.	+	.	ID=26_00019;product=product%3DtRNA-Asn
+seq_26	Aragorn:1.2.38	tRNA	21710	21781	.	+	.	ID=26_00020;product=product%3DtRNA-Asn
 317619.PRJNA158811.ANKN01000161	Prodigal:2.6.3	CDS	22451	23206	124.1	+	0	ID=26_00021;description=rpaA%3B two-component system%2C OmpR family%2C response regulator RpaA;product=K10697
 317619.PRJNA158811.ANKN01000161	Prodigal:2.6.3	CDS	23314	23649	10.9	+	0	ID=26_00022;product=hypothetical protein
 317619.PRJNA158811.ANKN01000161	Prodigal:2.6.3	CDS	23908	25800	296.3	+	0	ID=26_00023;product=hypothetical protein
@@ -491,8 +491,8 @@ seq_26	Aragorn:1.2.38	tRNA	21710	21781	.	+	.	ID=26_00020;product=tRNA-Asn
 317619.PRJNA158811.ANKN01000161	Prodigal:2.6.3	CDS	47914	52659	534.3	-	0	ID=26_00044;product=hypothetical protein
 #317619.PRJNA158811.ANKN01000184 [length:69131]
 317619.PRJNA158811.ANKN01000184	Prodigal:2.6.3	CDS	2	232	22.0	-	0	ID=27_00001;product=hypothetical protein
-seq_27	Aragorn:1.2.38	tRNA	1048	1122	.	+	.	ID=27_00002;product=tRNA-Pro
-seq_27	Aragorn:1.2.38	tRNA	1048	1122	.	+	.	ID=27_00003;product=tRNA-Pro
+seq_27	Aragorn:1.2.38	tRNA	1048	1122	.	+	.	ID=27_00002;product=product%3DtRNA-Pro
+seq_27	Aragorn:1.2.38	tRNA	1048	1122	.	+	.	ID=27_00003;product=product%3DtRNA-Pro
 317619.PRJNA158811.ANKN01000184	Prodigal:2.6.3	CDS	1644	1838	4.1	-	0	ID=27_00004;product=hypothetical protein
 317619.PRJNA158811.ANKN01000184	Prodigal:2.6.3	CDS	2406	3044	96.1	+	0	ID=27_00005;description=K02479%3B two-component system%2C NarL family%2C response regulator;product=K02479
 317619.PRJNA158811.ANKN01000184	Prodigal:2.6.3	CDS	3185	3724	46.8	+	0	ID=27_00006;product=hypothetical protein
@@ -608,7 +608,7 @@ seq_27	Aragorn:1.2.38	tRNA	1048	1122	.	+	.	ID=27_00003;product=tRNA-Pro
 317619.PRJNA158811.ANKN01000232	Prodigal:2.6.3	CDS	13762	14106	29.4	+	0	ID=32_00015;product=hypothetical protein
 317619.PRJNA158811.ANKN01000232	Prodigal:2.6.3	CDS	14341	14721	31.2	+	0	ID=32_00016;product=hypothetical protein
 317619.PRJNA158811.ANKN01000232	Prodigal:2.6.3	CDS	15005	15514	7.6	-	0	ID=32_00017;product=hypothetical protein
-seq_32	MetaPathExplorer:1.1	rDNA	15920	16034	62.9	-	.	ID=32_00018;note=No available lineage;organism=B03309;product=Bacterial:5S rDNA
+seq_32	MetaPathExplorer:1.1	rDNA	15920	16034	62.9	-	.	ID=32_00018;note=No available lineage;organism=B03309;product=product%3DBacterial:5S rDNA
 #317619.PRJNA158811.ANKN01000182 [length:26291]
 317619.PRJNA158811.ANKN01000182	Prodigal:2.6.3	CDS	420	878	46.9	+	0	ID=33_00001;product=hypothetical protein
 317619.PRJNA158811.ANKN01000182	Prodigal:2.6.3	CDS	903	3887	532.1	-	0	ID=33_00002;product=hypothetical protein
@@ -680,8 +680,8 @@ seq_32	MetaPathExplorer:1.1	rDNA	15920	16034	62.9	-	.	ID=32_00018;note=No availa
 317619.PRJNA158811.ANKN01000163	Prodigal:2.6.3	CDS	1852	2766	122.2	-	0	ID=35_00002;description=fabH%3B 3-oxoacyl-[acyl-carrier-protein] synthase III [EC:2.3.1.180];product=K00648
 317619.PRJNA158811.ANKN01000163	Prodigal:2.6.3	CDS	3276	4388	132.6	-	0	ID=35_00003;description=plsX%3B glycerol-3-phosphate acyltransferase PlsX [EC:2.3.1.15];product=K03621
 317619.PRJNA158811.ANKN01000163	Prodigal:2.6.3	CDS	4991	6313	176.4	+	0	ID=35_00004;description=DLAT%2C aceF%2C pdhC%3B pyruvate dehydrogenase E2 component (dihydrolipoamide acetyltransferase) [EC:2.3.1.12];product=K00627
-seq_35	Aragorn:1.2.38	tmRNA	6635	7016	.	-	.	ID=35_00005;product=tmRNA
-seq_35	Aragorn:1.2.38	tmRNA	6635	7016	.	-	.	ID=35_00006;product=tmRNA
+seq_35	Aragorn:1.2.38	tmRNA	6635	7016	.	-	.	ID=35_00005;product=product%3DtmRNA
+seq_35	Aragorn:1.2.38	tmRNA	6635	7016	.	-	.	ID=35_00006;product=product%3DtmRNA
 317619.PRJNA158811.ANKN01000163	Prodigal:2.6.3	CDS	7410	8531	169.7	+	0	ID=35_00007;description=aroB%3B 3-dehydroquinate synthase [EC:4.2.3.4];product=K01735
 317619.PRJNA158811.ANKN01000163	Prodigal:2.6.3	CDS	8461	8841	25.3	-	0	ID=35_00008;product=hypothetical protein
 317619.PRJNA158811.ANKN01000163	Prodigal:2.6.3	CDS	9049	9537	62.0	-	0	ID=35_00009;description=ribH%2C RIB4%3B 6%2C7-dimethyl-8-ribityllumazine synthase [EC:2.5.1.78];product=K00794
@@ -691,8 +691,8 @@ seq_35	Aragorn:1.2.38	tmRNA	6635	7016	.	-	.	ID=35_00006;product=tmRNA
 317619.PRJNA158811.ANKN01000163	Prodigal:2.6.3	CDS	12549	12740	1.0	+	0	ID=35_00013;product=hypothetical protein
 317619.PRJNA158811.ANKN01000163	Prodigal:2.6.3	CDS	12899	13870	149.5	-	0	ID=35_00014;product=hypothetical protein
 317619.PRJNA158811.ANKN01000163	Prodigal:2.6.3	CDS	14221	16647	275.1	+	0	ID=35_00015;product=hypothetical protein
-seq_35	Aragorn:1.2.38	tRNA	17039	17112	.	-	.	ID=35_00016;product=tRNA-Asp
-seq_35	Aragorn:1.2.38	tRNA	17039	17112	.	-	.	ID=35_00017;product=tRNA-Asp
+seq_35	Aragorn:1.2.38	tRNA	17039	17112	.	-	.	ID=35_00016;product=product%3DtRNA-Asp
+seq_35	Aragorn:1.2.38	tRNA	17039	17112	.	-	.	ID=35_00017;product=product%3DtRNA-Asp
 317619.PRJNA158811.ANKN01000163	Prodigal:2.6.3	CDS	17369	18268	124.3	+	0	ID=35_00018;description=trpC%3B indole-3-glycerol phosphate synthase [EC:4.1.1.48];product=K01609
 317619.PRJNA158811.ANKN01000163	Prodigal:2.6.3	CDS	18283	18555	30.6	+	0	ID=35_00019;product=hypothetical protein
 317619.PRJNA158811.ANKN01000163	Prodigal:2.6.3	CDS	18785	19252	65.6	-	0	ID=35_00020;product=hypothetical protein
@@ -1284,8 +1284,8 @@ seq_35	Aragorn:1.2.38	tRNA	17039	17112	.	-	.	ID=35_00017;product=tRNA-Asp
 317619.PRJNA158811.ANKN01000228	Prodigal:2.6.3	CDS	11679	12215	77.9	-	0	ID=62_00011;product=hypothetical protein
 317619.PRJNA158811.ANKN01000228	Prodigal:2.6.3	CDS	12325	13623	226.6	-	0	ID=62_00012;product=hypothetical protein
 317619.PRJNA158811.ANKN01000228	Prodigal:2.6.3	CDS	13705	14178	50.8	-	0	ID=62_00013;product=hypothetical protein
-seq_62	Aragorn:1.2.38	tRNA	14340	14424	.	-	.	ID=62_00014;product=tRNA-Ser
-seq_62	Aragorn:1.2.38	tRNA	14340	14424	.	-	.	ID=62_00015;product=tRNA-Ser
+seq_62	Aragorn:1.2.38	tRNA	14340	14424	.	-	.	ID=62_00014;product=product%3DtRNA-Ser
+seq_62	Aragorn:1.2.38	tRNA	14340	14424	.	-	.	ID=62_00015;product=product%3DtRNA-Ser
 317619.PRJNA158811.ANKN01000228	Prodigal:2.6.3	CDS	14688	16022	207.1	-	0	ID=62_00016;description=trkH%2C trkG%2C ktrB%3B trk system potassium uptake protein;product=K03498
 317619.PRJNA158811.ANKN01000228	Prodigal:2.6.3	CDS	16796	17770	140.7	+	0	ID=62_00017;description=murI%3B glutamate racemase [EC:5.1.1.3];product=K01776
 317619.PRJNA158811.ANKN01000228	Prodigal:2.6.3	CDS	18149	19426	147.0	-	0	ID=62_00018;product=hypothetical protein
@@ -1313,8 +1313,8 @@ seq_62	Aragorn:1.2.38	tRNA	14340	14424	.	-	.	ID=62_00015;product=tRNA-Ser
 317619.PRJNA158811.ANKN01000228	Prodigal:2.6.3	CDS	52121	52723	77.4	+	0	ID=62_00040;product=hypothetical protein
 317619.PRJNA158811.ANKN01000228	Prodigal:2.6.3	CDS	53009	54919	310.9	+	0	ID=62_00041;description=ndhF%3B NAD(P)H-quinone oxidoreductase subunit 5 [EC:1.6.5.3];product=K05577
 317619.PRJNA158811.ANKN01000228	Prodigal:2.6.3	CDS	54990	56120	171.2	+	0	ID=62_00042;product=hypothetical protein
-seq_62	Aragorn:1.2.38	tRNA	56195	56267	.	+	.	ID=62_00043;product=tRNA-Gly
-seq_62	Aragorn:1.2.38	tRNA	56195	56267	.	+	.	ID=62_00044;product=tRNA-Gly
+seq_62	Aragorn:1.2.38	tRNA	56195	56267	.	+	.	ID=62_00043;product=product%3DtRNA-Gly
+seq_62	Aragorn:1.2.38	tRNA	56195	56267	.	+	.	ID=62_00044;product=product%3DtRNA-Gly
 317619.PRJNA158811.ANKN01000228	Prodigal:2.6.3	CDS	56504	57100	82.2	+	0	ID=62_00045;product=hypothetical protein
 317619.PRJNA158811.ANKN01000228	Prodigal:2.6.3	CDS	57347	58864	253.1	+	0	ID=62_00046;description=FLOT%3B flotillin;product=K07192
 317619.PRJNA158811.ANKN01000228	Prodigal:2.6.3	CDS	59131	60792	286.4	+	0	ID=62_00047;description=FLOT%3B flotillin;product=K07192
@@ -1350,8 +1350,8 @@ seq_62	Aragorn:1.2.38	tRNA	56195	56267	.	+	.	ID=62_00044;product=tRNA-Gly
 #317619.PRJNA158811.ANKN01000058 [length:18117]
 317619.PRJNA158811.ANKN01000058	Prodigal:2.6.3	CDS	3	560	9.8	+	0	ID=65_00001;product=hypothetical protein
 317619.PRJNA158811.ANKN01000058	Prodigal:2.6.3	CDS	387	1493	141.6	-	0	ID=65_00002;product=hypothetical protein
-seq_65	Aragorn:1.2.38	tRNA	1790	1861	.	+	.	ID=65_00003;product=tRNA-Lys
-seq_65	Aragorn:1.2.38	tRNA	1790	1861	.	+	.	ID=65_00004;product=tRNA-Lys
+seq_65	Aragorn:1.2.38	tRNA	1790	1861	.	+	.	ID=65_00003;product=product%3DtRNA-Lys
+seq_65	Aragorn:1.2.38	tRNA	1790	1861	.	+	.	ID=65_00004;product=product%3DtRNA-Lys
 317619.PRJNA158811.ANKN01000058	Prodigal:2.6.3	CDS	2279	3400	158.1	-	0	ID=65_00005;product=hypothetical protein
 317619.PRJNA158811.ANKN01000058	Prodigal:2.6.3	CDS	3671	4999	236.5	-	0	ID=65_00006;product=hypothetical protein
 317619.PRJNA158811.ANKN01000058	Prodigal:2.6.3	CDS	4996	5913	100.4	-	0	ID=65_00007;product=hypothetical protein
@@ -1659,8 +1659,8 @@ seq_65	Aragorn:1.2.38	tRNA	1790	1861	.	+	.	ID=65_00004;product=tRNA-Lys
 317619.PRJNA158811.ANKN01000117	Prodigal:2.6.3	CDS	4743	6074	170.2	-	0	ID=80_00007;product=hypothetical protein
 317619.PRJNA158811.ANKN01000117	Prodigal:2.6.3	CDS	6071	8977	369.9	-	0	ID=80_00008;product=hypothetical protein
 317619.PRJNA158811.ANKN01000117	Prodigal:2.6.3	CDS	9945	10727	115.7	+	0	ID=80_00009;product=hypothetical protein
-seq_80	Aragorn:1.2.38	tRNA	11787	11863	.	+	.	ID=80_00010;product=tRNA-Met
-seq_80	Aragorn:1.2.38	tRNA	11787	11863	.	+	.	ID=80_00011;product=tRNA-Met
+seq_80	Aragorn:1.2.38	tRNA	11787	11863	.	+	.	ID=80_00010;product=product%3DtRNA-Met
+seq_80	Aragorn:1.2.38	tRNA	11787	11863	.	+	.	ID=80_00011;product=product%3DtRNA-Met
 317619.PRJNA158811.ANKN01000117	Prodigal:2.6.3	CDS	12159	12575	49.4	-	0	ID=80_00012;product=hypothetical protein
 317619.PRJNA158811.ANKN01000117	Prodigal:2.6.3	CDS	13716	14357	55.9	-	0	ID=80_00013;description=wcaF%3B putative colanic acid biosynthesis acetyltransferase WcaF [EC:2.3.1.-];product=K03818
 317619.PRJNA158811.ANKN01000117	Prodigal:2.6.3	CDS	14880	15197	22.0	-	0	ID=80_00014;product=hypothetical protein
@@ -1726,8 +1726,8 @@ seq_80	Aragorn:1.2.38	tRNA	11787	11863	.	+	.	ID=80_00011;product=tRNA-Met
 317619.PRJNA158811.ANKN01000117	Prodigal:2.6.3	CDS	91637	92545	156.6	-	0	ID=80_00074;description=moxR%3B MoxR-like ATPase [EC:3.6.3.-];product=K03924
 317619.PRJNA158811.ANKN01000117	Prodigal:2.6.3	CDS	92573	92983	54.9	-	0	ID=80_00075;description=msrB%3B peptide-methionine (R)-S-oxide reductase [EC:1.8.4.12];product=K07305
 317619.PRJNA158811.ANKN01000117	Prodigal:2.6.3	CDS	93223	94716	225.8	-	0	ID=80_00076;product=hypothetical protein
-seq_80	Aragorn:1.2.38	tRNA	95077	95150	.	+	.	ID=80_00077;product=tRNA-Met
-seq_80	Aragorn:1.2.38	tRNA	95077	95150	.	+	.	ID=80_00078;product=tRNA-Met
+seq_80	Aragorn:1.2.38	tRNA	95077	95150	.	+	.	ID=80_00077;product=product%3DtRNA-Met
+seq_80	Aragorn:1.2.38	tRNA	95077	95150	.	+	.	ID=80_00078;product=product%3DtRNA-Met
 317619.PRJNA158811.ANKN01000117	Prodigal:2.6.3	CDS	95205	95546	47.9	+	0	ID=80_00079;description=EIF1%2C SUI1%3B translation initiation factor 1;product=K03113
 317619.PRJNA158811.ANKN01000117	Prodigal:2.6.3	CDS	95613	97442	292.1	+	0	ID=80_00080;product=hypothetical protein
 317619.PRJNA158811.ANKN01000117	Prodigal:2.6.3	CDS	97269	97610	9.8	-	0	ID=80_00081;product=hypothetical protein
@@ -1756,8 +1756,8 @@ seq_80	Aragorn:1.2.38	tRNA	95077	95150	.	+	.	ID=80_00078;product=tRNA-Met
 317619.PRJNA158811.ANKN01000086	Prodigal:2.6.3	CDS	2469	3656	181.4	-	0	ID=82_00003;product=hypothetical protein
 317619.PRJNA158811.ANKN01000086	Prodigal:2.6.3	CDS	3711	5309	264.6	-	0	ID=82_00004;product=hypothetical protein
 317619.PRJNA158811.ANKN01000086	Prodigal:2.6.3	CDS	5677	6573	113.6	-	0	ID=82_00005;product=hypothetical protein
-seq_82	Aragorn:1.2.38	tRNA	6593	6664	.	-	.	ID=82_00006;product=tRNA-Gln
-seq_82	Aragorn:1.2.38	tRNA	6593	6664	.	-	.	ID=82_00007;product=tRNA-Gln
+seq_82	Aragorn:1.2.38	tRNA	6593	6664	.	-	.	ID=82_00006;product=product%3DtRNA-Gln
+seq_82	Aragorn:1.2.38	tRNA	6593	6664	.	-	.	ID=82_00007;product=product%3DtRNA-Gln
 317619.PRJNA158811.ANKN01000086	Prodigal:2.6.3	CDS	6867	7880	131.6	+	0	ID=82_00008;product=hypothetical protein
 317619.PRJNA158811.ANKN01000086	Prodigal:2.6.3	CDS	8367	8909	75.9	-	0	ID=82_00009;description=PRDX2_4%2C ahpC%3B peroxiredoxin (alkyl hydroperoxide reductase subunit C) [EC:1.11.1.15];product=K03386
 317619.PRJNA158811.ANKN01000086	Prodigal:2.6.3	CDS	9630	10082	62.0	+	0	ID=82_00010;description=perR%3B Fur family transcriptional regulator%2C peroxide stress response regulator;product=K09825
@@ -1848,8 +1848,8 @@ seq_82	Aragorn:1.2.38	tRNA	6593	6664	.	-	.	ID=82_00007;product=tRNA-Gln
 317619.PRJNA158811.ANKN01000154	Prodigal:2.6.3	CDS	24758	25060	41.7	-	0	ID=86_00027;description=clpS%3B ATP-dependent Clp protease adaptor protein ClpS;product=K06891
 317619.PRJNA158811.ANKN01000154	Prodigal:2.6.3	CDS	26021	27118	199.1	+	0	ID=86_00028;description=add%2C ADA%3B adenosine deaminase [EC:3.5.4.4];product=K01488
 317619.PRJNA158811.ANKN01000154	Prodigal:2.6.3	CDS	27675	27956	48.6	-	0	ID=86_00029;product=hypothetical protein
-seq_86	Aragorn:1.2.38	tRNA	28566	28638	.	+	.	ID=86_00030;product=tRNA-Ala
-seq_86	Aragorn:1.2.38	tRNA	28566	28638	.	+	.	ID=86_00031;product=tRNA-Ala
+seq_86	Aragorn:1.2.38	tRNA	28566	28638	.	+	.	ID=86_00030;product=product%3DtRNA-Ala
+seq_86	Aragorn:1.2.38	tRNA	28566	28638	.	+	.	ID=86_00031;product=product%3DtRNA-Ala
 317619.PRJNA158811.ANKN01000154	Prodigal:2.6.3	CDS	28898	29542	104.5	+	0	ID=86_00032;description=hisIE%3B phosphoribosyl-ATP pyrophosphohydrolase / phosphoribosyl-AMP cyclohydrolase [EC:3.6.1.31 3.5.4.19];product=K11755
 317619.PRJNA158811.ANKN01000154	Prodigal:2.6.3	CDS	29585	29911	48.6	-	0	ID=86_00033;product=hypothetical protein
 #317619.PRJNA158811.ANKN01000220 [length:15957]
@@ -1993,8 +1993,8 @@ seq_86	Aragorn:1.2.38	tRNA	28566	28638	.	+	.	ID=86_00031;product=tRNA-Ala
 317619.PRJNA158811.ANKN01000090	Prodigal:2.6.3	CDS	10431	11105	108.2	+	0	ID=97_00008;product=hypothetical protein
 317619.PRJNA158811.ANKN01000090	Prodigal:2.6.3	CDS	11195	11464	35.3	-	0	ID=97_00009;description=K09780%3B uncharacterized protein;product=K09780
 317619.PRJNA158811.ANKN01000090	Prodigal:2.6.3	CDS	11675	11830	-6.5	+	0	ID=97_00010;product=hypothetical protein
-seq_97	Aragorn:1.2.38	tRNA	12182	12256	.	-	.	ID=97_00011;product=tRNA-Trp
-seq_97	Aragorn:1.2.38	tRNA	12182	12256	.	-	.	ID=97_00012;product=tRNA-Trp
+seq_97	Aragorn:1.2.38	tRNA	12182	12256	.	-	.	ID=97_00011;product=product%3DtRNA-Trp
+seq_97	Aragorn:1.2.38	tRNA	12182	12256	.	-	.	ID=97_00012;product=product%3DtRNA-Trp
 317619.PRJNA158811.ANKN01000090	Prodigal:2.6.3	CDS	12314	12676	51.0	-	0	ID=97_00013;description=RP-L19%2C MRPL19%2C rplS%3B large subunit ribosomal protein L19;product=K02884
 317619.PRJNA158811.ANKN01000090	Prodigal:2.6.3	CDS	12936	13925	141.8	-	0	ID=97_00014;product=hypothetical protein
 317619.PRJNA158811.ANKN01000090	Prodigal:2.6.3	CDS	14146	15009	96.7	-	0	ID=97_00015;product=hypothetical protein
@@ -2076,8 +2076,8 @@ seq_97	Aragorn:1.2.38	tRNA	12182	12256	.	-	.	ID=97_00012;product=tRNA-Trp
 317619.PRJNA158811.ANKN01000169	Prodigal:2.6.3	CDS	2	346	28.9	-	0	ID=104_00001;description=K07496%3B putative transposase;product=K07496
 317619.PRJNA158811.ANKN01000169	Prodigal:2.6.3	CDS	381	521	1.2	+	0	ID=104_00002;product=hypothetical protein
 317619.PRJNA158811.ANKN01000169	Prodigal:2.6.3	CDS	588	704	3.6	-	0	ID=104_00003;product=hypothetical protein
-seq_104	Aragorn:1.2.38	tRNA	1244	1317	.	+	.	ID=104_00004;product=tRNA-Val
-seq_104	Aragorn:1.2.38	tRNA	1244	1317	.	+	.	ID=104_00005;product=tRNA-Val
+seq_104	Aragorn:1.2.38	tRNA	1244	1317	.	+	.	ID=104_00004;product=product%3DtRNA-Val
+seq_104	Aragorn:1.2.38	tRNA	1244	1317	.	+	.	ID=104_00005;product=product%3DtRNA-Val
 317619.PRJNA158811.ANKN01000169	Prodigal:2.6.3	CDS	1615	1827	21.6	-	0	ID=104_00006;product=hypothetical protein
 317619.PRJNA158811.ANKN01000169	Prodigal:2.6.3	CDS	2126	3223	196.1	+	0	ID=104_00007;description=ald%3B alanine dehydrogenase [EC:1.4.1.1];product=K00259
 317619.PRJNA158811.ANKN01000169	Prodigal:2.6.3	CDS	3477	4385	108.8	-	0	ID=104_00008;product=hypothetical protein
@@ -2167,8 +2167,8 @@ seq_104	Aragorn:1.2.38	tRNA	1244	1317	.	+	.	ID=104_00005;product=tRNA-Val
 317619.PRJNA158811.ANKN01000024	Prodigal:2.6.3	CDS	87457	89544	326.4	-	0	ID=106_00067;product=hypothetical protein
 317619.PRJNA158811.ANKN01000024	Prodigal:2.6.3	CDS	90334	90714	64.0	+	0	ID=106_00068;product=hypothetical protein
 317619.PRJNA158811.ANKN01000024	Prodigal:2.6.3	CDS	90795	91292	70.2	-	0	ID=106_00069;description=moaC%2C CNX3%3B cyclic pyranopterin monophosphate synthase [EC:4.6.1.17];product=K03637
-seq_106	Aragorn:1.2.38	tRNA	91345	91418	.	+	.	ID=106_00070;product=tRNA-Arg
-seq_106	Aragorn:1.2.38	tRNA	91345	91418	.	+	.	ID=106_00071;product=tRNA-Arg
+seq_106	Aragorn:1.2.38	tRNA	91345	91418	.	+	.	ID=106_00070;product=product%3DtRNA-Arg
+seq_106	Aragorn:1.2.38	tRNA	91345	91418	.	+	.	ID=106_00071;product=product%3DtRNA-Arg
 317619.PRJNA158811.ANKN01000024	Prodigal:2.6.3	CDS	91519	92643	171.6	+	0	ID=106_00072;product=hypothetical protein
 #317619.PRJNA158811.ANKN01000113 [length:4268]
 317619.PRJNA158811.ANKN01000113	Prodigal:2.6.3	CDS	3	209	10.1	-	0	ID=107_00001;product=hypothetical protein
@@ -2373,8 +2373,8 @@ seq_106	Aragorn:1.2.38	tRNA	91345	91418	.	+	.	ID=106_00071;product=tRNA-Arg
 317619.PRJNA158811.ANKN01000158	Prodigal:2.6.3	CDS	12849	13277	51.3	+	0	ID=116_00013;product=hypothetical protein
 317619.PRJNA158811.ANKN01000158	Prodigal:2.6.3	CDS	13329	13844	64.2	-	0	ID=116_00014;product=hypothetical protein
 317619.PRJNA158811.ANKN01000158	Prodigal:2.6.3	CDS	13949	14377	41.2	+	0	ID=116_00015;product=hypothetical protein
-seq_116	Aragorn:1.2.38	tRNA	14622	14715	.	-	.	ID=116_00016;product=tRNA-Ser
-seq_116	Aragorn:1.2.38	tRNA	14622	14715	.	-	.	ID=116_00017;product=tRNA-Ser
+seq_116	Aragorn:1.2.38	tRNA	14622	14715	.	-	.	ID=116_00016;product=product%3DtRNA-Ser
+seq_116	Aragorn:1.2.38	tRNA	14622	14715	.	-	.	ID=116_00017;product=product%3DtRNA-Ser
 317619.PRJNA158811.ANKN01000158	Prodigal:2.6.3	CDS	14858	15535	58.9	-	0	ID=116_00018;product=hypothetical protein
 317619.PRJNA158811.ANKN01000158	Prodigal:2.6.3	CDS	16035	16295	3.6	+	0	ID=116_00019;product=hypothetical protein
 317619.PRJNA158811.ANKN01000158	Prodigal:2.6.3	CDS	16802	17095	27.7	+	0	ID=116_00020;product=hypothetical protein
@@ -2756,8 +2756,8 @@ seq_116	Aragorn:1.2.38	tRNA	14622	14715	.	-	.	ID=116_00017;product=tRNA-Ser
 317619.PRJNA158811.ANKN01000002	Prodigal:2.6.3	CDS	53305	53451	5.4	+	0	ID=136_00040;product=hypothetical protein
 317619.PRJNA158811.ANKN01000002	Prodigal:2.6.3	CDS	53515	54684	125.8	+	0	ID=136_00041;product=hypothetical protein
 317619.PRJNA158811.ANKN01000002	Prodigal:2.6.3	CDS	54786	55358	76.6	+	0	ID=136_00042;product=hypothetical protein
-seq_136	Aragorn:1.2.38	tRNA	55490	55561	.	-	.	ID=136_00043;product=tRNA-Thr
-seq_136	Aragorn:1.2.38	tRNA	55490	55561	.	-	.	ID=136_00044;product=tRNA-Thr
+seq_136	Aragorn:1.2.38	tRNA	55490	55561	.	-	.	ID=136_00043;product=product%3DtRNA-Thr
+seq_136	Aragorn:1.2.38	tRNA	55490	55561	.	-	.	ID=136_00044;product=product%3DtRNA-Thr
 317619.PRJNA158811.ANKN01000002	Prodigal:2.6.3	CDS	55804	56031	39.8	+	0	ID=136_00045;description=rpoZ%3B DNA-directed RNA polymerase subunit omega [EC:2.7.7.6];product=K03060
 317619.PRJNA158811.ANKN01000002	Prodigal:2.6.3	CDS	56066	56479	56.0	+	0	ID=136_00046;product=hypothetical protein
 317619.PRJNA158811.ANKN01000002	Prodigal:2.6.3	CDS	57048	57989	142.6	+	0	ID=136_00047;product=hypothetical protein
@@ -2947,8 +2947,8 @@ seq_136	Aragorn:1.2.38	tRNA	55490	55561	.	-	.	ID=136_00044;product=tRNA-Thr
 317619.PRJNA158811.ANKN01000110	Prodigal:2.6.3	CDS	860	1369	58.0	-	0	ID=142_00002;description=lspA%3B signal peptidase II [EC:3.4.23.36];product=K03101
 317619.PRJNA158811.ANKN01000110	Prodigal:2.6.3	CDS	1408	1989	57.0	-	0	ID=142_00003;product=hypothetical protein
 317619.PRJNA158811.ANKN01000110	Prodigal:2.6.3	CDS	2046	2705	82.8	-	0	ID=142_00004;product=hypothetical protein
-seq_142	Aragorn:1.2.38	tRNA	2811	2883	.	+	.	ID=142_00005;product=tRNA-Met
-seq_142	Aragorn:1.2.38	tRNA	2811	2883	.	+	.	ID=142_00006;product=tRNA-Met
+seq_142	Aragorn:1.2.38	tRNA	2811	2883	.	+	.	ID=142_00005;product=product%3DtRNA-Met
+seq_142	Aragorn:1.2.38	tRNA	2811	2883	.	+	.	ID=142_00006;product=product%3DtRNA-Met
 317619.PRJNA158811.ANKN01000110	Prodigal:2.6.3	CDS	2903	3067	1.3	-	0	ID=142_00007;product=hypothetical protein
 317619.PRJNA158811.ANKN01000110	Prodigal:2.6.3	CDS	3229	3696	69.6	-	0	ID=142_00008;product=hypothetical protein
 317619.PRJNA158811.ANKN01000110	Prodigal:2.6.3	CDS	4368	5861	200.4	+	0	ID=142_00009;description=murC%3B UDP-N-acetylmuramate--alanine ligase [EC:6.3.2.8];product=K01924
@@ -2971,8 +2971,8 @@ seq_142	Aragorn:1.2.38	tRNA	2811	2883	.	+	.	ID=142_00006;product=tRNA-Met
 317619.PRJNA158811.ANKN01000197	Prodigal:2.6.3	CDS	229	612	54.1	-	0	ID=145_00002;product=hypothetical protein
 317619.PRJNA158811.ANKN01000197	Prodigal:2.6.3	CDS	960	1589	63.1	-	0	ID=145_00003;product=hypothetical protein
 317619.PRJNA158811.ANKN01000197	Prodigal:2.6.3	CDS	1928	3448	226.5	+	0	ID=145_00004;product=hypothetical protein
-seq_145	Aragorn:1.2.38	tRNA	4071	4143	.	-	.	ID=145_00005;product=tRNA-Ala
-seq_145	Aragorn:1.2.38	tRNA	4071	4143	.	-	.	ID=145_00006;product=tRNA-Ala
+seq_145	Aragorn:1.2.38	tRNA	4071	4143	.	-	.	ID=145_00005;product=product%3DtRNA-Ala
+seq_145	Aragorn:1.2.38	tRNA	4071	4143	.	-	.	ID=145_00006;product=product%3DtRNA-Ala
 317619.PRJNA158811.ANKN01000197	Prodigal:2.6.3	CDS	4243	7209	362.1	-	0	ID=145_00007;product=hypothetical protein
 317619.PRJNA158811.ANKN01000197	Prodigal:2.6.3	CDS	7511	7924	55.6	+	0	ID=145_00008;product=hypothetical protein
 317619.PRJNA158811.ANKN01000197	Prodigal:2.6.3	CDS	7951	8637	104.5	-	0	ID=145_00009;product=hypothetical protein
@@ -3137,8 +3137,8 @@ seq_145	Aragorn:1.2.38	tRNA	4071	4143	.	-	.	ID=145_00006;product=tRNA-Ala
 #317619.PRJNA158811.ANKN01000061 [length:9320]
 317619.PRJNA158811.ANKN01000061	Prodigal:2.6.3	CDS	63	203	2.2	+	0	ID=156_00001;product=hypothetical protein
 317619.PRJNA158811.ANKN01000061	Prodigal:2.6.3	CDS	524	844	48.7	-	0	ID=156_00002;product=hypothetical protein
-seq_156	Aragorn:1.2.38	tRNA	1508	1579	.	-	.	ID=156_00003;product=tRNA-Gly
-seq_156	Aragorn:1.2.38	tRNA	1508	1579	.	-	.	ID=156_00004;product=tRNA-Gly
+seq_156	Aragorn:1.2.38	tRNA	1508	1579	.	-	.	ID=156_00003;product=product%3DtRNA-Gly
+seq_156	Aragorn:1.2.38	tRNA	1508	1579	.	-	.	ID=156_00004;product=product%3DtRNA-Gly
 317619.PRJNA158811.ANKN01000061	Prodigal:2.6.3	CDS	2217	3434	189.7	+	0	ID=156_00005;product=hypothetical protein
 317619.PRJNA158811.ANKN01000061	Prodigal:2.6.3	CDS	3451	5187	179.5	+	0	ID=156_00006;product=hypothetical protein
 317619.PRJNA158811.ANKN01000061	Prodigal:2.6.3	CDS	5126	5620	76.5	+	0	ID=156_00007;description=ruvX%3B putative holliday junction resolvase [EC:3.1.-.-];product=K07447
@@ -3283,8 +3283,8 @@ seq_156	Aragorn:1.2.38	tRNA	1508	1579	.	-	.	ID=156_00004;product=tRNA-Gly
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	43354	44136	117.0	-	0	ID=162_00047;description=K06898%3B uncharacterized protein;product=K06898
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	44423	46315	216.7	+	0	ID=162_00048;product=hypothetical protein
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	46445	47194	76.5	+	0	ID=162_00049;product=hypothetical protein
-seq_162	Aragorn:1.2.38	tRNA	47611	47682	.	-	.	ID=162_00050;product=tRNA-Val
-seq_162	Aragorn:1.2.38	tRNA	47611	47682	.	-	.	ID=162_00051;product=tRNA-Val
+seq_162	Aragorn:1.2.38	tRNA	47611	47682	.	-	.	ID=162_00050;product=product%3DtRNA-Val
+seq_162	Aragorn:1.2.38	tRNA	47611	47682	.	-	.	ID=162_00051;product=product%3DtRNA-Val
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	47894	50077	307.6	-	0	ID=162_00052;product=hypothetical protein
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	51062	51841	113.2	-	0	ID=162_00053;product=hypothetical protein
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	52011	52910	68.8	-	0	ID=162_00054;product=hypothetical protein
@@ -3302,13 +3302,13 @@ seq_162	Aragorn:1.2.38	tRNA	47611	47682	.	-	.	ID=162_00051;product=tRNA-Val
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	68510	69649	155.9	+	0	ID=162_00066;description=potA%3B spermidine/putrescine transport system ATP-binding protein [EC:3.6.3.31];product=K11072
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	69689	70822	155.5	+	0	ID=162_00067;product=hypothetical protein
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	71004	71492	5.7	-	0	ID=162_00068;product=hypothetical protein
-seq_162	Aragorn:1.2.38	tRNA	71545	71617	.	-	.	ID=162_00069;product=tRNA-Phe
-seq_162	Aragorn:1.2.38	tRNA	71545	71617	.	-	.	ID=162_00070;product=tRNA-Phe
+seq_162	Aragorn:1.2.38	tRNA	71545	71617	.	-	.	ID=162_00069;product=product%3DtRNA-Phe
+seq_162	Aragorn:1.2.38	tRNA	71545	71617	.	-	.	ID=162_00070;product=product%3DtRNA-Phe
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	71787	72905	143.1	-	0	ID=162_00071;product=hypothetical protein
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	72898	73086	1.8	-	0	ID=162_00072;product=hypothetical protein
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	73092	73328	23.4	-	0	ID=162_00073;description=RP-L28%2C MRPL28%2C rpmB%3B large subunit ribosomal protein L28;product=K02902
-seq_162	Aragorn:1.2.38	tRNA	73658	73731	.	+	.	ID=162_00074;product=tRNA-His
-seq_162	Aragorn:1.2.38	tRNA	73658	73731	.	+	.	ID=162_00075;product=tRNA-His
+seq_162	Aragorn:1.2.38	tRNA	73658	73731	.	+	.	ID=162_00074;product=product%3DtRNA-His
+seq_162	Aragorn:1.2.38	tRNA	73658	73731	.	+	.	ID=162_00075;product=product%3DtRNA-His
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	73748	74653	115.0	+	0	ID=162_00076;description=E3.1.2.6%2C gloB%3B hydroxyacylglutathione hydrolase [EC:3.1.2.6];product=K01069
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	74736	75398	98.5	-	0	ID=162_00077;description=tsf%2C TSFM%3B elongation factor Ts;product=K02357
 317619.PRJNA158811.ANKN01000034	Prodigal:2.6.3	CDS	75831	76637	130.2	-	0	ID=162_00078;description=RP-S2%2C MRPS2%2C rpsB%3B small subunit ribosomal protein S2;product=K02967
@@ -3479,13 +3479,13 @@ seq_162	Aragorn:1.2.38	tRNA	73658	73731	.	+	.	ID=162_00075;product=tRNA-His
 317619.PRJNA158811.ANKN01000130	Prodigal:2.6.3	CDS	1074	1376	47.4	-	0	ID=174_00004;description=ureA%3B urease subunit gamma [EC:3.5.1.5];product=K01430
 317619.PRJNA158811.ANKN01000130	Prodigal:2.6.3	CDS	1679	2278	63.5	-	0	ID=174_00005;product=hypothetical protein
 317619.PRJNA158811.ANKN01000130	Prodigal:2.6.3	CDS	2357	3250	120.6	-	0	ID=174_00006;description=nadC%2C QPRT%3B nicotinate-nucleotide pyrophosphorylase (carboxylating) [EC:2.4.2.19];product=K00767
-seq_174	MetaPathExplorer:1.1	rDNA	3680	5087	1284.9	+	.	ID=174_00007;note=Bacteria%3BCyanobacteria%3BCyanobacteria%3BSubsectionIII%3BFamilyI%3BProchlorothrix%3BProchlorothrix hollandica;organism=AF132792.1.1410;product=Bacterial:16S rDNA
-seq_174	Aragorn:1.2.38	tRNA	5321	5394	.	+	.	ID=174_00008;product=tRNA-Ile
-seq_174	Aragorn:1.2.38	tRNA	5321	5394	.	+	.	ID=174_00009;product=tRNA-Ile
-seq_174	Aragorn:1.2.38	tRNA	5407	5481	.	+	.	ID=174_00010;product=tRNA-Ala
-seq_174	Aragorn:1.2.38	tRNA	5407	5481	.	+	.	ID=174_00011;product=tRNA-Ala
-seq_174	MetaPathExplorer:1.1	rDNA	5999	8794	2365.7	+	.	ID=174_00012;note=Bacteria%3BCyanobacteria%3BCyanobacteria%3BSubsectionIII%3BFamilyI%3BProchlorothrix%3BProchlorothrix hollandica PCC 9006;organism=AJTX02000008.95166.97972;product=Bacterial:23S rDNA
-seq_174	MetaPathExplorer:1.1	rDNA	8929	9043	62.9	+	.	ID=174_00013;note=No available lineage;organism=B03309;product=Bacterial:5S rDNA
+seq_174	MetaPathExplorer:1.1	rDNA	3680	5087	1284.9	+	.	ID=174_00007;note=Bacteria%3BCyanobacteria%3BCyanobacteria%3BSubsectionIII%3BFamilyI%3BProchlorothrix%3BProchlorothrix hollandica;organism=AF132792.1.1410;product=product%3DBacterial:16S rDNA
+seq_174	Aragorn:1.2.38	tRNA	5321	5394	.	+	.	ID=174_00008;product=product%3DtRNA-Ile
+seq_174	Aragorn:1.2.38	tRNA	5321	5394	.	+	.	ID=174_00009;product=product%3DtRNA-Ile
+seq_174	Aragorn:1.2.38	tRNA	5407	5481	.	+	.	ID=174_00010;product=product%3DtRNA-Ala
+seq_174	Aragorn:1.2.38	tRNA	5407	5481	.	+	.	ID=174_00011;product=product%3DtRNA-Ala
+seq_174	MetaPathExplorer:1.1	rDNA	5999	8794	2365.7	+	.	ID=174_00012;note=Bacteria%3BCyanobacteria%3BCyanobacteria%3BSubsectionIII%3BFamilyI%3BProchlorothrix%3BProchlorothrix hollandica PCC 9006;organism=AJTX02000008.95166.97972;product=product%3DBacterial:23S rDNA
+seq_174	MetaPathExplorer:1.1	rDNA	8929	9043	62.9	+	.	ID=174_00013;note=No available lineage;organism=B03309;product=product%3DBacterial:5S rDNA
 317619.PRJNA158811.ANKN01000130	Prodigal:2.6.3	CDS	9184	11646	289.5	-	0	ID=174_00014;description=mutS2%3B DNA mismatch repair protein MutS2;product=K07456
 317619.PRJNA158811.ANKN01000130	Prodigal:2.6.3	CDS	11969	12109	1.1	-	0	ID=174_00015;product=hypothetical protein
 #317619.PRJNA158811.ANKN01000060 [length:94018]
@@ -3763,8 +3763,8 @@ seq_174	MetaPathExplorer:1.1	rDNA	8929	9043	62.9	+	.	ID=174_00013;note=No availa
 317619.PRJNA158811.ANKN01000014	Prodigal:2.6.3	CDS	11013	11834	91.3	+	0	ID=182_00011;description=rluB%3B 23S rRNA pseudouridine2605 synthase [EC:5.4.99.22];product=K06178
 317619.PRJNA158811.ANKN01000014	Prodigal:2.6.3	CDS	12042	12986	101.8	+	0	ID=182_00012;product=hypothetical protein
 317619.PRJNA158811.ANKN01000014	Prodigal:2.6.3	CDS	14559	17081	375.9	+	0	ID=182_00013;product=hypothetical protein
-seq_182	Aragorn:1.2.38	tRNA	17223	17298	.	+	.	ID=182_00014;product=tRNA-Arg
-seq_182	Aragorn:1.2.38	tRNA	17223	17298	.	+	.	ID=182_00015;product=tRNA-Arg
+seq_182	Aragorn:1.2.38	tRNA	17223	17298	.	+	.	ID=182_00014;product=product%3DtRNA-Arg
+seq_182	Aragorn:1.2.38	tRNA	17223	17298	.	+	.	ID=182_00015;product=product%3DtRNA-Arg
 317619.PRJNA158811.ANKN01000014	Prodigal:2.6.3	CDS	17306	18028	108.6	-	0	ID=182_00016;product=hypothetical protein
 #317619.PRJNA158811.ANKN01000067 [length:392]
 317619.PRJNA158811.ANKN01000067	Prodigal:2.6.3	CDS	3	392	29.7	-	0	ID=183_00001;product=hypothetical protein
@@ -3833,8 +3833,8 @@ seq_182	Aragorn:1.2.38	tRNA	17223	17298	.	+	.	ID=182_00015;product=tRNA-Arg
 317619.PRJNA158811.ANKN01000010	Prodigal:2.6.3	CDS	2909	3907	23.6	-	0	ID=192_00006;product=hypothetical protein
 317619.PRJNA158811.ANKN01000010	Prodigal:2.6.3	CDS	4376	5383	176.4	+	0	ID=192_00007;description=FARSA%2C pheS%3B phenylalanyl-tRNA synthetase alpha chain [EC:6.1.1.20];product=K01889
 317619.PRJNA158811.ANKN01000010	Prodigal:2.6.3	CDS	5495	6748	195.5	-	0	ID=192_00008;description=YARS%2C tyrS%3B tyrosyl-tRNA synthetase [EC:6.1.1.1];product=K01866
-seq_192	Aragorn:1.2.38	tRNA	6994	7066	.	+	.	ID=192_00009;product=tRNA-Thr
-seq_192	Aragorn:1.2.38	tRNA	6994	7066	.	+	.	ID=192_00010;product=tRNA-Thr
+seq_192	Aragorn:1.2.38	tRNA	6994	7066	.	+	.	ID=192_00009;product=product%3DtRNA-Thr
+seq_192	Aragorn:1.2.38	tRNA	6994	7066	.	+	.	ID=192_00010;product=product%3DtRNA-Thr
 317619.PRJNA158811.ANKN01000010	Prodigal:2.6.3	CDS	7400	8602	194.0	-	0	ID=192_00011;product=hypothetical protein
 317619.PRJNA158811.ANKN01000010	Prodigal:2.6.3	CDS	9466	10467	138.9	+	0	ID=192_00012;description=mraW%2C rsmH%3B 16S rRNA (cytosine1402-N4)-methyltransferase [EC:2.1.1.199];product=K03438
 317619.PRJNA158811.ANKN01000010	Prodigal:2.6.3	CDS	10553	11560	126.9	-	0	ID=192_00013;product=hypothetical protein
@@ -4017,8 +4017,8 @@ seq_192	Aragorn:1.2.38	tRNA	6994	7066	.	+	.	ID=192_00010;product=tRNA-Thr
 317619.PRJNA158811.ANKN01000074	Prodigal:2.6.3	CDS	49442	49834	24.6	-	0	ID=196_00043;product=hypothetical protein
 317619.PRJNA158811.ANKN01000074	Prodigal:2.6.3	CDS	49831	49941	0.7	-	0	ID=196_00044;product=hypothetical protein
 317619.PRJNA158811.ANKN01000074	Prodigal:2.6.3	CDS	50046	51383	108.9	-	0	ID=196_00045;product=hypothetical protein
-seq_196	Aragorn:1.2.38	tRNA	51574	51658	.	+	.	ID=196_00046;product=tRNA-Leu
-seq_196	Aragorn:1.2.38	tRNA	51574	51658	.	+	.	ID=196_00047;product=tRNA-Leu
+seq_196	Aragorn:1.2.38	tRNA	51574	51658	.	+	.	ID=196_00046;product=product%3DtRNA-Leu
+seq_196	Aragorn:1.2.38	tRNA	51574	51658	.	+	.	ID=196_00047;product=product%3DtRNA-Leu
 317619.PRJNA158811.ANKN01000074	Prodigal:2.6.3	CDS	51886	53454	205.7	+	0	ID=196_00048;product=hypothetical protein
 317619.PRJNA158811.ANKN01000074	Prodigal:2.6.3	CDS	53535	54830	166.2	-	0	ID=196_00049;product=hypothetical protein
 317619.PRJNA158811.ANKN01000074	Prodigal:2.6.3	CDS	54930	55145	2.7	+	0	ID=196_00050;product=hypothetical protein
@@ -4077,8 +4077,8 @@ seq_196	Aragorn:1.2.38	tRNA	51574	51658	.	+	.	ID=196_00047;product=tRNA-Leu
 317619.PRJNA158811.ANKN01000174	Prodigal:2.6.3	CDS	12439	12861	2.0	+	0	ID=200_00016;product=hypothetical protein
 317619.PRJNA158811.ANKN01000174	Prodigal:2.6.3	CDS	13358	13465	1.9	-	0	ID=200_00017;product=hypothetical protein
 317619.PRJNA158811.ANKN01000174	Prodigal:2.6.3	CDS	13696	14388	100.5	+	0	ID=200_00018;product=hypothetical protein
-seq_200	Aragorn:1.2.38	tRNA	14304	14404	.	-	.	ID=200_00019;product=tRNA-Phe
-seq_200	Aragorn:1.2.38	tRNA	14304	14404	.	-	.	ID=200_00020;product=tRNA-Phe
+seq_200	Aragorn:1.2.38	tRNA	14304	14404	.	-	.	ID=200_00019;product=product%3DtRNA-Phe
+seq_200	Aragorn:1.2.38	tRNA	14304	14404	.	-	.	ID=200_00020;product=product%3DtRNA-Phe
 317619.PRJNA158811.ANKN01000174	Prodigal:2.6.3	CDS	14517	20906	945.8	+	0	ID=200_00021;product=hypothetical protein
 317619.PRJNA158811.ANKN01000174	Prodigal:2.6.3	CDS	21124	21972	69.7	-	0	ID=200_00022;product=hypothetical protein
 317619.PRJNA158811.ANKN01000174	Prodigal:2.6.3	CDS	21972	22844	138.6	-	0	ID=200_00023;product=hypothetical protein
@@ -4324,8 +4324,8 @@ seq_200	Aragorn:1.2.38	tRNA	14304	14404	.	-	.	ID=200_00020;product=tRNA-Phe
 317619.PRJNA158811.ANKN01000042	Prodigal:2.6.3	CDS	27464	27652	5.2	-	0	ID=211_00021;product=hypothetical protein
 317619.PRJNA158811.ANKN01000042	Prodigal:2.6.3	CDS	28116	28526	63.1	+	0	ID=211_00022;product=hypothetical protein
 317619.PRJNA158811.ANKN01000042	Prodigal:2.6.3	CDS	28508	28870	15.9	+	0	ID=211_00023;product=hypothetical protein
-seq_211	Aragorn:1.2.38	tRNA	28912	28985	.	-	.	ID=211_00024;product=tRNA-Pro
-seq_211	Aragorn:1.2.38	tRNA	28912	28985	.	-	.	ID=211_00025;product=tRNA-Pro
+seq_211	Aragorn:1.2.38	tRNA	28912	28985	.	-	.	ID=211_00024;product=product%3DtRNA-Pro
+seq_211	Aragorn:1.2.38	tRNA	28912	28985	.	-	.	ID=211_00025;product=product%3DtRNA-Pro
 317619.PRJNA158811.ANKN01000042	Prodigal:2.6.3	CDS	29133	31250	326.9	+	0	ID=211_00026;product=hypothetical protein
 317619.PRJNA158811.ANKN01000042	Prodigal:2.6.3	CDS	31427	31885	68.5	+	0	ID=211_00027;description=RP-L9%2C MRPL9%2C rplI%3B large subunit ribosomal protein L9;product=K02939
 317619.PRJNA158811.ANKN01000042	Prodigal:2.6.3	CDS	32070	33032	85.0	-	0	ID=211_00028;product=hypothetical protein
@@ -4380,8 +4380,8 @@ seq_211	Aragorn:1.2.38	tRNA	28912	28985	.	-	.	ID=211_00025;product=tRNA-Pro
 317619.PRJNA158811.ANKN01000135	Prodigal:2.6.3	CDS	10867	11205	46.9	+	0	ID=212_00012;product=hypothetical protein
 317619.PRJNA158811.ANKN01000135	Prodigal:2.6.3	CDS	11563	12471	132.0	+	0	ID=212_00013;product=hypothetical protein
 317619.PRJNA158811.ANKN01000135	Prodigal:2.6.3	CDS	12448	12981	71.4	-	0	ID=212_00014;product=hypothetical protein
-seq_212	Aragorn:1.2.38	tRNA	13167	13248	.	+	.	ID=212_00015;product=tRNA-Leu
-seq_212	Aragorn:1.2.38	tRNA	13167	13248	.	+	.	ID=212_00016;product=tRNA-Leu
+seq_212	Aragorn:1.2.38	tRNA	13167	13248	.	+	.	ID=212_00015;product=product%3DtRNA-Leu
+seq_212	Aragorn:1.2.38	tRNA	13167	13248	.	+	.	ID=212_00016;product=product%3DtRNA-Leu
 317619.PRJNA158811.ANKN01000135	Prodigal:2.6.3	CDS	13406	14131	69.8	-	0	ID=212_00017;product=hypothetical protein
 317619.PRJNA158811.ANKN01000135	Prodigal:2.6.3	CDS	14388	14849	61.3	+	0	ID=212_00018;product=hypothetical protein
 317619.PRJNA158811.ANKN01000135	Prodigal:2.6.3	CDS	14860	15696	118.3	-	0	ID=212_00019;description=menB%3B naphthoate synthase [EC:4.1.3.36];product=K01661
@@ -4527,8 +4527,8 @@ seq_212	Aragorn:1.2.38	tRNA	13167	13248	.	+	.	ID=212_00016;product=tRNA-Leu
 317619.PRJNA158811.ANKN01000132	Prodigal:2.6.3	CDS	23859	24020	-8.3	-	0	ID=218_00023;product=hypothetical protein
 317619.PRJNA158811.ANKN01000132	Prodigal:2.6.3	CDS	24395	25429	156.5	+	0	ID=218_00024;product=hypothetical protein
 317619.PRJNA158811.ANKN01000132	Prodigal:2.6.3	CDS	25628	26611	123.1	+	0	ID=218_00025;product=hypothetical protein
-seq_218	Aragorn:1.2.38	tRNA	26878	26951	.	-	.	ID=218_00026;product=tRNA-Pro
-seq_218	Aragorn:1.2.38	tRNA	26878	26951	.	-	.	ID=218_00027;product=tRNA-Pro
+seq_218	Aragorn:1.2.38	tRNA	26878	26951	.	-	.	ID=218_00026;product=product%3DtRNA-Pro
+seq_218	Aragorn:1.2.38	tRNA	26878	26951	.	-	.	ID=218_00027;product=product%3DtRNA-Pro
 317619.PRJNA158811.ANKN01000132	Prodigal:2.6.3	CDS	27517	30258	461.4	-	0	ID=218_00028;description=VARS%2C valS%3B valyl-tRNA synthetase [EC:6.1.1.9];product=K01873
 317619.PRJNA158811.ANKN01000132	Prodigal:2.6.3	CDS	30495	30632	1.2	-	0	ID=218_00029;product=hypothetical protein
 317619.PRJNA158811.ANKN01000132	Prodigal:2.6.3	CDS	30648	30962	10.7	-	0	ID=218_00030;product=hypothetical protein
@@ -4611,8 +4611,8 @@ seq_218	Aragorn:1.2.38	tRNA	26878	26951	.	-	.	ID=218_00027;product=tRNA-Pro
 317619.PRJNA158811.ANKN01000145	Prodigal:2.6.3	CDS	32980	33999	135.3	-	0	ID=222_00036;description=chlG%2C bchG%3B chlorophyll/bacteriochlorophyll a synthase [EC:2.5.1.62 2.5.1.133];product=K04040
 317619.PRJNA158811.ANKN01000145	Prodigal:2.6.3	CDS	34300	35409	147.4	-	0	ID=222_00037;product=hypothetical protein
 317619.PRJNA158811.ANKN01000145	Prodigal:2.6.3	CDS	35406	35630	28.1	-	0	ID=222_00038;product=hypothetical protein
-seq_222	Aragorn:1.2.38	tRNA	36121	36192	.	-	.	ID=222_00039;product=tRNA-Val
-seq_222	Aragorn:1.2.38	tRNA	36121	36192	.	-	.	ID=222_00040;product=tRNA-Val
+seq_222	Aragorn:1.2.38	tRNA	36121	36192	.	-	.	ID=222_00039;product=product%3DtRNA-Val
+seq_222	Aragorn:1.2.38	tRNA	36121	36192	.	-	.	ID=222_00040;product=product%3DtRNA-Val
 317619.PRJNA158811.ANKN01000145	Prodigal:2.6.3	CDS	36292	36951	83.9	-	0	ID=222_00041;product=hypothetical protein
 317619.PRJNA158811.ANKN01000145	Prodigal:2.6.3	CDS	37664	37804	3.3	+	0	ID=222_00042;product=hypothetical protein
 317619.PRJNA158811.ANKN01000145	Prodigal:2.6.3	CDS	38071	38307	0.0	-	0	ID=222_00043;product=hypothetical protein
@@ -4749,8 +4749,8 @@ seq_222	Aragorn:1.2.38	tRNA	36121	36192	.	-	.	ID=222_00040;product=tRNA-Val
 317619.PRJNA158811.ANKN01000188	Prodigal:2.6.3	CDS	11444	12166	31.7	-	0	ID=225_00012;product=hypothetical protein
 317619.PRJNA158811.ANKN01000188	Prodigal:2.6.3	CDS	12439	12687	11.4	+	0	ID=225_00013;product=hypothetical protein
 317619.PRJNA158811.ANKN01000188	Prodigal:2.6.3	CDS	12680	13438	15.7	+	0	ID=225_00014;product=hypothetical protein
-seq_225	Aragorn:1.2.38	tRNA	14081	14165	.	-	.	ID=225_00015;product=tRNA-Leu
-seq_225	Aragorn:1.2.38	tRNA	14081	14165	.	-	.	ID=225_00016;product=tRNA-Leu
+seq_225	Aragorn:1.2.38	tRNA	14081	14165	.	-	.	ID=225_00015;product=product%3DtRNA-Leu
+seq_225	Aragorn:1.2.38	tRNA	14081	14165	.	-	.	ID=225_00016;product=product%3DtRNA-Leu
 317619.PRJNA158811.ANKN01000188	Prodigal:2.6.3	CDS	14291	14692	64.2	-	0	ID=225_00017;product=hypothetical protein
 317619.PRJNA158811.ANKN01000188	Prodigal:2.6.3	CDS	14893	16674	75.7	+	0	ID=225_00018;product=hypothetical protein
 317619.PRJNA158811.ANKN01000188	Prodigal:2.6.3	CDS	17235	17687	71.9	-	0	ID=225_00019;product=hypothetical protein
@@ -4842,8 +4842,8 @@ seq_225	Aragorn:1.2.38	tRNA	14081	14165	.	-	.	ID=225_00016;product=tRNA-Leu
 317619.PRJNA158811.ANKN01000100	Prodigal:2.6.3	CDS	49631	50785	158.5	+	0	ID=228_00043;description=tgt%2C QTRT1%3B queuine tRNA-ribosyltransferase [EC:2.4.2.29];product=K00773
 317619.PRJNA158811.ANKN01000100	Prodigal:2.6.3	CDS	50954	51493	68.1	+	0	ID=228_00044;description=comEB%3B dCMP deaminase [EC:3.5.4.12];product=K01493
 317619.PRJNA158811.ANKN01000100	Prodigal:2.6.3	CDS	51509	52846	194.9	-	0	ID=228_00045;product=hypothetical protein
-seq_228	Aragorn:1.2.38	tRNA	53058	53130	.	+	.	ID=228_00046;product=tRNA-Arg
-seq_228	Aragorn:1.2.38	tRNA	53058	53130	.	+	.	ID=228_00047;product=tRNA-Arg
+seq_228	Aragorn:1.2.38	tRNA	53058	53130	.	+	.	ID=228_00046;product=product%3DtRNA-Arg
+seq_228	Aragorn:1.2.38	tRNA	53058	53130	.	+	.	ID=228_00047;product=product%3DtRNA-Arg
 317619.PRJNA158811.ANKN01000100	Prodigal:2.6.3	CDS	53677	54540	91.5	-	0	ID=228_00048;description=K06971%3B uncharacterized protein;product=K06971
 317619.PRJNA158811.ANKN01000100	Prodigal:2.6.3	CDS	55559	56914	200.1	+	0	ID=228_00049;description=rimO%3B ribosomal protein S12 methylthiotransferase [EC:2.8.4.4];product=K14441
 317619.PRJNA158811.ANKN01000100	Prodigal:2.6.3	CDS	57346	58950	245.3	+	0	ID=228_00050;description=deaD%2C cshA%3B ATP-dependent RNA helicase DeaD [EC:3.6.4.13];product=K05592
@@ -4894,8 +4894,8 @@ seq_228	Aragorn:1.2.38	tRNA	53058	53130	.	+	.	ID=228_00047;product=tRNA-Arg
 317619.PRJNA158811.ANKN01000102	Prodigal:2.6.3	CDS	3569	5296	262.4	+	0	ID=229_00005;description=sdhA%2C frdA%3B succinate dehydrogenase / fumarate reductase%2C flavoprotein subunit [EC:1.3.5.1 1.3.5.4];product=K00239
 317619.PRJNA158811.ANKN01000102	Prodigal:2.6.3	CDS	5667	6641	126.3	+	0	ID=229_00006;description=por%3B protochlorophyllide reductase [EC:1.3.1.33];product=K00218
 317619.PRJNA158811.ANKN01000102	Prodigal:2.6.3	CDS	6896	7843	129.5	-	0	ID=229_00007;product=hypothetical protein
-seq_229	Aragorn:1.2.38	tRNA	8328	8416	.	+	.	ID=229_00008;product=tRNA-Ser
-seq_229	Aragorn:1.2.38	tRNA	8328	8416	.	+	.	ID=229_00009;product=tRNA-Ser
+seq_229	Aragorn:1.2.38	tRNA	8328	8416	.	+	.	ID=229_00008;product=product%3DtRNA-Ser
+seq_229	Aragorn:1.2.38	tRNA	8328	8416	.	+	.	ID=229_00009;product=product%3DtRNA-Ser
 317619.PRJNA158811.ANKN01000102	Prodigal:2.6.3	CDS	8434	8769	50.0	+	0	ID=229_00010;product=hypothetical protein
 317619.PRJNA158811.ANKN01000102	Prodigal:2.6.3	CDS	9093	9935	123.2	-	0	ID=229_00011;product=hypothetical protein
 317619.PRJNA158811.ANKN01000102	Prodigal:2.6.3	CDS	10067	10495	47.2	-	0	ID=229_00012;product=hypothetical protein
@@ -4959,8 +4959,8 @@ seq_229	Aragorn:1.2.38	tRNA	8328	8416	.	+	.	ID=229_00009;product=tRNA-Ser
 317619.PRJNA158811.ANKN01000187	Prodigal:2.6.3	CDS	70931	71914	173.7	-	0	ID=230_00050;description=plmA%3B GntR family transcriptional regulator;product=K07978
 317619.PRJNA158811.ANKN01000187	Prodigal:2.6.3	CDS	72017	72535	57.0	-	0	ID=230_00051;product=hypothetical protein
 317619.PRJNA158811.ANKN01000187	Prodigal:2.6.3	CDS	73223	73579	24.6	+	0	ID=230_00052;product=hypothetical protein
-seq_230	Aragorn:1.2.38	tRNA	73788	73858	.	-	.	ID=230_00053;product=tRNA-Cys
-seq_230	Aragorn:1.2.38	tRNA	73788	73858	.	-	.	ID=230_00054;product=tRNA-Cys
+seq_230	Aragorn:1.2.38	tRNA	73788	73858	.	-	.	ID=230_00053;product=product%3DtRNA-Cys
+seq_230	Aragorn:1.2.38	tRNA	73788	73858	.	-	.	ID=230_00054;product=product%3DtRNA-Cys
 317619.PRJNA158811.ANKN01000187	Prodigal:2.6.3	CDS	74234	75160	131.0	+	0	ID=230_00055;description=UXS1%2C uxs%3B UDP-glucuronate decarboxylase [EC:4.1.1.35];product=K08678
 317619.PRJNA158811.ANKN01000187	Prodigal:2.6.3	CDS	75317	76678	225.8	+	0	ID=230_00056;description=UGDH%2C ugd%3B UDPglucose 6-dehydrogenase [EC:1.1.1.22];product=K00012
 317619.PRJNA158811.ANKN01000187	Prodigal:2.6.3	CDS	76844	77059	27.4	+	0	ID=230_00057;product=hypothetical protein
@@ -5030,8 +5030,8 @@ seq_230	Aragorn:1.2.38	tRNA	73788	73858	.	-	.	ID=230_00054;product=tRNA-Cys
 317619.PRJNA158811.ANKN01000146	Prodigal:2.6.3	CDS	54849	55634	111.5	+	0	ID=231_00048;description=phnC%3B phosphonate transport system ATP-binding protein [EC:3.6.3.28];product=K02041
 317619.PRJNA158811.ANKN01000146	Prodigal:2.6.3	CDS	55638	56300	77.9	+	0	ID=231_00049;product=hypothetical protein
 #317619.PRJNA158811.ANKN01000186 [length:16904]
-seq_232	Aragorn:1.2.38	tRNA	105	176	.	+	.	ID=232_00001;product=tRNA-Gly
-seq_232	Aragorn:1.2.38	tRNA	105	176	.	+	.	ID=232_00002;product=tRNA-Gly
+seq_232	Aragorn:1.2.38	tRNA	105	176	.	+	.	ID=232_00001;product=product%3DtRNA-Gly
+seq_232	Aragorn:1.2.38	tRNA	105	176	.	+	.	ID=232_00002;product=product%3DtRNA-Gly
 317619.PRJNA158811.ANKN01000186	Prodigal:2.6.3	CDS	565	1935	92.6	+	0	ID=232_00003;product=hypothetical protein
 317619.PRJNA158811.ANKN01000186	Prodigal:2.6.3	CDS	1935	2618	94.1	+	0	ID=232_00004;product=hypothetical protein
 317619.PRJNA158811.ANKN01000186	Prodigal:2.6.3	CDS	2719	4269	274.1	-	0	ID=232_00005;description=K06883%3B uncharacterized protein;product=K06883
@@ -5064,8 +5064,8 @@ seq_232	Aragorn:1.2.38	tRNA	105	176	.	+	.	ID=232_00002;product=tRNA-Gly
 317619.PRJNA158811.ANKN01000144	Prodigal:2.6.3	CDS	4332	6671	308.3	-	0	ID=234_00005;product=hypothetical protein
 317619.PRJNA158811.ANKN01000144	Prodigal:2.6.3	CDS	6878	9442	376.9	+	0	ID=234_00006;description=LARS%2C leuS%3B leucyl-tRNA synthetase [EC:6.1.1.4];product=K01869
 317619.PRJNA158811.ANKN01000144	Prodigal:2.6.3	CDS	9850	10044	23.5	-	0	ID=234_00007;product=hypothetical protein
-seq_234	Aragorn:1.2.38	tRNA	10115	10187	.	-	.	ID=234_00008;product=tRNA-Glu
-seq_234	Aragorn:1.2.38	tRNA	10115	10187	.	-	.	ID=234_00009;product=tRNA-Glu
+seq_234	Aragorn:1.2.38	tRNA	10115	10187	.	-	.	ID=234_00008;product=product%3DtRNA-Glu
+seq_234	Aragorn:1.2.38	tRNA	10115	10187	.	-	.	ID=234_00009;product=product%3DtRNA-Glu
 317619.PRJNA158811.ANKN01000144	Prodigal:2.6.3	CDS	10264	10782	85.3	-	0	ID=234_00010;description=purE%3B 5-(carboxyamino)imidazole ribonucleotide mutase [EC:5.4.99.18];product=K01588
 317619.PRJNA158811.ANKN01000144	Prodigal:2.6.3	CDS	10785	11387	97.5	-	0	ID=234_00011;product=hypothetical protein
 317619.PRJNA158811.ANKN01000144	Prodigal:2.6.3	CDS	11538	12140	110.6	-	0	ID=234_00012;product=hypothetical protein
@@ -5094,8 +5094,8 @@ seq_234	Aragorn:1.2.38	tRNA	10115	10187	.	-	.	ID=234_00009;product=tRNA-Glu
 317619.PRJNA158811.ANKN01000144	Prodigal:2.6.3	CDS	46346	47902	157.4	+	0	ID=234_00035;product=hypothetical protein
 317619.PRJNA158811.ANKN01000144	Prodigal:2.6.3	CDS	48270	48389	1.7	+	0	ID=234_00036;product=hypothetical protein
 317619.PRJNA158811.ANKN01000144	Prodigal:2.6.3	CDS	48382	48963	84.8	+	0	ID=234_00037;product=hypothetical protein
-seq_234	Aragorn:1.2.38	tRNA	49057	49129	.	-	.	ID=234_00038;product=tRNA-Arg
-seq_234	Aragorn:1.2.38	tRNA	49057	49129	.	-	.	ID=234_00039;product=tRNA-Arg
+seq_234	Aragorn:1.2.38	tRNA	49057	49129	.	-	.	ID=234_00038;product=product%3DtRNA-Arg
+seq_234	Aragorn:1.2.38	tRNA	49057	49129	.	-	.	ID=234_00039;product=product%3DtRNA-Arg
 317619.PRJNA158811.ANKN01000144	Prodigal:2.6.3	CDS	49778	50446	77.7	+	0	ID=234_00040;product=hypothetical protein
 317619.PRJNA158811.ANKN01000144	Prodigal:2.6.3	CDS	51040	51978	95.3	+	0	ID=234_00041;product=hypothetical protein
 317619.PRJNA158811.ANKN01000144	Prodigal:2.6.3	CDS	52008	52508	56.2	-	0	ID=234_00042;product=hypothetical protein

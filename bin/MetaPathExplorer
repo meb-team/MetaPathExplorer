@@ -106,10 +106,6 @@ my $verbose;	# debugging flag
 my $force;
 my $reuse;
 
-my $contigs_opt;
-my $sids_opt;
-
-my $fastsids;
 my $trna;				#trna  flag 
 my $rdna_prediction;	#rdna prediction flag
 my $rdna_prediction_annotation;	#rdna annotation flag
@@ -125,15 +121,9 @@ my $DATE = `date "+%b %m %Y"`;
 my $MetaPathExplorer_CFG="$FindBin::RealBin/MetaPathExplorer.ini";
 my $MetaPathExplorer_data="$FindBin::RealBin/../data/";
 my $MetaPathExplorer_data_rDNA="$FindBin::RealBin/../data/rDNA";
-my $HYPO = 'hypothetical protein';
-my $UNANN = 'unannotated protein';
 
 my $gff_factory = Bio::Tools::GFF->new(-gff_version=>3);
-my $KEGG_url='http://www.kegg.jp/kegg-bin/show_pathway?';
 my $KEGG_egg_img = "<img src=\"http://www.kegg.jp/Fig/egg.gif\" width=\"2%\" height=\"2%\">";
-my $KEGG_logo_img = "http://www.kegg.jp/Fig/kegg128.gif";
-my $UniProt_url='ftp://ftp.uniprot.org/pub/databases/uniprot/';
-my $dlkingdom;
 
 my $ext='(fna|fa|fasta|fq|fastq)';
 my $outdir;
@@ -144,18 +134,15 @@ my $cmd;
 
 #		tRNA and tmRNA Predictions
 my $aragorn_opt='';
-my $tRNAscanSE;
 
 #		rDNA Predictions & Annotations
-my $evalue_co=0.01;
-my $kingdom="all";
 my $hmm_path="$FindBin::RealBin/../data/HMMs";
 
 #		CDS Predictions
 my $prodigal_opt="";
 
-my $UniRefdb="$FindBin::RealBin/../data/orthology_UniRef100_arc-bac-vir.fasta";
-my $databaseFile = '';
+my $UniRefdb;
+my $databaseFile;
 
 # ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # tables
@@ -320,8 +307,8 @@ sub check_algorythm {
 	if($_[0] eq 'blast+' || $_[0] eq 'diamond' || $_[0] eq 'usearch'){
 		my $algorythm = $_[0];
 		if ($algorythm eq 'blast+'){
-			$algorythm = 'blastp' if $contigs_opt;
-			$algorythm = 'blastx' if $sids_opt;
+			$algorythm = 'blastp' if ($OPT{entry} eq 'assembly' || $OPT{entry} eq 'proteins') ;
+			$algorythm = 'blastx' if ($OPT{entry} eq 'reads') ;
 		}
 		$tools{$algorythm}->{REQUIRED}=1;
 		$OPT{'algorythm'}=$algorythm;
@@ -405,25 +392,22 @@ sub clean_up {
 }
 
 sub date { 
-  my $time = shift || time;    #$time par defaut vaut le time actuel 
-  my ( $seconde, $minute, $heure, $jour, $mois, $annee, $jour_semaine, $jour_annee, $heure_hiver_ou_ete ) 
-    = localtime($time); 
-  $mois  += 1; 
-  $annee += 1900; 
+	my $time = shift || time;
+	my ( $seconde, $minute, $hour, $day, $month, $year, $day_week, $day_year, $hour_winter_or_summer ) = localtime($time); 
+	$month  += 1; 
+	$year += 1900; 
 
-  # On rajoute 0 si le chiffre est compris entre 1 et 9 
-  foreach ( $seconde, $minute, $heure, $jour, $mois, $annee ) { 
-    s/^(\d)$/0$1/; 
-  } 
-  
-  my %ladate = ( 
-    "date"         => "$jour-$mois-$annee", 
-    "heure"        => "$heure:$minute:$seconde", 
-    "jour_semaine" => $jour_semaine, 
-    "jour_annee"   => $jour_annee, 
-    "hiverOuEte"   => $heure_hiver_ou_ete, 
-  ); 
-  return \%ladate; 
+	foreach ( $seconde, $minute, $hour, $day, $month, $year ) { 
+		s/^(\d)$/0$1/; 
+	} 
+	my %date = ( 
+		"date"				=> "$day-$month-$year", 
+		"hour"				=> "$hour:$minute:$seconde", 
+		"day_week" 			=> $day_week, 
+		"day_year"			=> $day_year, 
+		"winterOrsummer"	=> $hour_winter_or_summer, 
+	); 
+	return \%date; 
 }
 
 sub fasta_format {
@@ -446,13 +430,6 @@ sub gff_sort {
   # sort by seqid, then start pos
   return ($a->[0] cmp $b->[0]) || ($a->[3] <=> $b->[3]);
 }
-
-
-sub num_cpu {
-	my($num) = qx(grep -c ^processor /proc/cpuinfo);
-	return $1 if $num =~ m/^(\d+)/;
-}
-
 
 sub runcmd {
   warning("Running:", @_);
@@ -495,8 +472,8 @@ sub fasta_vs_uniref_kegg {
 		runcmd($cmd) unless (-e "$bls_name");
 	}
 	print STDERR $bls_name,"\n";
-	open(File,"$bls_name");
-	while(<File>){
+	open(ALN,"$bls_name");
+	while(<ALN>){
 		chomp;
 		(my $query,my $subject,my $identity,my $allg,my $mismatch,my $gap,my $qstart,my $qend,my $sstart,my $send,my $evalue,my $score)=split(/\t/);
 		next if $evalue > $OPT{'proteic_evalue_co'} or $identity < $OPT{'proteic_identity_co'} or $score < $OPT{'proteic_score_co'} or $allg < $OPT{'proteic_aln_co'};
@@ -506,7 +483,7 @@ sub fasta_vs_uniref_kegg {
 
 		$KO{$name}{$KO}=1;
 	}
-	close File;
+	close ALN;
 }
 
 sub matrix_making {
@@ -533,21 +510,21 @@ sub matrix_making {
 sub parse_nhmmer {
 	my $resu = shift ;
 	my $resus;
-	open(File,$resu);
-	while(my $line=<File>){
+	open(NHMMER,$resu);
+	while(my $line=<NHMMER>){
 		chomp $line;
 		unless($line=~m/^#/){
 			(my $sid,my $acc,my $qname,my $qaccr,
 			my $hmm_start,my $hmm_end,my $ali_start,my $ali_end,my $env_start,my $env_end,
 			my $seqlen, my $strand, my $Evalue, my $score, my $bias, my $desc) = split(/\s+/,$line);
 			if ($sid){
-				if ($Evalue<$evalue_co){
+				if ($Evalue<$OPT{hmm_evalue_co}){
 					$resus.=join("\t",$sid,$qname,$Evalue,$score,$ali_start,$ali_end)."\n";
 				}
 			}
 		}
 	}
-	close File;
+	close NHMMER;
 	return $resus;
 }
 
@@ -573,7 +550,7 @@ sub pathway_html{
 				open(LIST,">$K0ListFile");
 				print LIST $pathwayOrthologyList[$i];
 				close LIST;	
-				runcmd("$FindBin::RealBin/MetaPathExplorer_pathway --K0file $K0ListFile --color $OPT{'kocolor'} --out $outimg --pathway $pathway") unless (-e $outimg);
+				runcmd("$FindBin::RealBin/MetaPathExplorer_pathway --K0file $K0ListFile --color $OPT{'kocolor'} --out $outimg --pathway $pathway --org $OPT{org}") unless (-e $outimg);
 			}
 			else{
 				runcmd("wget --no-verbose www.kegg.jp/kegg/pathway/map/$PATH.png -O $outimg") unless (-e $outimg);
@@ -1239,10 +1216,6 @@ if($OPT{entry} eq 'assembly'){
 									$last = $sid ;
 								}
 
-								# open(FASTA,">>$outfa");
-								# printf FASTA ">%s /length=$length /start=$r_start /end=$r_end /strand=$strand $feature_type$prod\n%s\n",$id.".$tno",fasta_format($seq);
-								# close FASTA;
-
 								@{$seq{$sid}{FEATURE}}[$#{$seq{$sid}{FEATURE}}]->seq_id($sid);
 							}
 						}
@@ -1401,8 +1374,8 @@ if($OPT{entry} eq 'assembly'){
 				$cmd =~ s/%o/$bls_name/;
 
 				runcmd($cmd) unless (-e $bls_name);
-				open(File,$bls_name);
-				while(<File>){
+				open(ALN,$bls_name);
+				while(<ALN>){
 					chomp;
 					(my $query,my $subject,my $identity,my $allg,my $gap,my $mismatch,my $qstart,my $qend,my $sstart,my $send,my $evalue,my $score)=split(/\t/);
 					next if $evalue > $OPT{'rDNA_evalue_co'} or $identity < $OPT{'rDNA_identity_co'}  or $score < $OPT{'rDNA_score_co'} ;
@@ -1410,7 +1383,7 @@ if($OPT{entry} eq 'assembly'){
 					my $lineage = $sivlaID2lineage{$subject} || 'No available lineage';
 					$dna{$query}->add_tag_value('note',$lineage);
 				}
-				close File;
+				close ALN;
 			}
 		}
 
@@ -1465,8 +1438,8 @@ if($OPT{entry} eq 'assembly'){
 			runcmd($cmd) unless (-e "$bls_name");
 		}
 
-		open(File,"$bls_name");
-		while(<File>){
+		open(ALN,"$bls_name");
+		while(<ALN>){
 			chomp;
 			(my $query,my $subject,my $identity,my $allg,my $mismatch,my $gap,my $qstart,my $qend,my $sstart,my $send,my $evalue,my $score)=split(/\t/);
 			my $allg_percent= $allg / $cds{$query}->length * 100 ;
@@ -1479,7 +1452,7 @@ if($OPT{entry} eq 'assembly'){
 			$cds{$query}->add_tag_value('description',$KO2ORTHO{$KO});
 			$KO{$name}{$KO}=1;
 		}
-		close File;
+		close ALN;
 
 		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 		warning("## Produce GFF report.");
@@ -1534,7 +1507,7 @@ elsif($OPT{entry} eq 'proteins'){
 
 		warning("Annotating proteins, please be patient.");
 		
-		$cmd = $tools{'blastx'}->{CMD} if($tools{'blastx'}->{REQUIRED});
+		$cmd = $tools{'blastx'}->{CMD} if($tools{'blastp'}->{REQUIRED});
 		$cmd = $tools{'usearch'}->{CMD} if($tools{'usearch'}->{REQUIRED});
 		$cmd = $tools{'diamond'}->{CMD} if($tools{'diamond'}->{REQUIRED});
 
@@ -1547,7 +1520,7 @@ elsif($OPT{entry} eq 'proteins'){
 	matrix_making(\%KO,join("\t",@sample));
 }
 
-elsif($OPT{entry} eq 'sids'){
+elsif($OPT{entry} eq 'reads'){
 	warning('## Analyse reads file(s).');
 	# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 	foreach(@ARGV){
@@ -1591,8 +1564,8 @@ elsif($OPT{entry} eq 'annotation'){
 		my $name=basename($file);
 		push @sample, $name;
 		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
-		open(File,$file);
-		while(<File>){
+		open(ALN,$file);
+		while(<ALN>){
 			chomp;
 			(my $query,my $subject,my $identity,my $allg,my $mismatch,my $gap,my $qstart,my $qend,my $sstart,my $send,my $evalue,my $score)=split(/\t/);
 			next if $evalue > $OPT{'proteic_evalue_co'} or $identity < $OPT{'proteic_identity_co'} or $score < $OPT{'proteic_score_co'} or $allg < $OPT{'proteic_aln_co'};
@@ -1600,7 +1573,7 @@ elsif($OPT{entry} eq 'annotation'){
 			my $KO=$1;
 			$KO{$name}{$KO}=1;
 		}
-		close File;
+		close ALN;
 	}
 
 	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××

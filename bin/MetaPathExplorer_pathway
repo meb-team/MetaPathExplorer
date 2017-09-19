@@ -4,7 +4,8 @@
 	MetaPathExplorer_pathway take as entries a list of KEGG Orthologous groups (KOs), a KEGG pathway 
 	map id and a color to downloading the colouring pathway from Search&Color Pathway mapping tool 
 	from KEGG (http://www.genome.jp/kegg/tool/map_pathway2.html) 
-
+	
+	Script run under Python 2.7
 ''' 
 
 # librairies 
@@ -16,36 +17,33 @@ import re
 import argparse
 import sys
 
-
-# functions 
-class KEGG_Browser(Browser):
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Class 
+class KEGG(Browser):
 	
-	def init_for_KEGG(self):
+	def KEGG_initialisation(self):
 		# Initializing 
 		self._factory.is_html = True
 		self.set_handle_robots(False)
 		self.open('http://www.kegg.jp/kegg/tool/map_pathway2.html')
-		self.KEGG_STATE = 'base_search'
+		self.KEGG_STATE = 'initialized'
 
 	def search_pathways(self, K0s, color, org):
 		# 'searching for pathways'
-		if self.KEGG_STATE != 'base_search':
-			self.init_for_KEGG()
+		if self.KEGG_STATE != 'initialized':
+			self.KEGG_initialisation()
 
 		K0_data = ''
 
 		# associate present K0 with the choosen color
 		for K0 in K0s:
 			K0_data += '%s %s\n' % (K0, color)
-
+		
 		self.select_form(nr = 0)
-		self['unclassified'] = K0_data
-
-		if org != '' :
-			self['org'] = org
-
+		self['unclassified'] = K0_data	# K0 list
+		self['org'] = org 				# organism option
 		self.submit()
-		self.KEGG_STATE = 'pathway_dl'
+		self.KEGG_STATE = 'submited'
 
 	def get_pathway_from_url(self, url):
 		
@@ -53,60 +51,65 @@ class KEGG_Browser(Browser):
 
 	def download_pathway_from_link(self, link, imgpath):
 		
-		assert self.KEGG_STATE == 'pathway_dl'
+		assert self.KEGG_STATE == 'submited'
 		resp = self.follow_link(link = link)
 		# 'downloading' colouring pathway map
 		try:
-			tstr = resp.get_data()
-			img_loc = re.findall('<img src="([\d\w/.]*?)"', tstr)[0]
-			self.retrieve('http://www.kegg.jp/' + img_loc, imgpath)
+			follow = resp.get_data()
+			img_path = re.findall('<img src="([\d\w/.]*?)"', follow)[0]
+			self.retrieve('http://www.kegg.jp/' + img_path, imgpath)
 		finally:
 			self.back()
 		
-	def get_pathway(self, pathway, imgpath, pathway_dl = None):
+	def get_pathway_from_submission(self, pathway, imgpath, pathway_dl = None):
 
-		assert self.KEGG_STATE == 'pathway_dl'
+		assert self.KEGG_STATE == 'submited'
 		#  recover only the link of the pathway of interest 
 		link = [ln for ln in self.links() if (ln.url.startswith('/kegg-bin') and self.get_pathway_from_url(ln.url) == pathway)]
 		if len(link) == 1 :
 			self.download_pathway_from_link(link[0], imgpath)
-			
+		else :
+			print os.path.realpath(__file__)+' (error): ' +  pathway + ' do not contain the given KO list.'
 
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Function
 def get_kegg_image(tdir, K0s, color, pathway, org):
 	
-	keggbw = KEGG_Browser()
-	keggbw.init_for_KEGG()
-	keggbw.search_pathways(K0s, color = color, org = org)
-	keggbw.get_pathway(pathway = pathway, imgpath = tdir)
+	kegg = KEGG()
+	kegg.KEGG_initialisation()
+	kegg.search_pathways(K0s, color = color, org = org)
+	kegg.get_pathway_from_submission(pathway = pathway, imgpath = tdir)
 
-
-# Start if script 
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Main
 if __name__ == '__main__':
 	
+	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 	# Recover arguments
 	parser = argparse.ArgumentParser(description = 'Recover Pathway Map Image from a list of K0 and pathway name')
 	parser.add_argument('--K0file', dest = 'K0file', required = True,
-							help = 'path to file which contains the K0.')
+							help = 'path to file which contains the K0 list.')
 	parser.add_argument('--out', dest = 'out', required = True, 
 							help = 'absolute path for the created pathway map.')
 	parser.add_argument('--color', dest = 'color', required = True, 
-							help = 'color for KEGG orthologous groups ')
+							help = 'color for KEGG orthologous groups.')
 	parser.add_argument('--pathway', dest = 'pathway', required = True, 
 							help = 'pathway name')
 	parser.add_argument('--org', dest = 'org', required = False, 
-							help = 'organism name')
+							help = 'organism name.')
 
+	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 	# Parse arguments
 	args = parser.parse_args()
 
+	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 	# Reads the K0 list file 
 	K0_list = open(args.K0file,'r').read().split('\n')
 
-	if not args.org:
-		args.org = ''
-
+	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 	# Launch the KEGG pathway map recovery
 	get_kegg_image(args.out, K0_list, args.color, args.pathway, args.org)
 
 
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # End of Script

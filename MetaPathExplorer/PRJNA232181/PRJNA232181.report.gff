@@ -207,10 +207,10 @@
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	216536	217480	65.7	-	0	ID=1_00200;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	217554	218012	21.8	+	0	ID=1_00201;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	218062	218904	106.3	+	0	ID=1_00202;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	219063	219147	.	+	.	ID=1_00203;product=tRNA-Tyr
-seq_1	Aragorn:1.2.38	tRNA	219063	219147	.	+	.	ID=1_00204;product=tRNA-Tyr
-seq_1	Aragorn:1.2.38	tRNA	219357	219441	.	+	.	ID=1_00205;product=tRNA-Tyr
-seq_1	Aragorn:1.2.38	tRNA	219357	219441	.	+	.	ID=1_00206;product=tRNA-Tyr
+seq_1	Aragorn:1.2.38	tRNA	219063	219147	.	+	.	ID=1_00203;product=product%3DtRNA-Tyr
+seq_1	Aragorn:1.2.38	tRNA	219063	219147	.	+	.	ID=1_00204;product=product%3DtRNA-Tyr
+seq_1	Aragorn:1.2.38	tRNA	219357	219441	.	+	.	ID=1_00205;product=product%3DtRNA-Tyr
+seq_1	Aragorn:1.2.38	tRNA	219357	219441	.	+	.	ID=1_00206;product=product%3DtRNA-Tyr
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	219815	220912	79.4	-	0	ID=1_00207;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	220899	222026	100.4	-	0	ID=1_00208;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	222019	222636	33.9	-	0	ID=1_00209;product=hypothetical protein
@@ -405,8 +405,8 @@ seq_1	Aragorn:1.2.38	tRNA	219357	219441	.	+	.	ID=1_00206;product=tRNA-Tyr
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	410576	411130	66.4	-	0	ID=1_00398;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	411154	411891	91.7	-	0	ID=1_00399;description=ycdX%3B putative hydrolase;product=K04477
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	411963	412901	89.1	-	0	ID=1_00400;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	413135	413222	.	+	.	ID=1_00401;product=tRNA-Ser
-seq_1	Aragorn:1.2.38	tRNA	413135	413222	.	+	.	ID=1_00402;product=tRNA-Ser
+seq_1	Aragorn:1.2.38	tRNA	413135	413222	.	+	.	ID=1_00401;product=product%3DtRNA-Ser
+seq_1	Aragorn:1.2.38	tRNA	413135	413222	.	+	.	ID=1_00402;product=product%3DtRNA-Ser
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	413496	414110	45.4	-	0	ID=1_00403;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	414784	415572	66.4	-	0	ID=1_00404;description=phoH%2C phoL%3B phosphate starvation-inducible protein PhoH and related proteins;product=K06217
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	415551	415847	4.7	-	0	ID=1_00405;product=hypothetical protein
@@ -452,8 +452,8 @@ seq_1	Aragorn:1.2.38	tRNA	413135	413222	.	+	.	ID=1_00402;product=tRNA-Ser
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	458812	459519	85.9	-	0	ID=1_00445;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	459538	461331	242.9	-	0	ID=1_00446;description=hyaB%2C hybC%3B hydrogenase large subunit [EC:1.12.99.6];product=K06281
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	461328	462446	104.3	-	0	ID=1_00447;description=hyaA%2C hybO%3B hydrogenase small subunit [EC:1.12.99.6];product=K06282
-seq_1	Aragorn:1.2.38	tRNA	462888	462975	.	+	.	ID=1_00448;product=tRNA-Ser
-seq_1	Aragorn:1.2.38	tRNA	462888	462975	.	+	.	ID=1_00449;product=tRNA-Ser
+seq_1	Aragorn:1.2.38	tRNA	462888	462975	.	+	.	ID=1_00448;product=product%3DtRNA-Ser
+seq_1	Aragorn:1.2.38	tRNA	462888	462975	.	+	.	ID=1_00449;product=product%3DtRNA-Ser
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	463080	463262	2.7	+	0	ID=1_00450;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	463890	464255	34.2	+	0	ID=1_00451;description=K07483%3B transposase;product=K07483
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	464213	465118	35.2	+	0	ID=1_00452;product=hypothetical protein
@@ -487,10 +487,10 @@ seq_1	Aragorn:1.2.38	tRNA	462888	462975	.	+	.	ID=1_00449;product=tRNA-Ser
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	487658	488191	30.5	-	0	ID=1_00480;description=E3.2.1.17%3B lysozyme [EC:3.2.1.17];product=K01185
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	488255	488605	33.7	-	0	ID=1_00481;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	488610	488825	29.0	-	0	ID=1_00482;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	489117	489191	.	-	.	ID=1_00483;product=tRNA-Gly
-seq_1	Aragorn:1.2.38	tRNA	489117	489191	.	-	.	ID=1_00484;product=tRNA-Gly
-seq_1	Aragorn:1.2.38	tRNA	489195	489270	.	-	.	ID=1_00485;product=tRNA-Thr
-seq_1	Aragorn:1.2.38	tRNA	489195	489270	.	-	.	ID=1_00486;product=tRNA-Thr
+seq_1	Aragorn:1.2.38	tRNA	489117	489191	.	-	.	ID=1_00483;product=product%3DtRNA-Gly
+seq_1	Aragorn:1.2.38	tRNA	489117	489191	.	-	.	ID=1_00484;product=product%3DtRNA-Gly
+seq_1	Aragorn:1.2.38	tRNA	489195	489270	.	-	.	ID=1_00485;product=product%3DtRNA-Thr
+seq_1	Aragorn:1.2.38	tRNA	489195	489270	.	-	.	ID=1_00486;product=product%3DtRNA-Thr
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	489567	490388	48.1	-	0	ID=1_00487;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	490385	490765	27.7	-	0	ID=1_00488;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	490766	491821	78.7	-	0	ID=1_00489;product=hypothetical protein
@@ -612,8 +612,8 @@ seq_1	Aragorn:1.2.38	tRNA	489195	489270	.	-	.	ID=1_00486;product=tRNA-Thr
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	611696	613417	211.3	+	0	ID=1_00605;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	613462	614166	64.8	+	0	ID=1_00606;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	614451	614669	41.4	+	0	ID=1_00607;description=infA%3B translation initiation factor IF-1;product=K02518
-seq_1	Aragorn:1.2.38	tRNA	615149	615236	.	+	.	ID=1_00608;product=tRNA-Ser
-seq_1	Aragorn:1.2.38	tRNA	615149	615236	.	+	.	ID=1_00609;product=tRNA-Ser
+seq_1	Aragorn:1.2.38	tRNA	615149	615236	.	+	.	ID=1_00608;product=product%3DtRNA-Ser
+seq_1	Aragorn:1.2.38	tRNA	615149	615236	.	+	.	ID=1_00609;product=product%3DtRNA-Ser
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	615765	618041	347.5	-	0	ID=1_00610;description=clpA%3B ATP-dependent Clp protease ATP-binding subunit ClpA;product=K03694
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	618072	618392	25.7	-	0	ID=1_00611;description=clpS%3B ATP-dependent Clp protease adaptor protein ClpS;product=K06891
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	618715	618939	25.6	+	0	ID=1_00612;description=cspA%3B cold shock protein (beta-ribbon%2C CspA family);product=K03704
@@ -755,16 +755,16 @@ seq_1	Aragorn:1.2.38	tRNA	615149	615236	.	+	.	ID=1_00609;product=tRNA-Ser
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	754244	754963	61.0	-	0	ID=1_00748;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	755001	756044	104.1	-	0	ID=1_00749;description=nadA%3B quinolinate synthase [EC:2.5.1.72];product=K03517
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	756185	756652	29.2	-	0	ID=1_00750;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	756820	756895	.	-	.	ID=1_00751;product=tRNA-Lys
-seq_1	Aragorn:1.2.38	tRNA	756820	756895	.	-	.	ID=1_00752;product=tRNA-Lys
-seq_1	Aragorn:1.2.38	tRNA	756898	756973	.	-	.	ID=1_00753;product=tRNA-Val
-seq_1	Aragorn:1.2.38	tRNA	756898	756973	.	-	.	ID=1_00754;product=tRNA-Val
-seq_1	Aragorn:1.2.38	tRNA	757019	757094	.	-	.	ID=1_00755;product=tRNA-Lys
-seq_1	Aragorn:1.2.38	tRNA	757019	757094	.	-	.	ID=1_00756;product=tRNA-Lys
-seq_1	Aragorn:1.2.38	tRNA	757097	757172	.	-	.	ID=1_00757;product=tRNA-Val
-seq_1	Aragorn:1.2.38	tRNA	757097	757172	.	-	.	ID=1_00758;product=tRNA-Val
-seq_1	Aragorn:1.2.38	tRNA	757218	757293	.	-	.	ID=1_00759;product=tRNA-Lys
-seq_1	Aragorn:1.2.38	tRNA	757218	757293	.	-	.	ID=1_00760;product=tRNA-Lys
+seq_1	Aragorn:1.2.38	tRNA	756820	756895	.	-	.	ID=1_00751;product=product%3DtRNA-Lys
+seq_1	Aragorn:1.2.38	tRNA	756820	756895	.	-	.	ID=1_00752;product=product%3DtRNA-Lys
+seq_1	Aragorn:1.2.38	tRNA	756898	756973	.	-	.	ID=1_00753;product=product%3DtRNA-Val
+seq_1	Aragorn:1.2.38	tRNA	756898	756973	.	-	.	ID=1_00754;product=product%3DtRNA-Val
+seq_1	Aragorn:1.2.38	tRNA	757019	757094	.	-	.	ID=1_00755;product=product%3DtRNA-Lys
+seq_1	Aragorn:1.2.38	tRNA	757019	757094	.	-	.	ID=1_00756;product=product%3DtRNA-Lys
+seq_1	Aragorn:1.2.38	tRNA	757097	757172	.	-	.	ID=1_00757;product=product%3DtRNA-Val
+seq_1	Aragorn:1.2.38	tRNA	757097	757172	.	-	.	ID=1_00758;product=product%3DtRNA-Val
+seq_1	Aragorn:1.2.38	tRNA	757218	757293	.	-	.	ID=1_00759;product=product%3DtRNA-Lys
+seq_1	Aragorn:1.2.38	tRNA	757218	757293	.	-	.	ID=1_00760;product=product%3DtRNA-Lys
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	757458	758249	75.2	-	0	ID=1_00761;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	758259	758786	84.7	-	0	ID=1_00762;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	758821	760113	149.5	-	0	ID=1_00763;description=tolB%3B TolB protein;product=K03641
@@ -832,20 +832,20 @@ seq_1	Aragorn:1.2.38	tRNA	757218	757293	.	-	.	ID=1_00760;product=tRNA-Lys
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	830219	831439	163.1	+	0	ID=1_00825;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	831487	832239	96.0	+	0	ID=1_00826;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	832641	834305	237.6	+	0	ID=1_00827;description=asnB%2C ASNS%3B asparagine synthase (glutamine-hydrolysing) [EC:6.3.5.4];product=K01953
-seq_1	Aragorn:1.2.38	tRNA	834529	834605	.	+	.	ID=1_00828;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	834529	834605	.	+	.	ID=1_00829;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	834613	834697	.	+	.	ID=1_00830;product=tRNA-Leu
-seq_1	Aragorn:1.2.38	tRNA	834613	834697	.	+	.	ID=1_00831;product=tRNA-Leu
-seq_1	Aragorn:1.2.38	tRNA	834721	834795	.	+	.	ID=1_00832;product=tRNA-Gln
-seq_1	Aragorn:1.2.38	tRNA	834721	834795	.	+	.	ID=1_00833;product=tRNA-Gln
-seq_1	Aragorn:1.2.38	tRNA	834830	834904	.	+	.	ID=1_00834;product=tRNA-Gln
-seq_1	Aragorn:1.2.38	tRNA	834830	834904	.	+	.	ID=1_00835;product=tRNA-Gln
-seq_1	Aragorn:1.2.38	tRNA	834920	834996	.	+	.	ID=1_00836;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	834920	834996	.	+	.	ID=1_00837;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	835045	835119	.	+	.	ID=1_00838;product=tRNA-Gln
-seq_1	Aragorn:1.2.38	tRNA	835045	835119	.	+	.	ID=1_00839;product=tRNA-Gln
-seq_1	Aragorn:1.2.38	tRNA	835152	835226	.	+	.	ID=1_00840;product=tRNA-Gln
-seq_1	Aragorn:1.2.38	tRNA	835152	835226	.	+	.	ID=1_00841;product=tRNA-Gln
+seq_1	Aragorn:1.2.38	tRNA	834529	834605	.	+	.	ID=1_00828;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	834529	834605	.	+	.	ID=1_00829;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	834613	834697	.	+	.	ID=1_00830;product=product%3DtRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	834613	834697	.	+	.	ID=1_00831;product=product%3DtRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	834721	834795	.	+	.	ID=1_00832;product=product%3DtRNA-Gln
+seq_1	Aragorn:1.2.38	tRNA	834721	834795	.	+	.	ID=1_00833;product=product%3DtRNA-Gln
+seq_1	Aragorn:1.2.38	tRNA	834830	834904	.	+	.	ID=1_00834;product=product%3DtRNA-Gln
+seq_1	Aragorn:1.2.38	tRNA	834830	834904	.	+	.	ID=1_00835;product=product%3DtRNA-Gln
+seq_1	Aragorn:1.2.38	tRNA	834920	834996	.	+	.	ID=1_00836;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	834920	834996	.	+	.	ID=1_00837;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	835045	835119	.	+	.	ID=1_00838;product=product%3DtRNA-Gln
+seq_1	Aragorn:1.2.38	tRNA	835045	835119	.	+	.	ID=1_00839;product=product%3DtRNA-Gln
+seq_1	Aragorn:1.2.38	tRNA	835152	835226	.	+	.	ID=1_00840;product=product%3DtRNA-Gln
+seq_1	Aragorn:1.2.38	tRNA	835152	835226	.	+	.	ID=1_00841;product=product%3DtRNA-Gln
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	835380	836555	159.4	-	0	ID=1_00842;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	836701	838125	218.5	+	0	ID=1_00843;description=miaB%3B tRNA-2-methylthio-N6-dimethylallyladenosine synthase [EC:2.8.4.3];product=K06168
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	838414	839493	174.8	+	0	ID=1_00844;description=phoH%2C phoL%3B phosphate starvation-inducible protein PhoH and related proteins;product=K06217
@@ -978,8 +978,8 @@ seq_1	Aragorn:1.2.38	tRNA	835152	835226	.	+	.	ID=1_00841;product=tRNA-Gln
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	968337	968480	10.3	+	0	ID=1_00971;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	968555	968701	15.8	+	0	ID=1_00972;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	968646	968939	11.8	+	0	ID=1_00973;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	968955	969031	.	-	.	ID=1_00974;product=tRNA-Arg
-seq_1	Aragorn:1.2.38	tRNA	968955	969031	.	-	.	ID=1_00975;product=tRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	968955	969031	.	-	.	ID=1_00974;product=product%3DtRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	968955	969031	.	-	.	ID=1_00975;product=product%3DtRNA-Arg
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	969280	969912	33.5	+	0	ID=1_00976;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	969915	970433	40.6	-	0	ID=1_00977;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	970444	971451	69.2	-	0	ID=1_00978;product=hypothetical protein
@@ -1143,8 +1143,8 @@ seq_1	Aragorn:1.2.38	tRNA	968955	969031	.	-	.	ID=1_00975;product=tRNA-Arg
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1144784	1145059	37.9	-	0	ID=1_01136;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1145283	1145792	15.6	-	0	ID=1_01137;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1146064	1146696	44.0	+	0	ID=1_01138;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	1146965	1147045	.	-	.	ID=1_01139;product=tRNA-Ser
-seq_1	Aragorn:1.2.38	tRNA	1146965	1147045	.	-	.	ID=1_01140;product=tRNA-Ser
+seq_1	Aragorn:1.2.38	tRNA	1146965	1147045	.	-	.	ID=1_01139;product=product%3DtRNA-Ser
+seq_1	Aragorn:1.2.38	tRNA	1146965	1147045	.	-	.	ID=1_01140;product=product%3DtRNA-Ser
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1147406	1148098	102.9	-	0	ID=1_01141;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1148113	1148787	102.1	-	0	ID=1_01142;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1148797	1149747	142.7	-	0	ID=1_01143;product=hypothetical protein
@@ -1188,8 +1188,8 @@ seq_1	Aragorn:1.2.38	tRNA	1146965	1147045	.	-	.	ID=1_01140;product=tRNA-Ser
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1189927	1190526	67.5	-	0	ID=1_01181;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1190529	1190975	13.2	-	0	ID=1_01182;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1191235	1192398	36.1	+	0	ID=1_01183;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	1192413	1192488	.	-	.	ID=1_01184;product=tRNA-Thr
-seq_1	Aragorn:1.2.38	tRNA	1192413	1192488	.	-	.	ID=1_01185;product=tRNA-Thr
+seq_1	Aragorn:1.2.38	tRNA	1192413	1192488	.	-	.	ID=1_01184;product=product%3DtRNA-Thr
+seq_1	Aragorn:1.2.38	tRNA	1192413	1192488	.	-	.	ID=1_01185;product=product%3DtRNA-Thr
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1192603	1193856	210.5	-	0	ID=1_01186;description=proA%3B glutamate-5-semialdehyde dehydrogenase [EC:1.2.1.41];product=K00147
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1193868	1194971	150.7	-	0	ID=1_01187;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1195259	1196314	141.1	+	0	ID=1_01188;product=hypothetical protein
@@ -1275,8 +1275,8 @@ seq_1	Aragorn:1.2.38	tRNA	1192413	1192488	.	-	.	ID=1_01185;product=tRNA-Thr
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1266871	1267785	52.7	+	0	ID=1_01268;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1267795	1268262	20.6	+	0	ID=1_01269;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1268423	1269199	71.5	-	0	ID=1_01270;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	1269523	1269599	.	-	.	ID=1_01271;product=tRNA-Asp
-seq_1	Aragorn:1.2.38	tRNA	1269523	1269599	.	-	.	ID=1_01272;product=tRNA-Asp
+seq_1	Aragorn:1.2.38	tRNA	1269523	1269599	.	-	.	ID=1_01271;product=product%3DtRNA-Asp
+seq_1	Aragorn:1.2.38	tRNA	1269523	1269599	.	-	.	ID=1_01272;product=product%3DtRNA-Asp
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1269732	1270472	87.8	-	0	ID=1_01273;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1270528	1270995	54.7	+	0	ID=1_01274;description=rnhA%2C RNASEH1%3B ribonuclease HI [EC:3.1.26.4];product=K03469
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1270992	1271714	45.5	-	0	ID=1_01275;product=hypothetical protein
@@ -1285,15 +1285,15 @@ seq_1	Aragorn:1.2.38	tRNA	1269523	1269599	.	-	.	ID=1_01272;product=tRNA-Asp
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1274120	1274899	33.9	-	0	ID=1_01278;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1275160	1276074	77.0	+	0	ID=1_01279;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1276071	1276874	135.4	-	0	ID=1_01280;description=dkgB%3B 2%2C5-diketo-D-gluconate reductase B [EC:1.1.1.346];product=K06222
-seq_1	Aragorn:1.2.38	tRNA	1277037	1277113	.	-	.	ID=1_01281;product=tRNA-Asp
-seq_1	Aragorn:1.2.38	tRNA	1277037	1277113	.	-	.	ID=1_01282;product=tRNA-Asp
-seq_1	MetaPathExplorer:1.1	rDNA	1277169	1277282	80.9	-	.	ID=1_01283;note=No available lineage;organism=B04014;product=Bacterial:5S rDNA
-seq_1	MetaPathExplorer:1.1	rDNA	1277475	1280376	2652.1	-	.	ID=1_01284;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.1277455.1280377;product=Bacterial:23S rDNA
-seq_1	Aragorn:1.2.38	tRNA	1280561	1280636	.	-	.	ID=1_01285;product=tRNA-Ala
-seq_1	Aragorn:1.2.38	tRNA	1280561	1280636	.	-	.	ID=1_01286;product=tRNA-Ala
-seq_1	Aragorn:1.2.38	tRNA	1280679	1280755	.	-	.	ID=1_01287;product=tRNA-Ile
-seq_1	Aragorn:1.2.38	tRNA	1280679	1280755	.	-	.	ID=1_01288;product=tRNA-Ile
-seq_1	MetaPathExplorer:1.1	rDNA	1280878	1282339	1338.8	-	.	ID=1_01289;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2051095.2052636;product=Bacterial:16S rDNA
+seq_1	Aragorn:1.2.38	tRNA	1277037	1277113	.	-	.	ID=1_01281;product=product%3DtRNA-Asp
+seq_1	Aragorn:1.2.38	tRNA	1277037	1277113	.	-	.	ID=1_01282;product=product%3DtRNA-Asp
+seq_1	MetaPathExplorer:1.1	rDNA	1277169	1277282	80.9	-	.	ID=1_01283;note=No available lineage;organism=B04014;product=product%3DBacterial:5S rDNA
+seq_1	MetaPathExplorer:1.1	rDNA	1277475	1280376	2652.1	-	.	ID=1_01284;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.1277455.1280377;product=product%3DBacterial:23S rDNA
+seq_1	Aragorn:1.2.38	tRNA	1280561	1280636	.	-	.	ID=1_01285;product=product%3DtRNA-Ala
+seq_1	Aragorn:1.2.38	tRNA	1280561	1280636	.	-	.	ID=1_01286;product=product%3DtRNA-Ala
+seq_1	Aragorn:1.2.38	tRNA	1280679	1280755	.	-	.	ID=1_01287;product=product%3DtRNA-Ile
+seq_1	Aragorn:1.2.38	tRNA	1280679	1280755	.	-	.	ID=1_01288;product=product%3DtRNA-Ile
+seq_1	MetaPathExplorer:1.1	rDNA	1280878	1282339	1338.8	-	.	ID=1_01289;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2051095.2052636;product=product%3DBacterial:16S rDNA
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1280926	1281180	10.8	-	0	ID=1_01290;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1282732	1283304	78.0	-	0	ID=1_01291;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1283492	1284523	123.2	+	0	ID=1_01292;product=hypothetical protein
@@ -1555,12 +1555,12 @@ seq_1	MetaPathExplorer:1.1	rDNA	1280878	1282339	1338.8	-	.	ID=1_01289;note=Bacte
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1565079	1565525	41.1	-	0	ID=1_01548;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1565494	1565907	46.5	-	0	ID=1_01549;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1566010	1567041	144.7	+	0	ID=1_01550;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	1567231	1567317	.	+	.	ID=1_01551;product=tRNA-Leu
-seq_1	Aragorn:1.2.38	tRNA	1567231	1567317	.	+	.	ID=1_01552;product=tRNA-Leu
-seq_1	Aragorn:1.2.38	tRNA	1567346	1567432	.	+	.	ID=1_01553;product=tRNA-Leu
-seq_1	Aragorn:1.2.38	tRNA	1567346	1567432	.	+	.	ID=1_01554;product=tRNA-Leu
-seq_1	Aragorn:1.2.38	tRNA	1567465	1567551	.	+	.	ID=1_01555;product=tRNA-Leu
-seq_1	Aragorn:1.2.38	tRNA	1567465	1567551	.	+	.	ID=1_01556;product=tRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	1567231	1567317	.	+	.	ID=1_01551;product=product%3DtRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	1567231	1567317	.	+	.	ID=1_01552;product=product%3DtRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	1567346	1567432	.	+	.	ID=1_01553;product=product%3DtRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	1567346	1567432	.	+	.	ID=1_01554;product=product%3DtRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	1567465	1567551	.	+	.	ID=1_01555;product=product%3DtRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	1567465	1567551	.	+	.	ID=1_01556;product=product%3DtRNA-Leu
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1567590	1567892	14.8	-	0	ID=1_01557;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1567967	1568755	60.8	+	0	ID=1_01558;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1568795	1569472	37.4	-	0	ID=1_01559;product=hypothetical protein
@@ -1641,8 +1641,8 @@ seq_1	Aragorn:1.2.38	tRNA	1567465	1567551	.	+	.	ID=1_01556;product=tRNA-Leu
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1653460	1654347	68.2	+	0	ID=1_01634;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1655172	1655405	28.3	-	0	ID=1_01635;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1655857	1657119	100.3	-	0	ID=1_01636;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	1657306	1657390	.	-	.	ID=1_01637;product=tRNA-Leu
-seq_1	Aragorn:1.2.38	tRNA	1657306	1657390	.	-	.	ID=1_01638;product=tRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	1657306	1657390	.	-	.	ID=1_01637;product=product%3DtRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	1657306	1657390	.	-	.	ID=1_01638;product=product%3DtRNA-Leu
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1657586	1658605	137.1	+	0	ID=1_01639;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1658735	1660237	214.9	+	0	ID=1_01640;description=K06915%3B uncharacterized protein;product=K06915
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1660426	1661508	159.0	-	0	ID=1_01641;product=hypothetical protein
@@ -1746,10 +1746,10 @@ seq_1	Aragorn:1.2.38	tRNA	1657306	1657390	.	-	.	ID=1_01638;product=tRNA-Leu
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1762010	1762471	44.7	-	0	ID=1_01739;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1762443	1763975	181.5	-	0	ID=1_01740;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1763989	1765128	120.4	+	0	ID=1_01741;description=queG%3B epoxyqueuosine reductase [EC:1.17.99.6];product=K18979
-seq_1	Aragorn:1.2.38	tRNA	1765398	1765473	.	-	.	ID=1_01742;product=tRNA-Gly
-seq_1	Aragorn:1.2.38	tRNA	1765398	1765473	.	-	.	ID=1_01743;product=tRNA-Gly
-seq_1	Aragorn:1.2.38	tRNA	1765630	1765705	.	-	.	ID=1_01744;product=tRNA-Gly
-seq_1	Aragorn:1.2.38	tRNA	1765630	1765705	.	-	.	ID=1_01745;product=tRNA-Gly
+seq_1	Aragorn:1.2.38	tRNA	1765398	1765473	.	-	.	ID=1_01742;product=product%3DtRNA-Gly
+seq_1	Aragorn:1.2.38	tRNA	1765398	1765473	.	-	.	ID=1_01743;product=product%3DtRNA-Gly
+seq_1	Aragorn:1.2.38	tRNA	1765630	1765705	.	-	.	ID=1_01744;product=product%3DtRNA-Gly
+seq_1	Aragorn:1.2.38	tRNA	1765630	1765705	.	-	.	ID=1_01745;product=product%3DtRNA-Gly
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1765916	1766461	79.2	-	0	ID=1_01746;description=orn%2C REX2%2C REXO2%3B oligoribonuclease [EC:3.1.-.-];product=K13288
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1766556	1767608	130.6	+	0	ID=1_01747;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1767706	1768674	128.6	+	0	ID=1_01748;description=psd%2C PISD%3B phosphatidylserine decarboxylase [EC:4.1.1.65];product=K01613
@@ -1780,8 +1780,8 @@ seq_1	Aragorn:1.2.38	tRNA	1765630	1765705	.	-	.	ID=1_01745;product=tRNA-Gly
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1792786	1793124	40.7	+	0	ID=1_01773;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1793100	1794797	150.2	+	0	ID=1_01774;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1794834	1795409	80.3	+	0	ID=1_01775;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	1795516	1795591	.	+	.	ID=1_01776;product=tRNA-Phe
-seq_1	Aragorn:1.2.38	tRNA	1795516	1795591	.	+	.	ID=1_01777;product=tRNA-Phe
+seq_1	Aragorn:1.2.38	tRNA	1795516	1795591	.	+	.	ID=1_01776;product=product%3DtRNA-Phe
+seq_1	Aragorn:1.2.38	tRNA	1795516	1795591	.	+	.	ID=1_01777;product=product%3DtRNA-Phe
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1796229	1796756	5.8	+	0	ID=1_01778;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1797205	1797828	19.1	-	0	ID=1_01779;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	1798025	1798303	4.9	-	0	ID=1_01780;product=hypothetical protein
@@ -1990,13 +1990,13 @@ seq_1	Aragorn:1.2.38	tRNA	1795516	1795591	.	+	.	ID=1_01777;product=tRNA-Phe
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2004359	2005288	109.6	-	0	ID=1_01983;description=metA%3B homoserine O-succinyltransferase [EC:2.3.1.46];product=K00651
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2005445	2005888	61.0	+	0	ID=1_01984;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2005888	2006157	7.2	+	0	ID=1_01985;product=hypothetical protein
-seq_1	MetaPathExplorer:1.1	rDNA	2006005	2006118	80.9	-	.	ID=1_01986;note=No available lineage;organism=B04014;product=Bacterial:5S rDNA
-seq_1	MetaPathExplorer:1.1	rDNA	2006311	2009213	2651.9	-	.	ID=1_01987;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2006291.2009214;product=Bacterial:23S rDNA
-seq_1	Aragorn:1.2.38	tRNA	2009398	2009473	.	-	.	ID=1_01988;product=tRNA-Ala
-seq_1	Aragorn:1.2.38	tRNA	2009398	2009473	.	-	.	ID=1_01989;product=tRNA-Ala
-seq_1	Aragorn:1.2.38	tRNA	2009516	2009592	.	-	.	ID=1_01990;product=tRNA-Ile
-seq_1	Aragorn:1.2.38	tRNA	2009516	2009592	.	-	.	ID=1_01991;product=tRNA-Ile
-seq_1	MetaPathExplorer:1.1	rDNA	2009715	2011174	1327.9	-	.	ID=1_01992;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2009663.2011202;product=Bacterial:16S rDNA
+seq_1	MetaPathExplorer:1.1	rDNA	2006005	2006118	80.9	-	.	ID=1_01986;note=No available lineage;organism=B04014;product=product%3DBacterial:5S rDNA
+seq_1	MetaPathExplorer:1.1	rDNA	2006311	2009213	2651.9	-	.	ID=1_01987;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2006291.2009214;product=product%3DBacterial:23S rDNA
+seq_1	Aragorn:1.2.38	tRNA	2009398	2009473	.	-	.	ID=1_01988;product=product%3DtRNA-Ala
+seq_1	Aragorn:1.2.38	tRNA	2009398	2009473	.	-	.	ID=1_01989;product=product%3DtRNA-Ala
+seq_1	Aragorn:1.2.38	tRNA	2009516	2009592	.	-	.	ID=1_01990;product=product%3DtRNA-Ile
+seq_1	Aragorn:1.2.38	tRNA	2009516	2009592	.	-	.	ID=1_01991;product=product%3DtRNA-Ile
+seq_1	MetaPathExplorer:1.1	rDNA	2009715	2011174	1327.9	-	.	ID=1_01992;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2009663.2011202;product=product%3DBacterial:16S rDNA
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2009763	2010017	11.2	-	0	ID=1_01993;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2011817	2013406	232.6	+	0	ID=1_01994;description=purH%3B phosphoribosylaminoimidazolecarboxamide formyltransferase / IMP cyclohydrolase [EC:2.1.2.3 3.5.4.10];product=K00602
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2013418	2014707	216.3	+	0	ID=1_01995;description=purD%3B phosphoribosylamine--glycine ligase [EC:6.3.4.13];product=K01945
@@ -2027,24 +2027,24 @@ seq_1	MetaPathExplorer:1.1	rDNA	2009715	2011174	1327.9	-	.	ID=1_01992;note=Bacte
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2040897	2041442	86.0	-	0	ID=1_02020;description=nusG%3B transcriptional antiterminator NusG;product=K02601
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2041444	2041827	50.4	-	0	ID=1_02021;description=secE%3B preprotein translocase subunit SecE;product=K03073
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2042057	2043241	205.6	-	0	ID=1_02022;description=tuf%2C TUFM%3B elongation factor Tu;product=K02358
-seq_1	Aragorn:1.2.38	tRNA	2043356	2043431	.	-	.	ID=1_02023;product=tRNA-Thr
-seq_1	Aragorn:1.2.38	tRNA	2043356	2043431	.	-	.	ID=1_02024;product=tRNA-Thr
-seq_1	Aragorn:1.2.38	tRNA	2043438	2043512	.	-	.	ID=1_02025;product=tRNA-Gly
-seq_1	Aragorn:1.2.38	tRNA	2043438	2043512	.	-	.	ID=1_02026;product=tRNA-Gly
-seq_1	Aragorn:1.2.38	tRNA	2043629	2043713	.	-	.	ID=1_02027;product=tRNA-Tyr
-seq_1	Aragorn:1.2.38	tRNA	2043629	2043713	.	-	.	ID=1_02028;product=tRNA-Tyr
-seq_1	Aragorn:1.2.38	tRNA	2043722	2043797	.	-	.	ID=1_02029;product=tRNA-Thr
-seq_1	Aragorn:1.2.38	tRNA	2043722	2043797	.	-	.	ID=1_02030;product=tRNA-Thr
+seq_1	Aragorn:1.2.38	tRNA	2043356	2043431	.	-	.	ID=1_02023;product=product%3DtRNA-Thr
+seq_1	Aragorn:1.2.38	tRNA	2043356	2043431	.	-	.	ID=1_02024;product=product%3DtRNA-Thr
+seq_1	Aragorn:1.2.38	tRNA	2043438	2043512	.	-	.	ID=1_02025;product=product%3DtRNA-Gly
+seq_1	Aragorn:1.2.38	tRNA	2043438	2043512	.	-	.	ID=1_02026;product=product%3DtRNA-Gly
+seq_1	Aragorn:1.2.38	tRNA	2043629	2043713	.	-	.	ID=1_02027;product=product%3DtRNA-Tyr
+seq_1	Aragorn:1.2.38	tRNA	2043629	2043713	.	-	.	ID=1_02028;product=product%3DtRNA-Tyr
+seq_1	Aragorn:1.2.38	tRNA	2043722	2043797	.	-	.	ID=1_02029;product=product%3DtRNA-Thr
+seq_1	Aragorn:1.2.38	tRNA	2043722	2043797	.	-	.	ID=1_02030;product=product%3DtRNA-Thr
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2044183	2045109	95.0	+	0	ID=1_02031;description=coaA%3B type I pantothenate kinase [EC:2.7.1.33];product=K00867
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2045138	2046103	118.1	-	0	ID=1_02032;description=birA%3B BirA family transcriptional regulator%2C biotin operon repressor / biotin-[acetyl-CoA-carboxylase] ligase [EC:6.3.4.15];product=K03524
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2046100	2047128	116.1	-	0	ID=1_02033;description=murB%3B UDP-N-acetylmuramate dehydrogenase [EC:1.3.1.98];product=K00075
-seq_1	MetaPathExplorer:1.1	rDNA	2047432	2047545	80.9	-	.	ID=1_02034;note=No available lineage;organism=B04014;product=Bacterial:5S rDNA
-seq_1	MetaPathExplorer:1.1	rDNA	2047738	2050647	2605.7	-	.	ID=1_02035;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2047718.2050648;product=Bacterial:23S rDNA
-seq_1	Aragorn:1.2.38	tRNA	2050832	2050907	.	-	.	ID=1_02036;product=tRNA-Ala
-seq_1	Aragorn:1.2.38	tRNA	2050832	2050907	.	-	.	ID=1_02037;product=tRNA-Ala
-seq_1	Aragorn:1.2.38	tRNA	2050950	2051026	.	-	.	ID=1_02038;product=tRNA-Ile
-seq_1	Aragorn:1.2.38	tRNA	2050950	2051026	.	-	.	ID=1_02039;product=tRNA-Ile
-seq_1	MetaPathExplorer:1.1	rDNA	2051147	2052608	1338.8	-	.	ID=1_02040;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2051095.2052636;product=Bacterial:16S rDNA
+seq_1	MetaPathExplorer:1.1	rDNA	2047432	2047545	80.9	-	.	ID=1_02034;note=No available lineage;organism=B04014;product=product%3DBacterial:5S rDNA
+seq_1	MetaPathExplorer:1.1	rDNA	2047738	2050647	2605.7	-	.	ID=1_02035;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2047718.2050648;product=product%3DBacterial:23S rDNA
+seq_1	Aragorn:1.2.38	tRNA	2050832	2050907	.	-	.	ID=1_02036;product=product%3DtRNA-Ala
+seq_1	Aragorn:1.2.38	tRNA	2050832	2050907	.	-	.	ID=1_02037;product=product%3DtRNA-Ala
+seq_1	Aragorn:1.2.38	tRNA	2050950	2051026	.	-	.	ID=1_02038;product=product%3DtRNA-Ile
+seq_1	Aragorn:1.2.38	tRNA	2050950	2051026	.	-	.	ID=1_02039;product=product%3DtRNA-Ile
+seq_1	MetaPathExplorer:1.1	rDNA	2051147	2052608	1338.8	-	.	ID=1_02040;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2051095.2052636;product=product%3DBacterial:16S rDNA
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2051195	2051449	10.8	-	0	ID=1_02041;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2053007	2053864	95.8	-	0	ID=1_02042;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2053809	2055653	216.5	-	0	ID=1_02043;product=hypothetical protein
@@ -2193,11 +2193,11 @@ seq_1	MetaPathExplorer:1.1	rDNA	2051147	2052608	1338.8	-	.	ID=1_02040;note=Bacte
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2206774	2207043	56.0	-	0	ID=1_02186;description=K09896%3B uncharacterized protein;product=K09896
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2207113	2207697	60.4	+	0	ID=1_02187;description=mobA%3B molybdenum cofactor guanylyltransferase [EC:2.7.7.77];product=K03752
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2207679	2208206	76.1	+	0	ID=1_02188;product=hypothetical protein
-seq_1	MetaPathExplorer:1.1	rDNA	2208308	2208421	80.9	-	.	ID=1_02189;note=No available lineage;organism=B04014;product=Bacterial:5S rDNA
-seq_1	MetaPathExplorer:1.1	rDNA	2208614	2211516	2646.6	-	.	ID=1_02190;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2208594.2211517;product=Bacterial:23S rDNA
-seq_1	Aragorn:1.2.38	tRNA	2211713	2211788	.	-	.	ID=1_02191;product=tRNA-Glu
-seq_1	Aragorn:1.2.38	tRNA	2211713	2211788	.	-	.	ID=1_02192;product=tRNA-Glu
-seq_1	MetaPathExplorer:1.1	rDNA	2211926	2213390	1332.0	-	.	ID=1_02193;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2211874.2213418;product=Bacterial:16S rDNA
+seq_1	MetaPathExplorer:1.1	rDNA	2208308	2208421	80.9	-	.	ID=1_02189;note=No available lineage;organism=B04014;product=product%3DBacterial:5S rDNA
+seq_1	MetaPathExplorer:1.1	rDNA	2208614	2211516	2646.6	-	.	ID=1_02190;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2208594.2211517;product=product%3DBacterial:23S rDNA
+seq_1	Aragorn:1.2.38	tRNA	2211713	2211788	.	-	.	ID=1_02191;product=product%3DtRNA-Glu
+seq_1	Aragorn:1.2.38	tRNA	2211713	2211788	.	-	.	ID=1_02192;product=product%3DtRNA-Glu
+seq_1	MetaPathExplorer:1.1	rDNA	2211926	2213390	1332.0	-	.	ID=1_02193;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2211874.2213418;product=product%3DBacterial:16S rDNA
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2211974	2212228	11.9	-	0	ID=1_02194;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2213793	2214338	49.3	-	0	ID=1_02195;description=hemG%3B menaquinone-dependent protoporphyrinogen oxidase [EC:1.3.5.3];product=K00230
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2214350	2215801	175.1	-	0	ID=1_02196;description=trkH%2C trkG%2C ktrB%3B trk system potassium uptake protein;product=K03498
@@ -2248,14 +2248,14 @@ seq_1	MetaPathExplorer:1.1	rDNA	2211926	2213390	1332.0	-	.	ID=1_02193;note=Bacte
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2262348	2263544	178.7	+	0	ID=1_02241;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2264225	2265880	204.2	+	0	ID=1_02242;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2266168	2267403	133.6	-	0	ID=1_02243;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	2267551	2267627	.	-	.	ID=1_02244;product=tRNA-Pro
-seq_1	Aragorn:1.2.38	tRNA	2267551	2267627	.	-	.	ID=1_02245;product=tRNA-Pro
-seq_1	Aragorn:1.2.38	tRNA	2267668	2267754	.	-	.	ID=1_02246;product=tRNA-Leu
-seq_1	Aragorn:1.2.38	tRNA	2267668	2267754	.	-	.	ID=1_02247;product=tRNA-Leu
-seq_1	Aragorn:1.2.38	tRNA	2267775	2267850	.	-	.	ID=1_02248;product=tRNA-His
-seq_1	Aragorn:1.2.38	tRNA	2267775	2267850	.	-	.	ID=1_02249;product=tRNA-His
-seq_1	Aragorn:1.2.38	tRNA	2267909	2267985	.	-	.	ID=1_02250;product=tRNA-Arg
-seq_1	Aragorn:1.2.38	tRNA	2267909	2267985	.	-	.	ID=1_02251;product=tRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	2267551	2267627	.	-	.	ID=1_02244;product=product%3DtRNA-Pro
+seq_1	Aragorn:1.2.38	tRNA	2267551	2267627	.	-	.	ID=1_02245;product=product%3DtRNA-Pro
+seq_1	Aragorn:1.2.38	tRNA	2267668	2267754	.	-	.	ID=1_02246;product=product%3DtRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	2267668	2267754	.	-	.	ID=1_02247;product=product%3DtRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	2267775	2267850	.	-	.	ID=1_02248;product=product%3DtRNA-His
+seq_1	Aragorn:1.2.38	tRNA	2267775	2267850	.	-	.	ID=1_02249;product=product%3DtRNA-His
+seq_1	Aragorn:1.2.38	tRNA	2267909	2267985	.	-	.	ID=1_02250;product=product%3DtRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	2267909	2267985	.	-	.	ID=1_02251;product=product%3DtRNA-Arg
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2268088	2269473	181.9	-	0	ID=1_02252;description=TC.AAT%3B amino acid transporter%2C AAT family;product=K03293
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2269662	2270402	112.3	-	0	ID=1_02253;description=wecG%2C rffM%3B UDP-N-acetyl-D-mannosaminouronate:lipid I N-acetyl-D-mannosaminouronosyltransferase [EC:2.4.1.180];product=K02852
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2270412	2271758	175.8	-	0	ID=1_02254;description=wzyE%2C rffT%3B enterobacterial common antigen polymerase [EC:2.4.1.-];product=K02853
@@ -2292,15 +2292,15 @@ seq_1	Aragorn:1.2.38	tRNA	2267909	2267985	.	-	.	ID=1_02251;product=tRNA-Arg
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2302423	2303943	121.2	+	0	ID=1_02285;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2303969	2304307	52.9	-	0	ID=1_02286;description=K09897%3B uncharacterized protein;product=K09897
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2304426	2305265	84.5	+	0	ID=1_02287;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	2305355	2305430	.	-	.	ID=1_02288;product=tRNA-Trp
-seq_1	Aragorn:1.2.38	tRNA	2305355	2305430	.	-	.	ID=1_02289;product=tRNA-Trp
-seq_1	Aragorn:1.2.38	tRNA	2305439	2305515	.	-	.	ID=1_02290;product=tRNA-Asp
-seq_1	Aragorn:1.2.38	tRNA	2305439	2305515	.	-	.	ID=1_02291;product=tRNA-Asp
-seq_1	MetaPathExplorer:1.1	rDNA	2305571	2305684	80.9	-	.	ID=1_02292;note=No available lineage;organism=B04014;product=Bacterial:5S rDNA
-seq_1	MetaPathExplorer:1.1	rDNA	2305877	2308778	2652.6	-	.	ID=1_02293;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2305857.2308779;product=Bacterial:23S rDNA
-seq_1	Aragorn:1.2.38	tRNA	2308975	2309050	.	-	.	ID=1_02294;product=tRNA-Glu
-seq_1	Aragorn:1.2.38	tRNA	2308975	2309050	.	-	.	ID=1_02295;product=tRNA-Glu
-seq_1	MetaPathExplorer:1.1	rDNA	2309188	2310648	1321.4	-	.	ID=1_02296;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2309136.2310676;product=Bacterial:16S rDNA
+seq_1	Aragorn:1.2.38	tRNA	2305355	2305430	.	-	.	ID=1_02288;product=product%3DtRNA-Trp
+seq_1	Aragorn:1.2.38	tRNA	2305355	2305430	.	-	.	ID=1_02289;product=product%3DtRNA-Trp
+seq_1	Aragorn:1.2.38	tRNA	2305439	2305515	.	-	.	ID=1_02290;product=product%3DtRNA-Asp
+seq_1	Aragorn:1.2.38	tRNA	2305439	2305515	.	-	.	ID=1_02291;product=product%3DtRNA-Asp
+seq_1	MetaPathExplorer:1.1	rDNA	2305571	2305684	80.9	-	.	ID=1_02292;note=No available lineage;organism=B04014;product=product%3DBacterial:5S rDNA
+seq_1	MetaPathExplorer:1.1	rDNA	2305877	2308778	2652.6	-	.	ID=1_02293;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2305857.2308779;product=product%3DBacterial:23S rDNA
+seq_1	Aragorn:1.2.38	tRNA	2308975	2309050	.	-	.	ID=1_02294;product=product%3DtRNA-Glu
+seq_1	Aragorn:1.2.38	tRNA	2308975	2309050	.	-	.	ID=1_02295;product=product%3DtRNA-Glu
+seq_1	MetaPathExplorer:1.1	rDNA	2309188	2310648	1321.4	-	.	ID=1_02296;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2309136.2310676;product=product%3DBacterial:16S rDNA
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2309236	2309490	1.3	-	0	ID=1_02297;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2311154	2311846	68.1	+	0	ID=1_02298;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2311868	2313295	116.3	+	0	ID=1_02299;product=hypothetical protein
@@ -2406,8 +2406,8 @@ seq_1	MetaPathExplorer:1.1	rDNA	2309188	2310648	1321.4	-	.	ID=1_02296;note=Bacte
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2423459	2424496	139.9	-	0	ID=1_02399;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2424570	2425190	59.1	-	0	ID=1_02400;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2425190	2425990	65.9	-	0	ID=1_02401;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	2426154	2426248	.	-	.	ID=1_02402;product=tRNA-SeC
-seq_1	Aragorn:1.2.38	tRNA	2426154	2426248	.	-	.	ID=1_02403;product=tRNA-SeC
+seq_1	Aragorn:1.2.38	tRNA	2426154	2426248	.	-	.	ID=1_02402;product=product%3DtRNA-SeC
+seq_1	Aragorn:1.2.38	tRNA	2426154	2426248	.	-	.	ID=1_02403;product=product%3DtRNA-SeC
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2426647	2428356	207.4	-	0	ID=1_02404;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2428477	2429868	178.3	-	0	ID=1_02405;description=xanP%3B xanthine permease XanP;product=K16345
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2430149	2431354	177.9	+	0	ID=1_02406;product=hypothetical protein
@@ -2528,8 +2528,8 @@ seq_1	Aragorn:1.2.38	tRNA	2426154	2426248	.	-	.	ID=1_02403;product=tRNA-SeC
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2552645	2553532	71.8	+	0	ID=1_02521;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2553735	2554271	53.5	+	0	ID=1_02522;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2554522	2556213	182.3	+	0	ID=1_02523;description=eptB%3B KDO II ethanolaminephosphotransferase [EC:2.7.8.42];product=K12975
-seq_1	Aragorn:1.2.38	tRNA	2556305	2556381	.	+	.	ID=1_02524;product=tRNA-Pro
-seq_1	Aragorn:1.2.38	tRNA	2556305	2556381	.	+	.	ID=1_02525;product=tRNA-Pro
+seq_1	Aragorn:1.2.38	tRNA	2556305	2556381	.	+	.	ID=1_02524;product=product%3DtRNA-Pro
+seq_1	Aragorn:1.2.38	tRNA	2556305	2556381	.	+	.	ID=1_02525;product=product%3DtRNA-Pro
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2557294	2558901	243.7	+	0	ID=1_02526;description=dppA%3B dipeptide transport system substrate-binding protein;product=K12368
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2559209	2560228	134.1	+	0	ID=1_02527;description=dppB%3B dipeptide transport system permease protein;product=K12369
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2560238	2561140	149.9	+	0	ID=1_02528;description=dppC%3B dipeptide transport system permease protein;product=K12370
@@ -2792,15 +2792,15 @@ seq_1	Aragorn:1.2.38	tRNA	2556305	2556381	.	+	.	ID=1_02525;product=tRNA-Pro
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2808696	2809514	69.6	+	0	ID=1_02785;description=aroE%3B shikimate dehydrogenase [EC:1.1.1.25];product=K00014
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2809511	2809768	19.8	+	0	ID=1_02786;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2809744	2810298	65.2	-	0	ID=1_02787;product=hypothetical protein
-seq_1	MetaPathExplorer:1.1	rDNA	2810794	2812255	1337.7	+	.	ID=1_02788;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2810766.2812307;product=Bacterial:16S rDNA
+seq_1	MetaPathExplorer:1.1	rDNA	2810794	2812255	1337.7	+	.	ID=1_02788;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2810766.2812307;product=product%3DBacterial:16S rDNA
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2811953	2812207	12.1	+	0	ID=1_02789;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	2812393	2812468	.	+	.	ID=1_02790;product=tRNA-Glu
-seq_1	Aragorn:1.2.38	tRNA	2812393	2812468	.	+	.	ID=1_02791;product=tRNA-Glu
-seq_1	MetaPathExplorer:1.1	rDNA	2812665	2815566	2644.3	+	.	ID=1_02792;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2812664.2815586;product=Bacterial:23S rDNA
-seq_1	MetaPathExplorer:1.1	rDNA	2815759	2815872	80.9	+	.	ID=1_02793;note=No available lineage;organism=B04014;product=Bacterial:5S rDNA
-seq_1	Aragorn:1.2.38	tRNA	2816027	2816102	.	+	.	ID=1_02794;product=tRNA-Thr
-seq_1	Aragorn:1.2.38	tRNA	2816027	2816102	.	+	.	ID=1_02795;product=tRNA-Thr
-seq_1	MetaPathExplorer:1.1	rDNA	2816143	2816256	83.1	+	.	ID=1_02796;note=No available lineage;organism=B02613;product=Bacterial:5S rDNA
+seq_1	Aragorn:1.2.38	tRNA	2812393	2812468	.	+	.	ID=1_02790;product=product%3DtRNA-Glu
+seq_1	Aragorn:1.2.38	tRNA	2812393	2812468	.	+	.	ID=1_02791;product=product%3DtRNA-Glu
+seq_1	MetaPathExplorer:1.1	rDNA	2812665	2815566	2644.3	+	.	ID=1_02792;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.2812664.2815586;product=product%3DBacterial:23S rDNA
+seq_1	MetaPathExplorer:1.1	rDNA	2815759	2815872	80.9	+	.	ID=1_02793;note=No available lineage;organism=B04014;product=product%3DBacterial:5S rDNA
+seq_1	Aragorn:1.2.38	tRNA	2816027	2816102	.	+	.	ID=1_02794;product=product%3DtRNA-Thr
+seq_1	Aragorn:1.2.38	tRNA	2816027	2816102	.	+	.	ID=1_02795;product=product%3DtRNA-Thr
+seq_1	MetaPathExplorer:1.1	rDNA	2816143	2816256	83.1	+	.	ID=1_02796;note=No available lineage;organism=B02613;product=product%3DBacterial:5S rDNA
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2816720	2816941	21.3	-	0	ID=1_02797;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2817205	2817393	17.2	+	0	ID=1_02798;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2817565	2818470	33.0	+	0	ID=1_02799;product=hypothetical protein
@@ -2892,11 +2892,11 @@ seq_1	MetaPathExplorer:1.1	rDNA	2816143	2816256	83.1	+	.	ID=1_02796;note=No avai
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2908376	2909224	99.9	+	0	ID=1_02885;description=folP%3B dihydropteroate synthase [EC:2.5.1.15];product=K00796
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2909217	2910554	223.7	+	0	ID=1_02886;description=glmM%3B phosphoglucosamine mutase [EC:5.4.2.10];product=K03431
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2910782	2911114	34.9	+	0	ID=1_02887;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	2911129	2911215	.	+	.	ID=1_02888;product=tRNA-Leu
-seq_1	Aragorn:1.2.38	tRNA	2911129	2911215	.	+	.	ID=1_02889;product=tRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	2911129	2911215	.	+	.	ID=1_02888;product=product%3DtRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	2911129	2911215	.	+	.	ID=1_02889;product=product%3DtRNA-Leu
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2911397	2912740	205.4	-	0	ID=1_02890;description=argG%2C ASS1%3B argininosuccinate synthase [EC:6.3.4.5];product=K01940
-seq_1	Aragorn:1.2.38	tRNA	2913088	2913164	.	+	.	ID=1_02891;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	2913088	2913164	.	+	.	ID=1_02892;product=tRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	2913088	2913164	.	+	.	ID=1_02891;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	2913088	2913164	.	+	.	ID=1_02892;product=product%3DtRNA-Met
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2913401	2913823	42.5	+	0	ID=1_02893;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2913851	2915338	280.7	+	0	ID=1_02894;description=nusA%3B N utilization substance protein A;product=K02600
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	2915363	2918035	467.1	+	0	ID=1_02895;description=infB%2C MTIF2%3B translation initiation factor IF-2;product=K02519
@@ -2986,8 +2986,8 @@ seq_1	Aragorn:1.2.38	tRNA	2913088	2913164	.	+	.	ID=1_02892;product=tRNA-Met
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3006718	3008208	179.3	-	0	ID=1_02979;description=patA%3B putrescine aminotransferase [EC:2.6.1.82];product=K09251
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3008610	3009233	92.7	-	0	ID=1_02980;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3009508	3010272	94.1	+	0	ID=1_02981;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	3010329	3010404	.	-	.	ID=1_02982;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	3010329	3010404	.	-	.	ID=1_02983;product=tRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	3010329	3010404	.	-	.	ID=1_02982;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	3010329	3010404	.	-	.	ID=1_02983;product=product%3DtRNA-Met
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3010530	3011036	51.6	+	0	ID=1_02984;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3011116	3012957	333.6	-	0	ID=1_02985;description=SIG1%2C rpoD%3B RNA polymerase primary sigma factor;product=K03086
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3013152	3014897	189.5	-	0	ID=1_02986;description=dnaG%3B DNA primase [EC:2.7.7.-];product=K02316
@@ -3146,8 +3146,8 @@ seq_1	Aragorn:1.2.38	tRNA	3010329	3010404	.	-	.	ID=1_02983;product=tRNA-Met
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3174727	3175593	35.8	-	0	ID=1_03139;description=K07497%3B putative transposase;product=K07497
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3175590	3175889	36.0	-	0	ID=1_03140;description=K07483%3B transposase;product=K07483
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3176254	3177516	109.3	-	0	ID=1_03141;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	3177714	3177789	.	-	.	ID=1_03142;product=tRNA-Phe
-seq_1	Aragorn:1.2.38	tRNA	3177714	3177789	.	-	.	ID=1_03143;product=tRNA-Phe
+seq_1	Aragorn:1.2.38	tRNA	3177714	3177789	.	-	.	ID=1_03142;product=product%3DtRNA-Phe
+seq_1	Aragorn:1.2.38	tRNA	3177714	3177789	.	-	.	ID=1_03143;product=product%3DtRNA-Phe
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3177895	3178602	60.8	-	0	ID=1_03144;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3179004	3180233	135.3	+	0	ID=1_03145;description=E4.1.1.17%2C ODC1%2C speC%2C speF%3B ornithine decarboxylase [EC:4.1.1.17];product=K01581
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3180273	3181160	66.7	-	0	ID=1_03146;product=hypothetical protein
@@ -3263,8 +3263,8 @@ seq_1	Aragorn:1.2.38	tRNA	3177714	3177789	.	-	.	ID=1_03143;product=tRNA-Phe
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3298531	3298878	46.9	+	0	ID=1_03256;description=K07484%3B transposase;product=K07484
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3298928	3300466	135.8	+	0	ID=1_03257;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3300717	3301472	32.2	+	0	ID=1_03258;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	3301617	3301690	.	+	.	ID=1_03259;product=tRNA-Gly
-seq_1	Aragorn:1.2.38	tRNA	3301617	3301690	.	+	.	ID=1_03260;product=tRNA-Gly
+seq_1	Aragorn:1.2.38	tRNA	3301617	3301690	.	+	.	ID=1_03259;product=product%3DtRNA-Gly
+seq_1	Aragorn:1.2.38	tRNA	3301617	3301690	.	+	.	ID=1_03260;product=product%3DtRNA-Gly
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3302033	3303649	105.9	+	0	ID=1_03261;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3303719	3303898	8.4	+	0	ID=1_03262;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3304239	3304988	49.8	+	0	ID=1_03263;product=hypothetical protein
@@ -3326,12 +3326,12 @@ seq_1	Aragorn:1.2.38	tRNA	3301617	3301690	.	+	.	ID=1_03260;product=tRNA-Gly
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3363660	3363857	1.7	+	0	ID=1_03319;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3363973	3365304	185.6	-	0	ID=1_03320;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3365536	3366789	152.3	+	0	ID=1_03321;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	3366865	3366941	.	-	.	ID=1_03322;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	3366865	3366941	.	-	.	ID=1_03323;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	3366976	3367052	.	-	.	ID=1_03324;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	3366976	3367052	.	-	.	ID=1_03325;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	3367087	3367163	.	-	.	ID=1_03326;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	3367087	3367163	.	-	.	ID=1_03327;product=tRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	3366865	3366941	.	-	.	ID=1_03322;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	3366865	3366941	.	-	.	ID=1_03323;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	3366976	3367052	.	-	.	ID=1_03324;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	3366976	3367052	.	-	.	ID=1_03325;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	3367087	3367163	.	-	.	ID=1_03326;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	3367087	3367163	.	-	.	ID=1_03327;product=product%3DtRNA-Met
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3367371	3368468	131.9	+	0	ID=1_03328;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3368693	3369499	101.6	+	0	ID=1_03329;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3369563	3370006	48.5	-	0	ID=1_03330;product=hypothetical protein
@@ -3432,14 +3432,14 @@ seq_1	Aragorn:1.2.38	tRNA	3367087	3367163	.	-	.	ID=1_03327;product=tRNA-Met
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3466548	3469178	428.9	+	0	ID=1_03425;description=AARS%2C alaS%3B alanyl-tRNA synthetase [EC:6.1.1.7];product=K01872
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3469413	3469598	26.7	+	0	ID=1_03426;description=csrA%3B carbon storage regulator;product=K03563
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3469717	3470223	2.2	-	0	ID=1_03427;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	3469914	3470006	.	+	.	ID=1_03428;product=tRNA-Ser
-seq_1	Aragorn:1.2.38	tRNA	3469914	3470006	.	+	.	ID=1_03429;product=tRNA-Ser
-seq_1	Aragorn:1.2.38	tRNA	3470010	3470086	.	+	.	ID=1_03430;product=tRNA-Arg
-seq_1	Aragorn:1.2.38	tRNA	3470010	3470086	.	+	.	ID=1_03431;product=tRNA-Arg
-seq_1	Aragorn:1.2.38	tRNA	3470285	3470361	.	+	.	ID=1_03432;product=tRNA-Arg
-seq_1	Aragorn:1.2.38	tRNA	3470285	3470361	.	+	.	ID=1_03433;product=tRNA-Arg
-seq_1	Aragorn:1.2.38	tRNA	3470559	3470635	.	+	.	ID=1_03434;product=tRNA-Arg
-seq_1	Aragorn:1.2.38	tRNA	3470559	3470635	.	+	.	ID=1_03435;product=tRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	3469914	3470006	.	+	.	ID=1_03428;product=product%3DtRNA-Ser
+seq_1	Aragorn:1.2.38	tRNA	3469914	3470006	.	+	.	ID=1_03429;product=product%3DtRNA-Ser
+seq_1	Aragorn:1.2.38	tRNA	3470010	3470086	.	+	.	ID=1_03430;product=product%3DtRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	3470010	3470086	.	+	.	ID=1_03431;product=product%3DtRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	3470285	3470361	.	+	.	ID=1_03432;product=product%3DtRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	3470285	3470361	.	+	.	ID=1_03433;product=product%3DtRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	3470559	3470635	.	+	.	ID=1_03434;product=product%3DtRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	3470559	3470635	.	+	.	ID=1_03435;product=product%3DtRNA-Arg
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3470916	3471482	65.4	+	0	ID=1_03436;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3471479	3471907	15.0	+	0	ID=1_03437;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3471980	3473536	202.1	+	0	ID=1_03438;description=gshA%3B glutamate--cysteine ligase [EC:6.3.2.2];product=K01919
@@ -3476,8 +3476,8 @@ seq_1	Aragorn:1.2.38	tRNA	3470559	3470635	.	+	.	ID=1_03435;product=tRNA-Arg
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3500005	3501273	136.0	-	0	ID=1_03469;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3501293	3502270	148.2	-	0	ID=1_03470;description=csiD%3B protein CsiD;product=K15737
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3502585	3504801	114.9	-	0	ID=1_03471;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	3505321	3505396	.	+	.	ID=1_03472;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	3505321	3505396	.	+	.	ID=1_03473;product=tRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	3505321	3505396	.	+	.	ID=1_03472;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	3505321	3505396	.	+	.	ID=1_03473;product=product%3DtRNA-Met
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3506011	3506151	8.5	-	0	ID=1_03474;description=RP-L36%2C MRPL36%2C rpmJ%3B large subunit ribosomal protein L36;product=K02919
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3506148	3506414	28.4	-	0	ID=1_03475;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3506876	3506977	7.1	-	0	ID=1_03476;product=hypothetical protein
@@ -3510,8 +3510,8 @@ seq_1	Aragorn:1.2.38	tRNA	3505321	3505396	.	+	.	ID=1_03473;product=tRNA-Met
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3536265	3537365	122.6	+	0	ID=1_03503;description=K06905%3B uncharacterized protein;product=K06905
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3537209	3537640	1.5	-	0	ID=1_03504;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3537679	3538161	29.7	-	0	ID=1_03505;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tmRNA	3538285	3538647	.	-	.	ID=1_03506;product=tmRNA
-seq_1	Aragorn:1.2.38	tmRNA	3538285	3538647	.	-	.	ID=1_03507;product=tmRNA
+seq_1	Aragorn:1.2.38	tmRNA	3538285	3538647	.	-	.	ID=1_03506;product=product%3DtmRNA
+seq_1	Aragorn:1.2.38	tmRNA	3538285	3538647	.	-	.	ID=1_03507;product=product%3DtmRNA
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3538862	3539344	50.2	-	0	ID=1_03508;description=smpB%3B SsrA-binding protein;product=K03664
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3539476	3539952	47.4	+	0	ID=1_03509;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3539942	3540232	31.4	+	0	ID=1_03510;description=K09801%3B uncharacterized protein;product=K09801
@@ -3538,12 +3538,12 @@ seq_1	Aragorn:1.2.38	tmRNA	3538285	3538647	.	-	.	ID=1_03507;product=tmRNA
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3558204	3559184	137.5	+	0	ID=1_03531;description=rluD%3B 23S rRNA pseudouridine1911/1915/1917 synthase [EC:5.4.99.23];product=K06180
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3559181	3559912	76.7	+	0	ID=1_03532;description=yfiH%3B laccase domain-containing protein;product=K05810
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3560042	3562615	447.9	+	0	ID=1_03533;description=clpB%3B ATP-dependent Clp protease ATP-binding subunit ClpB;product=K03695
-seq_1	MetaPathExplorer:1.1	rDNA	3563084	3564546	1335.1	+	.	ID=1_03534;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.3563056.3564598;product=Bacterial:16S rDNA
+seq_1	MetaPathExplorer:1.1	rDNA	3563084	3564546	1335.1	+	.	ID=1_03534;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.3563056.3564598;product=product%3DBacterial:16S rDNA
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3564244	3564498	10.8	+	0	ID=1_03535;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	3564684	3564759	.	+	.	ID=1_03536;product=tRNA-Glu
-seq_1	Aragorn:1.2.38	tRNA	3564684	3564759	.	+	.	ID=1_03537;product=tRNA-Glu
-seq_1	MetaPathExplorer:1.1	rDNA	3564956	3567856	2649.1	+	.	ID=1_03538;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.3564955.3567876;product=Bacterial:23S rDNA
-seq_1	MetaPathExplorer:1.1	rDNA	3568049	3568162	80.9	+	.	ID=1_03539;note=No available lineage;organism=B04014;product=Bacterial:5S rDNA
+seq_1	Aragorn:1.2.38	tRNA	3564684	3564759	.	+	.	ID=1_03536;product=product%3DtRNA-Glu
+seq_1	Aragorn:1.2.38	tRNA	3564684	3564759	.	+	.	ID=1_03537;product=product%3DtRNA-Glu
+seq_1	MetaPathExplorer:1.1	rDNA	3564956	3567856	2649.1	+	.	ID=1_03538;note=Bacteria%3BProteobacteria%3BGammaproteobacteria%3BEnterobacteriales%3BEnterobacteriaceae%3BEscherichia-Shigella%3BEscherichia albertii KF1;organism=CP007025.3564955.3567876;product=product%3DBacterial:23S rDNA
+seq_1	MetaPathExplorer:1.1	rDNA	3568049	3568162	80.9	+	.	ID=1_03539;note=No available lineage;organism=B04014;product=product%3DBacterial:5S rDNA
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3568517	3569815	96.4	+	0	ID=1_03540;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3569812	3570084	26.0	-	0	ID=1_03541;description=yfiM%3B putative lipoprotein;product=K05811
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3570179	3571534	155.5	-	0	ID=1_03542;description=pssA%3B CDP-diacylglycerol---serine O-phosphatidyltransferase [EC:2.7.8.8];product=K00998
@@ -3739,19 +3739,19 @@ seq_1	MetaPathExplorer:1.1	rDNA	3568049	3568162	80.9	+	.	ID=1_03539;note=No avai
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3776277	3777110	91.5	+	0	ID=1_03732;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3777170	3778426	125.6	+	0	ID=1_03733;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3778498	3779382	92.6	+	0	ID=1_03734;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	3779747	3779822	.	-	.	ID=1_03735;product=tRNA-Lys
-seq_1	Aragorn:1.2.38	tRNA	3779747	3779822	.	-	.	ID=1_03736;product=tRNA-Lys
-seq_1	Aragorn:1.2.38	tRNA	3779827	3779902	.	-	.	ID=1_03737;product=tRNA-Val
-seq_1	Aragorn:1.2.38	tRNA	3779827	3779902	.	-	.	ID=1_03738;product=tRNA-Val
-seq_1	Aragorn:1.2.38	tRNA	3779947	3780022	.	-	.	ID=1_03739;product=tRNA-Val
-seq_1	Aragorn:1.2.38	tRNA	3779947	3780022	.	-	.	ID=1_03740;product=tRNA-Val
+seq_1	Aragorn:1.2.38	tRNA	3779747	3779822	.	-	.	ID=1_03735;product=product%3DtRNA-Lys
+seq_1	Aragorn:1.2.38	tRNA	3779747	3779822	.	-	.	ID=1_03736;product=product%3DtRNA-Lys
+seq_1	Aragorn:1.2.38	tRNA	3779827	3779902	.	-	.	ID=1_03737;product=product%3DtRNA-Val
+seq_1	Aragorn:1.2.38	tRNA	3779827	3779902	.	-	.	ID=1_03738;product=product%3DtRNA-Val
+seq_1	Aragorn:1.2.38	tRNA	3779947	3780022	.	-	.	ID=1_03739;product=product%3DtRNA-Val
+seq_1	Aragorn:1.2.38	tRNA	3779947	3780022	.	-	.	ID=1_03740;product=product%3DtRNA-Val
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3780281	3781696	220.0	+	0	ID=1_03741;description=EARS%2C gltX%3B glutamyl-tRNA synthetase [EC:6.1.1.17];product=K01885
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3781744	3782115	20.5	-	0	ID=1_03742;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3782138	3782497	42.3	-	0	ID=1_03743;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	3782718	3782793	.	+	.	ID=1_03744;product=tRNA-Ala
-seq_1	Aragorn:1.2.38	tRNA	3782718	3782793	.	+	.	ID=1_03745;product=tRNA-Ala
-seq_1	Aragorn:1.2.38	tRNA	3782833	3782908	.	+	.	ID=1_03746;product=tRNA-Ala
-seq_1	Aragorn:1.2.38	tRNA	3782833	3782908	.	+	.	ID=1_03747;product=tRNA-Ala
+seq_1	Aragorn:1.2.38	tRNA	3782718	3782793	.	+	.	ID=1_03744;product=product%3DtRNA-Ala
+seq_1	Aragorn:1.2.38	tRNA	3782718	3782793	.	+	.	ID=1_03745;product=product%3DtRNA-Ala
+seq_1	Aragorn:1.2.38	tRNA	3782833	3782908	.	+	.	ID=1_03746;product=product%3DtRNA-Ala
+seq_1	Aragorn:1.2.38	tRNA	3782833	3782908	.	+	.	ID=1_03747;product=product%3DtRNA-Ala
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3783098	3785287	215.0	+	0	ID=1_03748;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3785389	3785484	1.8	+	0	ID=1_03749;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3786403	3786597	1.5	-	0	ID=1_03750;product=hypothetical protein
@@ -3775,8 +3775,8 @@ seq_1	Aragorn:1.2.38	tRNA	3782833	3782908	.	+	.	ID=1_03747;product=tRNA-Ala
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3806385	3807713	169.4	-	0	ID=1_03768;description=dsdA%3B D-serine dehydratase [EC:4.3.1.18];product=K01753
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3807731	3809068	151.7	-	0	ID=1_03769;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3809286	3810233	76.8	+	0	ID=1_03770;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	3810366	3810440	.	-	.	ID=1_03771;product=tRNA-Arg
-seq_1	Aragorn:1.2.38	tRNA	3810366	3810440	.	-	.	ID=1_03772;product=tRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	3810366	3810440	.	-	.	ID=1_03771;product=product%3DtRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	3810366	3810440	.	-	.	ID=1_03772;product=product%3DtRNA-Arg
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3810880	3811635	110.4	+	0	ID=1_03773;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3811697	3813037	174.8	-	0	ID=1_03774;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3813409	3813693	41.4	+	0	ID=1_03775;product=hypothetical protein
@@ -3939,8 +3939,8 @@ seq_1	Aragorn:1.2.38	tRNA	3810366	3810440	.	-	.	ID=1_03772;product=tRNA-Arg
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3988577	3989629	151.4	+	0	ID=1_03932;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3989842	3990489	108.3	-	0	ID=1_03933;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3990809	3993397	244.4	+	0	ID=1_03934;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	3993497	3993573	.	-	.	ID=1_03935;product=tRNA-Pro
-seq_1	Aragorn:1.2.38	tRNA	3993497	3993573	.	-	.	ID=1_03936;product=tRNA-Pro
+seq_1	Aragorn:1.2.38	tRNA	3993497	3993573	.	-	.	ID=1_03935;product=product%3DtRNA-Pro
+seq_1	Aragorn:1.2.38	tRNA	3993497	3993573	.	-	.	ID=1_03936;product=product%3DtRNA-Pro
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3993648	3995408	174.7	-	0	ID=1_03937;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3995428	3995655	18.5	-	0	ID=1_03938;description=K09904%3B uncharacterized protein;product=K09904
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	3995837	3996844	163.9	+	0	ID=1_03939;description=ndpA%3B nucleoid-associated protein;product=K06899
@@ -4168,17 +4168,17 @@ seq_1	Aragorn:1.2.38	tRNA	3993497	3993573	.	-	.	ID=1_03936;product=tRNA-Pro
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4229309	4229743	18.6	+	0	ID=1_04161;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4230266	4231009	86.7	+	0	ID=1_04162;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4231182	4232117	69.5	+	0	ID=1_04163;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	4232173	4232248	.	-	.	ID=1_04164;product=tRNA-Asn
-seq_1	Aragorn:1.2.38	tRNA	4232173	4232248	.	-	.	ID=1_04165;product=tRNA-Asn
+seq_1	Aragorn:1.2.38	tRNA	4232173	4232248	.	-	.	ID=1_04164;product=product%3DtRNA-Asn
+seq_1	Aragorn:1.2.38	tRNA	4232173	4232248	.	-	.	ID=1_04165;product=product%3DtRNA-Asn
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4232349	4233803	93.5	-	0	ID=1_04166;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	4233996	4234071	.	+	.	ID=1_04167;product=tRNA-Asn
-seq_1	Aragorn:1.2.38	tRNA	4233996	4234071	.	+	.	ID=1_04168;product=tRNA-Asn
+seq_1	Aragorn:1.2.38	tRNA	4233996	4234071	.	+	.	ID=1_04167;product=product%3DtRNA-Asn
+seq_1	Aragorn:1.2.38	tRNA	4233996	4234071	.	+	.	ID=1_04168;product=product%3DtRNA-Asn
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4234140	4235594	114.9	-	0	ID=1_04169;description=amn%3B AMP nucleosidase [EC:3.2.2.4];product=K01241
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4235696	4237009	118.1	-	0	ID=1_04170;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4237620	4237994	32.6	-	0	ID=1_04171;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4238007	4242296	386.8	-	0	ID=1_04172;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	4242949	4243024	.	-	.	ID=1_04173;product=tRNA-Asn
-seq_1	Aragorn:1.2.38	tRNA	4242949	4243024	.	-	.	ID=1_04174;product=tRNA-Asn
+seq_1	Aragorn:1.2.38	tRNA	4242949	4243024	.	-	.	ID=1_04173;product=product%3DtRNA-Asn
+seq_1	Aragorn:1.2.38	tRNA	4242949	4243024	.	-	.	ID=1_04174;product=product%3DtRNA-Asn
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4243349	4243624	35.9	+	0	ID=1_04175;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4243901	4244518	49.8	+	0	ID=1_04176;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4244552	4246090	135.9	-	0	ID=1_04177;product=hypothetical protein
@@ -4186,11 +4186,11 @@ seq_1	Aragorn:1.2.38	tRNA	4242949	4243024	.	-	.	ID=1_04174;product=tRNA-Asn
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4246604	4246804	14.5	+	0	ID=1_04179;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4246788	4247675	67.6	+	0	ID=1_04180;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4247983	4248300	12.5	+	0	ID=1_04181;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	4248339	4248414	.	-	.	ID=1_04182;product=tRNA-Asn
-seq_1	Aragorn:1.2.38	tRNA	4248339	4248414	.	-	.	ID=1_04183;product=tRNA-Asn
+seq_1	Aragorn:1.2.38	tRNA	4248339	4248414	.	-	.	ID=1_04182;product=product%3DtRNA-Asn
+seq_1	Aragorn:1.2.38	tRNA	4248339	4248414	.	-	.	ID=1_04183;product=product%3DtRNA-Asn
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4248515	4249312	75.7	-	0	ID=1_04184;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	4249406	4249495	.	+	.	ID=1_04185;product=tRNA-Ser
-seq_1	Aragorn:1.2.38	tRNA	4249406	4249495	.	+	.	ID=1_04186;product=tRNA-Ser
+seq_1	Aragorn:1.2.38	tRNA	4249406	4249495	.	+	.	ID=1_04185;product=product%3DtRNA-Ser
+seq_1	Aragorn:1.2.38	tRNA	4249406	4249495	.	+	.	ID=1_04186;product=product%3DtRNA-Ser
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4249548	4250573	55.5	-	0	ID=1_04187;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4250573	4250776	4.7	-	0	ID=1_04188;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4250835	4253306	260.9	-	0	ID=1_04189;product=hypothetical protein
@@ -4201,10 +4201,10 @@ seq_1	Aragorn:1.2.38	tRNA	4249406	4249495	.	+	.	ID=1_04186;product=tRNA-Ser
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4254475	4255017	27.9	+	0	ID=1_04194;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4255249	4255446	14.6	+	0	ID=1_04195;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4255597	4256646	89.7	+	0	ID=1_04196;description=E2.1.1.72%3B site-specific DNA-methyltransferase (adenine-specific) [EC:2.1.1.72];product=K00571
-seq_1	Aragorn:1.2.38	tRNA	4256696	4256771	.	+	.	ID=1_04197;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	4256696	4256771	.	+	.	ID=1_04198;product=tRNA-Met
-seq_1	Aragorn:1.2.38	tRNA	4256869	4256945	.	+	.	ID=1_04199;product=tRNA-Arg
-seq_1	Aragorn:1.2.38	tRNA	4256869	4256945	.	+	.	ID=1_04200;product=tRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	4256696	4256771	.	+	.	ID=1_04197;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	4256696	4256771	.	+	.	ID=1_04198;product=product%3DtRNA-Met
+seq_1	Aragorn:1.2.38	tRNA	4256869	4256945	.	+	.	ID=1_04199;product=product%3DtRNA-Arg
+seq_1	Aragorn:1.2.38	tRNA	4256869	4256945	.	+	.	ID=1_04200;product=product%3DtRNA-Arg
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4257824	4258192	3.3	-	0	ID=1_04201;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4258493	4258858	37.1	+	0	ID=1_04202;description=K07483%3B transposase;product=K07483
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4258816	4260225	101.7	+	0	ID=1_04203;description=K07497%3B putative transposase;product=K07497
@@ -4277,12 +4277,12 @@ seq_1	Aragorn:1.2.38	tRNA	4256869	4256945	.	+	.	ID=1_04200;product=tRNA-Arg
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4314738	4315394	58.3	+	0	ID=1_04270;description=uvrY%2C gacA%2C varA%3B two-component system%2C NarL family%2C invasion response regulator UvrY;product=K07689
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4315391	4317223	210.0	+	0	ID=1_04271;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4317280	4317828	45.1	+	0	ID=1_04272;description=pgsA%2C PGS1%3B CDP-diacylglycerol--glycerol-3-phosphate 3-phosphatidyltransferase [EC:2.7.8.5];product=K00995
-seq_1	Aragorn:1.2.38	tRNA	4317980	4318055	.	+	.	ID=1_04273;product=tRNA-Gly
-seq_1	Aragorn:1.2.38	tRNA	4317980	4318055	.	+	.	ID=1_04274;product=tRNA-Gly
-seq_1	Aragorn:1.2.38	tRNA	4318109	4318182	.	+	.	ID=1_04275;product=tRNA-Cys
-seq_1	Aragorn:1.2.38	tRNA	4318109	4318182	.	+	.	ID=1_04276;product=tRNA-Cys
-seq_1	Aragorn:1.2.38	tRNA	4318194	4318280	.	+	.	ID=1_04277;product=tRNA-Leu
-seq_1	Aragorn:1.2.38	tRNA	4318194	4318280	.	+	.	ID=1_04278;product=tRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	4317980	4318055	.	+	.	ID=1_04273;product=product%3DtRNA-Gly
+seq_1	Aragorn:1.2.38	tRNA	4317980	4318055	.	+	.	ID=1_04274;product=product%3DtRNA-Gly
+seq_1	Aragorn:1.2.38	tRNA	4318109	4318182	.	+	.	ID=1_04275;product=product%3DtRNA-Cys
+seq_1	Aragorn:1.2.38	tRNA	4318109	4318182	.	+	.	ID=1_04276;product=product%3DtRNA-Cys
+seq_1	Aragorn:1.2.38	tRNA	4318194	4318280	.	+	.	ID=1_04277;product=product%3DtRNA-Leu
+seq_1	Aragorn:1.2.38	tRNA	4318194	4318280	.	+	.	ID=1_04278;product=product%3DtRNA-Leu
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4318990	4319154	7.3	+	0	ID=1_04279;description=K07483%3B transposase;product=K07483
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4319132	4319332	14.5	+	0	ID=1_04280;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4319316	4320203	66.7	+	0	ID=1_04281;product=hypothetical protein
@@ -4529,10 +4529,10 @@ seq_1	Aragorn:1.2.38	tRNA	4318194	4318280	.	+	.	ID=1_04278;product=tRNA-Leu
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4554671	4555456	68.5	+	0	ID=1_04522;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4555460	4556272	46.6	+	0	ID=1_04523;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4556336	4556641	43.2	-	0	ID=1_04524;product=hypothetical protein
-seq_1	Aragorn:1.2.38	tRNA	4556750	4556826	.	-	.	ID=1_04525;product=tRNA-Val
-seq_1	Aragorn:1.2.38	tRNA	4556750	4556826	.	-	.	ID=1_04526;product=tRNA-Val
-seq_1	Aragorn:1.2.38	tRNA	4556831	4556907	.	-	.	ID=1_04527;product=tRNA-Val
-seq_1	Aragorn:1.2.38	tRNA	4556831	4556907	.	-	.	ID=1_04528;product=tRNA-Val
+seq_1	Aragorn:1.2.38	tRNA	4556750	4556826	.	-	.	ID=1_04525;product=product%3DtRNA-Val
+seq_1	Aragorn:1.2.38	tRNA	4556750	4556826	.	-	.	ID=1_04526;product=product%3DtRNA-Val
+seq_1	Aragorn:1.2.38	tRNA	4556831	4556907	.	-	.	ID=1_04527;product=product%3DtRNA-Val
+seq_1	Aragorn:1.2.38	tRNA	4556831	4556907	.	-	.	ID=1_04528;product=product%3DtRNA-Val
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4557206	4558462	143.7	+	0	ID=1_04529;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4558502	4559875	169.3	-	0	ID=1_04530;product=hypothetical protein
 1440052.PRJNA232181.CP007025	Prodigal:2.6.3	CDS	4560091	4560732	101.4	+	0	ID=1_04531;description=ribE%2C RIB5%3B riboflavin synthase [EC:2.5.1.9];product=K00793
