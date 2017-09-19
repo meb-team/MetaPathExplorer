@@ -1,7 +1,5 @@
 # MetaPathExplorer
 
-_Available soon_
-
 ## Contents 
 
 * [Introduction](https://github.com/meb-team/MetaPathExplorer/blob/master/README.md#introduction)
@@ -84,9 +82,9 @@ git clone https://github.com/meb-team/MetaPathExplorer.git
     -h	--help		Print this help and exit.
 
     -v	--verbose	Verbose mode. Can be used multiple times for increased
-                	verbosity.
+                    verbosity.
 
-        --ini 		Option ini file for MetaPathExplorer.
+        --ini       Option ini file for MetaPathExplorer.
 
     -f	--force     /!\ Force the script by ERASE early project. 
     
