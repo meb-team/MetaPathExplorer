@@ -5,8 +5,6 @@
 * [Introduction](https://github.com/meb-team/MetaPathExplorer/blob/master/README.md#introduction)
 * [Installation](https://github.com/meb-team/MetaPathExplorer/blob/master/README.md#installation)
 * [How to use?](https://github.com/meb-team/MetaPathExplorer/blob/master/README.md#how_to_use)
-* [Command line options](https://github.com/meb-team/MetaPathExplorer/blob/master/README.md#command_line_options)
-* [INI options](https://github.com/meb-team/MetaPathExplorer/blob/master/README.md#ini_options)
 * [Bugs](https://github.com/meb-team/MetaPathExplorer/blob/master/README.md#bugs)
 * [Citation](https://github.com/meb-team/MetaPathExplorer/blob/master/README.md#citation)
 
