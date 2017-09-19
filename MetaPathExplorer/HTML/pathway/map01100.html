@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<script src="../js/w3.js"></script>
+<script src="../js/MetaPathExplorer.js"></script>
+	<head>		
+		<!-- En-tête de la page -->
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../style/style.css" />
+		<title>MetaPathExplorer</title>
+		<link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" /> 
+	</head>
+	
+	<body>
+		<!-- <div class="header"><div id="header_title"><img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" width="8%" height="8%">MetaPathExplorer Report</div><div id="header_filename">sept. 09 2017
+<br/>map01100<br/>Metabolic pathways</div></div> --> 
+		<div class="header">
+			<div id="header_title"><a href="../../MetaPathExplorer.html">MetaPathExplorer</br>Report</a></div>
+			<div id="header_filename"><a href="http://www.kegg.jp/dbget-bin/www_bget?pathway+map01100">map01100<br/>Metabolic pathways</a></div>
+			<div id="header_date">sept. 09 2017
+<br/></div>
+		</div>
+
+		<div id="wrapper">
+			<div class="summary">
+				<br/>
+				<div id="sample"><h2>Sample</h2>
+					<br/>
+						
+					<li><a href="#PRJNA158811">PRJNA158811</a></li>
+					<li><a href="#PRJNA232181">PRJNA232181</a></li>
+</div>
+			</div>
+
+			<div class="main" class2="sample">
+				<div>
+					<br/>
+					<ul>
+						<li style="display:inline-block;">
+							<a href="http://www.kegg.jp/dbget-bin/www_bget?pathway+map01100"><button type="button">Pathway entry on KEGG</button></a>
+						</li>
+						<li style="display:inline-block;">
+							<a href="http://www.kegg.jp/kegg-bin/show_pathway?org_name=map&mapno=01100&mapscale=&show_description=hide"><button type="button">Link to Pathway on KEGG</button></a>
+						</li>
+						<li style="display:inline-block;">
+							<input id="show description" type=button value="Show Description" onclick="hide_desc(description)"/>
+						</li>
+						<li style="display:inline-block;">
+							<input type=button value="Resize" onclick="resize()" />
+							<input type=text id="txtbox" value="45%" style="width:50px;"/>
+						</li>
+					</ul>
+					<p id="description" style="display: none;"> 
+						'No available description.'  Copyright 1995-2017 Kanehisa Laboratories
+					</p>
+									<div class="sample" style='height:auto;width:45%;'>
+					<h2 id="PRJNA158811"><center>PRJNA158811</center></h2>
+					<br/>					<div style='padding:10px'>
+					<img src="map01100/PRJNA158811.png" style='height:100%;width:100%;object-fit:contain'></img>
+					</div>
+					<br/>
+					<div class="wrapper"><input id="button_PRJNA158811" type=button value="Show Table" onclick="hide(button_PRJNA158811,tab_PRJNA158811)" />
+					<br/>
+					<table id="tab_PRJNA158811" style="display:none;" align="center">						<tr>
+							<th>orthology count</th>
+							<th>kegg orthology</th>
+						</tr>
+						<tr>
+							<td>371</td>
+							<td>K00003 | K00005 | K00012 | K00013 | K00024 | K00031 | K00033 | K00036 | K00052 | K00053 | K00058 | K00059 | K00075 | K00088 | K00097 | K00099 | K00104 | K00121 | K00133 | K00134 | K00135 | K00145 | K00147 | K00150 | K00161 | K00162 | K00208 | K00215 | K00218 | K00226 | K00228 | K00239 | K00240 | K00241 | K00259 | K00262 | K00266 | K00275 | K00278 | K00281 | K00286 | K00297 | K00324 | K00325 | K00382 | K00390 | K00392 | K00425 | K00426 | K00514 | K00524 | K00548 | K00558 | K00560 | K00588 | K00600 | K00602 | K00605 | K00606 | K00609 | K00611 | K00615 | K00616 | K00620 | K00627 | K00640 | K00645 | K00648 | K00655 | K00677 | K00688 | K00700 | K00703 | K00705 | K00721 | K00748 | K00759 | K00761 | K00762 | K00763 | K00764 | K00765 | K00766 | K00767 | K00772 | K00788 | K00789 | K00790 | K00791 | K00794 | K00796 | K00797 | K00800 | K00801 | K00812 | K00820 | K00821 | K00826 | K00830 | K00845 | K00855 | K00858 | K00860 | K00872 | K00873 | K00927 | K00928 | K00930 | K00931 | K00940 | K00941 | K00948 | K00950 | K00954 | K00958 | K00966 | K00971 | K00975 | K00978 | K00981 | K00991 | K00995 | K01000 | K01007 | K01011 | K01012 | K01046 | K01057 | K01061 | K01092 | K01251 | K01255 | K01256 | K01424 | K01428 | K01429 | K01430 | K01465 | K01480 | K01488 | K01491 | K01493 | K01495 | K01585 | K01586 | K01588 | K01591 | K01595 | K01599 | K01601 | K01602 | K01609 | K01611 | K01620 | K01624 | K01626 | K01647 | K01649 | K01652 | K01653 | K01654 | K01657 | K01658 | K01661 | K01662 | K01679 | K01682 | K01687 | K01689 | K01693 | K01695 | K01696 | K01698 | K01703 | K01704 | K01711 | K01714 | K01733 | K01735 | K01736 | K01737 | K01738 | K01749 | K01755 | K01756 | K01770 | K01772 | K01775 | K01776 | K01778 | K01783 | K01784 | K01791 | K01803 | K01807 | K01809 | K01810 | K01814 | K01823 | K01835 | K01845 | K01885 | K01895 | K01915 | K01920 | K01921 | K01924 | K01925 | K01933 | K01939 | K01940 | K01945 | K01950 | K01951 | K01952 | K01955 | K01956 | K01961 | K01962 | K01963 | K02093 | K02108 | K02110 | K02111 | K02112 | K02114 | K02115 | K02224 | K02227 | K02232 | K02259 | K02274 | K02276 | K02291 | K02293 | K02294 | K02301 | K02303 | K02335 | K02337 | K02338 | K02372 | K02377 | K02433 | K02434 | K02435 | K02437 | K02492 | K02500 | K02501 | K02535 | K02548 | K02552 | K02563 | K02634 | K02635 | K02636 | K02637 | K02640 | K02641 | K02689 | K02690 | K02691 | K02692 | K02693 | K02697 | K02698 | K02699 | K02703 | K02704 | K02705 | K02706 | K02707 | K02708 | K02709 | K02710 | K02711 | K02712 | K02713 | K02714 | K02825 | K03040 | K03043 | K03046 | K03060 | K03147 | K03149 | K03179 | K03182 | K03183 | K03186 | K03403 | K03404 | K03405 | K03428 | K03431 | K03474 | K03517 | K03526 | K03527 | K03621 | K03635 | K03637 | K03639 | K03644 | K03689 | K03696 | K03737 | K03786 | K03787 | K03795 | K03801 | K03841 | K04035 | K04037 | K04038 | K04039 | K04040 | K04042 | K04487 | K05275 | K05572 | K05573 | K05574 | K05575 | K05576 | K05577 | K05578 | K05579 | K05580 | K05581 | K05582 | K05583 | K05584 | K05585 | K05586 | K05587 | K05588 | K05936 | K06042 | K06208 | K06920 | K07106 | K08678 | K08679 | K08903 | K08967 | K09457 | K09458 | K09835 | K09903 | K10206 | K10960 | K11175 | K11473 | K11532 | K11717 | K11752 | K11755 | K13038 | K13789 | K13821 | K14605 | K14652 | K15633 | K16149 | K16881 | K17108 | K19221 | K21071 | K21231</td>						</tr>
+					</table>					<br/>
+					<a></a>
+					</div>
+					<br/>
+					<br/>
+				</div>
+				<div class="sample" style='height:auto;width:45%;'>
+					<h2 id="PRJNA232181"><center>PRJNA232181</center></h2>
+					<br/>					<div style='padding:10px'>
+					<img src="map01100/PRJNA232181.png" style='height:100%;width:100%;object-fit:contain'></img>
+					</div>
+					<br/>
+					<div class="wrapper"><input id="button_PRJNA232181" type=button value="Show Table" onclick="hide(button_PRJNA232181,tab_PRJNA232181)" />
+					<br/>
+					<table id="tab_PRJNA232181" style="display:none;" align="center">						<tr>
+							<th>orthology count</th>
+							<th>kegg orthology</th>
+						</tr>
+						<tr>
+							<td>398</td>
+							<td>K00005 | K00012 | K00013 | K00014 | K00024 | K00029 | K00031 | K00033 | K00036 | K00042 | K00052 | K00053 | K00058 | K00059 | K00075 | K00088 | K00097 | K00099 | K00104 | K00121 | K00123 | K00133 | K00134 | K00135 | K00137 | K00138 | K00147 | K00163 | K00164 | K00208 | K00215 | K00228 | K00230 | K00239 | K00240 | K00244 | K00245 | K00246 | K00247 | K00254 | K00262 | K00266 | K00275 | K00278 | K00281 | K00287 | K00297 | K00322 | K00324 | K00325 | K00330 | K00331 | K00334 | K00335 | K00336 | K00337 | K00338 | K00339 | K00340 | K00341 | K00342 | K00343 | K00380 | K00381 | K00382 | K00390 | K00425 | K00525 | K00526 | K00527 | K00548 | K00549 | K00560 | K00568 | K00600 | K00602 | K00606 | K00609 | K00610 | K00611 | K00615 | K00616 | K00626 | K00631 | K00632 | K00640 | K00645 | K00647 | K00648 | K00651 | K00652 | K00655 | K00656 | K00657 | K00674 | K00688 | K00703 | K00705 | K00761 | K00762 | K00764 | K00765 | K00767 | K00788 | K00789 | K00790 | K00791 | K00793 | K00794 | K00795 | K00796 | K00797 | K00800 | K00813 | K00817 | K00820 | K00821 | K00823 | K00826 | K00831 | K00832 | K00833 | K00850 | K00855 | K00857 | K00858 | K00860 | K00864 | K00865 | K00867 | K00873 | K00891 | K00919 | K00925 | K00926 | K00927 | K00932 | K00939 | K00940 | K00941 | K00942 | K00943 | K00945 | K00946 | K00948 | K00954 | K00956 | K00957 | K00969 | K00975 | K00979 | K00991 | K00995 | K00998 | K01000 | K01007 | K01008 | K01012 | K01035 | K01058 | K01061 | K01077 | K01082 | K01089 | K01091 | K01092 | K01095 | K01207 | K01243 | K01255 | K01270 | K01424 | K01439 | K01465 | K01487 | K01491 | K01494 | K01495 | K01497 | K01520 | K01579 | K01581 | K01582 | K01584 | K01586 | K01588 | K01589 | K01591 | K01599 | K01608 | K01610 | K01611 | K01613 | K01624 | K01626 | K01627 | K01633 | K01637 | K01638 | K01647 | K01652 | K01653 | K01658 | K01661 | K01662 | K01676 | K01679 | K01681 | K01682 | K01685 | K01686 | K01687 | K01689 | K01696 | K01698 | K01703 | K01704 | K01711 | K01716 | K01735 | K01736 | K01737 | K01738 | K01739 | K01744 | K01749 | K01756 | K01760 | K01770 | K01775 | K01778 | K01783 | K01784 | K01786 | K01791 | K01803 | K01804 | K01807 | K01808 | K01809 | K01810 | K01814 | K01834 | K01835 | K01845 | K01847 | K01885 | K01886 | K01895 | K01902 | K01903 | K01908 | K01914 | K01915 | K01916 | K01918 | K01919 | K01920 | K01921 | K01923 | K01924 | K01925 | K01929 | K01933 | K01935 | K01937 | K01939 | K01940 | K01945 | K01951 | K01952 | K01953 | K01955 | K01956 | K01961 | K01962 | K01963 | K02108 | K02109 | K02110 | K02111 | K02112 | K02113 | K02114 | K02115 | K02160 | K02169 | K02170 | K02226 | K02297 | K02298 | K02299 | K02300 | K02301 | K02335 | K02337 | K02338 | K02340 | K02345 | K02372 | K02437 | K02438 | K02446 | K02492 | K02500 | K02501 | K02535 | K02548 | K02560 | K02563 | K02564 | K02794 | K02795 | K02796 | K02822 | K02858 | K03040 | K03043 | K03046 | K03060 | K03077 | K03147 | K03149 | K03150 | K03179 | K03182 | K03183 | K03186 | K03270 | K03271 | K03431 | K03472 | K03473 | K03474 | K03475 | K03476 | K03517 | K03524 | K03526 | K03527 | K03621 | K03635 | K03637 | K03639 | K03644 | K03735 | K03737 | K03752 | K03782 | K03784 | K03800 | K03801 | K03831 | K04042 | K04072 | K04487 | K04765 | K05368 | K06041 | K06131 | K06879 | K06920 | K07173 | K07251 | K07258 | K08289 | K08323 | K08722 | K09251 | K09458 | K09903 | K10026 | K11175 | K11258 | K11473 | K11645 | K11717 | K11752 | K11755 | K12112 | K12339 | K13038 | K13378 | K13788 | K13821 | K13953 | K13954 | K14260 | K14268 | K15633 | K15634 | K16066 | K17723 | K19222 | K19709 | K20861 | K20862 | K20881</td>						</tr>
+					</table>					<br/>
+					<a></a>
+					</div>
+					<br/>
+					<br/>
+				</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="footer">Produced by <a href="https://github.com/meb-team/MetaPathExplorer">MetaPathExplorer</a></div>
+	</body>
+</html>
+
+
+
+<script type="text/javascript">
+w3.includeHTML();
+</script>

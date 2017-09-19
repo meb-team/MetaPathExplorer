@@ -1,0 +1,1728 @@
+#! /usr/bin/perl
+
+=head1 NAME
+
+            MetaPathExplorer
+	
+
+=head1 SYNOPSIS
+
+How to used : 
+
+    Launch analysis
+
+        perl MetaPathExplorer --ini MetaPathExplorer.ini --input [assembly|reads|proteins] seqfile1 ... seqfileN
+        
+        or 
+        
+        perl MetaPathExplorer --ini MetaPathExplorer.ini --input [assembly|reads|proteins|annotations] $(< sample.list.txt) 
+
+        or 
+
+        perl MetaPathExplorer --ini MetaPathExplorer.ini --input matrix MetaPathExplorer.matrix.tsv
+		
+
+=head1 DESCRIPTION
+
+    MetaPathExplorer is a pipeline for analyzing and visualizing KEGG pathway maps (Kanehisa et al., 2002).
+    These pathways are produced from high quality reads or contigs/scaffolds (metagenomes or SCs) or sets 
+    of proteins or a KEGG Orthology group presence/absence matrix. 
+
+=head1 OPTIONS  
+ 
+    The options for the program as as follows:
+    
+    Global options:
+
+    -h	--help		Print this help and exit.
+
+    -v	--verbose	Verbose mode. Can be used multiple times for increased
+                	verbosity.
+
+        --ini 		Option ini file for MetaPathExplorer.
+
+    -f	--force		/!\ Force the script by ERASE early project. 
+    
+		--re-use	Use alsidy existing files (prediction, annotation, map ...) to
+                    produce the anlysis.
+
+		--input 	Type of input : 'assembly' (contigs/scaffold), 'proteins', 'reads'
+					or 'martix'
+
+		--rdna-p	rDNA prediction for assembly sequences.
+
+		--rdna-pa	rDNA prediction and annotation for assembly sequences. 
+
+		--trna		tRNA prediction for assembly sequences. 
+
+=head1 AUTHORS
+
+HOCHART Corentin
+
+=head1 VERSION
+
+V 1.1 
+
+=head1 DATE
+
+Creation : 14.12.2015
+Last modification : 18.09.2017
+
+=cut
+
+# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# libraries
+
+use strict;
+use warnings;
+
+use Bio::SeqIO;
+use Bio::SearchIO;
+use Bio::Seq;
+use Bio::Perl;
+use Bio::SeqFeature::Generic;
+use File::Copy;
+use File::Basename;
+use FindBin;
+use Getopt::Long;
+use HTML::Tree;
+use List::Util qw(max min);
+use List::MoreUtils qw(uniq);
+use LWP::Simple;
+use Pod::Usage;
+use POSIX ":sys_wait_h";
+use Time::Piece;
+use Time::Seconds;
+
+use lib "$FindBin::RealBin/../binaries";
+# use lib "$FindBin::RealBin/../modules";
+use Config::IniFiles;
+
+# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# scalars
+#		global variables
+my $help; 		# help flag
+my $verbose;	# debugging flag
+my $force;
+my $reuse;
+
+my $contigs_opt;
+my $sids_opt;
+
+my $fastsids;
+my $trna;				#trna  flag 
+my $rdna_prediction;	#rdna prediction flag
+my $rdna_prediction_annotation;	#rdna annotation flag
+	
+
+my $exe = $FindBin::RealScript;
+my $version;
+my $VERSION="1.1";
+my $date=date();
+my $REGEXP='(\d+[\.\w+]*\.\d+)';
+my $DATE = `date "+%b %m %Y"`;
+
+my $MetaPathExplorer_CFG="$FindBin::RealBin/MetaPathExplorer.ini";
+my $MetaPathExplorer_data="$FindBin::RealBin/../data/";
+my $MetaPathExplorer_data_rDNA="$FindBin::RealBin/../data/rDNA";
+my $HYPO = 'hypothetical protein';
+my $UNANN = 'unannotated protein';
+
+my $gff_factory = Bio::Tools::GFF->new(-gff_version=>3);
+my $KEGG_url='http://www.kegg.jp/kegg-bin/show_pathway?';
+my $KEGG_egg_img = "<img src=\"http://www.kegg.jp/Fig/egg.gif\" width=\"2%\" height=\"2%\">";
+my $KEGG_logo_img = "http://www.kegg.jp/Fig/kegg128.gif";
+my $UniProt_url='ftp://ftp.uniprot.org/pub/databases/uniprot/';
+my $dlkingdom;
+
+my $ext='(fna|fa|fasta|fq|fastq)';
+my $outdir;
+
+my $binaries="$FindBin::RealBin/../binaries";
+
+my $cmd;
+
+#		tRNA and tmRNA Predictions
+my $aragorn_opt='';
+my $tRNAscanSE;
+
+#		rDNA Predictions & Annotations
+my $evalue_co=0.01;
+my $kingdom="all";
+my $hmm_path="$FindBin::RealBin/../data/HMMs";
+
+#		CDS Predictions
+my $prodigal_opt="";
+
+my $UniRefdb="$FindBin::RealBin/../data/orthology_UniRef100_arc-bac-vir.fasta";
+my $databaseFile = '';
+
+# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# tables
+my @kingdoms;
+my @mol=('lsu','ssu','tsu');
+my @sample;
+
+# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# hashes
+my %description;
+my %KO;
+my %KO2PATH;
+my %KO2ORTHO;
+my %OPT;
+my %pathwayOrthologyListHash;
+my %PATHWAY;
+my %PATH2PATHWAY;
+my %sivlaID2lineage;
+
+my %kingdoms = (
+	'all' => {
+			NAME => 'all',
+			USE  => 0,
+		},
+		'arc' => {
+			NAME => 'Archaea',
+			USE  => 0,
+			GC 	=> 11,
+		},
+		'bac' => {
+			NAME => 'Bacteria',
+			USE  => 0,
+			GC 	=> 11,
+		},
+		'euk' => {
+			NAME => 'Eukaryota',
+			USE  => 0,
+		},
+		'vir' => {
+			NAME => 'Viruses',
+			USE  => 0,
+			GC 	=> 1,
+		},
+	);
+
+my %dict_glob_rDNA = (
+		'lsu' => '23S|28S',
+		'ssu' => '16S|18S',
+		'tsu' => '5S',
+	);
+
+my %dict_rDNA = ("arc_lsu"=>"Archaeal:23S_rDNA","arc_ssu"=>"Archaeal:16S_rDNA","arc_tsu"=>"Archaeal:5S_rDNA",
+"bac_lsu"=>"Bacterial:23S_rDNA","bac_ssu"=>"Bacterial:16S_rDNA","bac_tsu"=>"Bacterial:5S_rDNA",
+"euk_lsu"=>"Eukaryotic:28S_rDNA","euk_ssu"=>"Eukaryotic:18S_rDNA","euk_tsu"=>"Eukaryotic:5S_rDNA");
+
+my %LENG = (
+  "5S_rDNA"  =>119, "16S_rDNA"=>1585, "23S_rDNA"=>3232,
+  "5S_rDNA"  =>119, "5_8S_rDNA"=>156, "18S_rDNA"=>1869, "28S_rDNA"=>2912, "12S_rDNA"=>954,
+);
+
+my %tools = (
+	# rDNA prediction 
+	'hmmsearch' => {
+		GETVERSION  => "hmmsearch -h 2>&1 | grep '^# HMMER'",
+		REGEXP  => qr/($REGEXP)/,
+		REQUIRED => 1,
+	},
+	'blastn' => {
+		GETVERSION  => "blastn -version 2>&1 | grep -i '^blastn'",
+		REGEXP  => qr/($REGEXP)/,
+		REQUIRED => 1,
+		CMD => "blastn -query %s -db %d -evalue %e -num_threads %t -max_target_seqs 1 -outfmt 6 -out %o",
+	},
+	# tRNA prediction
+	'aragorn' => {
+		GETVERSION  => "aragorn -h 2>&1 | grep -i '^ARAGORN v'",
+		REGEXP  => qr/($REGEXP)/,
+		REQUIRED => 1,
+	},
+	# CDS Prediction
+	'MetaGene'=> {
+		GETVERSION  => "MetaGene --version 2>&1",
+		REGEXP  => qr/($REGEXP)/,
+		REQUIRED => 0,
+	},
+	'mga'=> {
+		REQUIRED => 0,
+	},
+	'prodigal' => {
+		GETVERSION  => "prodigal -v 2>&1| grep '^Prodigal V'",
+		REGEXP  => qr/($REGEXP)/,
+		REQUIRED => 1,
+	},
+
+	# Proteic annotation
+	'blastp' => {
+		GETVERSION  => "blastp -version 2>&1 | grep -i '^blastp'",
+		REGEXP  => qr/($REGEXP)/,
+		REQUIRED => 0,
+		CMD => "blastp -query %s -db %d -evalue %e -num_threads %t -max_target_seqs 1 -seg no -outfmt 6 -out %o",
+		MAKE => "makeblastdb -in %d -dbtype prot -title %d",
+	},
+	'blastx' => {
+		GETVERSION  => "blastx -version 2>&1 | grep -i '^blastp'",
+		REGEXP  => qr/($REGEXP)/,
+		REQUIRED => 0,
+		CMD => "blastx -query %s -db %d -evalue %e -num_threads %t -max_target_seqs 1 -seg no -outfmt 6 -out %o",
+		MAKE => "makeblastdb -in %d -dbtype prot -title %d",
+	},
+	'usearch' => {
+		GETVERSION  => "usearch 2>&1 | grep -i '^usearch v'",
+		REGEXP  => qr/($REGEXP)/,
+		REQUIRED => 0,
+		CMD => "usearch -ublast %s -db %d -evalue %e -maxhits 1 -threads %t -blast6out %s -alnout %o",
+		MAKE => "usearch -makeudb_ublast %d -output %d.udb",
+	},
+	'diamond' => {
+		GETVERSION  => "diamond -v 2>&1 | grep -i '^diamond v'",
+		REGEXP  => qr/($REGEXP)/,
+		REQUIRED => 0,
+		CMD => "diamond blastp --query %s --db %d --evalue %e --sensitive --max-target-seqs 1 --threads %t --outfmt tab -a %o",
+		CMDx => "diamond blastx --query %s --db %d --evalue %e --sensitive --max-target-seqs 1 --threads %t --outfmt tab -a %o",
+		MAKE => "diamond makedb --in %d -d %d",
+	},
+);
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Global functions
+
+sub error {
+	# management of error messages and help page layout, will stop execution
+	# local arguments passed:1st, error message to output
+	my $error = shift;
+	open (LOG,">>MetaPathExplorer.log");
+	print LOG $error,"\n";
+	close LOG;
+	my $filename = ($0);
+	pod2usage(-message => "$filename (error): $error. Execution halted.", -verbose => 2, -noperldoc => 1);
+	exit(2);
+}
+
+sub warning {
+	# management of warnings and execution carry on
+	# local arguments passed: 1st, warning message to output
+	my $message = "@_";
+	if ($verbose) {
+		my $filename = $0;
+		# warn("$filename (info): ".$message."\n");
+		warn($message."\n");
+	}
+	open (LOG,">>MetaPathExplorer.log");
+	print LOG $message,"\n";
+	close LOG;
+}
+
+sub version {
+  print STDERR "$exe $VERSION\n";
+  exit;
+}
+
+sub check_algorythm {
+	if($_[0] eq 'blast+' || $_[0] eq 'diamond' || $_[0] eq 'usearch'){
+		my $algorythm = $_[0];
+		if ($algorythm eq 'blast+'){
+			$algorythm = 'blastp' if $contigs_opt;
+			$algorythm = 'blastx' if $sids_opt;
+		}
+		$tools{$algorythm}->{REQUIRED}=1;
+		$OPT{'algorythm'}=$algorythm;
+	}
+	else{
+		error("'$_[0]' wrong parameter for 'algorythm' option");
+	}
+}
+
+sub check_tool {
+	my $toolname=shift; 
+	my $tool = $tools{$toolname};
+	my $tool_path = find_exe($toolname);
+	error("Can't find '$toolname' in your \$PATH") if !$tool_path and $tool->{REQUIRED} ;
+	warning("Looking for $toolname - found $tool_path");
+	if ($tool->{GETVERSION}) {
+      my $s = qx($tool->{GETVERSION});
+      if (defined $s) {
+        $s =~ $tool->{REGEXP};
+        $tool->{VERSION} = $1 if defined $1;
+        warning("Determined $toolname version is $tool->{VERSION}");
+		}
+	}
+}
+
+sub check_all_tools {
+	$ENV{"GREP_OPTIONS"} = '';  
+	for my $toolname (sort keys %tools) {
+		next unless $tools{$toolname}->{REQUIRED};
+		check_tool($toolname);
+	}
+}
+
+sub check_evalue{
+	if ($_[0] !~ m/^\d+e-\d+$/ and $_[0] !~ m/^\d+E-\d+$/ and $_[0] !~ m/^0.\d+$/ and $_[0] !~ m/^\d+$/){
+			error("Value '$_[0]' invalid for '$_[1]' parameter")
+	}
+	else{
+		$OPT{$_[1]}=$_[0];
+	}
+}
+
+sub check_id{
+	if ($_[0] =~ m/^-?\d+\.?\d+$/){
+		if ($_[0]<0 or $_[0]>100){
+			error("Invalid '$_[1]', must be comprise between 0 and 100");
+		}
+		else {
+			$OPT{$_[1]}=$_[0];
+		}
+	}
+	else {
+		error ("Value '$_[0]' invalid for '$_[1]' parameter")
+	}
+}
+
+sub check_procedure {
+	if ($_[0] eq 'meta' or $_[0] eq 'single'){
+		$OPT{$_[1]}=$_[0];
+	}
+	else{
+		error("Invalid '$_[1]'");
+	}
+}
+sub check_score {
+	if ($_[0]=~m/^\d+\.?\d*$/){
+		$OPT{$_[1]}=$_[0];
+	}
+	else{
+		error("Value '$_[0]' invalid for '$_[1]' parameter");
+	}
+}
+
+sub clean_up { 
+	foreach my $file (@_){
+		if(-e $file){
+			warning("clean_up(): Deleting file '$file'");
+			unlink ($file);
+		}
+	}
+}
+
+sub date { 
+  my $time = shift || time;    #$time par defaut vaut le time actuel 
+  my ( $seconde, $minute, $heure, $jour, $mois, $annee, $jour_semaine, $jour_annee, $heure_hiver_ou_ete ) 
+    = localtime($time); 
+  $mois  += 1; 
+  $annee += 1900; 
+
+  # On rajoute 0 si le chiffre est compris entre 1 et 9 
+  foreach ( $seconde, $minute, $heure, $jour, $mois, $annee ) { 
+    s/^(\d)$/0$1/; 
+  } 
+  
+  my %ladate = ( 
+    "date"         => "$jour-$mois-$annee", 
+    "heure"        => "$heure:$minute:$seconde", 
+    "jour_semaine" => $jour_semaine, 
+    "jour_annee"   => $jour_annee, 
+    "hiverOuEte"   => $heure_hiver_ou_ete, 
+  ); 
+  return \%ladate; 
+}
+
+sub fasta_format {
+	my $seq=shift;
+	$seq=~s/(.{60})/$1\n/g;
+	chomp $seq;
+    return $seq;
+}
+
+sub find_exe {
+	my($tool) = shift;
+	for my $dir (File::Spec->path) {
+		my $exe = File::Spec->catfile($dir, $tool);
+		return $exe if -x $exe; 
+	}
+	return;
+}
+
+sub gff_sort {
+  # sort by seqid, then start pos
+  return ($a->[0] cmp $b->[0]) || ($a->[3] <=> $b->[3]);
+}
+
+
+sub num_cpu {
+	my($num) = qx(grep -c ^processor /proc/cpuinfo);
+	return $1 if $num =~ m/^(\d+)/;
+}
+
+
+sub runcmd {
+  warning("Running:", @_);
+  system(@_)==0 or error("Could not run command:", @_);
+}
+
+sub substitution {
+	my $scalar = $_[0];
+	my $motif = $_[1];
+	my $regexp = $_[2];
+	$scalar =~ s/$motif/$regexp/g ;
+	return $scalar ;
+}
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Main Options 
+
+sub fasta_vs_uniref_kegg {
+
+	my ($file,$name,$cmd) = @_ ;
+
+	my $bls_name=sprintf("%s/alignement/%s.%s",$outdir,$name,$OPT{'algorythm'});  
+	
+	$cmd =~ s/%e/$OPT{proteic_evalue_co}/;
+	$cmd =~ s/%d/$databaseFile/;
+	$cmd =~ s/%s/$file/;
+	$cmd =~ s/%t/$OPT{threads}/;
+	
+	if($tools{'diamond'}->{REQUIRED}){
+		$cmd =~ s/%o/$bls_name.daa/;
+		warning("Use existing '$bls_name.daa' to load annotation.") if (-e "$bls_name.daa" && $reuse);
+		runcmd($cmd) unless (-e "$bls_name.daa" && -e "$bls_name.m8.out" && $reuse);
+		runcmd("diamond view -a $bls_name.daa -o $bls_name.m8.out") unless (-e "$bls_name.m8.out" && $reuse);
+		warning("Use existing '$bls_name.m8.out' to load annotation.") if (-e "$bls_name.m8.out" && $reuse);
+		$bls_name=$bls_name.'.m8.out';
+	}
+	else{
+		$bls_name=$bls_name.'.m8.out';
+		$cmd =~ s/%o/$bls_name/;
+		runcmd($cmd) unless (-e "$bls_name");
+	}
+	print STDERR $bls_name,"\n";
+	open(File,"$bls_name");
+	while(<File>){
+		chomp;
+		(my $query,my $subject,my $identity,my $allg,my $mismatch,my $gap,my $qstart,my $qend,my $sstart,my $send,my $evalue,my $score)=split(/\t/);
+		next if $evalue > $OPT{'proteic_evalue_co'} or $identity < $OPT{'proteic_identity_co'} or $score < $OPT{'proteic_score_co'} or $allg < $OPT{'proteic_aln_co'};
+		$subject=~/^([^_]+)/;
+		my $KO=$1;
+
+
+		$KO{$name}{$KO}=1;
+	}
+	close File;
+}
+
+sub matrix_making {
+	my ($KO_ref,$sample) = @_ ;
+	my @sample = split (/\t/,$sample);
+	my $matrix_name = "$outdir/MetaPathExplorer.pst-abs.ko.tsv";
+	open (MATRIX,">$matrix_name");
+	print MATRIX 'KO';
+	foreach my $spl (@sample){
+		print MATRIX "\t",$spl;
+	}
+	print MATRIX "\n";
+	foreach my $KO (sort keys %KO2ORTHO){
+		print MATRIX $KO;
+		foreach my $spl (@sample){
+			${$KO_ref}{$spl}{$KO} = 0 unless ${$KO_ref}{$spl}{$KO} ;
+			print MATRIX "\t",${$KO_ref}{$spl}{$KO};
+		}
+		print MATRIX "\n";
+	}
+	close MATRIX;
+}
+
+sub parse_nhmmer {
+	my $resu = shift ;
+	my $resus;
+	open(File,$resu);
+	while(my $line=<File>){
+		chomp $line;
+		unless($line=~m/^#/){
+			(my $sid,my $acc,my $qname,my $qaccr,
+			my $hmm_start,my $hmm_end,my $ali_start,my $ali_end,my $env_start,my $env_end,
+			my $seqlen, my $strand, my $Evalue, my $score, my $bias, my $desc) = split(/\s+/,$line);
+			if ($sid){
+				if ($Evalue<$evalue_co){
+					$resus.=join("\t",$sid,$qname,$Evalue,$score,$ali_start,$ali_end)."\n";
+				}
+			}
+		}
+	}
+	close File;
+	return $resus;
+}
+
+sub pathway_html{
+	my $summary="\n";
+	my $main='';
+	my $PATH= $_[3];
+	my $pathway = substitution($PATH,'map',$OPT{org});
+	my $map_link = 'http://www.kegg.jp/kegg-bin/show_pathway?org_name=map&mapno='.substitution($PATH,'map','').'&mapscale=&show_description=hide';	
+	my $map_entry = "http://www.kegg.jp/dbget-bin/www_bget?pathway+$PATH";
+	if (exists $PATHWAY{$PATH}){
+		my @sample = split(/,/,$_[0]);
+		my @pathwayOrthologyCount = split(/,/,$_[1]);
+		my @pathwayOrthologyList = split(/,/,$_[2]);
+		my $i = 0 ;
+		runcmd("mkdir -p $outdir/HTML/pathway/$PATH");
+		foreach my $s (@sample){	
+			my $tabid = 'tab_'.$s ;
+			my $imgpath;
+			my $outimg = "$outdir/HTML/pathway/$PATH/$s.png";
+			my $K0ListFile = "$outdir/HTML/pathway/$PATH/K0_$s.list";
+			if($pathwayOrthologyList[$i] ne ' '){
+				open(LIST,">$K0ListFile");
+				print LIST $pathwayOrthologyList[$i];
+				close LIST;	
+				runcmd("$FindBin::RealBin/MetaPathExplorer_pathway --K0file $K0ListFile --color $OPT{'kocolor'} --out $outimg --pathway $pathway") unless (-e $outimg);
+			}
+			else{
+				runcmd("wget --no-verbose www.kegg.jp/kegg/pathway/map/$PATH.png -O $outimg") unless (-e $outimg);
+			}
+			my $comment = '' ;
+			$comment = 'No available data between K0 and the pathway' unless (-e $outimg);
+			runcmd("wget --no-verbose www.kegg.jp/kegg/pathway/map/$PATH.png -O $outimg") unless (-e $outimg);
+			$outimg = "$PATH/$s.png";
+			$summary.="\t\t\t\t\t<li><a href=\"#$s\">$s</a></li>\n";
+			$main.= "\t\t\t\t<div class=\"sample\" style='height:auto;width:45%;'>\n";
+			$main.="\t\t\t\t\t<h2 id=\"$s\"><center>$s</center></h2>\n";
+			$main.="\t\t\t\t\t<br/>\f";
+			$main.="\t\t\t\t\t<div style='padding:10px'>\n";
+			$main.="\t\t\t\t\t<img src=\"$outimg\" style='height:100%;width:100%;object-fit:contain'></img>\n";
+			$main.="\t\t\t\t\t</div>\n";
+			$main.="\t\t\t\t\t<br/>\n";
+			$main.="\t\t\t\t\t<div class=\"wrapper\"><input id=\"button_$s\" type=button value=\"Show Table\" onclick=\"hide(button_$s,$tabid)\" />\n";
+			$main.="\t\t\t\t\t<br/>\n";
+			$main.="\t\t\t\t\t<table id=\"$tabid\" style=\"display:none;\" align=\"center\">";
+			$main.="\t\t\t\t\t\t<tr>\n";
+			$main.="\t\t\t\t\t\t\t<th>orthology count</th>\n";
+			$main.="\t\t\t\t\t\t\t<th>kegg orthology</th>\n";
+			$main.="\t\t\t\t\t\t</tr>\n";
+			$main.="\t\t\t\t\t\t<tr>\n";
+			$main.="\t\t\t\t\t\t\t<td>$pathwayOrthologyCount[$i]</td>\n";
+			$main.=sprintf("\t\t\t\t\t\t\t<td>%s</td>",substitution($pathwayOrthologyList[$i],"\n"," | "));
+			$main.="\t\t\t\t\t\t</tr>\n";
+			$main.="\t\t\t\t\t</table>";
+			$main.="\t\t\t\t\t<br/>\n";
+			$main.="\t\t\t\t\t<a>$comment</a>\n";
+			$main.="\t\t\t\t\t</div>\n";
+			$main.="\t\t\t\t\t<br/>\n";
+			$main.="\t\t\t\t\t<br/>\n";
+			$main.="\t\t\t\t</div>\n";
+			$i ++ ;
+		}
+	}
+	else{
+		$main.="\t\t\t\t<div class=\"sample\" style='height:90%;width:90%;'>\n";
+		$main.="\t\t\t\t\t<h2><center>No available KEGG Orthology for this pathway.</center></h2>\n";
+		$main.="\t\t\t\t\t<br/>";
+		$main.="\t\t\t\t</div>";
+	}
+	$summary.="</div>";
+	open(IN,"$MetaPathExplorer_data/HTML/pathway-base.html");
+	open(OUT, ">$outdir/HTML/pathway/$PATH.html");
+	while(<IN>){
+		$_ =~ s/%Summary/$summary/;
+		$_ =~ s/%Main/$main/;
+		$_ =~ s/%date/$DATE/;
+		$_ =~ s/%pathway/$PATH/g;
+		$_ =~ s/%definition/$PATH2PATHWAY{$PATH}/;		
+		$_ =~ s/%description/'$description{$PATH}'  Copyright 1995-2017 Kanehisa Laboratories/;	
+		$_ =~ s/%map_entry/$map_entry/;	
+		$_ =~ s/%map_link/$map_link/;	
+		print OUT $_;
+	}
+	close IN;
+	close OUT;
+}
+
+
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Get options
+
+MAIN: {
+	GetOptions(
+			"Help|help|h" 			=> \$help,			#help flag
+			"Verbose|verbose|v!" 	=> \$verbose,		#verbose flag
+			"version!"				=> \$version,		#version flag
+			"force!"				=> \$force,			#force flag
+			"re-use!"				=> \$reuse,
+
+			"input=s"				=> \$OPT{entry},
+			"ini=s" 				=> \$MetaPathExplorer_CFG, 	#initialize options file
+			
+			"trna!" 				=> \$trna,
+			"rdna-p!" 				=> \$rdna_prediction,
+			"rdna-pa!"				=> \$rdna_prediction_annotation,
+			
+		);
+	
+	version() if ($version);
+		
+	if ($help) {
+		pod2usage(-verbose => 2, -noperldoc => 1);
+		exit;
+	}
+	warning('×××××××××××××××××××××××××××××××××××××××××××××××××××××××××');
+	pod2usage(-verbose => 99, -sections => "NAME", -noperldoc => 1, -exit => "NOEXIT" ) if ($verbose);
+	pod2usage(-verbose => 99, -sections => "NAME", -noperldoc => 1, -exit => "NOEXIT", -output => "MetaPathExplorer.log" );
+	my $user = $ENV{ USER };
+	my $da=`date`;
+	chomp $da;
+	warning('×××××××××××××××××××××××××××××××××××××××××××××××××××××××××');
+	warning("Date : $da");	
+	warning("Hi $user! Let's do some good jobs together.");
+	warning('×××××××××××××××××××××××××××××××××××××××××××××××××××××××××');
+	
+	warning("\nFirst check tools and options.\n");
+
+# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Load options
+
+$ENV{PATH} = "$binaries:" . $ENV{PATH};
+
+unless($OPT{entry} eq 'assembly' or $OPT{entry} eq 'sids' or $OPT{entry} eq 'annotation' or $OPT{entry} eq 'matrix'){
+	error("The entry type is not precise or is incorrect. Please choose btw 'contigs' or 'sids' or 'annotation' or 'matrix'");
+}
+
+
+tie my %ini, 'Config::IniFiles', (
+		-file => $MetaPathExplorer_CFG
+	);
+
+my %Config = %{$ini{"Outputs"}};
+$outdir = $Config{outdir} ne 'none' ? $Config{outdir} : 'MetaPathExplorer_'.(localtime->mdy('')) ;
+
+foreach my $section (keys %ini){
+	next if $section eq 'Outputs';
+	foreach my $parameter (keys %{$ini{$section}}){
+		my $value=$ini{$section}{$parameter};
+		if($parameter=~m/evalue/){check_evalue($value,$parameter)}
+		elsif($parameter=~m/identity/){check_id($value,$parameter)}
+		elsif($parameter=~m/score/){check_score($value,$parameter)}
+		elsif($parameter eq 'algorythm'){check_algorythm($value)}
+		elsif($parameter eq 'procedure'){check_procedure($value,$parameter)}
+		else{
+			$OPT{$parameter}=$value;
+		}
+	}
+}
+
+# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Checks db 
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Proteic db
+
+my $UniReflvl="UniRef$OPT{UniRefID}";
+my $K=$OPT{'kingdoms'};
+$K =~ s/,/-/g;
+$UniRefdb ="$MetaPathExplorer_data/orthology_$UniReflvl\_$K.fasta";
+
+unless($tools{'blastp'}->{REQUIRED}){
+	$databaseFile = "$UniRefdb.dmnd" if($tools{'diamond'}->{REQUIRED});
+	$databaseFile = "$UniRefdb.udb" if($tools{'usearch'}->{REQUIRED});
+	
+	error("'$databaseFile' is not readable.") unless(-r $databaseFile);
+}
+else {
+	my $dbfsa=basename($UniRefdb);
+	my $db_dir=$UniRefdb;
+	$db_dir=~s/$dbfsa//;
+	my $fac = Bio::Tools::Run::StandAloneBlastPlus->new(
+			-db_name => $dbfsa,
+			-db_dir => $db_dir,
+			-db_data => $dbfsa,
+			-mask_data => $dbfsa,
+			-create => 1,							
+		);
+	$databaseFile = $UniRefdb;
+	$databaseFile =~ s/\.fasta//;
+	error("blastp db '$UniRefdb' is misformated") unless $fac->check_db($UniRefdb);
+}
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# rDNA db
+if($rdna_prediction_annotation){
+	foreach my $parameter (keys %{$ini{Taxonomy_db}}){
+		my $value=$ini{Taxonomy_db}{$parameter};
+		if ($parameter=~m/csv/){
+			unless (-e $value){
+				my $db = $MetaPathExplorer_data_rDNA.'/'.$value;
+				error("'$value' for $parameter do not exist.") unless (-e $db);
+				$value = $db ;
+			}
+			open(rDNA,$value);
+			while(<rDNA>){
+				chomp;
+				my ($silvaID,$lineage)=split("\t");
+				$sivlaID2lineage{$silvaID}=$lineage;
+			}
+			close rDNA;
+			$OPT{$parameter}=$value;
+		}
+		else{
+			unless (-e "$value.nhr"){
+				my $db = $MetaPathExplorer_data_rDNA.'/'.$value;
+				error("'$value' : Non-formated or misformated database for $parameter.
+					Use 'makeblastdb' command") unless (-e "$db.nhr" || -e "$db.nin" || -e "$db.nsq");
+			}
+			$OPT{$parameter}=$value;
+		}
+	}
+}
+
+# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Checks tools and options
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+error("'force' and 're-use' options are incompatble. Please choose only one") if ($force && $reuse);
+
+check_all_tools();
+warning("\nTools checking finished.\n");
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Checks entry fasta files
+error("No sample in entry") unless $ARGV[0];
+foreach (@ARGV){
+	unless(-e $_){&error("$_ do not exist")}
+	my $extension=(split '\.', $_)[-1];
+	error("MetaPathExplorer prefers uncompress fasta file") if $extension=~m/gz/;
+	error("$extension : Wrong extension for a fasta file") unless $extension=~m/$ext/;
+}
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+#  Check output project 
+if (-d $outdir) {
+	if ($force) {
+		warning("Removing existing --outdir '$outdir'.");
+		runcmd("rm -r $outdir");
+		runcmd("mkdir -p \Q$outdir\E");
+	}
+	elsif ($reuse){
+		runcmd("mkdir -p $outdir") unless -e $outdir;
+		warning("Re-using existing --outdir '$outdir'.")
+	}
+	else {
+		error("Folder '$outdir' alsidy exists. Please change 'outdir' in '$MetaPathExplorer_CFG' or use '--force' or '--re-use'");
+	}
+}
+else{
+	warning("Creating new output folder: $outdir");
+	runcmd("mkdir -p \Q$outdir\E");
+}
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Check kingdom option
+
+@kingdoms=split(/,/,$OPT{kingdoms});
+foreach(@kingdoms){
+	my $kingdom=$_;
+	error("'$_' : incorrect paramameter for 'kingdoms' option") unless exists $kingdoms{$kingdom};
+	$kingdoms{$kingdom}->{USE}=1;
+	next if (/vir/);
+	if($rdna_prediction){
+		foreach(@mol){
+			my $mol=$_;
+			my $hmmdb="$hmm_path/$kingdom\_$mol.hmm";
+			warning("$hmmdb : File do not exist") unless (-e $hmmdb)
+		}
+	}
+}
+
+
+# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Load data
+
+foreach("$MetaPathExplorer_data/KEGG_orthology2pathway.tsv", "$MetaPathExplorer_data/KEGG_pathway.txt","$MetaPathExplorer_data/KEGG_orthology.txt") {
+	error("'$_' is not sidable.") unless(-r $_);
+}
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+runcmd("mkdir -p $outdir/HTML/pathway");
+runcmd("mkdir -p $outdir/HTML/Fig");
+runcmd("mkdir -p $outdir/HTML/style");
+runcmd("mkdir -p $outdir/HTML/js");
+runcmd("cp $MetaPathExplorer_data/HTML/index-summary.html $outdir/HTML/.");
+runcmd("cp $MetaPathExplorer_data/HTML/index-main.html $outdir/HTML/.");
+runcmd("cp $MetaPathExplorer_data/HTML/Fig/close.png $outdir/HTML/Fig/.");
+runcmd("cp $MetaPathExplorer_data/HTML/Fig/kegg128.gif $outdir/HTML/Fig/.");
+runcmd("cp $MetaPathExplorer_data/HTML/style/style.css $outdir/HTML/style/.");
+runcmd("cp $MetaPathExplorer_data/HTML/js/MetaPathExplorer.js $outdir/HTML/js/.");
+runcmd("cp $MetaPathExplorer_data/HTML/js/w3.js $outdir/HTML/js/.");
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+open(PATH2PATHWAY,"$MetaPathExplorer_data/KEGG_pathway.txt");
+while(my $line=<PATH2PATHWAY>){
+	chomp $line;
+	(my $PATH,my $PATHWAY,my $description)=split(/\t/,$line);
+	$PATH2PATHWAY{$PATH}=$PATHWAY;
+	$description{$PATH}=$description || 'No available description.';
+}
+close PATH2PATHWAY;
+
+open(ORTHOLOGY,"$MetaPathExplorer_data/KEGG_orthology.txt");
+while(<ORTHOLOGY>){
+	chomp;
+	(my $KO,my $ORTHOLOGY)=split(/\t/);
+	$KO=~s/ko://;
+	$KO2ORTHO{$KO}=$ORTHOLOGY;
+}
+close ORTHOLOGY;
+
+
+# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+runcmd("mkdir -p $outdir/tRNA") unless -e "$outdir/tRNA";
+runcmd("mkdir -p $outdir/rDNA") unless -e "$outdir/rDNA";
+runcmd("mkdir -p $outdir/ORF") unless -e "$outdir/ORF";
+runcmd("mkdir -p $outdir/alignement") unless -e "$outdir/alignement";
+
+warning("\nOptions loading finished. Let's start the analysis.");
+
+
+if($OPT{entry} eq 'assembly'){
+	foreach(@ARGV){
+		chomp;
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+		# Scalars
+		my $file=$_;
+		my $name=basename($file);
+		my $extension=(split '\.', $_)[-1];
+		$name=~s/\.$extension$//;
+
+		my $tmp_fasta="$outdir/$name/$name.MetaPathExplorer.fna";
+		my $ncontig=0;
+		my $total_bp=0;
+
+		my $tRNA_gff="$outdir/tRNA/$name.tRNA.gff";
+		my $rDNA_gff="$outdir/rDNA/$name.rDNA.gff";
+		my $orf_aa="$outdir/ORF/$name.orf.aa.fasta";
+		my $orf_nt="$outdir/ORF/$name.orf.nt.fasta";
+		my $orf_gff="$outdir/ORF/$name.orf.gff";
+		
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+			
+		warning("\n×××××××××××××××××××××××××××××××××××××××××××××××××××××××××");
+		warning("\tBegin analysis of '$name'");
+		warning('×××××××××××××××××××××××××××××××××××××××××××××××××××××××××');
+		push @sample,$name;
+		runcmd("mkdir -p $outdir/$name")unless -e "$outdir/$name";
+
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+		# Tables
+		my @seq;
+		my @hmm_resu;
+		
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+		# Hashes
+		my %seq;
+		my %cer;
+		my %rec; 	# whill make the link between sequence id and simplified sequence id
+
+		my %sid2kingdom;
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+		my $in = Bio::SeqIO->new(
+									-file   => $file,
+							);
+		
+		my $fout = Bio::SeqIO->new(	-file=>">$tmp_fasta", 
+									-format=>'fasta'
+							);
+		while(my $seq = $in->next_seq() ){
+			my $id = $seq->id; 
+			my $ID = $seq->id;
+			next if ($seq->length < $OPT{'minseq'});
+			$ncontig++;
+			if (exists $seq{$id}) {
+				warn("EYH! Sequence file '$in' contains duplicate sequence ID:", $seq->id);
+			}
+
+			$id='seq_'.$ncontig; 	# create a simplified id
+			$rec{$id}=$seq->id; 	# create a link between the simplified id and the raw id 
+			$cer{$ID} = $id;		# create a link between the raw id and the simplified id 
+			$seq->id($id);
+			
+			$fout->write_seq($seq);
+			$seq->seq($seq->seq);
+			$seq->desc(undef);
+			$seq{$id}{DNA} = $seq;
+			$total_bp += $seq->length;
+			push @seq, $id;
+		}
+
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+		# Predicting tRNA and tmRNA
+		warning("## Predicting tRNA and tmRNA");
+		unless($trna){
+			warning('## Skip tRNA and tmRNA prediction.')
+		}
+		else{	
+			if (-e $tRNA_gff && $reuse) {
+				warning("Opening: $tRNA_gff");
+				open ARAGORN, "$tRNA_gff";
+				while(<ARAGORN>){
+					unless(m/^#/){
+						chomp;
+						(my $id,my $tool,my $type,my $start,my $end,my $score,my $strand,my $phase,my $attributes)=split(/\t/);
+						my $sid=$cer{$id};
+						push @{$seq{$sid}{FEATURE}}, Bio::SeqFeature::Generic->new( 
+							-primary    => $type, # tRNA or tmRNA
+							-seq_id     => $sid,
+							-source     => $tool,
+							-start      => $start,
+							-end        => $end,
+							-strand     => $strand,
+							-score      => $score,
+							-frame      => $phase,
+							-tag        => {
+								'product' => $attributes,
+							},
+						);
+					}
+				}
+				close ARAGORN;
+			}
+			else{	
+				open(GFF,">$tRNA_gff");
+				print GFF join ("\n","#gff-version 3","#source: MetaPathExplorer:$VERSION","#date $date->{date}","#Type DNA","#INFO [Seq: $ncontig] [length: $total_bp]"),"\n";
+				print GFF join ("\t",'#seq_name','method','feature','start','end','score','strand','frame','gene',"\n");
+				close GFF;
+				foreach my $KINGDOM (@kingdoms){
+					next if $KINGDOM eq "euk";
+					next if $kingdoms{'arc'}->{USE} and ($KINGDOM eq 'bac');
+					my $gc=$kingdoms{$KINGDOM}->{GC};
+					$cmd="aragorn -l -gc$gc $aragorn_opt -w $tmp_fasta";
+					warning("Running: $cmd");
+					my $sid;
+					open ARAGORN, "$cmd|";
+					while(<ARAGORN>){
+						chomp;
+						if(m/^>(.+)/){
+							$sid=$1;
+							next;
+						}
+						else{
+							my @split=split(/\s+/);
+							next unless @split==5 and $split[0] =~ m/^\d+$/;
+							if ($split[1] =~ m/\?/) {
+								warning("tRNA $split[2] is a pseudo/wacky gene - skipping.");
+								next;
+							} 
+							$split[2]=~m/(c)?\[-?(\d+),(\d+)\]/;
+							my($revcom,$start,$end)=($1,$2,$3);
+							if($start>$end){
+								warning("tRNA $split[2] has start($start) > end($end) - skipping.");
+								next;
+							}
+							my $ssid=(split ' ',$sid)[0];
+							$start = max( $start, 1 );
+							$end = min( $end, $seq{$ssid}{DNA}->length );
+							(my $type, my $aa)=split(/-/,$split[1]);
+							my $tool="Aragorn:".$tools{aragorn}->{VERSION};
+							my $id=$rec{$ssid};
+							push @{$seq{$sid}{FEATURE}}, Bio::SeqFeature::Generic->new( 
+								-primary    => $type, # tRNA or tmRNA
+								-seq_id     => $id,
+								-source     => $tool,
+								-start      => $start,
+								-end        => $end,
+								-strand     => (defined $revcom ? -1 : +1),
+								-score      => '.',
+								-frame      => '.',
+								-tag        => {
+									'product' => $split[1],
+								},
+							);
+							open(GFF,">>$tRNA_gff");
+							print GFF @{$seq{$sid}{FEATURE}}[$#{$seq{$ssid}{FEATURE}}]->gff_string($gff_factory),"\n";
+							close GFF;
+							@{$seq{$sid}{FEATURE}}[$#{$seq{$ssid}{FEATURE}}]->seq_id($sid);
+						}
+					}
+				}
+			}
+		}
+
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+		# rDNA prediction
+		if($rdna_prediction || $rdna_prediction_annotation){
+			warning("## Launch rDNA prediction.");
+			if (-e $rDNA_gff && $reuse) {
+				open RNAHMM, "$rDNA_gff";
+				while(<RNAHMM>){
+					chomp;
+					unless(m/^#/){
+						chomp;
+						(my $id,my $tool,my $type,my $start,my $end,my $score,my $strand,my $phase,my $attributes)=split(/\t/);
+						my $sid = $cer{$id};
+						$attributes=~m/note=([^;]+)/;
+						my $note = $1 if $1;
+						$attributes=~m/product=([^;]+)/;
+						my $product = $1 if $1;
+						push @{$seq{$sid}{FEATURE}}, Bio::SeqFeature::Generic->new( 
+							-primary    => $type,
+							-seq_id     => $sid,
+							-source     => $tool,
+							-start      => $start,
+							-end        => $end,
+							-strand     => $strand,
+							-score      => $score,
+							-frame      => $phase,
+							-tag        => {
+								'product' => $attributes,
+							},
+						);
+
+						if ($note){
+							@{$seq{$sid}{FEATURE}}[$#{$seq{$sid}{FEATURE}}]->add_tag_value('note',$note);
+						}
+					}
+				}
+
+			}
+			else{
+				# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+				# Launch rDNA predictions and parse the results
+				my $output_name = "$outdir/$name/";
+				my $tno = 0 ;
+				my $last;
+
+				# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+				foreach(@kingdoms){
+					my $kingdom=$_;
+					foreach(@mol){
+						my $mol=$_;
+						my $hmm_lib= $hmm_path."/$kingdom\_$mol.hmm";
+						unless(-e $hmm_lib){next}
+						my $out=$output_name."$kingdom\_$mol.out";
+						my $domtblout=$output_name.".$kingdom\_$mol.dom";
+						my $cmd="nhmmer --cpu $OPT{threads} -o $out --tblout $domtblout -E $OPT{hmm_evalue_co} $hmm_lib $tmp_fasta";
+						runcmd($cmd);
+						my $hmm_resu=parse_nhmmer($domtblout);
+						push @hmm_resu, $hmm_resu;
+						clean_up($out,$domtblout);
+					}
+				}
+
+				# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+				# If a rDNA is affiliated to 2 or more kingdom - define the best one
+
+				foreach(@hmm_resu){
+					if($_){
+						my @hit=split(/\n/);
+						foreach(@hit){
+							my @line=split("\t");
+							my $sid=$line[0];
+							my @sid=split(/\|/,$sid);
+							my $evalue=$line[2];
+							my $score=$line[3];
+							my @qname=split(/_/,$line[1]);
+							my $kingdom=$qname[0];
+							if(exists $sid2kingdom{$sid[0]}[0]){
+								if ($evalue <= $sid2kingdom{$sid[0]}[0] and $score > $sid2kingdom{$sid[0]}[2]){
+									$sid2kingdom{$sid[0]}[0]=$evalue;
+									$sid2kingdom{$sid[0]}[1]=$kingdom;
+									$sid2kingdom{$sid[0]}[2]=$score;
+								}
+							}
+							else{
+								$sid2kingdom{$sid[0]}[0]=$evalue;
+								$sid2kingdom{$sid[0]}[1]=$kingdom;
+								$sid2kingdom{$sid[0]}[2]=$score;
+							}
+						}
+					}
+				}
+
+				# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+				# Store rDNA feature informations and produce gff file
+
+				open(GFF,">$rDNA_gff");
+				print GFF join ("\n","#gff-version 3","#source: MetaPathExplorer:$VERSION","#date $date->{date}","#Type DNA","#INFO [Seq: $ncontig] [length: $total_bp]"),"\n";
+				print GFF join ("\t",'#seq_name','method','feature','start','end','score','strand','frame','gene',"\n");
+				close GFF;
+
+				foreach(@hmm_resu){
+					if($_){
+						my @hit=split(/\n/);
+						foreach(@hit){
+							(my $sid,my $feature_type,my $evalue,my $score,my $r_start,my $r_end)=split("\t");
+							my @sid=split(/\|/,$sid);
+							my @feature_type=split(/_/,$feature_type);
+							my $kingdom=$feature_type[0];
+							my ($king,$gene)=split(/:/,$dict_rDNA{$feature_type});
+							if($sid2kingdom{$sid[0]}[1] eq $kingdom){
+								$feature_type = $dict_rDNA{$feature_type};
+								my $strand="+";
+								my $rec=$seq{$sid}{DNA};
+								my $seq;
+								if($sid[$#sid] eq "rev"){
+									$strand="-";
+									my $length=$rec->length;
+									$r_start=$length-$r_start+1;
+									$r_end=$length-$r_end+1;
+									$seq=$rec->subseq(
+										$r_end,
+										$r_start,
+									);
+									($r_start,$r_end)=($r_end,$r_start);
+								}
+								elsif($r_start > $r_end){
+									$strand="-";
+									$seq=$rec->subseq(
+										$r_end,
+										$r_start,
+									);
+									($r_start,$r_end)=($r_end,$r_start);
+								}
+								else{
+									$seq=$rec->subseq(
+										$r_start,
+										$r_end,
+									);
+								}
+								$feature_type=~s/_/ /;
+								my $length=length($seq);
+								my $prod='';
+								my $note='';
+								if ( $length < int($OPT{reject} * $LENG{$gene}) ) {
+									warning("Rejecting short $length nt predicted $gene. Adjust via --reject option.");
+									next;
+								}
+								elsif ($length < int($OPT{lencutoff} * $LENG{$gene})){
+									$note = sprintf ";note=aligned only %d percent", (100*$length/$LENG{$gene}),;
+									$prod .= " (partial)";
+								}
+								
+								my $id=$rec{$sid};
+								my $attributes = "$feature_type$prod$note";
+
+								push @{$seq{$sid}{FEATURE}}, Bio::SeqFeature::Generic->new( 
+									-primary    => 'rDNA',
+									-seq_id     => $id,
+									-source     => "MetaPathExplorer:$VERSION",
+									-start      => $r_start,
+									-end        => $r_end,
+									-strand     => $strand,
+									-score      => $score,
+									-frame      => '.',
+									-tag        => {
+										'product' => $attributes,
+									},
+								);
+
+								open(GFF,">>$rDNA_gff");
+								print GFF @{$seq{$sid}{FEATURE}}[$#{$seq{$sid}{FEATURE}}]->gff_string($gff_factory),"\n";
+								close GFF;
+
+								if ($note){
+									@{$seq{$sid}{FEATURE}}[$#{$seq{$sid}{FEATURE}}]->add_tag_value('note',$note);
+								}
+
+								my $outfa="$outdir/rDNA/$name"; 
+								$outfa.=".ssu" if ($attributes=~m/[(16)(18)]S/); 
+								$outfa.=".lsu" if ($attributes=~m/[(23)(28)]S/); 
+								$outfa.=".tsu" if ($attributes=~m/5S/); 
+								$outfa.='.fasta';
+								unless($last){
+									$last=$sid
+								}
+								if($sid eq $last){
+									$tno++
+								}
+								else{
+									$tno = 1 ;
+									$last = $sid ;
+								}
+
+								# open(FASTA,">>$outfa");
+								# printf FASTA ">%s /length=$length /start=$r_start /end=$r_end /strand=$strand $feature_type$prod\n%s\n",$id.".$tno",fasta_format($seq);
+								# close FASTA;
+
+								@{$seq{$sid}{FEATURE}}[$#{$seq{$sid}{FEATURE}}]->seq_id($sid);
+							}
+						}
+					}
+				}
+				# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+			}
+			# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+			# rDNA prediction ending
+		}
+		else {
+			warning('## Skip rDNA prediction.');
+		}
+		
+
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+		# CDS prediction 
+		warning("## CDS prediction.");
+		
+		if($tools{'MetaGeneAnnotator'}->{REQUIRED}){
+			my $procedure = '-m' ;
+			$procedure = '-s' if $OPT{'procedure'} eq 'single' ;
+			$cmd="MetaGene --input $tmp_fasta --force --stdout --procedure $procedure";
+			my $gff = 0;
+			if (-e $orf_gff && $reuse) {
+				$gff = 1 ;
+				warning("Opening: $orf_gff");
+			}
+			else{
+				warning("Running: $cmd");
+				open(GFF,">$orf_gff");
+				print GFF join ("\n","#gff-version 3","#source: MetaPathExplorer:$VERSION","#date $date->{date}","#Type DNA","#INFO [Seq: $ncontig] [length: $total_bp]"),"\n";
+				print GFF join ("\t",'#seq_name','method','feature','start','end','score','strand','frame','gene',"\n");
+				close GFF;
+			}
+			open MetaGene, "$cmd|" unless($gff);
+			open MetaGene, "$orf_gff" if($gff);
+			while(<MetaGene>){
+				chomp;
+				(my $sid,my $tool,my $type,my $start,my $end,my $score,my $strand,my $phase,my $attributes)=split(/\t/);
+				my $id=$rec{$sid};
+				$tool="MetaGene:".$tools{MetaGene}->{VERSION};
+				push @{$seq{$sid}{FEATURE}}, Bio::SeqFeature::Generic->new( 
+					-primary    => $type,
+					-seq_id     => $id,
+					-source     => $tool,
+					-start      => $start,
+					-end        => $end,
+					-strand     => $strand,
+					-score      => $score,
+					-frame      => $phase,
+				);
+				unless($gff){
+					open(GFF,">>$orf_gff");
+					print GFF @{$seq{$sid}{FEATURE}}[$#{$seq{$sid}{FEATURE}}]->gff_string($gff_factory),"\t",$attributes,"\n";
+					close GFF;
+				}
+				
+			}
+			close MetaGene;
+		}
+		else{
+			$prodigal_opt="-p $OPT{'procedure'} -f gff ";
+			$cmd="prodigal -q -i $tmp_fasta $prodigal_opt";
+			my $gff = 0;
+			if (-e $orf_gff && $reuse) {
+				$gff = 1 ;
+				warning("Opening: $orf_gff");
+			}
+			else{
+				warning("Running: $cmd");
+				open(GFF,">$orf_gff");
+				print GFF join ("\n","#gff-version 3","#source: MetaPathExplorer:$VERSION","#date $date->{date}","#Type DNA","#INFO [Seq: $ncontig] [length: $total_bp]"),"\n";
+				print GFF join ("\t",'#seq_name','method','feature','start','end','score','strand','frame','gene',"\n");
+				close GFF;
+			}
+			open Prodigal, "$cmd|" unless($gff);
+			open Prodigal, "$orf_gff" if($gff);
+			while(<Prodigal>){
+				chomp;
+				unless(/^#/){
+					(my $sid,my $tool,my $type,my $start,my $end,my $score,my $strand,my $phase,my $attributes)=split(/\t/);
+					my $id = $sid ;
+					$sid = $cer{$sid} if $gff;
+					$id=$rec{$sid} unless $gff;
+					$tool="Prodigal:".$tools{prodigal}->{VERSION};
+					push @{$seq{$sid}{FEATURE}}, Bio::SeqFeature::Generic->new( 
+						-primary    => $type,
+						-seq_id     => $id,
+						-source     => $tool,
+						-start      => $start,
+						-end        => $end,
+						-strand     => $strand,
+						-score      => $score,
+						-frame      => $phase,
+					);
+					unless($gff){
+						open(GFF,">>$orf_gff");
+						print GFF @{$seq{$sid}{FEATURE}}[$#{$seq{$sid}{FEATURE}}]->gff_string($gff_factory),"\t",$attributes,"\n";
+						close GFF;
+					}
+				}
+			}
+			close Prodigal;
+		}	
+
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+		for my $sid (@seq) {
+			for my $f (@{$seq{$sid}{FEATURE} }) {
+				$f->attach_seq($seq{$sid}{DNA} );
+			}
+		}
+
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+		
+		if ($rdna_prediction_annotation){
+			warning("## Annotating rDNA, please be patient.");
+			foreach my $mol (@mol){
+				my %dna;
+				my $rDNA_seq="$outdir/rDNA/$name.$mol.seq.fa";
+				my $database_acc = $mol ;
+				$database_acc=~tr/a-z/A-Z/;
+				$database_acc='rDNA-'.$database_acc.'db';
+				my $database = $OPT{$database_acc};
+				my $count=0;
+				
+				open my $fna, '>', $rDNA_seq;
+				for my $sid (@seq) {
+					$count=1;
+					for my $feature (@{$seq{$sid}{FEATURE}}) {
+						next unless $feature->primary_tag eq 'rDNA';
+						my $product=sprintf("%s",$feature->get_tag_values('product'));
+						next unless $product =~ m/($dict_glob_rDNA{$mol})/;
+						$dna{"$rec{$sid}_$count"} = $feature;
+						my $header=$feature->gff_string($gff_factory);
+						$header=~m/(\S+\t){8}(\S+)/;
+						$header=sprintf("%s_%d # %d # %d # %d # %s",$rec{$sid},$count,$feature->start,$feature->end,$feature->strand,$2);
+						print $fna ">$header\n",
+							fasta_format($feature->seq->seq),"\n";
+						$count ++ ;
+					}
+				}
+				close $fna;
+
+				next if(-z $rDNA_seq);
+
+				my $bls_name=sprintf("%s/alignement/%s.rDNA-%s.blastn.m8.out",$outdir,$name,$mol);
+				warning("Use existing '$bls_name' to load annotation.") if (-e $bls_name);
+				
+				$cmd = $tools{'blastn'}->{CMD};
+				$cmd =~ s/%e/$OPT{rDNA_evalue_co}/;
+				$cmd =~ s/%t/$OPT{threads}/;
+				$cmd =~ s/%d/$database/;
+				$cmd =~ s/%s/$rDNA_seq/;
+				$cmd =~ s/%o/$bls_name/;
+
+				runcmd($cmd) unless (-e $bls_name);
+				open(File,$bls_name);
+				while(<File>){
+					chomp;
+					(my $query,my $subject,my $identity,my $allg,my $gap,my $mismatch,my $qstart,my $qend,my $sstart,my $send,my $evalue,my $score)=split(/\t/);
+					next if $evalue > $OPT{'rDNA_evalue_co'} or $identity < $OPT{'rDNA_identity_co'}  or $score < $OPT{'rDNA_score_co'} ;
+					$dna{$query}->add_tag_value('organism',$subject);
+					my $lineage = $sivlaID2lineage{$subject} || 'No available lineage';
+					$dna{$query}->add_tag_value('note',$lineage);
+				}
+				close File;
+			}
+		}
+
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+		warning("## Annotating CDS, please be patient.");
+
+		my %cds;
+
+		open my $faa, '>', $orf_aa;
+		open my $fna, '>', $orf_nt;
+		for my $sid (@seq) {
+			my $count = 1 ;
+			for my $feature (@{$seq{$sid}{FEATURE} }) {
+				next unless $feature->primary_tag eq 'CDS'; 
+				$cds{"$rec{$sid}_$count"} = $feature;
+				my $header=$feature->gff_string($gff_factory);
+				$header=~m/(\S+\t){8}(\S+)/;
+				$header=sprintf("%s_%d # %d # %d # %d",$rec{$sid},$count,$feature->start,$feature->end,$feature->strand);
+				print $faa ">$header\n",
+					fasta_format($feature->seq->translate->seq),"\n";
+				print $fna ">$header\n",
+					fasta_format($feature->seq->seq),"\n";	
+				$count ++ ;
+			}
+		}
+		close $faa;
+		close $fna;
+
+		my $bls_name=sprintf("%s/alignement/%s.ORF-aa.%s",$outdir,$name,$OPT{'algorythm'}); 
+
+		$cmd = $tools{'blastp'}->{CMD} if($tools{'blastp'}->{REQUIRED});
+		$cmd = $tools{'usearch'}->{CMD} if($tools{'usearch'}->{REQUIRED});
+		$cmd = $tools{'diamond'}->{CMD} if($tools{'diamond'}->{REQUIRED});
+		$cmd =~ s/%e/$OPT{proteic_evalue_co}/;
+		$cmd =~ s/%d/$databaseFile/;
+		$cmd =~ s/%s/$orf_aa/;
+		$cmd =~ s/%t/$OPT{threads}/;
+		
+
+		if($tools{'diamond'}->{REQUIRED}){
+			$cmd =~ s/%o/$bls_name.daa/;
+			warning("Use existing '$bls_name.daa' to load annotation.") if (-e "$bls_name.daa" && $reuse);
+			runcmd($cmd) unless (-e "$bls_name.daa" && -e "$bls_name.m8.out" && $reuse);
+			runcmd("diamond view -a $bls_name.daa -o $bls_name.m8.out") unless (-e "$bls_name.m8.out" && $reuse);
+			warning("Use existing '$bls_name.daa' to load annotation.") if (-e "$bls_name.m8.out" && $reuse);
+			$bls_name=$bls_name.'.m8.out';
+		}
+		else{
+			$bls_name=$bls_name.'.m8.out';
+			$cmd =~ s/%o/$bls_name/;
+			runcmd($cmd) unless (-e "$bls_name");
+		}
+
+		open(File,"$bls_name");
+		while(<File>){
+			chomp;
+			(my $query,my $subject,my $identity,my $allg,my $mismatch,my $gap,my $qstart,my $qend,my $sstart,my $send,my $evalue,my $score)=split(/\t/);
+			my $allg_percent= $allg / $cds{$query}->length * 100 ;
+			next if $evalue > $OPT{'proteic_evalue_co'} or $identity < $OPT{'proteic_identity_co'} or $score < $OPT{'proteic_score_co'} or $allg < $OPT{'proteic_aln_co'} or $allg_percent < $OPT{'proteic_percent_aln'};
+			$subject=~/^([^_]+)/;
+			my $KO=$1;
+			$query=~m/\S+_(\d+)/;
+			next if $cds{$query}->has_tag('product');
+			$cds{$query}->add_tag_value('product',$KO);
+			$cds{$query}->add_tag_value('description',$KO2ORTHO{$KO});
+			$KO{$name}{$KO}=1;
+		}
+		close File;
+
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+		warning("## Produce GFF report.");
+
+		open(GFFREPORT,">$outdir/$name/$name.report.gff");
+		print GFFREPORT join ("\n","#gff-version 3","#source: MetaPathExplorer:$VERSION","#date $date->{date}","#Type DNA","#INFO [Seq: $ncontig] [length: $total_bp]"),"\n";
+		print GFFREPORT join ("\t",'#seq_name','method','feature','start','end','score','strand','frame','gene',"\n");
+		my $num_seq=1;
+		foreach(@seq){ 
+			my $sid=$_;
+			printf GFFREPORT ("#%s [length:%s]\n",$rec{$sid},$seq{$sid}{DNA}->length);
+			my $num_id=1;
+			for my $feature ( sort { $a->start <=> $b->start } @{$seq{$sid}{FEATURE}}) {
+				if ($feature->primary_tag eq 'CDS' and not $feature->has_tag('product')) {
+					$feature->add_tag_value('product', 'hypothetical protein');
+				}		
+				my $ID = sprintf("%d\_%05d",$num_seq,$num_id);
+				$num_id++;
+				$feature->add_tag_value('ID', $ID);
+
+				print GFFREPORT $feature->gff_string($gff_factory),"\n";
+			}
+			$num_seq++;
+		}
+		clean_up($tmp_fasta);
+
+	}
+
+	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+	matrix_making(\%KO,join("\t",@sample));
+}
+
+elsif($OPT{entry} eq 'proteins'){
+	warning('## Analyse proteins file(s).');
+	# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+	foreach(@ARGV){
+		chomp;
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+		# Scalars
+		my $file=$_;
+		my $name=basename($file);
+		my $extension=(split '\.', $_)[-1];
+		$name=~s/\.$extension$//;
+		
+		push @sample,$name;
+		warning("\n×××××××××××××××××××××××××××××××××××××××××××××××××××××××××");
+		warning("\tBegin analysis of '$name'");
+		warning('×××××××××××××××××××××××××××××××××××××××××××××××××××××××××');
+		runcmd("mkdir -p $outdir/$name")unless -e "$outdir/$name";
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+		warning("Annotating proteins, please be patient.");
+		
+		$cmd = $tools{'blastx'}->{CMD} if($tools{'blastx'}->{REQUIRED});
+		$cmd = $tools{'usearch'}->{CMD} if($tools{'usearch'}->{REQUIRED});
+		$cmd = $tools{'diamond'}->{CMD} if($tools{'diamond'}->{REQUIRED});
+
+		fasta_vs_uniref_kegg($file,$name.'ORF-aa',$cmd);
+
+	}
+
+	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+	matrix_making(\%KO,join("\t",@sample));
+}
+
+elsif($OPT{entry} eq 'sids'){
+	warning('## Analyse reads file(s).');
+	# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+	foreach(@ARGV){
+		chomp;
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+		# Scalars
+		my $file=$_;
+		my $name=basename($file);
+		my $extension=(split '\.', $_)[-1];
+		$name=~s/\.$extension$//;
+
+		warning("\n×××××××××××××××××××××××××××××××××××××××××××××××××××××××××");
+		warning("\tBegin analysis of '$name'");
+		warning('×××××××××××××××××××××××××××××××××××××××××××××××××××××××××');
+		push @sample,$name;
+		runcmd("mkdir -p $outdir/$name")unless -e "$outdir/$name";
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+		warning("## Annotating reads functionnaly, please be patient.");
+
+		$cmd = $tools{'blastx'}->{CMD} if($tools{'blastx'}->{REQUIRED});
+		$cmd = $tools{'usearch'}->{CMD} if($tools{'usearch'}->{REQUIRED});
+		$cmd = $tools{'diamond'}->{CMDx} if($tools{'diamond'}->{REQUIRED});
+		
+		fasta_vs_uniref_kegg($file,$name,$cmd);	
+	}
+
+	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+	matrix_making(\%KO,join("\t",@sample));
+}
+
+elsif($OPT{entry} eq 'annotation'){
+	warning('## Parsing annotation file(s).');
+
+	# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+	foreach(@ARGV){
+		chomp;
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+		# Scalars
+		my $file=$_;
+		my $name=basename($file);
+		push @sample, $name;
+		# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+		open(File,$file);
+		while(<File>){
+			chomp;
+			(my $query,my $subject,my $identity,my $allg,my $mismatch,my $gap,my $qstart,my $qend,my $sstart,my $send,my $evalue,my $score)=split(/\t/);
+			next if $evalue > $OPT{'proteic_evalue_co'} or $identity < $OPT{'proteic_identity_co'} or $score < $OPT{'proteic_score_co'} or $allg < $OPT{'proteic_aln_co'};
+			$subject=~/^([^_]+)/;
+			my $KO=$1;
+			$KO{$name}{$KO}=1;
+		}
+		close File;
+	}
+
+	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+	matrix_making(\%KO,join("\t",@sample));
+
+}
+
+elsif($OPT{entry} eq 'matrix'){
+	warning('## Parsing matrix file.');
+
+	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+	# Scalars
+	chomp $ARGV[0];
+	my $matrix=$ARGV[0];
+
+	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+	my @header;
+	open(MATRIX,$matrix);
+	while(<MATRIX>){
+		if(/^KO/){
+			@header=split(/\t/);
+		}
+		else{
+			my @line = split(/\t/);
+			for(my $i=1;$i<$#line;$i++){
+				$KO{$header[$i]}{$line[0]}=$line[$i];
+			}
+		}
+	}
+	close MATRIX;
+	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+}
+
+else {
+	error("Wrong 'entry' parameter");
+}
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Load KEGG_orthology2pathway.txt information 
+# + store KO present for each pathway for each sample
+
+my $SUM;
+my $MAIN;
+
+open(KO2PATH,"$MetaPathExplorer_data/KEGG_orthology2pathway.tsv");
+while(<KO2PATH>){
+	chomp;
+	(my $KO,my $PATH)=split(/\t/);
+	foreach(@sample){
+		push(@{$pathwayOrthologyListHash{$_}{$PATH}}, "$KO") if $KO{$_}{$KO};	
+	}
+	$PATHWAY{$PATH}="";
+	my $PATHWAY = $PATH2PATHWAY{$PATH};
+	my $link="HTML/pathway/$PATH.html";
+	$SUM.="<a href=\"#$PATH\">$PATH</a><br />\n";
+	$MAIN.= sprintf ("<h2 id=\"%s\"><a href=\"%s\">%s%s</a> : %s</h2>",$PATH,$link,$KEGG_egg_img,$PATH,$PATHWAY);
+}
+close KO2PATH;
+
+open(IN,"$MetaPathExplorer_data/HTML/index-base.html");
+open(OUT, ">$outdir/MetaPathExplorer.html");
+while(<IN>){
+	$_ =~ s/%Summary/$SUM/;
+	$_ =~ s/%Main/$MAIN/;
+	$_ =~ s/%date/$DATE/;
+	print OUT $_;
+}
+close IN;
+close OUT;
+
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# Genering pathway report
+warning("To finish: Genering HTML pathway report.");
+
+foreach(@sample){
+	clean_up("$outdir/$_/pathway_report.url.tsv");
+}
+
+open(PATHREPORT,">$outdir/pathway_report.tsv");
+print PATHREPORT join("\t", '#pathway', '#definition'),"\t";
+foreach(@sample){
+	print PATHREPORT "\t";
+	print PATHREPORT join("\t","#$_: [Number of Ortholgous Present]","#$_: [Orthologous Present]");
+	open(PATHREPORTSAMPLE,">>$outdir/$_/pathway_report.url.tsv");
+	print PATHREPORTSAMPLE join ("\t",'pathway', 'definition','list'),"\n";
+	close PATHREPORTSAMPLE;
+
+}
+print PATHREPORT "\n";
+
+foreach my $PATH (sort keys %PATH2PATHWAY){
+	my $definition = $PATH2PATHWAY{$PATH};
+	my @pathwayOrthologyCount;
+	my @pOrthologyList;
+	$definition = '' unless(defined($definition));
+	if (exists $PATHWAY{$PATH}){
+		print PATHREPORT join("\t", $PATH, $definition),"\t";
+		foreach(@sample){
+			my $pathwayOrthologyCount = 0;
+			$pathwayOrthologyCount = scalar(my @pathwayOrthologyList = @{$pathwayOrthologyListHash{$_}{$PATH}}) if exists $pathwayOrthologyListHash{$_}{$PATH}; 
+			my $pathwayOrthologyList = ' ' ;
+			$pathwayOrthologyList = join("\n",@pathwayOrthologyList) if scalar(@pathwayOrthologyList) > 0;
+			print PATHREPORT join ("\t","[$pathwayOrthologyCount]",'['.substitution($pathwayOrthologyList,'\n','|').']'),"\t";
+			push @pathwayOrthologyCount, $pathwayOrthologyCount;
+			push @pOrthologyList, $pathwayOrthologyList ;
+			next if $pathwayOrthologyCount == 0 ;
+			open(PATHREPORTSAMPLE,">>$outdir/$_/pathway_report.url.tsv");
+			print PATHREPORTSAMPLE join ("\t", $PATH, $definition, substitution($pathwayOrthologyList,"\n",'|')),"\n";
+			close PATHREPORTSAMPLE;
+		}
+		print PATHREPORT "\n";
+	}
+	pathway_html(join(",",@sample), join(",",@pathwayOrthologyCount), join(",",@pOrthologyList),$PATH);
+	
+}
+close PATHREPORT;
+close PATHREPORTSAMPLE;
+
+
+warning("\n×××××××××××××××××××××××××××××××××××××××××××××××××××××××××");
+warning("End of script.")
+
+}

@@ -1,0 +1,10 @@
+#gff-version 3
+#source: MetaPathExplorer:1.1
+#date 19-09-2017
+#Type DNA
+#INFO [Seq: 234] [length: 5624576]
+#seq_name	method	feature	start	end	score	strand	frame	gene	
+317619.PRJNA158811.ANKN01000130	MetaPathExplorer:1.1	rDNA	5999	8794	2365.7	+	.	product=Bacterial:23S rDNA
+317619.PRJNA158811.ANKN01000130	MetaPathExplorer:1.1	rDNA	3680	5087	1284.9	+	.	product=Bacterial:16S rDNA
+317619.PRJNA158811.ANKN01000130	MetaPathExplorer:1.1	rDNA	8929	9043	62.9	+	.	product=Bacterial:5S rDNA
+317619.PRJNA158811.ANKN01000232	MetaPathExplorer:1.1	rDNA	15920	16034	62.9	-	.	product=Bacterial:5S rDNA

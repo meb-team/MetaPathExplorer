@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<script src="../js/w3.js"></script>
+<script src="../js/MetaPathExplorer.js"></script>
+	<head>		
+		<!-- En-tête de la page -->
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../style/style.css" />
+		<title>MetaPathExplorer</title>
+		<link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" /> 
+	</head>
+	
+	<body>
+		<!-- <div class="header"><div id="header_title"><img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" width="8%" height="8%">MetaPathExplorer Report</div><div id="header_filename">sept. 09 2017
+<br/>map04931<br/>Insulin resistance</div></div> --> 
+		<div class="header">
+			<div id="header_title"><a href="../../MetaPathExplorer.html">MetaPathExplorer</br>Report</a></div>
+			<div id="header_filename"><a href="http://www.kegg.jp/dbget-bin/www_bget?pathway+map04931">map04931<br/>Insulin resistance</a></div>
+			<div id="header_date">sept. 09 2017
+<br/></div>
+		</div>
+
+		<div id="wrapper">
+			<div class="summary">
+				<br/>
+				<div id="sample"><h2>Sample</h2>
+					<br/>
+						
+					<li><a href="#PRJNA158811">PRJNA158811</a></li>
+					<li><a href="#PRJNA232181">PRJNA232181</a></li>
+</div>
+			</div>
+
+			<div class="main" class2="sample">
+				<div>
+					<br/>
+					<ul>
+						<li style="display:inline-block;">
+							<a href="http://www.kegg.jp/dbget-bin/www_bget?pathway+map04931"><button type="button">Pathway entry on KEGG</button></a>
+						</li>
+						<li style="display:inline-block;">
+							<a href="http://www.kegg.jp/kegg-bin/show_pathway?org_name=map&mapno=04931&mapscale=&show_description=hide"><button type="button">Link to Pathway on KEGG</button></a>
+						</li>
+						<li style="display:inline-block;">
+							<input id="show description" type=button value="Show Description" onclick="hide_desc(description)"/>
+						</li>
+						<li style="display:inline-block;">
+							<input type=button value="Resize" onclick="resize()" />
+							<input type=text id="txtbox" value="45%" style="width:50px;"/>
+						</li>
+					</ul>
+					<p id="description" style="display: none;"> 
+						'Insulin resistance is a condition where cells become resistant to the effects of insulin. It is often found in people with health disorders, including obesity, type 2 diabetes mellitus, non-alcoholic fatty liver disease, and cardiovascular diseases. In this diagram multiple mechanisms underlying insulin resistance are shown: (a) increased phosphorylation of IRS (insulin receptor substrate) protein through serine/threonine kinases, such as JNK1 and IKKB, and protein kinase C, (b) increased IRS-1 proteasome degradation via mTOR signaling pathway, (c) decreased activation of signaling molecules including PI3K and AKT, (d) increase in activity of phosphatases including PTPs, PTEN, and PP2A. Regulatory actions such as oxidative stress, mitochondrial dysfunction, accumulation of intracellular lipid derivatives (diacylglycrol and ceramides), and inflammation (via IL-6 and TNFA) contribute to these mechanisms. Consequently, insulin resistance causes reduced GLUT4 translocation, resulting in glucose takeup and glycogen synthesis in skeletal muscle as well as increased hepatic gluconeogenesis and decreased glycogen synthesis in liver. At the bottom of the diagram, interplay between O-GlcNAcylation and serine/threonine phosphorylation is shown. Studies suggested that elevated O-GlcNAc level was correlated to high glucose-induced insulin resistance. Donor UDP-GlcNAc is induced through hexosamine biosynthesis pathway and added to proteins by O-GlcNAc transferase. Elevation of O-GlcNAc modification alters phosphorylation and function of key insulin signaling proteins including IRS-1, PI3K, PDK1, Akt and other transcription factor and cofactors, resulting in the attenuation of insulin signaling cascade.'  Copyright 1995-2017 Kanehisa Laboratories
+					</p>
+									<div class="sample" style='height:auto;width:45%;'>
+					<h2 id="PRJNA158811"><center>PRJNA158811</center></h2>
+					<br/>					<div style='padding:10px'>
+					<img src="map04931/PRJNA158811.png" style='height:100%;width:100%;object-fit:contain'></img>
+					</div>
+					<br/>
+					<div class="wrapper"><input id="button_PRJNA158811" type=button value="Show Table" onclick="hide(button_PRJNA158811,tab_PRJNA158811)" />
+					<br/>
+					<table id="tab_PRJNA158811" style="display:none;" align="center">						<tr>
+							<th>orthology count</th>
+							<th>kegg orthology</th>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>K00688 | K00820</td>						</tr>
+					</table>					<br/>
+					<a></a>
+					</div>
+					<br/>
+					<br/>
+				</div>
+				<div class="sample" style='height:auto;width:45%;'>
+					<h2 id="PRJNA232181"><center>PRJNA232181</center></h2>
+					<br/>					<div style='padding:10px'>
+					<img src="map04931/PRJNA232181.png" style='height:100%;width:100%;object-fit:contain'></img>
+					</div>
+					<br/>
+					<div class="wrapper"><input id="button_PRJNA232181" type=button value="Show Table" onclick="hide(button_PRJNA232181,tab_PRJNA232181)" />
+					<br/>
+					<table id="tab_PRJNA232181" style="display:none;" align="center">						<tr>
+							<th>orthology count</th>
+							<th>kegg orthology</th>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>K00688 | K00820</td>						</tr>
+					</table>					<br/>
+					<a></a>
+					</div>
+					<br/>
+					<br/>
+				</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="footer">Produced by <a href="https://github.com/meb-team/MetaPathExplorer">MetaPathExplorer</a></div>
+	</body>
+</html>
+
+
+
+<script type="text/javascript">
+w3.includeHTML();
+</script>

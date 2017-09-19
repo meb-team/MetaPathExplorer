@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<script src="../js/w3.js"></script>
+<script src="../js/MetaPathExplorer.js"></script>
+	<head>		
+		<!-- En-tête de la page -->
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../style/style.css" />
+		<title>MetaPathExplorer</title>
+		<link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" /> 
+	</head>
+	
+	<body>
+		<!-- <div class="header"><div id="header_title"><img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" width="8%" height="8%">MetaPathExplorer Report</div><div id="header_filename">sept. 09 2017
+<br/>map00680<br/>Methane metabolism</div></div> --> 
+		<div class="header">
+			<div id="header_title"><a href="../../MetaPathExplorer.html">MetaPathExplorer</br>Report</a></div>
+			<div id="header_filename"><a href="http://www.kegg.jp/dbget-bin/www_bget?pathway+map00680">map00680<br/>Methane metabolism</a></div>
+			<div id="header_date">sept. 09 2017
+<br/></div>
+		</div>
+
+		<div id="wrapper">
+			<div class="summary">
+				<br/>
+				<div id="sample"><h2>Sample</h2>
+					<br/>
+						
+					<li><a href="#PRJNA158811">PRJNA158811</a></li>
+					<li><a href="#PRJNA232181">PRJNA232181</a></li>
+</div>
+			</div>
+
+			<div class="main" class2="sample">
+				<div>
+					<br/>
+					<ul>
+						<li style="display:inline-block;">
+							<a href="http://www.kegg.jp/dbget-bin/www_bget?pathway+map00680"><button type="button">Pathway entry on KEGG</button></a>
+						</li>
+						<li style="display:inline-block;">
+							<a href="http://www.kegg.jp/kegg-bin/show_pathway?org_name=map&mapno=00680&mapscale=&show_description=hide"><button type="button">Link to Pathway on KEGG</button></a>
+						</li>
+						<li style="display:inline-block;">
+							<input id="show description" type=button value="Show Description" onclick="hide_desc(description)"/>
+						</li>
+						<li style="display:inline-block;">
+							<input type=button value="Resize" onclick="resize()" />
+							<input type=text id="txtbox" value="45%" style="width:50px;"/>
+						</li>
+					</ul>
+					<p id="description" style="display: none;"> 
+						'Methane is metabolized principally by methanotrophs and methanogens in the global carbon cycle. Methanotrophs consume methane as the only source of carbon, while methanogens produce methane as a metabolic byproduct. Methylotrophs, which are microorganisms that can obtain energy for growth by oxidizing one-carbon compounds, such as methanol and methane, are situated between methanotrophs and methanogens. Methanogens can obtain energy for growth by converting a limited number of substrates to methane under anaerobic conditions. Three types of methanogenic pathways are known: CO2 to methane [MD:M00567], methanol to methane [MD:M00356], and acetate to methane [MD:M00357]. Methanogens use 2-mercaptoethanesulfonate (CoM; coenzyme M) as the terminal methyl carrier in methanogenesis and have four enzymes for CoM biosynthesis [MD:M00358]. Coenzyme B-Coenzyme M heterodisulfide reductase (Hdr), requiring for the final reaction steps of methanogenic pathway, is divided into two types: cytoplasmic HdrABC in most methanogens and membrane-bound HdrED in Methanosarcina species. In methanotrophs and methyltrophs methane is oxidized to form formaldehyde, which is at the diverging point for further oxidation to CO2 for energy source and assimilation for biosynthesis. There are three pathways that convert formaldehyde to C2 or C3 compounds: serine pathway [MD:M00346], ribulose monophosphate pathway [MD:M00345], and xylulose monophosphate pathway [MD:M00344]. The first two pathways are found in prokaryotes and the third is found in yeast. As a special case of methylotrophs, various amines can be used as carbon sources in trimethylamine metabolism [MD:M00563].'  Copyright 1995-2017 Kanehisa Laboratories
+					</p>
+									<div class="sample" style='height:auto;width:45%;'>
+					<h2 id="PRJNA158811"><center>PRJNA158811</center></h2>
+					<br/>					<div style='padding:10px'>
+					<img src="map00680/PRJNA158811.png" style='height:100%;width:100%;object-fit:contain'></img>
+					</div>
+					<br/>
+					<div class="wrapper"><input id="button_PRJNA158811" type=button value="Show Table" onclick="hide(button_PRJNA158811,tab_PRJNA158811)" />
+					<br/>
+					<table id="tab_PRJNA158811" style="display:none;" align="center">						<tr>
+							<th>orthology count</th>
+							<th>kegg orthology</th>
+						</tr>
+						<tr>
+							<td>18</td>
+							<td>K00024 | K00058 | K00121 | K00600 | K00830 | K01007 | K01070 | K01595 | K01624 | K01689 | K01895 | K03841 | K05979 | K11532 | K11780 | K11781 | K15633 | K21071</td>						</tr>
+					</table>					<br/>
+					<a></a>
+					</div>
+					<br/>
+					<br/>
+				</div>
+				<div class="sample" style='height:auto;width:45%;'>
+					<h2 id="PRJNA232181"><center>PRJNA232181</center></h2>
+					<br/>					<div style='padding:10px'>
+					<img src="map00680/PRJNA232181.png" style='height:100%;width:100%;object-fit:contain'></img>
+					</div>
+					<br/>
+					<div class="wrapper"><input id="button_PRJNA232181" type=button value="Show Table" onclick="hide(button_PRJNA232181,tab_PRJNA232181)" />
+					<br/>
+					<table id="tab_PRJNA232181" style="display:none;" align="center">						<tr>
+							<th>orthology count</th>
+							<th>kegg orthology</th>
+						</tr>
+						<tr>
+							<td>18</td>
+							<td>K00024 | K00058 | K00121 | K00123 | K00600 | K00831 | K00850 | K00925 | K01007 | K01624 | K01689 | K01834 | K01895 | K02446 | K11645 | K13788 | K15633 | K15634</td>						</tr>
+					</table>					<br/>
+					<a></a>
+					</div>
+					<br/>
+					<br/>
+				</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="footer">Produced by <a href="https://github.com/meb-team/MetaPathExplorer">MetaPathExplorer</a></div>
+	</body>
+</html>
+
+
+
+<script type="text/javascript">
+w3.includeHTML();
+</script>
