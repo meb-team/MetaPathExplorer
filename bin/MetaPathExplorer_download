@@ -647,7 +647,7 @@ else{
 		'ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.dat.gz'
 	);
 	
-	# runcmd("cat <(zcat $MetaPathExplorer_data/uniprot_sprot.dat.gz) <(zcat $MetaPathExplorer_data/uniprot_trembl.dat.gz) > $MetaPathExplorer_data/uniprot_sprot_trembl.dat");
+	runcmd("zcat $MetaPathExplorer_data/uniprot_sprot.dat.gz $MetaPathExplorer_data/uniprot_trembl.dat.gz > $MetaPathExplorer_data/uniprot_sprot_trembl.dat");
 	
 	error("'$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.dat': file already. Use '--force' to erase early databse files.") 
 		if !$force && !$reuse && -e "$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.dat";
