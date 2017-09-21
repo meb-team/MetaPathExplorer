@@ -17,7 +17,7 @@ import re
 import argparse
 import sys
 
-# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+####################################################################
 # Class 
 class KEGG(Browser):
 	
@@ -71,7 +71,7 @@ class KEGG(Browser):
 		else :
 			print os.path.realpath(__file__)+' (error): ' +  pathway + ' do not contain the given KO list.'
 
-# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+#####################################################################
 # Function
 def get_kegg_image(tdir, K0s, color, pathway, org):
 	
@@ -80,11 +80,11 @@ def get_kegg_image(tdir, K0s, color, pathway, org):
 	kegg.search_pathways(K0s, color = color, org = org)
 	kegg.get_pathway_from_submission(pathway = pathway, imgpath = tdir)
 
-# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+#####################################################################
 # Main
 if __name__ == '__main__':
 	
-	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+	#################################################################
 	# Recover arguments
 	parser = argparse.ArgumentParser(description = 'Recover Pathway Map Image from a list of K0 and pathway name')
 	parser.add_argument('--K0file', dest = 'K0file', required = True,
@@ -98,18 +98,18 @@ if __name__ == '__main__':
 	parser.add_argument('--org', dest = 'org', required = False, 
 							help = 'organism name.')
 
-	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+	#################################################################
 	# Parse arguments
 	args = parser.parse_args()
 
-	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+	#################################################################
 	# Reads the K0 list file 
 	K0_list = open(args.K0file,'r').read().split('\n')
 
-	# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+	#################################################################
 	# Launch the KEGG pathway map recovery
 	get_kegg_image(args.out, K0_list, args.color, args.pathway, args.org)
 
 
-# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+#####################################################################
 # End of Script
