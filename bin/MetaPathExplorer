@@ -553,7 +553,7 @@ sub pathway_html{
 				runcmd("$FindBin::RealBin/MetaPathExplorer_pathway --K0file $K0ListFile --color $OPT{'kocolor'} --out $outimg --pathway $pathway --org $OPT{org}") unless (-e $outimg);
 			}
 			else{
-				runcmd("wget --no-verbose www.kegg.jp/kegg/pathway/map/$PATH.png -O $outimg") unless (-e $outimg);
+				runcmd("wget --no-verbose www.kegg.jp/kegg/pathway/$OPT{org}/$pathway.png -O $outimg") unless (-e $outimg);
 			}
 			my $comment = '' ;
 			$comment = 'No available data between K0 and the pathway' unless (-e $outimg);
