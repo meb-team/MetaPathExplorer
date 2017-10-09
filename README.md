@@ -28,7 +28,7 @@ MetaPathExplorer allows also optionnal analysis:
 ### Prerequisites
 
  * [Perl](https://www.perl.org/) - scripting language
- * [Python 2.7](https://www.python.org/download/releases/2.7/) - scripting language
+ * [Python 2.7](https://www.python.org/download/releases/2.7/) or [Python 3+](https://www.python.org/download/releases/3.0/) - scripting language
  * Linux commands: [wget](https://www.gnu.org/software/wget/), zcat
 
 ### GitHub
