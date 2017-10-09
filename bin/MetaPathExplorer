@@ -66,7 +66,7 @@ V 1.1
 =head1 DATE
 
 Creation : 14.12.2015
-Last modification : 18.09.2017
+Last modification : 09.10.2017
 
 =cut
 
@@ -95,7 +95,6 @@ use Time::Piece;
 use Time::Seconds;
 
 use lib "$FindBin::RealBin/../binaries";
-# use lib "$FindBin::RealBin/../modules";
 use Config::IniFiles;
 
 # ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
@@ -236,7 +235,6 @@ my %tools = (
 		REGEXP  => qr/($REGEXP)/,
 		REQUIRED => 1,
 	},
-
 	# Proteic annotation
 	'blastp' => {
 		GETVERSION  => "blastp -version 2>&1 | grep -i '^blastp'",
@@ -266,6 +264,12 @@ my %tools = (
 		CMD => "diamond blastp --query %s --db %d --evalue %e --sensitive --max-target-seqs 1 --threads %t --outfmt tab -a %o",
 		CMDx => "diamond blastx --query %s --db %d --evalue %e --sensitive --max-target-seqs 1 --threads %t --outfmt tab -a %o",
 		MAKE => "diamond makedb --in %d -d %d",
+	},
+	# language 
+	'python' => {
+		GETVERSION => "python --version 2>&1",
+		REGEXP  => qr/Python\s($REGEXP)/,
+		REQUIRED => 1,
 	},
 );
 
@@ -327,9 +331,9 @@ sub check_tool {
 	if ($tool->{GETVERSION}) {
       my $s = qx($tool->{GETVERSION});
       if (defined $s) {
-        $s =~ $tool->{REGEXP};
-        $tool->{VERSION} = $1 if defined $1;
-        warning("Determined $toolname version is $tool->{VERSION}");
+			$s =~ $tool->{REGEXP};
+			$tool->{VERSION} = $1 if defined $1;
+			warning("Determined $toolname version is $tool->{VERSION}");
 		}
 	}
 }
@@ -550,7 +554,9 @@ sub pathway_html{
 				open(LIST,">$K0ListFile");
 				print LIST $pathwayOrthologyList[$i];
 				close LIST;	
-				runcmd("$FindBin::RealBin/MetaPathExplorer_pathway --K0file $K0ListFile --color $OPT{'kocolor'} --out $outimg --pathway $pathway --org $OPT{org}") unless (-e $outimg);
+				$tools{python}{VERSION}=~m/^(\d)/;
+				my $MetaPathExplorer_pathway = $FindBin::RealBin.'/MetaPathExplorer_pathway.py'.$1;
+				runcmd("python $MetaPathExplorer_pathway --K0file $K0ListFile --color $OPT{'kocolor'} --out $outimg --pathway $pathway --org $OPT{org}") unless (-e $outimg);
 			}
 			else{
 				runcmd("wget --no-verbose www.kegg.jp/kegg/pathway/$OPT{org}/$pathway.png -O $outimg") unless (-e $outimg);
