@@ -742,7 +742,7 @@ if($rdna_prediction_annotation){
 				$sivlaID2lineage{$silvaID}=$lineage;
 			}
 			close rDNA;
-			$OPT{$parameter}=$value;
+			$OPT{$parameter}=$MetaPathExplorer_data_rDNA.'/'.$value;
 		}
 		else{
 			unless (-e "$value.nhr"){
@@ -750,7 +750,7 @@ if($rdna_prediction_annotation){
 				error("'$value' : Non-formated or misformated database for $parameter.
 					Use 'makeblastdb' command") unless (-e "$db.nhr" || -e "$db.nin" || -e "$db.nsq");
 			}
-			$OPT{$parameter}=$value;
+			$OPT{$parameter}=$MetaPathExplorer_data_rDNA.'/'.$value;
 		}
 	}
 }
