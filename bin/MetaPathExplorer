@@ -1177,7 +1177,7 @@ if($OPT{entry} eq 'assembly'){
 									next;
 								}
 								elsif ($length < int($OPT{lencutoff} * $LENG{$gene})){
-									$note = sprintf ";note=aligned only %d percent", (100*$length/$LENG{$gene}),;
+									$note = sprintf "aligned only %d percent", (100*$length/$LENG{$gene}),;
 									$prod .= " (partial)";
 								}
 								
