@@ -81,6 +81,7 @@ use Bio::SearchIO;
 use Bio::Seq;
 use Bio::Perl;
 use Bio::SeqFeature::Generic;
+use Config::IniFiles;
 use File::Copy;
 use File::Basename;
 use FindBin;
@@ -94,8 +95,6 @@ use POSIX ":sys_wait_h";
 use Time::Piece;
 use Time::Seconds;
 
-use lib "$FindBin::RealBin/../binaries";
-use Config::IniFiles;
 
 # ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # scalars
@@ -556,10 +555,11 @@ sub pathway_html{
 				close LIST;	
 				$tools{python}{VERSION}=~m/^(\d)/;
 				my $MetaPathExplorer_pathway = $FindBin::RealBin.'/MetaPathExplorer_pathway.py'.$1;
-				runcmd("python $MetaPathExplorer_pathway --K0file $K0ListFile --color $OPT{'kocolor'} --out $outimg --pathway $pathway --org $OPT{org}") unless (-e $outimg);
+				system("python $MetaPathExplorer_pathway --K0file $K0ListFile --color $OPT{'kocolor'} --out $outimg --pathway $pathway --org $OPT{org}") unless (-e $outimg);
 			}
 			else{
-				runcmd("wget --no-verbose www.kegg.jp/kegg/pathway/$OPT{org}/$pathway.png -O $outimg") unless (-e $outimg);
+				system("wget --no-verbose www.kegg.jp/kegg/pathway/$OPT{org}/$pathway.png -O $outimg") unless (-e $outimg);
+				system("wget --no-verbose www.kegg.jp/kegg/pathway/map/$PATH.png -O $outimg") unless (-e $outimg);
 			}
 			my $comment = '' ;
 			$comment = 'No available data between K0 and the pathway' unless (-e $outimg);
@@ -664,8 +664,8 @@ MAIN: {
 
 $ENV{PATH} = "$binaries:" . $ENV{PATH};
 
-unless($OPT{entry} eq 'assembly' or $OPT{entry} eq 'sids' or $OPT{entry} eq 'annotation' or $OPT{entry} eq 'matrix'){
-	error("The entry type is not precise or is incorrect. Please choose btw 'contigs' or 'sids' or 'annotation' or 'matrix'");
+unless($OPT{entry} eq 'assembly' or $OPT{entry} eq 'reads' or $OPT{entry} eq 'annotation' or $OPT{entry} eq 'matrix'){
+	error("The entry type is not precise or is incorrect. Please choose btw 'contigs' or 'reads' or 'annotation' or 'matrix'");
 }
 
 
@@ -732,6 +732,7 @@ if($rdna_prediction_annotation){
 		if ($parameter=~m/csv/){
 			unless (-e $value){
 				my $db = $MetaPathExplorer_data_rDNA.'/'.$value;
+				$OPT{$parameter}=$MetaPathExplorer_data_rDNA.'/'.$value;
 				error("'$value' for $parameter do not exist.") unless (-e $db);
 				$value = $db ;
 			}
@@ -739,10 +740,11 @@ if($rdna_prediction_annotation){
 			while(<rDNA>){
 				chomp;
 				my ($silvaID,$lineage)=split("\t");
-				$sivlaID2lineage{$silvaID}=$lineage;
+				$silvaID=~/(\S+)/;
+				$sivlaID2lineage{$1}=$lineage;
+
 			}
 			close rDNA;
-			$OPT{$parameter}=$MetaPathExplorer_data_rDNA.'/'.$value;
 		}
 		else{
 			unless (-e "$value.nhr"){
@@ -1182,7 +1184,7 @@ if($OPT{entry} eq 'assembly'){
 								}
 								
 								my $id=$rec{$sid};
-								my $attributes = "$feature_type$prod$note";
+								my $attributes = "$feature_type$prod";
 
 								push @{$seq{$sid}{FEATURE}}, Bio::SeqFeature::Generic->new( 
 									-primary    => 'rDNA',
@@ -1195,6 +1197,7 @@ if($OPT{entry} eq 'assembly'){
 									-frame      => '.',
 									-tag        => {
 										'product' => $attributes,
+										
 									},
 								);
 
@@ -1358,7 +1361,7 @@ if($OPT{entry} eq 'assembly'){
 						next unless $product =~ m/($dict_glob_rDNA{$mol})/;
 						$dna{"$rec{$sid}_$count"} = $feature;
 						my $header=$feature->gff_string($gff_factory);
-						$header=~m/(\S+\t){8}(\S+)/;
+						$header=~m/(\S+\t){8}(.+)/;
 						$header=sprintf("%s_%d # %d # %d # %d # %s",$rec{$sid},$count,$feature->start,$feature->end,$feature->strand,$2);
 						print $fna ">$header\n",
 							fasta_format($feature->seq->seq),"\n";
@@ -1387,7 +1390,7 @@ if($OPT{entry} eq 'assembly'){
 					next if $evalue > $OPT{'rDNA_evalue_co'} or $identity < $OPT{'rDNA_identity_co'}  or $score < $OPT{'rDNA_score_co'} ;
 					$dna{$query}->add_tag_value('organism',$subject);
 					my $lineage = $sivlaID2lineage{$subject} || 'No available lineage';
-					$dna{$query}->add_tag_value('note',$lineage);
+					$dna{$query}->add_tag_value('lineage',$lineage);
 				}
 				close ALN;
 			}
@@ -1474,7 +1477,11 @@ if($OPT{entry} eq 'assembly'){
 			for my $feature ( sort { $a->start <=> $b->start } @{$seq{$sid}{FEATURE}}) {
 				if ($feature->primary_tag eq 'CDS' and not $feature->has_tag('product')) {
 					$feature->add_tag_value('product', 'hypothetical protein');
-				}		
+				}
+				elsif($feature->primary_tag eq 'rDNA' or $feature->primary_tag eq 'tRNA'){
+					my $id=$rec{$sid};
+					$feature->seq_id($id);	
+				}
 				my $ID = sprintf("%d\_%05d",$num_seq,$num_id);
 				$num_id++;
 				$feature->add_tag_value('ID', $ID);
