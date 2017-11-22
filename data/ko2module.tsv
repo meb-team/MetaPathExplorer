@@ -67,6 +67,7 @@ K00067	rfbD, rmlD;dTDP-4-dehydrorhamnose reductase [EC:1.1.1.133]	M00793  dTDP-L
 K00070	HSD3B;3beta-hydroxy-Delta5-steroid dehydrogenase / steroid Delta-isomerase [EC:1.1.1.145 5.3.3.1]	M00107  Steroid hormone biosynthesis, cholesterol 
 K00070	HSD3B;3beta-hydroxy-Delta5-steroid dehydrogenase / steroid Delta-isomerase [EC:1.1.1.145 5.3.3.1]	M00110  C19/C18-Steroid hormone biosynthesis, pregnenolone 
 K00071	HSD11B2;corticosteroid 11-beta-dehydrogenase isozyme 2 [EC:1.1.1.-]	M00109  C21-Steroid hormone biosynthesis, progesterone 
+K00072	SPR;sepiapterin reductase [EC:1.1.1.153]	M00842  Tetrahydrobiopterin biosynthesis, GTP 
 K00077	panE, apbA;2-dehydropantoate 2-reductase [EC:1.1.1.169]	M00119  Pantothenate biosynthesis, valine/L-aspartate 
 K00082	ribD2;5-amino-6-(5-phosphoribosylamino)uracil reductase [EC:1.1.1.193]	M00125  Riboflavin biosynthesis, GTP 
 K00083	E1.1.1.195;cinnamyl-alcohol dehydrogenase [EC:1.1.1.195]	M00039  Monolignol biosynthesis, phenylalanine/tyrosine  
@@ -165,10 +166,10 @@ K00197	cdhE, acsC;acetyl-CoA decarbonylase/synthase complex subunit gamma [EC:2.
 K00197	cdhE, acsC;acetyl-CoA decarbonylase/synthase complex subunit gamma [EC:2.1.1.245]	M00377  Reductive acetyl-CoA pathway (Wood-Ljungdahl pathway)
 K00197	cdhE, acsC;acetyl-CoA decarbonylase/synthase complex subunit gamma [EC:2.1.1.245]	M00422  Acetyl-CoA pathway, CO2 
 K00198	cooS, acsA;anaerobic carbon-monoxide dehydrogenase catalytic subunit [EC:1.2.7.4]	M00377  Reductive acetyl-CoA pathway (Wood-Ljungdahl pathway)
-K00200	fwdA, fmdA;formylmethanofuran dehydrogenase subunit A [EC:1.2.99.5]	M00567  Methanogenesis, CO2 
-K00201	fwdB, fmdB;formylmethanofuran dehydrogenase subunit B [EC:1.2.99.5]	M00567  Methanogenesis, CO2 
-K00202	fwdC, fmdC;formylmethanofuran dehydrogenase subunit C [EC:1.2.99.5]	M00567  Methanogenesis, CO2 
-K00203	fwdD, fmdD;formylmethanofuran dehydrogenase subunit D [EC:1.2.99.5]	M00567  Methanogenesis, CO2 
+K00200	fwdA, fmdA;formylmethanofuran dehydrogenase subunit A [EC:1.2.7.12]	M00567  Methanogenesis, CO2 
+K00201	fwdB, fmdB;formylmethanofuran dehydrogenase subunit B [EC:1.2.7.12]	M00567  Methanogenesis, CO2 
+K00202	fwdC, fmdC;formylmethanofuran dehydrogenase subunit C [EC:1.2.7.12]	M00567  Methanogenesis, CO2 
+K00203	fwdD, fmdD;formylmethanofuran dehydrogenase subunit D [EC:1.2.7.12]	M00567  Methanogenesis, CO2 
 K00204	fwdH;4Fe-4S ferredoxin	M00567  Methanogenesis, CO2 
 K00205	fwdF, fmdF;4Fe-4S ferredoxin	M00567  Methanogenesis, CO2 
 K00207	DPYD;dihydropyrimidine dehydrogenase (NADP+) [EC:1.3.1.2]	M00046  Pyrimidine degradation, uracil 
@@ -257,7 +258,8 @@ K00275	pdxH, PNPO;pyridoxamine 5	M00124  Pyridoxal biosynthesis, erythrose-4P
 K00278	nadB;L-aspartate oxidase [EC:1.4.3.16]	M00115  NAD biosynthesis, aspartate 
 K00281	GLDC, gcvP;glycine dehydrogenase [EC:1.4.4.2]	M00532  Photorespiration
 K00286	proC;pyrroline-5-carboxylate reductase [EC:1.5.1.2]	M00015  Proline biosynthesis, glutamate 
-K00287	folA;dihydrofolate reductase [EC:1.5.1.3]	M00126  Tetrahydrofolate biosynthesis, GTP 
+K00287	DHFR, folA;dihydrofolate reductase [EC:1.5.1.3]	M00126  Tetrahydrofolate biosynthesis, GTP 
+K00287	DHFR, folA;dihydrofolate reductase [EC:1.5.1.3]	M00840  Tetrahydrofolate biosynthesis, mediated by ribA and trpF, GTP 
 K00288	MTHFD;methylenetetrahydrofolate dehydrogenase (NADP+) / methenyltetrahydrofolate cyclohydrolase / formyltetrahydrofolate synthetase [EC:1.5.1.5 3.5.4.9 6.3.4.3]	M00141  C1-unit interconversion, eukaryotes
 K00290	LYS1;saccharopine dehydrogenase (NAD+, L-lysine forming) [EC:1.5.1.7]	M00030  Lysine biosynthesis, AAA pathway, 2-oxoglutarate 
 K00290	LYS1;saccharopine dehydrogenase (NAD+, L-lysine forming) [EC:1.5.1.7]	M00032  Lysine degradation, lysine 
@@ -281,22 +283,22 @@ K00340	nuoK;NADH-quinone oxidoreductase subunit K [EC:1.6.5.3]	M00144  NADH:quin
 K00341	nuoL;NADH-quinone oxidoreductase subunit L [EC:1.6.5.3]	M00144  NADH:quinone oxidoreductase, prokaryotes
 K00342	nuoM;NADH-quinone oxidoreductase subunit M [EC:1.6.5.3]	M00144  NADH:quinone oxidoreductase, prokaryotes
 K00343	nuoN;NADH-quinone oxidoreductase subunit N [EC:1.6.5.3]	M00144  NADH:quinone oxidoreductase, prokaryotes
-K00360	nasB;assimilatory nitrate reductase electron transfer subunit [EC:1.7.99.4]	M00531  Assimilatory nitrate reduction, nitrate 
+K00360	nasB;assimilatory nitrate reductase electron transfer subunit [EC:1.7.99.-]	M00531  Assimilatory nitrate reduction, nitrate 
 K00362	nirB;nitrite reductase (NADH) large subunit [EC:1.7.1.15]	M00530  Dissimilatory nitrate reduction, nitrate 
 K00363	nirD;nitrite reductase (NADH) small subunit [EC:1.7.1.15]	M00530  Dissimilatory nitrate reduction, nitrate 
 K00365	uaZ;urate oxidase [EC:1.7.3.3]	M00546  Purine degradation, xanthine 
 K00366	nirA;ferredoxin-nitrite reductase [EC:1.7.7.1]	M00531  Assimilatory nitrate reduction, nitrate 
 K00367	narB;ferredoxin-nitrate reductase [EC:1.7.7.2]	M00531  Assimilatory nitrate reduction, nitrate 
 K00368	nirK;nitrite reductase (NO-forming) [EC:1.7.2.1]	M00529  Denitrification, nitrate 
-K00370	narG, narZ, nxrA;nitrate reductase / nitrite oxidoreductase, alpha subunit [EC:1.7.5.1 1.7.99.4]	M00529  Denitrification, nitrate 
-K00370	narG, narZ, nxrA;nitrate reductase / nitrite oxidoreductase, alpha subunit [EC:1.7.5.1 1.7.99.4]	M00530  Dissimilatory nitrate reduction, nitrate 
-K00370	narG, narZ, nxrA;nitrate reductase / nitrite oxidoreductase, alpha subunit [EC:1.7.5.1 1.7.99.4]	M00804  Complete nitrification, comammox, ammonia 
-K00371	narH, narY, nxrB;nitrate reductase / nitrite oxidoreductase, beta subunit [EC:1.7.5.1 1.7.99.4]	M00529  Denitrification, nitrate 
-K00371	narH, narY, nxrB;nitrate reductase / nitrite oxidoreductase, beta subunit [EC:1.7.5.1 1.7.99.4]	M00530  Dissimilatory nitrate reduction, nitrate 
-K00371	narH, narY, nxrB;nitrate reductase / nitrite oxidoreductase, beta subunit [EC:1.7.5.1 1.7.99.4]	M00804  Complete nitrification, comammox, ammonia 
-K00372	nasA;assimilatory nitrate reductase catalytic subunit [EC:1.7.99.4]	M00531  Assimilatory nitrate reduction, nitrate 
-K00374	narI, narV;nitrate reductase gamma subunit [EC:1.7.5.1 1.7.99.4]	M00529  Denitrification, nitrate 
-K00374	narI, narV;nitrate reductase gamma subunit [EC:1.7.5.1 1.7.99.4]	M00530  Dissimilatory nitrate reduction, nitrate 
+K00370	narG, narZ, nxrA;nitrate reductase / nitrite oxidoreductase, alpha subunit [EC:1.7.5.1 1.7.99.-]	M00529  Denitrification, nitrate 
+K00370	narG, narZ, nxrA;nitrate reductase / nitrite oxidoreductase, alpha subunit [EC:1.7.5.1 1.7.99.-]	M00530  Dissimilatory nitrate reduction, nitrate 
+K00370	narG, narZ, nxrA;nitrate reductase / nitrite oxidoreductase, alpha subunit [EC:1.7.5.1 1.7.99.-]	M00804  Complete nitrification, comammox, ammonia 
+K00371	narH, narY, nxrB;nitrate reductase / nitrite oxidoreductase, beta subunit [EC:1.7.5.1 1.7.99.-]	M00529  Denitrification, nitrate 
+K00371	narH, narY, nxrB;nitrate reductase / nitrite oxidoreductase, beta subunit [EC:1.7.5.1 1.7.99.-]	M00530  Dissimilatory nitrate reduction, nitrate 
+K00371	narH, narY, nxrB;nitrate reductase / nitrite oxidoreductase, beta subunit [EC:1.7.5.1 1.7.99.-]	M00804  Complete nitrification, comammox, ammonia 
+K00372	nasA;assimilatory nitrate reductase catalytic subunit [EC:1.7.99.-]	M00531  Assimilatory nitrate reduction, nitrate 
+K00374	narI, narV;nitrate reductase gamma subunit [EC:1.7.5.1 1.7.99.-]	M00529  Denitrification, nitrate 
+K00374	narI, narV;nitrate reductase gamma subunit [EC:1.7.5.1 1.7.99.-]	M00530  Dissimilatory nitrate reduction, nitrate 
 K00376	nosZ;nitrous-oxide reductase [EC:1.7.2.4]	M00529  Denitrification, nitrate 
 K00380	cysJ;sulfite reductase (NADPH) flavoprotein alpha-component [EC:1.8.1.2]	M00176  Assimilatory sulfate reduction, sulfate 
 K00381	cysI;sulfite reductase (NADPH) hemoprotein beta-component [EC:1.8.1.2]	M00176  Assimilatory sulfate reduction, sulfate 
@@ -476,7 +478,7 @@ K00668	FAS1;fatty acid synthase subunit beta, fungi type [EC:2.3.1.86]	M00082  F
 K00668	FAS1;fatty acid synthase subunit beta, fungi type [EC:2.3.1.86]	M00083  Fatty acid biosynthesis, elongation
 K00669	AANAT;arylalkylamine N-acetyltransferase [EC:2.3.1.87]	M00037  Melatonin biosynthesis, tryptophan 
 K00672	ftr;formylmethanofuran--tetrahydromethanopterin N-formyltransferase [EC:2.3.1.101]	M00567  Methanogenesis, CO2 
-K00674	dapD;2,3,4,5-tetrahydropyridine-2-carboxylate N-succinyltransferase [EC:2.3.1.117]	M00016  Lysine biosynthesis, succinyl-DAP pathway, aspartate 
+K00674	dapD;2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-succinyltransferase [EC:2.3.1.117]	M00016  Lysine biosynthesis, succinyl-DAP pathway, aspartate 
 K00677	lpxA;UDP-N-acetylglucosamine acyltransferase [EC:2.3.1.129]	M00060  Lipopolysaccharide biosynthesis, KDO2-lipid A
 K00699	UGT;glucuronosyltransferase [EC:2.4.1.17]	M00014  Glucuronate pathway (uronate pathway)
 K00699	UGT;glucuronosyltransferase [EC:2.4.1.17]	M00129  Ascorbate biosynthesis, animals, glucose-1P 
@@ -522,6 +524,7 @@ K00793	ribE, RIB5;riboflavin synthase [EC:2.5.1.9]	M00125  Riboflavin biosynthes
 K00794	ribH, RIB4;6,7-dimethyl-8-ribityllumazine synthase [EC:2.5.1.78]	M00125  Riboflavin biosynthesis, GTP 
 K00795	ispA;farnesyl diphosphate synthase [EC:2.5.1.1 2.5.1.10]	M00364  C10-C20 isoprenoid biosynthesis, bacteria
 K00796	folP;dihydropteroate synthase [EC:2.5.1.15]	M00126  Tetrahydrofolate biosynthesis, GTP 
+K00796	folP;dihydropteroate synthase [EC:2.5.1.15]	M00841  Tetrahydrofolate biosynthesis, mediated by PTPS, GTP 
 K00797	speE, SRM;spermidine synthase [EC:2.5.1.16]	M00034  Methionine salvage pathway
 K00797	speE, SRM;spermidine synthase [EC:2.5.1.16]	M00133  Polyamine biosynthesis, arginine 
 K00798	MMAB, pduO;cob(I)alamin adenosyltransferase [EC:2.5.1.17]	M00122  Cobalamin biosynthesis, cobinamide 
@@ -535,7 +538,6 @@ K00818	E2.6.1.11, argD;acetylornithine aminotransferase [EC:2.6.1.11]	M00028  Or
 K00821	argD;acetylornithine/N-succinyldiaminopimelate aminotransferase [EC:2.6.1.11 2.6.1.17]	M00016  Lysine biosynthesis, succinyl-DAP pathway, aspartate 
 K00821	argD;acetylornithine/N-succinyldiaminopimelate aminotransferase [EC:2.6.1.11 2.6.1.17]	M00028  Ornithine biosynthesis, glutamate 
 K00823	puuE;4-aminobutyrate aminotransferase [EC:2.6.1.19]	M00027  GABA (gamma-Aminobutyrate) shunt
-K00825	AADAT, KAT2;kynurenine/2-aminoadipate aminotransferase [EC:2.6.1.7 2.6.1.39]	M00030  Lysine biosynthesis, AAA pathway, 2-oxoglutarate 
 K00825	AADAT, KAT2;kynurenine/2-aminoadipate aminotransferase [EC:2.6.1.7 2.6.1.39]	M00032  Lysine degradation, lysine 
 K00826	E2.6.1.42, ilvE;branched-chain amino acid aminotransferase [EC:2.6.1.42]	M00019  Valine/isoleucine biosynthesis, pyruvate 
 K00826	E2.6.1.42, ilvE;branched-chain amino acid aminotransferase [EC:2.6.1.42]	M00036  Leucine degradation, leucine 
@@ -553,10 +555,10 @@ K00833	bioA;adenosylmethionine---8-amino-7-oxononanoate aminotransferase [EC:2.6
 K00833	bioA;adenosylmethionine---8-amino-7-oxononanoate aminotransferase [EC:2.6.1.62]	M00573  Biotin biosynthesis, BioI pathway, long-chain-acyl-ACP 
 K00833	bioA;adenosylmethionine---8-amino-7-oxononanoate aminotransferase [EC:2.6.1.62]	M00577  Biotin biosynthesis, BioW pathway, pimelate 
 K00836	ectB, dat;diaminobutyrate-2-oxoglutarate transaminase [EC:2.6.1.76]	M00033  Ectoine biosynthesis, aspartate 
-K00838	ARO8;aromatic amino acid aminotransferase I [EC:2.6.1.57 2.6.1.27 2.6.1.5]	M00024  Phenylalanine biosynthesis, chorismate 
-K00838	ARO8;aromatic amino acid aminotransferase I [EC:2.6.1.57 2.6.1.27 2.6.1.5]	M00025  Tyrosine biosynthesis, chorismate 
-K00838	ARO8;aromatic amino acid aminotransferase I [EC:2.6.1.57 2.6.1.27 2.6.1.5]	M00030  Lysine biosynthesis, AAA pathway, 2-oxoglutarate 
-K00838	ARO8;aromatic amino acid aminotransferase I [EC:2.6.1.57 2.6.1.27 2.6.1.5]	M00034  Methionine salvage pathway
+K00838	ARO8;aromatic amino acid aminotransferase I / 2-aminoadipate transaminase [EC:2.6.1.57 2.6.1.39 2.6.1.27 2.6.1.5]	M00024  Phenylalanine biosynthesis, chorismate 
+K00838	ARO8;aromatic amino acid aminotransferase I / 2-aminoadipate transaminase [EC:2.6.1.57 2.6.1.39 2.6.1.27 2.6.1.5]	M00025  Tyrosine biosynthesis, chorismate 
+K00838	ARO8;aromatic amino acid aminotransferase I / 2-aminoadipate transaminase [EC:2.6.1.57 2.6.1.39 2.6.1.27 2.6.1.5]	M00030  Lysine biosynthesis, AAA pathway, 2-oxoglutarate 
+K00838	ARO8;aromatic amino acid aminotransferase I / 2-aminoadipate transaminase [EC:2.6.1.57 2.6.1.39 2.6.1.27 2.6.1.5]	M00034  Methionine salvage pathway
 K00841	patA;aminotransferase [EC:2.6.1.-]	M00525  Lysine biosynthesis, acetyl-DAP pathway, aspartate 
 K00844	HK;hexokinase [EC:2.7.1.1]	M00001  Glycolysis (Embden-Meyerhof pathway), glucose 
 K00844	HK;hexokinase [EC:2.7.1.1]	M00549  Nucleotide sugar biosynthesis, glucose 
@@ -620,6 +622,7 @@ K00928	lysC;aspartate kinase [EC:2.7.2.4]	M00527  Lysine biosynthesis, DAP amino
 K00930	argB;acetylglutamate kinase [EC:2.7.2.8]	M00028  Ornithine biosynthesis, glutamate 
 K00931	proB;glutamate 5-kinase [EC:2.7.2.11]	M00015  Proline biosynthesis, glutamate 
 K00933	E2.7.3.2;creatine kinase [EC:2.7.3.2]	M00047  Creatine pathway
+K00936	pdtaS;two-component system, sensor histidine kinase PdtaS [EC:2.7.13.3]	M00839  PdtaS-PdtaR two-component regulatory system
 K00938	E2.7.4.2, mvaK2;phosphomevalonate kinase [EC:2.7.4.2]	M00095  C5 isoprenoid biosynthesis, mevalonate pathway
 K00939	adk, AK;adenylate kinase [EC:2.7.4.3]	M00049  Adenine ribonucleotide biosynthesis, IMP 
 K00940	ndk, NME;nucleoside-diphosphate kinase [EC:2.7.4.6]	M00049  Adenine ribonucleotide biosynthesis, IMP 
@@ -634,6 +637,7 @@ K00945	cmk;CMP/dCMP kinase [EC:2.7.4.25]	M00052  Pyrimidine ribonucleotide biosy
 K00946	thiL;thiamine-monophosphate kinase [EC:2.7.4.16]	M00127  Thiamine biosynthesis, AIR 
 K00948	PRPS, prsA;ribose-phosphate pyrophosphokinase [EC:2.7.6.1]	M00005  PRPP biosynthesis, ribose 5P 
 K00950	folK;2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase [EC:2.7.6.3]	M00126  Tetrahydrofolate biosynthesis, GTP 
+K00950	folK;2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase [EC:2.7.6.3]	M00841  Tetrahydrofolate biosynthesis, mediated by PTPS, GTP 
 K00953	FLAD1;FAD synthetase [EC:2.7.7.2]	M00125  Riboflavin biosynthesis, GTP 
 K00954	E2.7.7.3A, coaD, kdtB;pantetheine-phosphate adenylyltransferase [EC:2.7.7.3]	M00120  Coenzyme A biosynthesis, pantothenate 
 K00955	cysNC;bifunctional enzyme CysN/CysC [EC:2.7.7.4 2.7.1.25]	M00176  Assimilatory sulfate reduction, sulfate 
@@ -760,7 +764,10 @@ K01491	folD;methylenetetrahydrofolate dehydrogenase (NADP+) / methenyltetrahydro
 K01492	E2.1.2.3;phosphoribosylaminoimidazolecarboxamide formyltransferase [EC:2.1.2.3]	M00048  Inosine monophosphate biosynthesis, PRPP + glutamine 
 K01493	comEB;dCMP deaminase [EC:3.5.4.12]	M00429  Competence-related DNA transformation transporter
 K01494	dcd;dCTP deaminase [EC:3.5.4.13]	M00053  Pyrimidine deoxyribonuleotide biosynthesis, CDP/CTP 
-K01495	GCH1, folE;GTP cyclohydrolase I [EC:3.5.4.16]	M00126  Tetrahydrofolate biosynthesis, GTP 
+K01495	GCH1, folE;GTP cyclohydrolase IA [EC:3.5.4.16]	M00126  Tetrahydrofolate biosynthesis, GTP 
+K01495	GCH1, folE;GTP cyclohydrolase IA [EC:3.5.4.16]	M00841  Tetrahydrofolate biosynthesis, mediated by PTPS, GTP 
+K01495	GCH1, folE;GTP cyclohydrolase IA [EC:3.5.4.16]	M00842  Tetrahydrobiopterin biosynthesis, GTP 
+K01495	GCH1, folE;GTP cyclohydrolase IA [EC:3.5.4.16]	M00843  L-threo-Tetrahydrobiopterin biosynthesis, GTP 
 K01496	hisI;phosphoribosyl-AMP cyclohydrolase [EC:3.5.4.19]	M00026  Histidine biosynthesis, PRPP 
 K01497	ribA, RIB1;GTP cyclohydrolase II [EC:3.5.4.25]	M00125  Riboflavin biosynthesis, GTP 
 K01498	ribD1;diaminohydroxyphosphoribosylaminopyrimidine deaminase [EC:3.5.4.26]	M00125  Riboflavin biosynthesis, GTP 
@@ -832,7 +839,8 @@ K01625	eda;2-dehydro-3-deoxyphosphogluconate aldolase / (4S)-4-hydroxy-2-oxoglut
 K01626	E2.5.1.54, aroF, aroG, aroH;3-deoxy-7-phosphoheptulonate synthase [EC:2.5.1.54]	M00022  Shikimate pathway, phosphoenolpyruvate + erythrose-4P 
 K01627	kdsA;2-dehydro-3-deoxyphosphooctonate aldolase (KDO 8-P synthase) [EC:2.5.1.55]	M00063  CMP-KDO biosynthesis
 K01631	dgoA;2-dehydro-3-deoxyphosphogalactonate aldolase [EC:4.1.2.21]	M00552  D-galactonate degradation, De Ley-Doudoroff pathway, D-galactonate 
-K01633	folB;dihydroneopterin aldolase / 7,8-dihydroneopterin epimerase [EC:4.1.2.25 5.1.99.8]	M00126  Tetrahydrofolate biosynthesis, GTP 
+K01633	folB;7,8-dihydroneopterin aldolase/epimerase/oxygenase [EC:4.1.2.25 5.1.99.8 1.13.11.81]	M00126  Tetrahydrofolate biosynthesis, GTP 
+K01633	folB;7,8-dihydroneopterin aldolase/epimerase/oxygenase [EC:4.1.2.25 5.1.99.8 1.13.11.81]	M00840  Tetrahydrofolate biosynthesis, mediated by ribA and trpF, GTP 
 K01634	SGPL1, DPL1;sphinganine-1-phosphate aldolase [EC:4.1.2.27]	M00100  Sphingosine degradation
 K01637	E4.1.3.1, aceA;isocitrate lyase [EC:4.1.3.1]	M00012  Glyoxylate cycle
 K01638	aceB, glcB;malate synthase [EC:2.3.3.9]	M00012  Glyoxylate cycle
@@ -926,6 +934,8 @@ K01723	AOS;hydroperoxide dehydratase [EC:4.2.1.92]	M00113  Jasmonic acid biosynt
 K01733	thrC;threonine synthase [EC:4.2.3.1]	M00018  Threonine biosynthesis, aspartate 
 K01735	aroB;3-dehydroquinate synthase [EC:4.2.3.4]	M00022  Shikimate pathway, phosphoenolpyruvate + erythrose-4P 
 K01736	aroC;chorismate synthase [EC:4.2.3.5]	M00022  Shikimate pathway, phosphoenolpyruvate + erythrose-4P 
+K01737	queD, ptpS, PTS;6-pyruvoyltetrahydropterin/6-carboxytetrahydropterin synthase [EC:4.2.3.12 4.1.2.50]	M00842  Tetrahydrobiopterin biosynthesis, GTP 
+K01737	queD, ptpS, PTS;6-pyruvoyltetrahydropterin/6-carboxytetrahydropterin synthase [EC:4.2.3.12 4.1.2.50]	M00843  L-threo-Tetrahydrobiopterin biosynthesis, GTP 
 K01738	cysK;cysteine synthase A [EC:2.5.1.47]	M00021  Cysteine biosynthesis, serine 
 K01739	metB;cystathionine gamma-synthase [EC:2.5.1.48]	M00017  Methionine biosynthesis, apartate 
 K01745	hutH, HAL;histidine ammonia-lyase [EC:4.3.1.3]	M00045  Histidine degradation, histidine 
@@ -1076,14 +1086,13 @@ K01904	4CL;4-coumarate--CoA ligase [EC:6.2.1.12]	M00039  Monolignol biosynthesis
 K01904	4CL;4-coumarate--CoA ligase [EC:6.2.1.12]	M00137  Flavanone biosynthesis, phenylalanine 
 K01904	4CL;4-coumarate--CoA ligase [EC:6.2.1.12]	M00350  Capsaicin biosynthesis, L-Phenylalanine 
 K01906	bioW;6-carboxyhexanoate--CoA ligase [EC:6.2.1.14]	M00577  Biotin biosynthesis, BioW pathway, pimelate 
-K01911	menE;O-succinylbenzoic acid--CoA ligase [EC:6.2.1.26]	M00116  Menaquinone biosynthesis, chorismate 
+K01911	menE;O-succinylbenzoic acid---CoA ligase [EC:6.2.1.26]	M00116  Menaquinone biosynthesis, chorismate 
 K01916	nadE;NAD+ synthase [EC:6.3.1.5]	M00115  NAD biosynthesis, aspartate 
 K01918	panC;pantoate--beta-alanine ligase [EC:6.3.2.1]	M00119  Pantothenate biosynthesis, valine/L-aspartate 
 K01919	gshA;glutamate--cysteine ligase [EC:6.3.2.2]	M00118  Glutathione biosynthesis, glutamate 
 K01920	gshB;glutathione synthase [EC:6.3.2.3]	M00118  Glutathione biosynthesis, glutamate 
-K01922	PPCS, coaB;phosphopantothenate-cysteine ligase [EC:6.3.2.5]	M00120  Coenzyme A biosynthesis, pantothenate 
+K01922	PPCS, COAB;phosphopantothenate---cysteine ligase (ATP) [EC:6.3.2.51]	M00120  Coenzyme A biosynthesis, pantothenate 
 K01923	purC;phosphoribosylaminoimidazole-succinocarboxamide synthase [EC:6.3.2.6]	M00048  Inosine monophosphate biosynthesis, PRPP + glutamine 
-K01930	FPGS;folylpolyglutamate synthase [EC:6.3.2.17]	M00126  Tetrahydrofolate biosynthesis, GTP 
 K01933	purM;phosphoribosylformylglycinamidine cyclo-ligase [EC:6.3.3.1]	M00048  Inosine monophosphate biosynthesis, PRPP + glutamine 
 K01935	bioD;dethiobiotin synthetase [EC:6.3.3.3]	M00123  Biotin biosynthesis, pimeloyl-ACP/CoA 
 K01935	bioD;dethiobiotin synthetase [EC:6.3.3.3]	M00573  Biotin biosynthesis, BioI pathway, long-chain-acyl-ACP 
@@ -1093,8 +1102,8 @@ K01938	fhs;formate--tetrahydrofolate ligase [EC:6.3.4.3]	M00140  C1-unit interco
 K01938	fhs;formate--tetrahydrofolate ligase [EC:6.3.4.3]	M00377  Reductive acetyl-CoA pathway (Wood-Ljungdahl pathway)
 K01939	purA, ADSS;adenylosuccinate synthase [EC:6.3.4.4]	M00049  Adenine ribonucleotide biosynthesis, IMP 
 K01940	argG, ASS1;argininosuccinate synthase [EC:6.3.4.5]	M00029  Urea cycle
-K01945	purD;phosphoribosylamine--glycine ligase [EC:6.3.4.13]	M00048  Inosine monophosphate biosynthesis, PRPP + glutamine 
-K01947	birA-coaX;biotin-[acetyl-CoA-carboxylase] ligase / type III pantothenate kinase [EC:6.3.4.15 2.7.1.33]	M00120  Coenzyme A biosynthesis, pantothenate 
+K01945	purD;phosphoribosylamine---glycine ligase [EC:6.3.4.13]	M00048  Inosine monophosphate biosynthesis, PRPP + glutamine 
+K01947	birA-coaX;biotin---[acetyl-CoA-carboxylase] ligase / type III pantothenate kinase [EC:6.3.4.15 2.7.1.33]	M00120  Coenzyme A biosynthesis, pantothenate 
 K01948	CPS1;carbamoyl-phosphate synthase (ammonia) [EC:6.3.4.16]	M00029  Urea cycle
 K01950	E6.3.5.1, NADSYN1, QNS1, nadE;NAD+ synthase (glutamine-hydrolysing) [EC:6.3.5.1]	M00115  NAD biosynthesis, aspartate 
 K01951	guaA, GMPS;GMP synthase (glutamine-hydrolysing) [EC:6.3.5.2]	M00050  Guanine ribonucleotide biosynthesis IMP 
@@ -1278,7 +1287,6 @@ K02210	MCM7, CDC47;DNA replication licensing factor MCM7 [EC:3.6.4.12]	M00285  M
 K02212	MCM4, CDC54;DNA replication licensing factor MCM4 [EC:3.6.4.12]	M00285  MCM complex
 K02216	CHK1;serine/threonine-protein kinase Chk1 [EC:2.7.11.1]	M00691  DNA damage-induced cell cycle checkpoints
 K02220	CLB1_2;G2/mitotic-specific cyclin 1/2	M00693  Cell cycle - G2/M transition
-K02224	cobB-cbiA;cobyrinic acid a,c-diamide synthase [EC:6.3.5.9 6.3.5.11]	M00836  Coenzyme F430 biosynthesis, sirohydrochlorin 
 K02225	cobC1, cobC;cobalamin biosynthetic protein CobC	M00122  Cobalamin biosynthesis, cobinamide 
 K02226	cobC, phpB;alpha-ribazole phosphatase [EC:3.1.3.73]	M00122  Cobalamin biosynthesis, cobinamide 
 K02227	cbiB, cobD;adenosylcobinamide-phosphate synthase [EC:6.3.1.10]	M00122  Cobalamin biosynthesis, cobinamide 
@@ -1422,8 +1430,8 @@ K02554	mhpD;2-keto-4-pentenoate hydratase [EC:4.2.1.80]	M00569  Catechol meta-cl
 K02555	MIH1;M-phase inducer tyrosine phosphatase [EC:3.1.3.48]	M00691  DNA damage-induced cell cycle checkpoints
 K02555	MIH1;M-phase inducer tyrosine phosphatase [EC:3.1.3.48]	M00693  Cell cycle - G2/M transition
 K02560	lpxM, msbB;lauroyl-Kdo2-lipid IVA myristoyltransferase [EC:2.3.1.243]	M00060  Lipopolysaccharide biosynthesis, KDO2-lipid A
-K02567	napA;periplasmic nitrate reductase NapA [EC:1.7.99.4]	M00529  Denitrification, nitrate 
-K02567	napA;periplasmic nitrate reductase NapA [EC:1.7.99.4]	M00530  Dissimilatory nitrate reduction, nitrate 
+K02567	napA;periplasmic nitrate reductase NapA [EC:1.7.99.-]	M00529  Denitrification, nitrate 
+K02567	napA;periplasmic nitrate reductase NapA [EC:1.7.99.-]	M00530  Dissimilatory nitrate reduction, nitrate 
 K02568	napB;cytochrome c-type protein NapB	M00529  Denitrification, nitrate 
 K02568	napB;cytochrome c-type protein NapB	M00530  Dissimilatory nitrate reduction, nitrate 
 K02575	NRT, narK, nrtP, nasA;MFS transporter, NNP family, nitrate/nitrite transporter	M00615  Nitrate assimilation
@@ -1865,9 +1873,9 @@ K03073	secE;preprotein translocase subunit SecE	M00335  Sec (secretion) system
 K03074	secF;preprotein translocase subunit SecF	M00335  Sec (secretion) system
 K03075	secG;preprotein translocase subunit SecG	M00335  Sec (secretion) system
 K03076	secY;preprotein translocase subunit SecY	M00335  Sec (secretion) system
-K03077	ulaF, sgaE;L-ribulose-5-phosphate 4-epimerase [EC:5.1.3.4]	M00550  Ascorbate degradation, ascorbate 
-K03078	ulaD, sgaH;3-dehydro-L-gulonate-6-phosphate decarboxylase [EC:4.1.1.85]	M00550  Ascorbate degradation, ascorbate 
-K03079	ulaE, sgaU;L-ribulose-5-phosphate 3-epimerase [EC:5.1.3.22]	M00550  Ascorbate degradation, ascorbate 
+K03077	araD, ulaF, sgaE, sgbE;L-ribulose-5-phosphate 4-epimerase [EC:5.1.3.4]	M00550  Ascorbate degradation, ascorbate 
+K03078	ulaD, sgaH, sgbH;3-dehydro-L-gulonate-6-phosphate decarboxylase [EC:4.1.1.85]	M00550  Ascorbate degradation, ascorbate 
+K03079	ulaE, sgaU, sgbU;L-ribulose-5-phosphate 3-epimerase [EC:5.1.3.22]	M00550  Ascorbate degradation, ascorbate 
 K03083	GSK3B;glycogen synthase kinase 3 beta [EC:2.7.11.26]	M00677  Wnt signaling
 K03094	SKP1, CBF3D;S-phase kinase-associated protein 1	M00379  SCF-MET30 complex
 K03094	SKP1, CBF3D;S-phase kinase-associated protein 1	M00380  SCF-BTRC complex
@@ -1957,8 +1965,8 @@ K03274	gmhD, rfaD;ADP-L-glycero-D-manno-heptose 6-epimerase [EC:5.1.3.20]	M00064
 K03278	waaI, rfaI;UDP-D-galactose:(glucosyl)LPS alpha-1,3-D-galactosyltransferase [EC:2.4.1.44]	M00080  Lipopolysaccharide biosynthesis, inner core 
 K03279	waaJ, rfaJ;UDP-glucose:(galactosyl)LPS alpha-1,2-glucosyltransferase [EC:2.4.1.58]	M00080  Lipopolysaccharide biosynthesis, inner core 
 K03280	waaK, rfaK;UDP-N-acetylglucosamine:(glucosyl)LPS alpha-1,2-N-acetylglucosaminyltransferase [EC:2.4.1.56]	M00080  Lipopolysaccharide biosynthesis, inner core 
-K03283	HSPA1_8;heat shock 70kDa protein 1/8	M00353  Spliceosome, Prp19/CDC5L complex
-K03283	HSPA1_8;heat shock 70kDa protein 1/8	M00355  Spliceosome, 35S U5-snRNP
+K03283	HSPA1s;heat shock 70kDa protein 1/2/6/8	M00353  Spliceosome, Prp19/CDC5L complex
+K03283	HSPA1s;heat shock 70kDa protein 1/2/6/8	M00355  Spliceosome, 35S U5-snRNP
 K03331	DCXR;L-xylulose reductase [EC:1.1.1.10]	M00014  Glucuronate pathway (uronate pathway)
 K03334	IL4I1;L-amino-acid oxidase [EC:1.4.3.2]	M00044  Tyrosine degradation, tyrosine 
 K03340	dapdh;diaminopimelate dehydrogenase [EC:1.4.1.16]	M00526  Lysine biosynthesis, DAP dehydrogenase pathway, aspartate 
@@ -2007,9 +2015,9 @@ K03390	hdrC;heterodisulfide reductase subunit C [EC:1.8.98.1]	M00563  Methanogen
 K03390	hdrC;heterodisulfide reductase subunit C [EC:1.8.98.1]	M00567  Methanogenesis, CO2 
 K03392	ACMSD;aminocarboxymuconate-semialdehyde decarboxylase [EC:4.1.1.45]	M00038  Tryptophan metabolism, tryptophan 
 K03407	cheA;two-component system, chemotaxis family, sensor kinase CheA [EC:2.7.13.3]	M00506  CheA-CheYBV (chemotaxis) two-component regulatory system
-K03412	cheB;two-component system, chemotaxis family, response regulator CheB [EC:3.1.1.61]	M00506  CheA-CheYBV (chemotaxis) two-component regulatory system
-K03413	cheY;two-component system, chemotaxis family, response regulator CheY	M00506  CheA-CheYBV (chemotaxis) two-component regulatory system
-K03415	cheV;two-component system, chemotaxis family, response regulator CheV	M00506  CheA-CheYBV (chemotaxis) two-component regulatory system
+K03412	cheB;two-component system, chemotaxis family, protein-glutamate methylesterase/glutaminase [EC:3.1.1.61 3.5.1.44]	M00506  CheA-CheYBV (chemotaxis) two-component regulatory system
+K03413	cheY;two-component system, chemotaxis family, chemotaxis protein CheY	M00506  CheA-CheYBV (chemotaxis) two-component regulatory system
+K03415	cheV;two-component system, chemotaxis family, chemotaxis protein CheV	M00506  CheA-CheYBV (chemotaxis) two-component regulatory system
 K03419	CHPF2;chondroitin polymerizing factor 2 [EC:2.4.1.226]	M00058  Glycosaminoglycan biosynthesis, chondroitin sulfate backbone
 K03420	psmR;proteasome regulatory subunit	M00343  Archaeal proteasome
 K03425	tatE;sec-independent protein translocase protein TatE	M00336  Twin-arginine translocation (Tat) system
@@ -2068,7 +2076,6 @@ K03781	katE, CAT, catB, srpA;catalase [EC:1.11.1.6]	M00532  Photorespiration
 K03785	aroD;3-dehydroquinate dehydratase I [EC:4.2.1.10]	M00022  Shikimate pathway, phosphoenolpyruvate + erythrose-4P 
 K03786	aroQ, qutE;3-dehydroquinate dehydratase II [EC:4.2.1.10]	M00022  Shikimate pathway, phosphoenolpyruvate + erythrose-4P 
 K03794	sirB;sirohydrochlorin ferrochelatase [EC:4.99.1.4]	M00121  Heme biosynthesis, glutamate 
-K03795	cbiX;sirohydrochlorin cobaltochelatase [EC:4.99.1.3]	M00836  Coenzyme F430 biosynthesis, sirohydrochlorin 
 K03798	ftsH, hflB;cell division protease FtsH [EC:3.4.24.-]	M00742  Aminoglycoside resistance, protease FtsH
 K03799	htpX;heat shock protein HtpX [EC:3.4.24.-]	M00743  Aminoglycoside resistance, protease HtpX
 K03841	FBP, fbp;fructose-1,6-bisphosphatase I [EC:3.1.3.11]	M00003  Gluconeogenesis, oxaloacetate 
@@ -2497,7 +2504,7 @@ K07104	catE;catechol 2,3-dioxygenase [EC:1.13.11.2]	M00569  Catechol meta-cleava
 K07122	mlaB;phospholipid transport system transporter-binding protein	M00210  Phospholipid transport system
 K07127	uraH, pucM, hiuH;5-hydroxyisourate hydrolase [EC:3.5.2.17]	M00546  Purine degradation, xanthine 
 K07130	kynB;arylformamidase [EC:3.5.1.9]	M00038  Tryptophan metabolism, tryptophan 
-K07151	STT3;dolichyl-diphosphooligosaccharide--protein glycosyltransferase [EC:2.4.99.18]	M00072  N-glycosylation by oligosaccharyltransferase
+K07151	STT3;dolichyl-diphosphooligosaccharide---protein glycosyltransferase [EC:2.4.99.18]	M00072  N-glycosylation by oligosaccharyltransferase
 K07173	luxS;S-ribosylhomocysteine lyase [EC:4.4.1.21]	M00609  Cysteine biosynthesis, methionine 
 K07201	FOXO1;forkhead box protein O1	M00676  PI3K-Akt signaling
 K07209	IKBKB, IKKB;inhibitor of nuclear factor kappa-B kinase subunit beta [EC:2.7.11.10]	M00686  Toll-like receptor signaling
@@ -2695,8 +2702,8 @@ K07789	mdtC;multidrug efflux pump	M00648  Multidrug resistance, efflux pump MdtA
 K07799	mdtA;membrane fusion protein, multidrug efflux system	M00648  Multidrug resistance, efflux pump MdtABC
 K07806	arnB, pmrH;UDP-4-amino-4-deoxy-L-arabinose-oxoglutarate aminotransferase [EC:2.6.1.87]	M00721  Cationic antimicrobial peptide (CAMP) resistance, arnBCADTEF operon
 K07806	arnB, pmrH;UDP-4-amino-4-deoxy-L-arabinose-oxoglutarate aminotransferase [EC:2.6.1.87]	M00761  Undecaprenylphosphate alpha-L-Ara4N biosynthesis, UDP-GlcA 
-K07819	B3GALT1;beta-1,3-galactosyltransferase 1 [EC:2.4.1.-]	M00070  Glycosphingolipid biosynthesis, lacto-series, LacCer 
-K07820	B3GALT2;beta-1,3-galactosyltransferase 2 [EC:2.4.1.-]	M00070  Glycosphingolipid biosynthesis, lacto-series, LacCer 
+K07819	B3GALT1;beta-1,3-galactosyltransferase 1 [EC:2.4.1.86]	M00070  Glycosphingolipid biosynthesis, lacto-series, LacCer 
+K07820	B3GALT2;beta-1,3-galactosyltransferase 2 [EC:2.4.1.86]	M00070  Glycosphingolipid biosynthesis, lacto-series, LacCer 
 K07953	SAR1;GTP-binding protein SAR1 [EC:3.6.5.-]	M00404  COPII complex
 K07964	HPSE;heparanase [EC:3.2.1.166]	M00078  Heparan sulfate degradation
 K07965	HPSE2;heparanase 2 [EC:3.2.1.-]	M00078  Heparan sulfate degradation
@@ -2733,6 +2740,7 @@ K08170	norB, norC;MFS transporter, DHA2 family, multidrug resistance protein	M00
 K08218	ampG;MFS transporter, PAT family, beta-lactamase induction signal transducer AmpG	M00628  beta-Lactam resistance, AmpC system
 K08289	purT;phosphoribosylglycinamide formyltransferase 2 [EC:2.1.2.2]	M00048  Inosine monophosphate biosynthesis, PRPP + glutamine 
 K08300	rne;ribonuclease E [EC:3.1.26.12]	M00394  RNA degradosome
+K08310	nudB, ntpA;dihydroneopterin triphosphate diphosphatase [EC:3.6.1.67]	M00126  Tetrahydrofolate biosynthesis, GTP 
 K08323	rspA, manD;mannonate dehydratase [EC:4.2.1.8]	M00061  D-Glucuronate degradation, D-glucuronate 
 K08475	pgtB;two-component system, NtrC family, phosphoglycerate transport system sensor histidine kinase PgtB [EC:2.7.13.3]	M00503  PgtB-PgtA (phosphoglycerate transport) two-component regulatory system
 K08476	pgtA;two-component system, NtrC family, phosphoglycerate transport system response regulator PgtA	M00503  PgtB-PgtA (phosphoglycerate transport) two-component regulatory system
@@ -2770,8 +2778,8 @@ K08965	mtnW;2,3-diketo-5-methylthiopentyl-1-phosphate enolase [EC:5.3.2.5]	M0003
 K08966	mtnX;2-hydroxy-3-keto-5-methylthiopentenyl-1-phosphate phosphatase [EC:3.1.3.87]	M00034  Methionine salvage pathway
 K08967	mtnD, mtnZ, ADI1;1,2-dihydroxy-3-keto-5-methylthiopentene dioxygenase [EC:1.13.11.53 1.13.11.54]	M00034  Methionine salvage pathway
 K08969	mtnE, mtnV;aminotransferase [EC:2.6.1.-]	M00034  Methionine salvage pathway
-K09007	GCH4, folE;GTP cyclohydrolase I [EC:3.5.4.16]	M00126  Tetrahydrofolate biosynthesis, GTP 
-K09011	cimA;D-citramalate synthase [EC:2.3.1.182]	M00535  Isoleucine biosynthesis, pyruvate 
+K09007	folE2;GTP cyclohydrolase IB [EC:3.5.4.16]	M00126  Tetrahydrofolate biosynthesis, GTP 
+K09011	cimA;(R)-citramalate synthase [EC:2.3.1.182]	M00535  Isoleucine biosynthesis, pyruvate 
 K09249	ABF1, BAF1;ARS-binding factor 1	M00692  Cell cycle - G1/S transition
 K09291	TPR, MLP1, MLP2;nucleoprotein TPR	M00427  Nuclear pore complex
 K09389	E2F2;transcription factor E2F2	M00692  Cell cycle - G1/S transition
@@ -2781,7 +2789,7 @@ K09458	fabF;3-oxoacyl-[acyl-carrier-protein] synthase II [EC:2.3.1.179]	M00083  
 K09458	fabF;3-oxoacyl-[acyl-carrier-protein] synthase II [EC:2.3.1.179]	M00572  Pimeloyl-ACP biosynthesis, BioC-BioH pathway, malonyl-ACP 
 K09470	puuA;gamma-glutamylputrescine synthase [EC:6.3.1.11]	M00136  GABA biosynthesis, prokaryotes, putrescine 
 K09471	puuB, ordL;gamma-glutamylputrescine oxidase [EC:1.4.3.-]	M00136  GABA biosynthesis, prokaryotes, putrescine 
-K09472	puuC, aldH;gamma-glutamyl-gamma-aminobutyraldehyde dehydrogenase [EC:1.2.1.-]	M00136  GABA biosynthesis, prokaryotes, putrescine 
+K09472	puuC, aldH;4-(gamma-glutamylamino)butanal dehydrogenase [EC:1.2.1.99]	M00136  GABA biosynthesis, prokaryotes, putrescine 
 K09473	puuD;gamma-glutamyl-gamma-aminobutyrate hydrolase [EC:3.5.1.94]	M00136  GABA biosynthesis, prokaryotes, putrescine 
 K09476	ompF;outer membrane pore protein F	M00746  Multidrug resistance, repression of porin OmpF
 K09479	ACADVL;very long chain acyl-CoA dehydrogenase [EC:1.3.8.9]	M00087  beta-Oxidation
@@ -3240,7 +3248,7 @@ K11233	SSK1;osomolarity two-component system, response regulator SSK1	M00516  SL
 K11258	ilvM;acetolactate synthase II small subunit [EC:2.2.1.6]	M00019  Valine/isoleucine biosynthesis, pyruvate 
 K11258	ilvM;acetolactate synthase II small subunit [EC:2.2.1.6]	M00570  Isoleucine biosynthesis, threonine 
 K11260	fwdG;4Fe-4S ferredoxin	M00567  Methanogenesis, CO2 
-K11261	fwdE, fmdE;formylmethanofuran dehydrogenase subunit E [EC:1.2.99.5]	M00567  Methanogenesis, CO2 
+K11261	fwdE, fmdE;formylmethanofuran dehydrogenase subunit E [EC:1.2.7.12]	M00567  Methanogenesis, CO2 
 K11262	ACACA;acetyl-CoA carboxylase / biotin carboxylase 1 [EC:6.4.1.2 6.3.4.14]	M00082  Fatty acid biosynthesis, initiation
 K11263	bccA;acetyl-CoA/propionyl-CoA carboxylase, biotin carboxylase, biotin carboxyl carrier protein [EC:6.4.1.2 6.4.1.3 6.3.4.14]	M00082  Fatty acid biosynthesis, initiation
 K11263	bccA;acetyl-CoA/propionyl-CoA carboxylase, biotin carboxylase, biotin carboxyl carrier protein [EC:6.4.1.2 6.4.1.3 6.3.4.14]	M00741  Propanoyl-CoA metabolism, propanoyl-CoA 
@@ -3336,6 +3344,7 @@ K11743	mdtJ;spermidine export protein MdtJ	M00711  Multidrug resistance, efflux 
 K11752	ribD;diaminohydroxyphosphoribosylaminopyrimidine deaminase / 5-amino-6-(5-phosphoribosylamino)uracil reductase [EC:3.5.4.26 1.1.1.193]	M00125  Riboflavin biosynthesis, GTP 
 K11753	ribF;riboflavin kinase / FMN adenylyltransferase [EC:2.7.1.26 2.7.7.2]	M00125  Riboflavin biosynthesis, GTP 
 K11754	folC;dihydrofolate synthase / folylpolyglutamate synthase [EC:6.3.2.12 6.3.2.17]	M00126  Tetrahydrofolate biosynthesis, GTP 
+K11754	folC;dihydrofolate synthase / folylpolyglutamate synthase [EC:6.3.2.12 6.3.2.17]	M00841  Tetrahydrofolate biosynthesis, mediated by PTPS, GTP 
 K11755	hisIE;phosphoribosyl-ATP pyrophosphohydrolase / phosphoribosyl-AMP cyclohydrolase [EC:3.6.1.31 3.5.4.19]	M00026  Histidine biosynthesis, PRPP 
 K11779	fbiC;FO synthase [EC:2.5.1.77]	M00378  F420 biosynthesis
 K11780	cofG;FO synthase subunit 1 [EC:2.5.1.77]	M00378  F420 biosynthesis
@@ -3347,7 +3356,7 @@ K11812	CYP79B1_2;tryptophan N-monooxygenase [EC:1.14.13.125]	M00370  Glucosinola
 K11813	CYP79B3;tryptophan N-monooxygenase [EC:1.14.13.125]	M00370  Glucosinolate biosynthesis, tryptophan 
 K11814	ebrA;multidrug resistance protein EbrA	M00710  Multidrug resistance, efflux pump EbrAB
 K11815	ebrB;multidrug resistance protein EbrB	M00710  Multidrug resistance, efflux pump EbrAB
-K11818	CYP83B1;cytochrome P450 family 83 subfamily B polypeptide 1 [EC:1.14.-.-]	M00370  Glucosinolate biosynthesis, tryptophan 
+K11818	CYP83B1;aromatic aldoxime N-monooxygenase [EC:1.14.14.45]	M00370  Glucosinolate biosynthesis, tryptophan 
 K11819	SUR1, RTY;S-alkyl-thiohydroximate lyase SUR1 [EC:4.4.1.-]	M00370  Glucosinolate biosynthesis, tryptophan 
 K11820	UGT74B1;N-hydroxythioamide S-beta-glucosyltransferase [EC:2.4.1.195]	M00370  Glucosinolate biosynthesis, tryptophan 
 K11821	ST5A_B_C;desulfoglucosinolate sulfotransferase A/B/C [EC:2.8.2.-]	M00370  Glucosinolate biosynthesis, tryptophan 
@@ -3368,7 +3377,6 @@ K11907	vasG, clpV;type VI secretion system protein VasG	M00334  Type VI secretio
 K11910	vasJ;type VI secretion system protein VasJ	M00334  Type VI secretion system
 K11911	vasL;type VI secretion system protein VasL	M00334  Type VI secretion system
 K11919	hsiF3;type VI secretion system lysozyme-related protein	M00334  Type VI secretion system
-K11942	E5.4.99.2;methylmalonyl-CoA mutase [EC:5.4.99.2]	M00741  Propanoyl-CoA metabolism, propanoyl-CoA 
 K11950	cmpA;bicarbonate transport system substrate-binding protein	M00321  Bicarbonate transport system
 K11951	cmpB;bicarbonate transport system permease protein	M00321  Bicarbonate transport system
 K11952	cmpC;bicarbonate transport system ATP-binding protein [EC:3.6.3.-]	M00321  Bicarbonate transport system
@@ -3651,7 +3659,7 @@ K13029	CYP71E1;4-hydroxyphenylacetaldehyde oxime monooxygenase [EC:1.14.14.37]	M
 K13030	UGT85B1;cyanohydrin beta-glucosyltransferase [EC:2.4.1.85]	M00369  Cyanogenic glycoside biosynthesis, tyrosine 
 K13034	ATCYSC1;L-3-cyanoalanine synthase/ cysteine synthase [EC:2.5.1.47 4.4.1.9]	M00021  Cysteine biosynthesis, serine 
 K13037	bacD;L-alanine-L-anticapsin ligase [EC:6.3.2.49]	M00787  Bacilysin biosynthesis, prephenate 
-K13038	coaBC, dfp;phosphopantothenoylcysteine decarboxylase / phosphopantothenate--cysteine ligase [EC:4.1.1.36 6.3.2.5]	M00120  Coenzyme A biosynthesis, pantothenate 
+K13038	coaBC, dfp;phosphopantothenoylcysteine decarboxylase / phosphopantothenate---cysteine ligase [EC:4.1.1.36 6.3.2.5]	M00120  Coenzyme A biosynthesis, pantothenate 
 K13039	comE;sulfopyruvate decarboxylase subunit beta [EC:4.1.1.79]	M00358  Coenzyme M biosynthesis
 K13040	ttrS;two-component system, LuxR family, sensor histidine kinase TtrS [EC:2.7.13.3]	M00514  TtrS-TtrR (tetrathionate respiration) two-component regulatory system
 K13041	ttrR;two-component system, LuxR family, response regulator TtrR	M00514  TtrS-TtrR (tetrathionate respiration) two-component regulatory system
@@ -3816,15 +3824,16 @@ K13896	yejF;microcin C transport system ATP-binding protein	M00349  Microcin C t
 K13924	cheBR;two-component system, chemotaxis family, CheB/CheR fusion protein [EC:2.1.1.80 3.1.1.61]	M00506  CheA-CheYBV (chemotaxis) two-component regulatory system
 K13937	H6PD;hexose-6-phosphate dehydrogenase [EC:1.1.1.47 3.1.1.31]	M00004  Pentose phosphate pathway (Pentose phosphate cycle)
 K13937	H6PD;hexose-6-phosphate dehydrogenase [EC:1.1.1.47 3.1.1.31]	M00006  Pentose phosphate pathway, oxidative phase, glucose 6P 
-K13938	folM;dihydromonapterin reductase / dihydrofolate reductase [EC:1.5.1.- 1.5.1.3]	M00126  Tetrahydrofolate biosynthesis, GTP 
 K13939	FOL1;dihydroneopterin aldolase / 2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase / dihydropteroate synthase [EC:4.1.2.25 2.7.6.3 2.5.1.15]	M00126  Tetrahydrofolate biosynthesis, GTP 
 K13940	sulD;dihydroneopterin aldolase / 2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase [EC:4.1.2.25 2.7.6.3]	M00126  Tetrahydrofolate biosynthesis, GTP 
 K13941	folKP;2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase / dihydropteroate synthase [EC:2.7.6.3 2.5.1.15]	M00126  Tetrahydrofolate biosynthesis, GTP 
+K13941	folKP;2-amino-4-hydroxy-6-hydroxymethyldihydropteridine diphosphokinase / dihydropteroate synthase [EC:2.7.6.3 2.5.1.15]	M00840  Tetrahydrofolate biosynthesis, mediated by ribA and trpF, GTP 
 K13942	hmd;5,10-methenyltetrahydromethanopterin hydrogenase [EC:1.12.98.2]	M00567  Methanogenesis, CO2 
 K13989	DERL2_3;Derlin-2/3	M00403  HRD1/SEL1 ERAD complex
 K13995	nicF;maleamate amidohydrolase [EC:3.5.1.107]	M00622  Nicotinate degradation, nicotinate 
 K13998	DHFR-TS;dihydrofolate reductase / thymidylate synthase [EC:1.5.1.3 2.1.1.45]	M00053  Pyrimidine deoxyribonuleotide biosynthesis, CDP/CTP 
 K13998	DHFR-TS;dihydrofolate reductase / thymidylate synthase [EC:1.5.1.3 2.1.1.45]	M00126  Tetrahydrofolate biosynthesis, GTP 
+K13998	DHFR-TS;dihydrofolate reductase / thymidylate synthase [EC:1.5.1.3 2.1.1.45]	M00841  Tetrahydrofolate biosynthesis, mediated by PTPS, GTP 
 K14004	SEC13;protein transport protein SEC13	M00404  COPII complex
 K14004	SEC13;protein transport protein SEC13	M00427  Nuclear pore complex
 K14005	SEC31;protein transport protein SEC31	M00404  COPII complex
@@ -3983,6 +3992,7 @@ K14630	actVA5;two-component flavin-dependent monooxygenase [EC:1.14.14.-]	M00779
 K14631	actVB;flavin reductase ActVB [EC:1.5.1.-]	M00779  Dihydrokalafungin biosynthesis, octaketide 
 K14632	actVA6;C-6 monooxygenase	M00779  Dihydrokalafungin biosynthesis, octaketide 
 K14652	ribBA;3,4-dihydroxy 2-butanone 4-phosphate synthase / GTP cyclohydrolase II [EC:4.1.99.12 3.5.4.25]	M00125  Riboflavin biosynthesis, GTP 
+K14652	ribBA;3,4-dihydroxy 2-butanone 4-phosphate synthase / GTP cyclohydrolase II [EC:4.1.99.12 3.5.4.25]	M00840  Tetrahydrofolate biosynthesis, mediated by ribA and trpF, GTP 
 K14657	nodD;LysR family transcriptional regulator, nod-box dependent transcriptional activator	M00664  Nodulation
 K14658	nodA;nodulation protein A [EC:2.3.1.-]	M00664  Nodulation
 K14659	nodB;chitooligosaccharide deacetylase [EC:3.5.1.-]	M00664  Nodulation
@@ -4098,11 +4108,11 @@ K15756	carC;2-hydroxy-6-oxo-6-(2	M00544  Carbazole degradation, carbazole
 K15757	xylM;xylene monooxygenase subunit XylM [EC:1.14.13.-]	M00537  Xylene degradation, xylene 
 K15758	xylA;xylene monooxygenase electron transfer component [EC:1.18.1.3]	M00537  Xylene degradation, xylene 
 K15759	IMPAD1, IMPA3;inositol monophosphatase 3 [EC:3.1.3.25 3.1.3.7]	M00131  Inositol phosphate metabolism, Ins(1,3,4,5)P4 
-K15760	tmoA, tbuA1, touA;toluene monooxygenase system protein A [EC:1.14.13.-]	M00538  Toluene degradation, toluene 
-K15761	tmoB, tbuU, touB;toluene monooxygenase system protein B [EC:1.14.13.-]	M00538  Toluene degradation, toluene 
+K15760	tmoA, tbuA1, touA;toluene monooxygenase system protein A [EC:1.14.13.236 1.14.13.-]	M00538  Toluene degradation, toluene 
+K15761	tmoB, tbuU, touB;toluene monooxygenase system protein B [EC:1.14.13.236 1.14.13.-]	M00538  Toluene degradation, toluene 
 K15762	tmoC, tbuB, touC;toluene monooxygenase system ferredoxin subunit	M00538  Toluene degradation, toluene 
-K15763	tmoD, tbuV, touD;toluene monooxygenase system protein D [EC:1.14.13.-]	M00538  Toluene degradation, toluene 
-K15764	tmoE, tbuA2, touE;toluene monooxygenase system protein E [EC:1.14.13.-]	M00538  Toluene degradation, toluene 
+K15763	tmoD, tbuV, touD;toluene monooxygenase system protein D [EC:1.14.13.236 1.14.13.-]	M00538  Toluene degradation, toluene 
+K15764	tmoE, tbuA2, touE;toluene monooxygenase system protein E [EC:1.14.13.236 1.14.13.-]	M00538  Toluene degradation, toluene 
 K15765	tmoF, tbuC, touF;toluene monooxygenase electron transfer component [EC:1.18.1.3]	M00538  Toluene degradation, toluene 
 K15770	cycB, ganO;arabinogalactan oligomer / maltooligosaccharide transport system substrate-binding protein	M00491  arabinogalactan oligomer/maltooligosaccharide transport system
 K15771	ganP;arabinogalactan oligomer / maltooligosaccharide transport system permease protein	M00491  arabinogalactan oligomer/maltooligosaccharide transport system
@@ -4373,6 +4383,7 @@ K17716	capD;UDP-glucose 4-epimerase [EC:5.1.3.2]	M00362  Nucleotide sugar biosyn
 K17722	preT;dihydropyrimidine dehydrogenase (NAD+) subunit PreT [EC:1.3.1.1]	M00046  Pyrimidine degradation, uracil 
 K17723	preA;dihydropyrimidine dehydrogenase (NAD+) subunit PreA [EC:1.3.1.1]	M00046  Pyrimidine degradation, uracil 
 K17744	GalDH;L-galactose dehydrogenase [EC:1.1.1.316]	M00114  Ascorbate biosynthesis, plants, glucose-6P 
+K17745	spr1;sepiapterin reductase [EC:1.1.1.325]	M00843  L-threo-Tetrahydrobiopterin biosynthesis, GTP 
 K17747	ptlF;1-deoxy-11beta-hydroxypentalenate dehydrogenase [EC:1.1.1.340]	M00819  Pentalenolactone biosynthesis, farnesyl-PP 
 K17755	codA;choline oxidase [EC:1.1.3.17]	M00555  Betaine biosynthesis, choline 
 K17825	FTMF;verruculogen synthase [EC:1.14.11.38]	M00786  Fumitremorgin alkaloid biosynthesis, tryptophan + proline 
@@ -4567,8 +4578,6 @@ K18810	CYCD1_2_4;cyclin D1/2/4, plant	M00692  Cell cycle - G1/S transition
 K18811	CYCD5;cyclin D5, plant	M00692  Cell cycle - G1/S transition
 K18812	CYCD6;cyclin D6, plant	M00692  Cell cycle - G1/S transition
 K18813	CYCD7;cyclin D7, plant	M00692  Cell cycle - G1/S transition
-K18824	sul2;dihydropteroate synthase type 2 [EC:2.5.1.15]	M00126  Tetrahydrofolate biosynthesis, GTP 
-K18825	sul3;dihydropteroate synthase type 3 [EC:2.5.1.15]	M00126  Tetrahydrofolate biosynthesis, GTP 
 K18851	fbp;diacylglycerol O-acyltransferase / trehalose O-mycolyltransferase [EC:2.3.1.20 2.3.1.122]	M00089  Triacylglycerol biosynthesis
 K18856	vanC, vanE, vanG;D-alanine---D-serine ligase [EC:6.3.2.35]	M00652  Vancomycin resistance, D-Ala-D-Ser type
 K18859	sdhD, frdD;succinate dehydrogenase / fumarate reductase, subunit D	M00009  Citrate cycle (TCA cycle, Krebs cycle)
@@ -4611,7 +4620,6 @@ K18940	arlS;two-component system, OmpR family, sensor histidine kinase ArlS [EC:
 K18940	arlS;two-component system, OmpR family, sensor histidine kinase ArlS [EC:2.7.13.3]	M00717  Multidrug resistance, efflux pump NorA
 K18941	arlR;two-component system, OmpR family, response regulator ArlR	M00716  ArlS-ArlR (virulence regulation) two-component regulatory system
 K18941	arlR;two-component system, OmpR family, response regulator ArlR	M00717  Multidrug resistance, efflux pump NorA
-K18974	sul1;dihydropteroate synthase type 1 [EC:2.5.1.15]	M00126  Tetrahydrofolate biosynthesis, GTP 
 K18978	gapN;glyceraldehyde-3-phosphate dehydrogenase [NAD(P)+] [EC:1.2.1.90]	M00308  Semi-phosphorylative Entner-Doudoroff pathway, gluconate 
 K18978	gapN;glyceraldehyde-3-phosphate dehydrogenase [NAD(P)+] [EC:1.2.1.90]	M00633  Semi-phosphorylative Entner-Doudoroff pathway, gluconate/galactonate 
 K18986	ihk;two-component system, OmpR family, sensor kinase Ihk [EC:2.7.13.3]	M00719  Ihk-Irr (virulence regulation) two-component regulatory system
@@ -4744,6 +4752,7 @@ K19887	rebP;cytochrome P450 RebP [EC:1.13.12.17]	M00789  Rebeccamycin biosynthes
 K19888	rebG;4	M00789  Rebeccamycin biosynthesis, tryptophan 
 K19889	rebM;demethylrebeccamycin-D-glucose O-methyltransferase [EC:2.1.1.164]	M00789  Rebeccamycin biosynthesis, tryptophan 
 K19890	6-hdno;(R)-6-hydroxynicotine oxidase [EC:1.5.3.6]	M00810  Nicotine degradation, pyridine pathway, nicotine 
+K19965	folQ;dihydroneopterin triphosphate pyrophosphohydrolase [EC:3.6.1.67]	M00126  Tetrahydrofolate biosynthesis, GTP 
 K19969	acbC, salQ, valA, cetA;2-epi-5-epi-valiolone synthase [EC:4.2.3.152]	M00814  Acarbose biosynthesis, sedoheptulopyranose-7P 
 K19969	acbC, salQ, valA, cetA;2-epi-5-epi-valiolone synthase [EC:4.2.3.152]	M00815  Validamycin A biosynthesis, sedoheptulopyranose-7P 
 K19971	psaA, scaA;manganese/zinc transport system substrate-binding protein	M00791  Manganese/zinc transport system
@@ -4804,7 +4813,7 @@ K20431	cetB, valD;2-epi-5-epi-valiolone epimerase [EC:5.1.3.33]	M00815  Validamy
 K20432	valK;5-epi-valiolone dehydratase [EC:4.2.1.-]	M00815  Validamycin A biosynthesis, sedoheptulopyranose-7P 
 K20433	valC;C7-cyclitol 7-kinase [EC:2.7.1.214]	M00815  Validamycin A biosynthesis, sedoheptulopyranose-7P 
 K20434	valN;cyclitol reductase	M00815  Validamycin A biosynthesis, sedoheptulopyranose-7P 
-K20435	valM;validone 7-phosphate aminotransferase [EC2.6.1.-]	M00815  Validamycin A biosynthesis, sedoheptulopyranose-7P 
+K20435	valM;validone 7-phosphate aminotransferase [EC:2.6.1.-]	M00815  Validamycin A biosynthesis, sedoheptulopyranose-7P 
 K20436	valL, salC;validamine 7-phosphate valienyltransferase [EC:2.5.1.135]	M00815  Validamycin A biosynthesis, sedoheptulopyranose-7P 
 K20437	vldH;validoxylamine A 7	M00815  Validamycin A biosynthesis, sedoheptulopyranose-7P 
 K20438	valG;validoxylamine A glucosyltransferase [EC:2.4.1.338]	M00815  Validamycin A biosynthesis, sedoheptulopyranose-7P 
@@ -4907,9 +4916,9 @@ K21344	rfaE1;D-glycero-beta-D-manno-heptose-7-phosphate kinase [EC:2.7.1.167]	M0
 K21345	rfaE2;D-glycero-beta-D-manno-heptose 1-phosphate adenylyltransferase [EC:2.7.7.70]	M00064  ADP-L-glycero-D-manno-heptose biosynthesis
 K21428	pigD;3-acetyloctanal synthase [EC:2.2.1.12]	M00837  Prodigiosin biosynthesis, L-proline 
 K21456	GSS;glutathione synthase [EC:6.3.2.3]	M00118  Glutathione biosynthesis, glutamate 
-K21610	cfbC;nickel-sirohydrochlorin a,c-diamide reductase subunit CfbC	M00836  Coenzyme F430 biosynthesis, sirohydrochlorin 
-K21611	cfbD;nickel-sirohydrochlorin a,c-diamide reductase subunit CfbD	M00836  Coenzyme F430 biosynthesis, sirohydrochlorin 
-K21612	cfbE;coenzyme F430 synthetase	M00836  Coenzyme F430 biosynthesis, sirohydrochlorin 
+K21610	cfbC;Ni-sirohydrochlorin a,c-diamide reductive cyclase subunit CfbC [EC:6.3.3.7]	M00836  Coenzyme F430 biosynthesis, sirohydrochlorin 
+K21611	cfbD;Ni-sirohydrochlorin a,c-diamide reductive cyclase subunit CfbD [EC:6.3.3.7]	M00836  Coenzyme F430 biosynthesis, sirohydrochlorin 
+K21612	cfbE;coenzyme F430 synthetase [EC:6.4.1.9]	M00836  Coenzyme F430 biosynthesis, sirohydrochlorin 
 K21636	nrdD;ribonucleoside-triphosphate reductase (formate) [EC:1.1.98.6]	M00053  Pyrimidine deoxyribonuleotide biosynthesis, CDP/CTP 
 K21778	pigE;3-acetyloctanal aminotransferase [EC:2.6.1.-]	M00837  Prodigiosin biosynthesis, L-proline 
 K21779	pigB;2-methyl-3-n-amyl-dihydropyrrolel dehydrogenase	M00837  Prodigiosin biosynthesis, L-proline 
@@ -4932,3 +4941,11 @@ K21787	pigC, redH;prodigiosin/undecylprodigiosin synthetase	M00838  Undecylprodi
 K21791	redJ;thioesterase	M00838  Undecylprodigiosin biosynthesis, L-proline 
 K21792	redL;polyketide synthase	M00838  Undecylprodigiosin biosynthesis, L-proline 
 K21793	redK;oxidoreductase	M00838  Undecylprodigiosin biosynthesis, L-proline 
+K21977	coaB;phosphopantothenate---cysteine ligase (CTP) [EC:6.3.2.5]	M00120  Coenzyme A biosynthesis, pantothenate 
+K22010	pdtaR;two-component system, response regulator PdtaR	M00839  PdtaS-PdtaR two-component regulatory system
+K22011	cfbA;sirohydrochlorin cobalto/nickelchelatase [EC:4.99.1.3 4.99.1.11]	M00836  Coenzyme F430 biosynthesis, sirohydrochlorin 
+K22012	cfbB;Ni-sirohydrochlorin a,c-diamide synthase [EC:6.3.5.12]	M00836  Coenzyme F430 biosynthesis, sirohydrochlorin 
+K22099	folC2;dihydrofolate synthase / folylpolyglutamate synthase [EC:6.3.2.12 6.3.2.17]	M00840  Tetrahydrofolate biosynthesis, mediated by ribA and trpF, GTP 
+K22100	trpF;2,5-diamino-6-(5-phospho-D-ribosylamino)pyrimidin-4(3H)-one isomerase/dehydratase [EC:4.2.1.160]	M00840  Tetrahydrofolate biosynthesis, mediated by ribA and trpF, GTP 
+K22101	PTPS;dihydroneopterin triphosphate aldolase (PTPS-III) / 6-pyruvoyltetrahydropterin synthase [EC:4.1.2.60 4.2.3.12]	M00841  Tetrahydrofolate biosynthesis, mediated by PTPS, GTP 
+K22228	secG, sec61beta;preprotein translocase subunit SecG	M00335  Sec (secretion) system
