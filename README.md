@@ -1,5 +1,7 @@
 # MetaPathExplorer
 
+[This project is in development. Documentation is fairly light. You are welcomed to use this software, but please expect it to change in non-trivial ways. Feel free to return your impressions.]
+
 ## Contents 
 
 * [Introduction](https://github.com/meb-team/MetaPathExplorer/blob/master/README.md#introduction)
