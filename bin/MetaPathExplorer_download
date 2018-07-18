@@ -1,4 +1,8 @@
 #! /usr/bin/perl
+# version 0.1.1
+#########################################################################################
+# MetaPathExplorer_download is a pipeline to construct Uniref_KEGG database 			#
+#########################################################################################
 
 #########################################################################################
 ## THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, ##
@@ -24,7 +28,7 @@ How to used :
 
 =head1 DESCRIPTION
 
-    MetaPathExplorer 
+    MetaPathExplorer is a pipeline to construct Uniref_KEGG database and initialize HTML files.
 
 =head1 OPTIONS  
  
@@ -50,16 +54,11 @@ HOCHART Corentin
 
 =head1 VERSION
 
-V 1.1 
-
-=head1 DATE
-
-Creation : 07.07.2017
-Last modification : 07.07.2017
+V 0.1.1 
 
 =cut
 
-#×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 #libraries
 
 use strict;
@@ -87,7 +86,7 @@ use Time::Seconds;
 use lib "$FindBin::RealBin/../modules";
 use Config::IniFiles;
 
-# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # scalars
 #		global variables
 my $help; 		# help flag
@@ -109,12 +108,12 @@ my $dlkingdom;
 my $UniRefdb="$FindBin::RealBin/../data/orthology_UniRef100_arc-bac-vir.fasta";
 my $databaseFile = '';
 
-# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # tables
 my @kingdoms;
 my @mol=('lsu','ssu','tsu');
 
-# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # hashes
 my %OPT;
 my %KO;
@@ -181,7 +180,7 @@ my %PATH =("Cellular Processes" => "",
 			"Organismal Systems" => ""
 );
 
-# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # functions
 
 sub error {
@@ -336,7 +335,7 @@ MAIN: {
 	chomp $da;
 	warning("Date : $da");	
 	warning("Hi $user! Let's do some good jobs together.");
-	warning("\nFirst check tools and options.\n");
+	warning("First check tools and options.");
 
 # ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # Load options
@@ -360,6 +359,10 @@ error("Wrong parameter for 'kingdoms' option") if($OPT{kingdoms}=~/all/ && $#kin
 foreach(@kingdoms){
 	error("'$_' : incorrect paramameter for 'kingdoms' option") unless exists $kingdoms{$_};
 	$kingdoms{$_}->{USE}=1;
+}
+
+if($#kingdoms eq '4'){
+	$OPT{kingdoms}='all'
 }
 
 error("UniRef identity must be 50, 90 or 100") unless(grep {$OPT{'UniRefID'} eq $_} split(/\|/, '50|90|100'));
@@ -409,7 +412,6 @@ if($force){
 		my ($orthology, $definition) = split(/\t/);
 		$orthology =~ s/^ko://;
 		$currentK0{$orthology}='';
-		
 		my ($DB,$entry,$name);
 		$definition="";
 		my $module="";
@@ -447,22 +449,26 @@ if($force){
 				$line=$1;
 				if($line=~m/BR:ko/){$BRITE=$line;$lvl=0}
 				elsif($BRITE eq "KEGG Orthology (KO) [BR:ko00001]"){
-					if(exists $PATH{$line}){
+					$line=~/(^\w+)\s(.+)/;
+					if(exists $PATH{$2}){
 						$lvl1=$line;
+						$lvl++;
 					}
-					elsif($line=~m/^(\d+)/){
+					elsif($lvl eq '1'){
 						$lvl3=$line;
 						$path=$1;
-						
+						$lvl ++ ;
 					}
 					elsif($line=~m/$entry/){
-						$KO=$line;$lvl=0;
-						open(KO2HIER, ">>$ko2hierarchy");
-						print KO2HIER "$entry	$BRITE	$lvl1	$lvl2	$lvl3 [PATH:ko$path]	$name;$definition\n";
-						close KO2HIER;
-						$statue="y";
+						if ($lvl1){
+							$KO=$line;$lvl=0;
+							open(KO2HIER, ">>$ko2hierarchy");
+							print KO2HIER "$entry	$BRITE	$lvl1	$lvl2	$lvl3 [PATH:ko$path]	$name;$definition\n";
+							close KO2HIER;
+							$statue="y";
+						}
 					}
-					else{
+					elsif($lvl eq '2'){
 						$lvl2=$line;
 					}
 				}
@@ -509,8 +515,7 @@ if($force){
 	my $C=1;
 
 
-	# open (IN, "wget --no-verbose -O - http://rest.kegg.jp/get/br:08901 |");
-	open (IN, "$MetaPathExplorer_data/br08901.keg");
+	open (IN, "wget --no-verbose -O - http://rest.kegg.jp/get/br:br08901 |");
 	open (OUT, ">$MetaPathExplorer_data/HTML/index-main.html");
 	while(<IN>){
 		chomp;
@@ -601,7 +606,7 @@ unless(%clst2acc or %UniRef2KO){
 	open (MAP, "$MetaPathExplorer_data/idmapping.tsv");
 	while(<MAP>){
 		chomp;
-		my @split=split("\t")
+		my @split=split("\t");
 		$UniRef2KO{$split[0]}=$split[1];
 	}
 	close MAP;
@@ -610,7 +615,7 @@ unless(%clst2acc or %UniRef2KO){
 	open (CLSTR, "$MetaPathExplorer_data/$UniReflvl.cluster.tsv");
 	while(<CLSTR>){
 		chomp;
-		my @split=split("\t")
+		my @split=split("\t");
 		$clst2acc{$split[1]}.="$split[0];"
 	}
 	close CLSTR;
@@ -633,24 +638,12 @@ if($OPT{kingdoms} eq 'all'){
 		$desc=~m/^\w+_(\w+)/;
 		next unless exists $UniRef2KO{$1};
 		next unless exists $currentK0{$UniRef2KO{$1}};
-		$id="$UniRef2KO{$1}_$1";
+		my $id="$UniRef2KO{$1}_$1";
 		print OUT ">$id\n".join "", @lines;
 	}
 	close OUT;
 
-	# my $outfile = Bio::SeqIO->new(	-format		=>'fasta',
-	# 								-file		=>">$UniRef_KEGG", 
-	# 				);
-	# while(my $seq = $in->next_seq() ){
-	# 	my $id=$seq->id;
-	# 	$id=~m/^\w+_(\w+)/;
-	# 	next unless exists $UniRef2KO{$1};
-	# 	next unless exists $currentK0{$UniRef2KO{$1}};
-	# 	$id="$UniRef2KO{$1}_$1";
-	# 	$seq->id($id);
-	# 	$seq->desc(undef);
-	# 	$outfile->write_seq($seq);	
-	# }
+	my $dbpath ="$MetaPathExplorer_data/orthology_$UniReflvl\_all.fasta";
 	my $cmd ;
 	$cmd = $tools{'blastp'}->{MAKE} if $tools{'blastp'}->{REQUIRED};
 	$cmd = $tools{'blastx'}->{MAKE} if $tools{'blastx'}->{REQUIRED};
@@ -733,6 +726,7 @@ else{
 		pop @lines if $lines[-1] eq '>';
 		my $desc  = shift @lines;
 		$desc=~m/^(\w+_(\w+))/;
+		my $id = $1 ;
 		my @clstmb=split(/;/,$clst2acc{$id}) if $clst2acc{$id};
 		$clstmb[0]=$1 unless $clst2acc{$id};
 		my $state = 0 ;
@@ -757,46 +751,9 @@ else{
 		next unless exists $UniRef2KO{$2};
 		next unless exists $currentK0{$UniRef2KO{$2}};
 		$id="$UniRef2KO{$2}_$1";
-		print OUT ">$id\n".join "", @lines;
+		print OUT ">$id\n".join("", @lines);
 	}
 	close OUT;
-
-	# my $outfile = Bio::SeqIO->new(
-	# 							-format	=>'fasta',
-	# 							-file	=>">$dbpath",
-	# 						);
-
-	# while(my $seq = $in->next_seq() ){
-	# 	my $id=$seq->id;
-	# 	$id=~m/^(\w+_(\w+))/;
-	# 	my @clstmb=split(/;/,$clst2acc{$id}) if $clst2acc{$id};
-	# 	$clstmb[0]=$1 unless $clst2acc{$id};
-	# 	my $state = 0 ;
-	# 	my @taxonomy;
-	# 	foreach(@clstmb){
-	# 		next unless exists $AC2OC{$_};
-	# 		my @AC2OC=split(/;/,$AC2OC{$_});
-	# 		foreach(@AC2OC){
-	# 			push @taxonomy, $_;
-	# 		}
-	# 	}
-	# 	foreach(uniq(@taxonomy)){
-	# 		my $name='';
-	# 		$name = 'arc' if $_ eq 'Archaea';
-	# 		$name = 'bac' if $_ eq 'Bacteria';
-	# 		$name = 'euk' if $_ eq 'Eukaryota';
-	# 		$name = 'vir' if $_ eq 'Viruses';
-	# 		next if $name eq '';
-	# 		$state = 1 if $kingdoms{$name}->{USE};
-	# 	}
-	# 	next unless $state;
-	# 	next unless exists $UniRef2KO{$2};
-	# 	next unless exists $currentK0{$UniRef2KO{$2}};
-	# 	$id="$UniRef2KO{$2}_$1";
-	# 	$seq->id($id);
-	# 	$seq->desc(undef);
-	# 	$outfile->write_seq($seq);
-	# }
 	
 	my $cmd ;
 	$cmd = $tools{'blastp'}->{MAKE} if $tools{'blastp'}->{REQUIRED};
