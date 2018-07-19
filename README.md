@@ -69,6 +69,12 @@ git clone https://github.com/meb-team/MetaPathExplorer.git
 
 ```
 
+_Examples_
+```bash
+bin/MetaPathExplorer_download --verbose --ini conf/MetaPathExplorer.ini
+```
+
+An already UniRef KEGG Ortholgy database is available [here](https://mycore.core-cloud.net/index.php/s/KC3dymTbhvc56PQ). You can copy it in your "MetaPathExplorer/data" folder.
 
 ### MetaPathExplorer
 
@@ -104,7 +110,7 @@ git clone https://github.com/meb-team/MetaPathExplorer.git
 _Examples_
 
 ```bash
-bin/MetaPathExplorer --verbose --ini bin/MetaPathExplorer.ini --input assembly --rdna-p --trna $(< example.files.lst)
+bin/MetaPathExplorer --verbose --ini conf/MetaPathExplorer.ini --input assembly --rdna-p --trna $(< example.files.lst)
 
 ``` 
 

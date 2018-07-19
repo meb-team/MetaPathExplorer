@@ -98,8 +98,10 @@ my $exe = $FindBin::RealScript;
 my $version;
 my $VERSION="1.1";
 my $date=date();
+my $DATE=$date->{da}
 my $REGEXP='(\d+[\.\w+]*\.\d+)';
 
+exit;
 my $MetaPathExplorer_CFG="$FindBin::RealBin/MetaPathExplorer.ini";
 my $MetaPathExplorer_data="$FindBin::RealBin/../data/";
 
@@ -281,6 +283,7 @@ sub date {
   
   my %ladate = ( 
     "date"         => "$day-$month-$year", 
+	"da"		   => "$year$month$day",
   ); 
   return \%ladate; 
 }
@@ -503,8 +506,8 @@ if($force){
 			}
 		}
 		print OUT join("\t", $pathway, $definition,$description), "\n";
-		printf HTMLSUM ("<li><a href=\"HTML/pathway/%s.html\" style=\"display:none;\">%s</a><br/><a style=\"display:none;\" name=\"description\">%s</a></li>\n",
-		$pathway,$pathway,$definition);
+		printf HTMLSUM ("<li><a href=\"HTML/pathway/%s.html\" style=\"display:none;\">%s</a><br/><a style=\"display:none;\" name=\"description\">%s (%s.percent)</a></li>\n",
+		$pathway,$pathway,$definition,$pathway);
 	}
 	close(IN);
 	close(OUT);
@@ -561,7 +564,6 @@ warning('Recover UniRef data.');
 
 # scalars
 my $UniReflvl="UniRef$OPT{UniRefID}";
-my $UniRef_KEGG=$MetaPathExplorer_data."orthology_$UniReflvl.fasta";
 my $url="ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref$OPT{UniRefID}/uniref$OPT{UniRefID}.fasta.gz";	
 my $UniRef=$MetaPathExplorer_data."uniref$OPT{UniRefID}.fasta";
 
@@ -575,10 +577,6 @@ downloadFile($url) unless -e $UniRef;
 
 runcmd("gunzip $UniRef.gz") if -e "$UniRef.gz";
 error("'$UniRef' has zero size") if(-z $UniRef);
-
-# my $in = Bio::SeqIO->new(	-format => 'fasta',
-# 							-file   => "$UniRef",
-# 						);
 
 warning('(Down)load UniRef equivalence ID file.');
 downloadFile('ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/idmapping.dat.gz') unless -e "$MetaPathExplorer_data/idmapping.dat.gz";
@@ -629,6 +627,7 @@ if($OPT{kingdoms} eq 'all'){
 	(undef) = scalar <IN>;
 	local $/ = "\n>";
 
+	my $UniRef_KEGG=$MetaPathExplorer_data."orthology_$UniReflvl\_all.$DATE.fasta";
 	open(OUT,">$UniRef_KEGG");
 
 	while( my $record = <IN> ) {
@@ -639,11 +638,12 @@ if($OPT{kingdoms} eq 'all'){
 		next unless exists $UniRef2KO{$1};
 		next unless exists $currentK0{$UniRef2KO{$1}};
 		my $id="$UniRef2KO{$1}_$1";
-		print OUT ">$id\n".join "", @lines;
+		my $sequence  = fasta_format(join("", @lines));
+		print OUT ">$id\n$sequence","\n";
 	}
 	close OUT;
 
-	my $dbpath ="$MetaPathExplorer_data/orthology_$UniReflvl\_all.fasta";
+	my $dbpath ="$MetaPathExplorer_data/orthology_$UniReflvl\_all.$DATE.fasta";
 	my $cmd ;
 	$cmd = $tools{'blastp'}->{MAKE} if $tools{'blastp'}->{REQUIRED};
 	$cmd = $tools{'blastx'}->{MAKE} if $tools{'blastx'}->{REQUIRED};
@@ -751,7 +751,8 @@ else{
 		next unless exists $UniRef2KO{$2};
 		next unless exists $currentK0{$UniRef2KO{$2}};
 		$id="$UniRef2KO{$2}_$1";
-		print OUT ">$id\n".join("", @lines);
+		my $sequence  = fasta_format(join("", @lines));
+		print OUT ">$id\n$sequence","\n";
 	}
 	close OUT;
 	

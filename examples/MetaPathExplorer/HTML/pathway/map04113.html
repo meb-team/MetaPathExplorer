@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<script src="../js/w3.js"></script>
+<script src="../js/MetaPathExplorer.js"></script>
+	<head>		
+		<!-- En-tête de la page -->
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../style/style.css" />
+		<title>MetaPathExplorer</title>
+		<link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" /> 
+	</head>
+	
+	<body>
+		<!-- <div class="header"><div id="header_title"><img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" width="8%" height="8%">MetaPathExplorer Report</div><div id="header_filename">sept. 09 2017
+<br/>map04113<br/>Meiosis - yeast</div></div> --> 
+		<div class="header">
+			<div id="header_title"><a href="../../MetaPathExplorer.html">MetaPathExplorer</br>Report</a></div>
+			<div id="header_filename"><a href="http://www.kegg.jp/dbget-bin/www_bget?pathway+map04113">map04113<br/>Meiosis - yeast</a></div>
+			<div id="header_date">sept. 09 2017
+<br/></div>
+		</div>
+
+		<div id="wrapper">
+			<div class="summary">
+				<br/>
+				<div id="sample"><h2>Sample</h2>
+					<br/>
+						
+					<li><a href="#PRJNA158811">PRJNA158811</a></li>
+					<li><a href="#PRJNA232181">PRJNA232181</a></li>
+</div>
+			</div>
+
+			<div class="main" class2="sample">
+				<div>
+					<br/>
+					<ul>
+						<li style="display:inline-block;">
+							<a href="http://www.kegg.jp/dbget-bin/www_bget?pathway+map04113"><button type="button">Pathway entry on KEGG</button></a>
+						</li>
+						<li style="display:inline-block;">
+							<a href="http://www.kegg.jp/kegg-bin/show_pathway?org_name=map&mapno=04113&mapscale=&show_description=hide"><button type="button">Link to Pathway on KEGG</button></a>
+						</li>
+						<li style="display:inline-block;">
+							<input id="show description" type=button value="Show Description" onclick="hide_desc(description)"/>
+						</li>
+						<li style="display:inline-block;">
+							<input type=button value="Resize" onclick="resize()" />
+							<input type=text id="txtbox" value="45%" style="width:50px;"/>
+						</li>
+					</ul>
+					<p id="description" style="display: none;"> 
+						'During meiosis, a single round of DNA replication is followed by two rounds of chromosome segregation, called meiosis I and meiosis II. At meiosis I, one pair of sister chromatids recombines with, then segregates from, its homologous pair, while the sister chromatids segregate from each other at meoisis II. In yeast, the switch to enter growth phase or meiosis phase is controlled by nutritional signals. At the onset of meiosis, nutritional signaling pathways converge on transcriptional regulation of Ime1. Ime1 is a transcriptional activator to promote expression of early meiosis-specific genes required for pre-meiotic DNA replication and meiotic recombination. Two of the early meiosis-specific genes, a transcriptional activator, Ndt80, and a CDK2 homolog, Ime2, are required for the transcription of middle meiosis-specific genes, which includes B-type cyclin genes and genes involved in spore wall formation. Polo-like kinase Cdc5, whose expression is activated by Ndt80, is required for the critical step in meiotic progression. Cdc5 regulates sister-kinetochore co-orientation by promoting the localization of Mam1 and Lrs4, components of the co-orientation complex, to kinetochores. Cdc5 also phosphorylates the meiotic cohesin subunit Rec8, which is essential for its cleavage and removal by separase. Moreover, Cdc5 promotes the release of protein phosphatase Cdc14 from the nuclezus, which is required for anaphase I spindle disassembly and exit from meiosis I. The centromeric protein Sgo1 is a key regulator of meiotic chromosome segregation. Sgo1 with PP2A may protect pericentromeric but not arm cohesion of sister chromatids during meiosis I. Sgo1 then disappears at meiosis II to allow sister chromatids to separate.'  Copyright 1995-2017 Kanehisa Laboratories
+					</p>
+									<div class="sample" style='height:auto;width:45%;'>
+					<h2 id="PRJNA158811"><center>PRJNA158811</center></h2>
+					<br/>					<div style='padding:10px'>
+					<img src="map04113/PRJNA158811.png" style='height:100%;width:100%;object-fit:contain'></img>
+					</div>
+					<br/>
+					<div class="wrapper"><input id="button_PRJNA158811" type=button value="Show Table" onclick="hide(button_PRJNA158811,tab_PRJNA158811)" />
+					<br/>
+					<table id="tab_PRJNA158811" style="display:none;" align="center">						<tr>
+							<th>orthology count</th>
+							<th>kegg orthology</th>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>K01768</td>						</tr>
+					</table>					<br/>
+					<a></a>
+					</div>
+					<br/>
+					<br/>
+				</div>
+				<div class="sample" style='height:auto;width:45%;'>
+					<h2 id="PRJNA232181"><center>PRJNA232181</center></h2>
+					<br/>					<div style='padding:10px'>
+					<img src="map04113/PRJNA232181.png" style='height:100%;width:100%;object-fit:contain'></img>
+					</div>
+					<br/>
+					<div class="wrapper"><input id="button_PRJNA232181" type=button value="Show Table" onclick="hide(button_PRJNA232181,tab_PRJNA232181)" />
+					<br/>
+					<table id="tab_PRJNA232181" style="display:none;" align="center">						<tr>
+							<th>orthology count</th>
+							<th>kegg orthology</th>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td> </td>						</tr>
+					</table>					<br/>
+					<a></a>
+					</div>
+					<br/>
+					<br/>
+				</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="footer">Produced by <a href="https://github.com/meb-team/MetaPathExplorer">MetaPathExplorer</a></div>
+	</body>
+</html>
+
+
+
+<script type="text/javascript">
+w3.includeHTML();
+</script>

@@ -1,4 +1,8 @@
 #! /usr/bin/perl
+# version 0.1.1
+#########################################################################################
+# MetaPathExplorer is a pipeline for analyzing and visualizing KEGG pathway maps		#
+#########################################################################################
 
 #########################################################################################
 ## THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, ##
@@ -70,16 +74,11 @@ HOCHART Corentin
 
 =head1 VERSION
 
-V 1.1 
-
-=head1 DATE
-
-Creation : 14.12.2015
-Last modification : 09.10.2017
+V 0.1.1 
 
 =cut
 
-# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # libraries
 
 use strict;
@@ -105,7 +104,7 @@ use Time::Piece;
 use Time::Seconds;
 
 
-# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # scalars
 #		global variables
 my $help; 		# help flag
@@ -151,13 +150,13 @@ my $prodigal_opt="";
 my $UniRefdb;
 my $databaseFile;
 
-# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # tables
 my @kingdoms;
 my @mol=('lsu','ssu','tsu');
 my @sample;
 
-# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # hashes
 my %description;
 my %KO;
@@ -281,7 +280,7 @@ my %tools = (
 	},
 );
 
-# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # Global functions
 
 sub error {
@@ -456,7 +455,7 @@ sub substitution {
 	return $scalar ;
 }
 
-# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # Main Options 
 
 sub fasta_vs_uniref_kegg {
@@ -563,7 +562,7 @@ sub pathway_html{
 				print LIST $pathwayOrthologyList[$i];
 				close LIST;	
 				$tools{python}{VERSION}=~m/^(\d)/;
-				my $MetaPathExplorer_pathway = $FindBin::RealBin.'/MetaPathExplorer_pathway.py'.$1;
+				my $MetaPathExplorer_pathway = $FindBin::RealBin.'/MetaPathExplorer_pathway.v$1.py';
 				system("python $MetaPathExplorer_pathway --K0file $K0ListFile --color $OPT{'kocolor'} --out $outimg --pathway $pathway --org $OPT{org}") unless (-e $outimg);
 			}
 			else{
@@ -629,7 +628,7 @@ sub pathway_html{
 
 
 
-# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # Get options
 
 MAIN: {
@@ -668,15 +667,19 @@ MAIN: {
 	
 	warning("\nFirst check tools and options.\n");
 
-# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # Load options
 
 $ENV{PATH} = "$binaries:" . $ENV{PATH};
 
-unless($OPT{entry} eq 'assembly' or $OPT{entry} eq 'reads' or $OPT{entry} eq 'annotation' or $OPT{entry} eq 'matrix'){
-	error("The entry type is not precise or is incorrect. Please choose btw 'contigs' or 'reads' or 'annotation' or 'matrix'");
+unless($OPT{entry}){
+	error("The entry type is not precise. Please choose btw 'contigs' or 'reads' or 'annotation' or 'matrix'");
 }
 
+unless($OPT{entry} eq 'assembly' or $OPT{entry} eq 'reads' or $OPT{entry} eq 'annotation' or $OPT{entry} eq 'matrix'){
+	error("The entry type is incorrect. Please choose btw 'contigs' or 'reads' or 'annotation' or 'matrix'");
+}
 
 tie my %ini, 'Config::IniFiles', (
 		-file => $MetaPathExplorer_CFG
@@ -700,37 +703,59 @@ foreach my $section (keys %ini){
 	}
 }
 
-# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # Checks db 
 
 # ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # Proteic db
 
-my $UniReflvl="UniRef$OPT{UniRefID}";
-my $K=$OPT{'kingdoms'};
-$K =~ s/,/-/g;
-$UniRefdb ="$MetaPathExplorer_data/orthology_$UniReflvl\_$K.fasta";
-
-unless($tools{'blastp'}->{REQUIRED}){
-	$databaseFile = "$UniRefdb.dmnd" if($tools{'diamond'}->{REQUIRED});
-	$databaseFile = "$UniRefdb.udb" if($tools{'usearch'}->{REQUIRED});
+if ($OPT{entry} ne 'matrix'){
+	my $UniReflvl="UniRef$OPT{UniRefID}";
+	my $K=$OPT{'kingdoms'};
+	my @kingdoms=split(/,/,$K);
+	$K =~ s/,/-/g;
 	
-	error("'$databaseFile' is not readable.") unless(-r $databaseFile);
-}
-else {
-	my $dbfsa=basename($UniRefdb);
-	my $db_dir=$UniRefdb;
-	$db_dir=~s/$dbfsa//;
-	my $fac = Bio::Tools::Run::StandAloneBlastPlus->new(
-			-db_name => $dbfsa,
-			-db_dir => $db_dir,
-			-db_data => $dbfsa,
-			-mask_data => $dbfsa,
-			-create => 1,							
-		);
-	$databaseFile = $UniRefdb;
-	$databaseFile =~ s/\.fasta//;
-	error("blastp db '$UniRefdb' is misformated") unless $fac->check_db($UniRefdb);
+	error("Wrong parameter for 'kingdoms' option") if($K=~/all/ && $#kingdoms>1);
+	foreach(@kingdoms){
+		error("'$_' : incorrect paramameter for 'kingdoms' option") unless exists $kingdoms{$_};
+		$kingdoms{$_}->{USE}=1;
+	}
+
+	if($#kingdoms eq '4'){
+		$K='all'
+	}
+
+	my $UniRefdb ;
+	my $dir ="$MetaPathExplorer_data/";
+	opendir(DIR, $dir) or die $! ;
+	while (my $file = readdir(DIR)) {
+        next unless (-f "$dir/$file");
+        next unless ($file =~ m/^orthology_$UniReflvl\_$K.\d+.fasta$/);
+		$UniRefdb="$MetaPathExplorer_data/$file";
+    }
+    closedir(DIR);
+	
+
+	unless($tools{'blastp'}->{REQUIRED}){
+		$databaseFile = "$UniRefdb.dmnd" if($tools{'diamond'}->{REQUIRED});
+		$databaseFile = "$UniRefdb.udb" if($tools{'usearch'}->{REQUIRED});
+		error("'$databaseFile' is not readable.") unless(-r $databaseFile);
+	}
+	else {
+		my $dbfsa=basename($UniRefdb);
+		my $db_dir=$UniRefdb;
+		$db_dir=~s/$dbfsa//;
+		my $fac = Bio::Tools::Run::StandAloneBlastPlus->new(
+				-db_name => $dbfsa,
+				-db_dir => $db_dir,
+				-db_data => $dbfsa,
+				-mask_data => $dbfsa,
+				-create => 1,							
+			);
+		$databaseFile = $UniRefdb;
+		$databaseFile =~ s/\.fasta//;
+		error("blastp db '$UniRefdb' is misformated") unless $fac->check_db($UniRefdb);
+	}
 }
 
 # ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
@@ -766,7 +791,7 @@ if($rdna_prediction_annotation){
 	}
 }
 
-# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # Checks tools and options
 
 # ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
@@ -825,11 +850,11 @@ foreach(@kingdoms){
 }
 
 
-# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # Load data
 
 foreach("$MetaPathExplorer_data/KEGG_orthology2pathway.tsv", "$MetaPathExplorer_data/KEGG_pathway.txt","$MetaPathExplorer_data/KEGG_orthology.txt") {
-	error("'$_' is not sidable.") unless(-r $_);
+	error("'$_' is not readable.") unless(-r $_);
 }
 
 # ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
@@ -867,7 +892,7 @@ while(<ORTHOLOGY>){
 close ORTHOLOGY;
 
 
-# ×××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+# ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 
 runcmd("mkdir -p $outdir/tRNA") unless -e "$outdir/tRNA";
 runcmd("mkdir -p $outdir/rDNA") unless -e "$outdir/rDNA";
@@ -1640,6 +1665,7 @@ else {
 
 my $SUM;
 my $MAIN;
+my %ko_count_by_pathway;
 
 open(KO2PATH,"$MetaPathExplorer_data/KEGG_orthology2pathway.tsv");
 while(<KO2PATH>){
@@ -1649,6 +1675,7 @@ while(<KO2PATH>){
 		push(@{$pathwayOrthologyListHash{$_}{$PATH}}, "$KO") if $KO{$_}{$KO};	
 	}
 	$PATHWAY{$PATH}="";
+	$ko_count_by_pathway{$PATH}=+1;
 	my $PATHWAY = $PATH2PATHWAY{$PATH};
 	my $link="HTML/pathway/$PATH.html";
 	$SUM.="<a href=\"#$PATH\">$PATH</a><br />\n";
@@ -1679,6 +1706,7 @@ foreach(@sample){
 open(PATHREPORT,">$outdir/pathway_report.tsv");
 print PATHREPORT join("\t", '#pathway', '#definition'),"\t";
 foreach(@sample){
+	system("mkdir -p $outdir/$_");
 	print PATHREPORT "\t";
 	print PATHREPORT join("\t","#$_: [Number of Ortholgous Present]","#$_: [Orthologous Present]");
 	open(PATHREPORTSAMPLE,">>$outdir/$_/pathway_report.url.tsv");
@@ -1710,8 +1738,10 @@ foreach my $PATH (sort keys %PATH2PATHWAY){
 		}
 		print PATHREPORT "\n";
 	}
+	my $max = (sort { $b <=> $a } @pathwayOrthologyCount)[0];
+	my $percent = ($max/$ko_count_by_pathway{$PATH}) * 100 ;
+	runcmd("sed -i 's/$PATH.percent/$percent/' $MetaPathExplorer_data/HTML/index-summary.html");
 	pathway_html(join(",",@sample), join(",",@pathwayOrthologyCount), join(",",@pOrthologyList),$PATH);
-	
 }
 close PATHREPORT;
 close PATHREPORTSAMPLE;

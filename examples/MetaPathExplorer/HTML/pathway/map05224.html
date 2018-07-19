@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<script src="../js/w3.js"></script>
+<script src="../js/MetaPathExplorer.js"></script>
+	<head>		
+		<!-- En-tête de la page -->
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../style/style.css" />
+		<title>MetaPathExplorer</title>
+		<link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" /> 
+	</head>
+	
+	<body>
+		<!-- <div class="header"><div id="header_title"><img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" width="8%" height="8%">MetaPathExplorer Report</div><div id="header_filename">sept. 09 2017
+<br/>map05224<br/>Breast cancer</div></div> --> 
+		<div class="header">
+			<div id="header_title"><a href="../../MetaPathExplorer.html">MetaPathExplorer</br>Report</a></div>
+			<div id="header_filename"><a href="http://www.kegg.jp/dbget-bin/www_bget?pathway+map05224">map05224<br/>Breast cancer</a></div>
+			<div id="header_date">sept. 09 2017
+<br/></div>
+		</div>
+
+		<div id="wrapper">
+			<div class="summary">
+				<br/>
+				<div id="sample"><h2>Sample</h2>
+					<br/>
+						
+					<li><a href="#PRJNA158811">PRJNA158811</a></li>
+					<li><a href="#PRJNA232181">PRJNA232181</a></li>
+</div>
+			</div>
+
+			<div class="main" class2="sample">
+				<div>
+					<br/>
+					<ul>
+						<li style="display:inline-block;">
+							<a href="http://www.kegg.jp/dbget-bin/www_bget?pathway+map05224"><button type="button">Pathway entry on KEGG</button></a>
+						</li>
+						<li style="display:inline-block;">
+							<a href="http://www.kegg.jp/kegg-bin/show_pathway?org_name=map&mapno=05224&mapscale=&show_description=hide"><button type="button">Link to Pathway on KEGG</button></a>
+						</li>
+						<li style="display:inline-block;">
+							<input id="show description" type=button value="Show Description" onclick="hide_desc(description)"/>
+						</li>
+						<li style="display:inline-block;">
+							<input type=button value="Resize" onclick="resize()" />
+							<input type=text id="txtbox" value="45%" style="width:50px;"/>
+						</li>
+					</ul>
+					<p id="description" style="display: none;"> 
+						'Breast cancer is the leading cause of cancer death among women worldwide. The vast majority of breast cancers are carcinomas that originate from cells lining the milk-forming ducts of the mammary gland. The molecular subtypes of breast cancer, which are based on the presence or absence of hormone receptors (estrogen and progesterone subtypes) and human epidermal growth factor receptor-2 (HER2), include: hormone receptor positive and HER2 negative (luminal A subtype), hormone receptor positive and HER2 positive (luminal B subtype), hormone receptor negative and HER2 positive (HER2 positive), and hormone receptor negative and HER2 negative (basal-like or triple-negative breast cancers (TNBCs)). Hormone receptor positive breast cancers are largely driven by the estrogen/ER pathway. In HER2 positive breast tumours, HER2 activates the PI3K/AKT and the RAS/RAF/MAPK pathways, and stimulate cell growth, survival and differentiation. In patients suffering from TNBC, the deregulation of various signalling pathways (Notch and Wnt/beta-catenin), EGFR protein have been confirmed. In the case of breast cancer only 8% of all cancers are hereditary, a phenomenon linked to genetic changes in BRCA1 or BRCA2. Somatic mutations in only three genes (TP53, PIK3CA and GATA3) occurred at >10% incidence across all breast cancers.'  Copyright 1995-2017 Kanehisa Laboratories
+					</p>
+									<div class="sample" style='height:auto;width:45%;'>
+					<h2 id="PRJNA158811"><center>PRJNA158811</center></h2>
+					<br/>					<div style='padding:10px'>
+					<img src="map05224/PRJNA158811.png" style='height:100%;width:100%;object-fit:contain'></img>
+					</div>
+					<br/>
+					<div class="wrapper"><input id="button_PRJNA158811" type=button value="Show Table" onclick="hide(button_PRJNA158811,tab_PRJNA158811)" />
+					<br/>
+					<table id="tab_PRJNA158811" style="display:none;" align="center">						<tr>
+							<th>orthology count</th>
+							<th>kegg orthology</th>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td> </td>						</tr>
+					</table>					<br/>
+					<a></a>
+					</div>
+					<br/>
+					<br/>
+				</div>
+				<div class="sample" style='height:auto;width:45%;'>
+					<h2 id="PRJNA232181"><center>PRJNA232181</center></h2>
+					<br/>					<div style='padding:10px'>
+					<img src="map05224/PRJNA232181.png" style='height:100%;width:100%;object-fit:contain'></img>
+					</div>
+					<br/>
+					<div class="wrapper"><input id="button_PRJNA232181" type=button value="Show Table" onclick="hide(button_PRJNA232181,tab_PRJNA232181)" />
+					<br/>
+					<table id="tab_PRJNA232181" style="display:none;" align="center">						<tr>
+							<th>orthology count</th>
+							<th>kegg orthology</th>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td> </td>						</tr>
+					</table>					<br/>
+					<a></a>
+					</div>
+					<br/>
+					<br/>
+				</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="footer">Produced by <a href="https://github.com/meb-team/MetaPathExplorer">MetaPathExplorer</a></div>
+	</body>
+</html>
+
+
+
+<script type="text/javascript">
+w3.includeHTML();
+</script>
