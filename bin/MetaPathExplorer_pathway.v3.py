@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python3
 # version 0.1.0
 #########################################################################################
 # MetaPathExplorer_pathway allows to dowload color pathway map 							#
@@ -40,6 +40,7 @@ class KEGG_browser(mechanicalsoup.StatefulBrowser):
 		# Initializing 
 		self.open('http://www.kegg.jp/kegg/tool/map_pathway2.html')
 		self.KEGG_STATE = 'initialized'
+		sys.stderr.write(self.KEGG_STATE+'\n')
 
 	def search_pathways(self, K0s, color, org):
 		# 'searching for pathways'
@@ -51,9 +52,11 @@ class KEGG_browser(mechanicalsoup.StatefulBrowser):
 			K0_data += '%s %s\n' % (K0, color)
 		self.select_form('form')
 		self['org']=org
+		sys.stderr.write(self['org'])
 		self['unclassified']=K0_data
 		self.submit_selected()
 		self.KEGG_STATE = 'submited'
+		sys.stderr.write(self.KEGG_STATE+'\n')
 
 	def _get_pathway_from_url(self, url):
 		return url.split('/')[-1].split('.')[0]

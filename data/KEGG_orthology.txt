@@ -1345,7 +1345,7 @@ ko:K01481	E3.5.3.15; protein-arginine deiminase [EC:3.5.3.15]
 ko:K01482	DDAH, ddaH; dimethylargininase [EC:3.5.3.18]
 ko:K01483	allA; ureidoglycolate lyase [EC:4.3.2.3]
 ko:K01484	astB; succinylarginine dihydrolase [EC:3.5.3.23]
-ko:K01485	codA; cytosine deaminase [EC:3.5.4.1]
+ko:K01485	codA; cytosine/creatinine deaminase [EC:3.5.4.1 3.5.4.21]
 ko:K01486	ade; adenine deaminase [EC:3.5.4.2]
 ko:K01487	E3.5.4.3, guaD; guanine deaminase [EC:3.5.4.3]
 ko:K01488	add, ADA; adenosine deaminase [EC:3.5.4.4]
@@ -3110,7 +3110,7 @@ ko:K03361	CDC4; F-box and WD-40 domain protein CDC4
 ko:K03362	FBXW1_11, BTRC, beta-TRCP; F-box and WD-40 domain protein 1/11
 ko:K03363	CDC20; cell division cycle 20, cofactor of APC complex
 ko:K03364	CDH1; cell division cycle 20-like protein 1, cofactor of APC complex
-ko:K03365	E3.5.4.21; creatinine deaminase [EC:3.5.4.21]
+ko:K03365	FCY1; cytosine/creatinine deaminase [EC:3.5.4.1 3.5.4.21]
 ko:K03366	butA, budC; meso-butanediol dehydrogenase / (S,S)-butanediol dehydrogenase / diacetyl reductase [EC:1.1.1.- 1.1.1.76 1.1.1.304]
 ko:K03367	dltA; D-alanine--poly(phosphoribitol) ligase subunit 1 [EC:6.1.1.13]
 ko:K03368	SIAT4B; beta-galactoside alpha-2,3-sialyltransferase (sialyltransferase 4B) [EC:2.4.99.4]
@@ -17245,7 +17245,7 @@ ko:K17874	CYP74D, DES; 9-divinyl ether synthase [EC:4.2.1.121]
 ko:K17875	CYP88D6; beta-amyrin 11-oxidase [EC:1.14.13.134]
 ko:K17876	CYP105D; pentalenic acid synthase [EC:1.14.15.11]
 ko:K17877	NIT-6; nitrite reductase (NAD(P)H) [EC:1.7.1.4]
-ko:K17878	NNT1; nicotinamide N-methyltransferase [EC:2.1.1.1]
+ko:K17878	NNT1; EEF1A N-terminal glycine/lysine methyltransferase [EC:2.1.1.-]
 ko:K17879	NUDT7; peroxisomal coenzyme A diphosphatase NUDT7 [EC:3.6.1.-]
 ko:K17880	hyg; hygromycin-B 7''-O-kinase [EC:2.7.1.119]
 ko:K17881	aadB; aminoglycoside 2''-adenylyltransferase [EC:2.7.7.46]
@@ -22204,3 +22204,19 @@ ko:K22851	cfaB; CFA/I fimbrial subunit B
 ko:K22852	cfaC; CFA/I fimbrial subunit C
 ko:K22853	cfaE; CFA/I fimbrial subunit E
 ko:K22854	cfaD; CFA/I fimbrial subunit D
+ko:K22855	EEF1AKMT1, EFM5; EEF1A lysine methyltransferase 1 [EC:2.1.1.-]
+ko:K22856	EEF1AKMT2, EFM4, METTL10; EEF1A lysine methyltransferase 2 [EC:2.1.1.-]
+ko:K22857	EEF1AKMT4; EEF1A lysine methyltransferase 4 [EC:2.1.1.-]
+ko:K22858	JBTS26; protein JBTS26
+ko:K22859	JBTS17, CPLANE1; protein JBTS17
+ko:K22860	RSG1, CPLANE2; REM2 and Rab-like small GTPase 1
+ko:K22861	FUZ, CPLANE3; protein fuzzy
+ko:K22862	INTU, CPLANE4; protein inturned
+ko:K22863	WDPCP, CPLANE5; WD repeat-containing and planar cell polarity effector protein
+ko:K22864	ARMC9; LisH domain-containing protein ARMC9
+ko:K22865	TALPID3, JBTS23; protein TALPID3
+ko:K22866	TCTEX1D2; tctex1 domain-containing protein 2
+ko:K22867	TMEM138; transmembrane protein 138
+ko:K22868	WDR34; WD repeat-containing protein 34
+ko:K22869	WDR60; WD repeat-containing protein 60
+ko:K22870	ZNF423; zinc finger protein 423

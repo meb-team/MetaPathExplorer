@@ -268,8 +268,10 @@ my %tools = (
 		GETVERSION  => "diamond -v 2>&1 | grep -i '^diamond v'",
 		REGEXP  => qr/($REGEXP)/,
 		REQUIRED => 0,
-		CMD => "diamond blastp --query %s --db %d --evalue %e --sensitive --max-target-seqs 1 --threads %t --outfmt tab -a %o",
-		CMDx => "diamond blastx --query %s --db %d --evalue %e --sensitive --max-target-seqs 1 --threads %t --outfmt tab -a %o",
+		# CMD => "diamond blastp --query %s --db %d --evalue %e --sensitive --max-target-seqs 1 --threads %t --outfmt tab -a %o",
+		# CMDx => "diamond blastx --query %s --db %d --evalue %e --sensitive --max-target-seqs 1 --threads %t --outfmt tab -a %o",
+		CMD => "diamond blastp --query %s --db %d --evalue %e --sensitive --max-target-seqs 1 --threads %t --outfmt tab -o %o",
+		CMDx => "diamond blastx --query %s --db %d --evalue %e --sensitive --max-target-seqs 1 --threads %t --outfmt tab -o %o",
 		MAKE => "diamond makedb --in %d -d %d",
 	},
 	# language 
@@ -469,19 +471,19 @@ sub fasta_vs_uniref_kegg {
 	$cmd =~ s/%s/$file/;
 	$cmd =~ s/%t/$OPT{threads}/;
 	
-	if($tools{'diamond'}->{REQUIRED}){
-		$cmd =~ s/%o/$bls_name.daa/;
-		warning("Use existing '$bls_name.daa' to load annotation.") if (-e "$bls_name.daa" && $reuse);
-		runcmd($cmd) unless (-e "$bls_name.daa" && -e "$bls_name.m8.out" && $reuse);
-		runcmd("diamond view -a $bls_name.daa -o $bls_name.m8.out") unless (-e "$bls_name.m8.out" && $reuse);
-		warning("Use existing '$bls_name.m8.out' to load annotation.") if (-e "$bls_name.m8.out" && $reuse);
-		$bls_name=$bls_name.'.m8.out';
-	}
-	else{
-		$bls_name=$bls_name.'.m8.out';
-		$cmd =~ s/%o/$bls_name/;
-		runcmd($cmd) unless (-e "$bls_name");
-	}
+	# if($tools{'diamond'}->{REQUIRED}){
+	# 	$cmd =~ s/%o/$bls_name.daa/;
+	# 	warning("Use existing '$bls_name.daa' to load annotation.") if (-e "$bls_name.daa" && $reuse);
+	# 	runcmd($cmd) unless (-e "$bls_name.daa" && -e "$bls_name.m8.out" && $reuse);
+	# 	runcmd("diamond view -a $bls_name.daa -o $bls_name.m8.out") unless (-e "$bls_name.m8.out" && $reuse);
+	# 	warning("Use existing '$bls_name.m8.out' to load annotation.") if (-e "$bls_name.m8.out" && $reuse);
+	# 	$bls_name=$bls_name.'.m8.out';
+	# }
+	# else{
+	$bls_name=$bls_name.'.m8.out';
+	$cmd =~ s/%o/$bls_name/;
+	runcmd($cmd) unless (-e "$bls_name");
+	# }
 	print STDERR $bls_name,"\n";
 	open(ALN,"$bls_name");
 	while(<ALN>){
@@ -562,8 +564,8 @@ sub pathway_html{
 				print LIST $pathwayOrthologyList[$i];
 				close LIST;	
 				$tools{python}{VERSION}=~m/^(\d)/;
-				my $MetaPathExplorer_pathway = $FindBin::RealBin.'/MetaPathExplorer_pathway.v$1.py';
-				system("python $MetaPathExplorer_pathway --K0file $K0ListFile --color $OPT{'kocolor'} --out $outimg --pathway $pathway --org $OPT{org}") unless (-e $outimg);
+				my $MetaPathExplorer_pathway = $FindBin::RealBin."/MetaPathExplorer_pathway.v$1.py";
+				runcmd("python $MetaPathExplorer_pathway --K0file $K0ListFile --color $OPT{'kocolor'} --out $outimg --pathway $pathway --org $OPT{org}") unless (-e $outimg);
 			}
 			else{
 				system("wget --no-verbose www.kegg.jp/kegg/pathway/$OPT{org}/$pathway.png -O $outimg") unless (-e $outimg);
@@ -712,6 +714,9 @@ foreach my $section (keys %ini){
 if ($OPT{entry} ne 'matrix'){
 	my $UniReflvl="UniRef$OPT{UniRefID}";
 	my $K=$OPT{'kingdoms'};
+	if ($OPT{'kingdoms'} eq 'all'){
+		$OPT{'kingdoms'}='arc,bac,vir,euk'
+	}
 	my @kingdoms=split(/,/,$K);
 	$K =~ s/,/-/g;
 	
@@ -735,11 +740,18 @@ if ($OPT{entry} ne 'matrix'){
     }
     closedir(DIR);
 	
-
 	unless($tools{'blastp'}->{REQUIRED}){
 		$databaseFile = "$UniRefdb.dmnd" if($tools{'diamond'}->{REQUIRED});
 		$databaseFile = "$UniRefdb.udb" if($tools{'usearch'}->{REQUIRED});
-		error("'$databaseFile' is not readable.") unless(-r $databaseFile);
+		unless(-r $databaseFile){
+			error("'$UniRefdb' is not readable.") unless (-r $UniRefdb);
+			my $cmd;
+			$cmd = $tools{'usearch'}->{MAKE} if $tools{'usearch'}->{REQUIRED};
+			$cmd = $tools{'diamond'}->{MAKE} if $tools{'diamond'}->{REQUIRED};
+			$cmd =~ s/%d/$UniRefdb/g;
+			$cmd =~ s/%d/$databaseFile/g;
+			runcmd($cmd)
+		}
 	}
 	else {
 		my $dbfsa=basename($UniRefdb);
@@ -756,6 +768,7 @@ if ($OPT{entry} ne 'matrix'){
 		$databaseFile =~ s/\.fasta//;
 		error("blastp db '$UniRefdb' is misformated") unless $fac->check_db($UniRefdb);
 	}
+
 }
 
 # ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
@@ -1467,19 +1480,19 @@ if($OPT{entry} eq 'assembly'){
 		$cmd =~ s/%t/$OPT{threads}/;
 		
 
-		if($tools{'diamond'}->{REQUIRED}){
-			$cmd =~ s/%o/$bls_name.daa/;
-			warning("Use existing '$bls_name.daa' to load annotation.") if (-e "$bls_name.daa" && $reuse);
-			runcmd($cmd) unless (-e "$bls_name.daa" && -e "$bls_name.m8.out" && $reuse);
-			runcmd("diamond view -a $bls_name.daa -o $bls_name.m8.out") unless (-e "$bls_name.m8.out" && $reuse);
-			warning("Use existing '$bls_name.daa' to load annotation.") if (-e "$bls_name.m8.out" && $reuse);
-			$bls_name=$bls_name.'.m8.out';
-		}
-		else{
-			$bls_name=$bls_name.'.m8.out';
-			$cmd =~ s/%o/$bls_name/;
-			runcmd($cmd) unless (-e "$bls_name");
-		}
+		# if($tools{'diamond'}->{REQUIRED}){
+		# 	$cmd =~ s/%o/$bls_name.daa/;
+		# 	warning("Use existing '$bls_name.daa' to load annotation.") if (-e "$bls_name.daa" && $reuse);
+		# 	runcmd($cmd) unless (-e "$bls_name.daa" && -e "$bls_name.m8.out" && $reuse);
+		# 	runcmd("diamond view -a $bls_name.daa -o $bls_name.m8.out") unless (-e "$bls_name.m8.out" && $reuse);
+		# 	warning("Use existing '$bls_name.daa' to load annotation.") if (-e "$bls_name.m8.out" && $reuse);
+		# 	$bls_name=$bls_name.'.m8.out';
+		# }
+		# else{
+		$bls_name=$bls_name.'.m8.out';
+		$cmd =~ s/%o/$bls_name/;
+		runcmd($cmd) unless (-e "$bls_name");
+		# }
 
 		open(ALN,"$bls_name");
 		while(<ALN>){
@@ -1675,7 +1688,7 @@ while(<KO2PATH>){
 		push(@{$pathwayOrthologyListHash{$_}{$PATH}}, "$KO") if $KO{$_}{$KO};	
 	}
 	$PATHWAY{$PATH}="";
-	$ko_count_by_pathway{$PATH}=+1;
+	$ko_count_by_pathway{$PATH}++;
 	my $PATHWAY = $PATH2PATHWAY{$PATH};
 	my $link="HTML/pathway/$PATH.html";
 	$SUM.="<a href=\"#$PATH\">$PATH</a><br />\n";
@@ -1739,13 +1752,30 @@ foreach my $PATH (sort keys %PATH2PATHWAY){
 		print PATHREPORT "\n";
 	}
 	my $max = (sort { $b <=> $a } @pathwayOrthologyCount)[0];
-	my $percent = ($max/$ko_count_by_pathway{$PATH}) * 100 ;
-	runcmd("sed -i 's/$PATH.percent/$percent/' $MetaPathExplorer_data/HTML/index-summary.html");
+	# my $percent = ($max/$ko_count_by_pathway{$PATH}) * 100 ;
+	runcmd("sed -i 's/$PATH.count/($max\\/$ko_count_by_pathway{$PATH})/' $outdir/HTML/index-summary.html");
+	runcmd("sed -i 's/$PATH.count/($max\\/$ko_count_by_pathway{$PATH})/' $outdir/HTML/index-main.html");
 	pathway_html(join(",",@sample), join(",",@pathwayOrthologyCount), join(",",@pOrthologyList),$PATH);
 }
 close PATHREPORT;
 close PATHREPORTSAMPLE;
 
+# my %A;
+# my %B;
+
+# open(KO2HIERARCHY,"$MetaPathExplorer_data/ko2hierarchy.tsv")
+# while(<KO2HIERARCHY>){
+# 	chomp;
+# 	my @line =split("\t");
+# 	push $A{$3}, $1;
+# 	push $B{$4}, $1;
+# }
+# close KO2HIERARCHY;
+
+# foreach my $A (keys %A){
+# 	my @uniq = uniq $A{$A};
+# 	my $uniq_nb = $#uniq 
+# }
 
 warning("\n×××××××××××××××××××××××××××××××××××××××××××××××××××××××××");
 warning("End of script.")
