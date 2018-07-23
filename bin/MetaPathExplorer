@@ -1760,23 +1760,6 @@ foreach my $PATH (sort keys %PATH2PATHWAY){
 close PATHREPORT;
 close PATHREPORTSAMPLE;
 
-# my %A;
-# my %B;
-
-# open(KO2HIERARCHY,"$MetaPathExplorer_data/ko2hierarchy.tsv")
-# while(<KO2HIERARCHY>){
-# 	chomp;
-# 	my @line =split("\t");
-# 	push $A{$3}, $1;
-# 	push $B{$4}, $1;
-# }
-# close KO2HIERARCHY;
-
-# foreach my $A (keys %A){
-# 	my @uniq = uniq $A{$A};
-# 	my $uniq_nb = $#uniq 
-# }
-
 warning("\n×××××××××××××××××××××××××××××××××××××××××××××××××××××××××");
 warning("End of script.")
 
