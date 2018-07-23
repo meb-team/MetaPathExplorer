@@ -122,7 +122,7 @@ bin/MetaPathExplorer --verbose --ini conf/MetaPathExplorer.ini --input assembly 
 
 ## Citation
 
-Hochart, C and Debroas D (2017). MetaPath Explorer: predicting and visualizing metabolic functions from high-throughput sequencing data. Available online at: https://github.com/meb-team/MetaPathExplorer
+Hochart, C and Debroas, D (2017). MetaPath Explorer: predicting and visualizing metabolic functions from high-throughput sequencing data. Available online at: https://github.com/meb-team/MetaPathExplorer
 
 ### Authors
 * Hochart Corentin - [chochart](https://github.com/chochart)
