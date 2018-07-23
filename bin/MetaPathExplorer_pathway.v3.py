@@ -71,7 +71,7 @@ class KEGG_browser(mechanicalsoup.StatefulBrowser):
 	def get_pathway_from_submission(self, pathway, imgpath, pathway_dl = None):
 		assert self.KEGG_STATE == 'submited'
 	 	# recover only the link of the pathway of interest 
-		link = [ln for ln in self.links() if (self.absolute_url(ln['href']).startswith('http://www.kegg.jp/kegg-bin') and self._get_pathway_from_url(self.absolute_url(ln['href'])) == pathway)]
+		link = [ln for ln in self.links() if (self.absolute_url(ln['href']).startswith('https://www.kegg.jp/kegg-bin') and self._get_pathway_from_url(self.absolute_url(ln['href'])) == pathway)]
 		if len(link) == 1 :
 			self._download_pathway_from_link(link[0], imgpath)
 		else :
