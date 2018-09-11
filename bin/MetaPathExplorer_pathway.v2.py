@@ -37,7 +37,7 @@ class KEGG(Browser):
         # Initializing 
         self._factory.is_html = True
         self.set_handle_robots(False)
-        self.open('http://www.kegg.jp/kegg/tool/map_pathway2.html')
+        self.open('https://www.kegg.jp/kegg/tool/map_pathway2.html')
         self.KEGG_STATE = 'initialized'
 
     def search_pathways(self, K0s, color, org):
@@ -69,7 +69,7 @@ class KEGG(Browser):
         try:
             follow = resp.get_data()
             img_path = re.findall('<img src="([\d\w/.]*?)"', follow)[0]
-            self.retrieve('http://www.kegg.jp/' + img_path, imgpath)
+            self.retrieve('https://www.kegg.jp/' + img_path, imgpath)
         finally:
             self.back()
         
@@ -81,7 +81,7 @@ class KEGG(Browser):
         if len(link) == 1 :
             self.download_pathway_from_link(link[0], imgpath)
         else :
-            print os.path.realpath(__file__)+' (error): ' +  pathway + ' do not contain the given KO list.'
+            print os.path.realpath(__file__)+' (error): ' + pathway + ' do not contain the given KO list.'
 
 #####################################################################
 # Function

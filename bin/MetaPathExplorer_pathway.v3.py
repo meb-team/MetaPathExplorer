@@ -34,11 +34,9 @@ import sys
 ####################################################################
 # Class 
 class KEGG_browser(mechanicalsoup.StatefulBrowser):
-# class KEGG_browser(mechanicalsoup.Browser):
-	
 	def KEGG_initialisation(self):
 		# Initializing 
-		self.open('http://www.kegg.jp/kegg/tool/map_pathway2.html')
+		self.open('https://www.kegg.jp/kegg/tool/map_pathway2.html')
 		self.KEGG_STATE = 'initialized'
 		sys.stderr.write(self.KEGG_STATE+'\n')
 
@@ -52,8 +50,9 @@ class KEGG_browser(mechanicalsoup.StatefulBrowser):
 			K0_data += '%s %s\n' % (K0, color)
 		self.select_form('form')
 		self['org']=org
-		sys.stderr.write(self['org'])
+		# self.__setitem__('org',org)
 		self['unclassified']=K0_data
+		# self.__setitem__('unclassified',K0_data)
 		self.submit_selected()
 		self.KEGG_STATE = 'submited'
 		sys.stderr.write(self.KEGG_STATE+'\n')
@@ -65,7 +64,7 @@ class KEGG_browser(mechanicalsoup.StatefulBrowser):
 		assert self.KEGG_STATE == 'submited'
 		self.follow_link(link)
 		follow = self.get_current_page()
-		img_path = 'http://www.kegg.jp/' + [img for img in follow.find_all('img') if self.absolute_url(img['src']).endswith('.png')][0].get('src')
+		img_path = 'https://www.kegg.jp/' + [img for img in follow.find_all('img') if self.absolute_url(img['src']).endswith('.png')][0].get('src')
 		urllib.request.urlretrieve(img_path,imgpath)
 		
 	def get_pathway_from_submission(self, pathway, imgpath, pathway_dl = None):

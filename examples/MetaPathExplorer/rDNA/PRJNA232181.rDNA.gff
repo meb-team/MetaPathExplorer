@@ -1,6 +1,6 @@
 #gff-version 3
 #source: MetaPathExplorer:1.1
-#date 19-09-2017
+#date 23-07-2018
 #Type DNA
 #INFO [Seq: 1] [length: 4701875]
 #seq_name	method	feature	start	end	score	strand	frame	gene	

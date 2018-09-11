@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<script src="../js/w3.js"></script>
+<script src="../js/MetaPathExplorer.js"></script>
+	<head>		
+		<!-- En-tête de la page -->
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="../style/style.css" />
+		<title>MetaPathExplorer</title>
+		<link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" /> 
+	</head>
+	
+	<body>
+		<!-- <div class="header"><div id="header_title"><img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" width="8%" height="8%">MetaPathExplorer Report</div><div id="header_filename">sept. 09 2018
+<br/>map04926<br/>Relaxin signaling pathway</div></div> --> 
+		<div class="header">
+			<div id="header_title"><a href="../../MetaPathExplorer.html">MetaPathExplorer</br>Report</a></div>
+			<div id="header_filename"><a href="http://www.kegg.jp/dbget-bin/www_bget?pathway+map04926">map04926<br/>Relaxin signaling pathway</a></div>
+			<div id="header_date">sept. 09 2018
+<br/></div>
+		</div>
+
+		<div id="wrapper">
+			<div class="summary">
+				<br/>
+				<div id="sample"><h2>Sample</h2>
+					<br/>
+						
+					<li><a href="#PRJNA158811">PRJNA158811</a></li>
+					<li><a href="#PRJNA232181">PRJNA232181</a></li>
+</div>
+			</div>
+
+			<div class="main" class2="sample">
+				<div>
+					<br/>
+					<ul>
+						<li style="display:inline-block;">
+							<a href="http://www.kegg.jp/dbget-bin/www_bget?pathway+map04926"><button type="button">Pathway entry on KEGG</button></a>
+						</li>
+						<li style="display:inline-block;">
+							<a href="http://www.kegg.jp/kegg-bin/show_pathway?org_name=map&mapno=04926&mapscale=&show_description=hide"><button type="button">Link to Pathway on KEGG</button></a>
+						</li>
+						<li style="display:inline-block;">
+							<input id="show description" type=button value="Show Description" onclick="hide_desc(description)"/>
+						</li>
+						<li style="display:inline-block;">
+							<input type=button value="Resize" onclick="resize()" />
+							<input type=text id="txtbox" value="45%" style="width:50px;"/>
+						</li>
+					</ul>
+					<p id="description" style="display: none;"> 
+						'Human relaxin-2 ("relaxin"), originally identified as a peptidic hormone of pregnancy, is now known to exert a range of pleiotropic effects including vasodilatory, anti-fibrotic and angiogenic effects in both males and females. It belongs to the so-called relaxin peptide family which includes the insulin-like peptides INSL3 and INSL5, and relaxin-3 (H3)  as well as relaxin. INSL3 has clearly defined specialist roles in male and female reproduction, relaxin-3 is primarily a neuropeptide involved in stress and metabolic control, and INSL5 is widely distributed particularly in the gastrointestinal tract. These members of relaxin peptide family exert such effects binding to different kinds of receptors, classified as relaxin family peptide (RXFP) receptors: RXFP1, RXFP2, RXFP3, and RXFP4. These G protein-coupled receptors predominantly bind relaxin, INSL3, relaxin-3, and INSL-5, respectively. RXFP1 activates a wide spectrum of signaling pathways to generate second messengers that include cAMP and nitric oxide, whereas RXFP2 activates a subset of these pathways. Both RXFP3 and RXFP4 inhibit cAMP production, and RXFP3 activate MAP kinases.'  Copyright 1995-2017 Kanehisa Laboratories
+					</p>
+									<div class="sample" style='height:auto;width:45%;'>
+					<h2 id="PRJNA158811"><center>PRJNA158811</center></h2>
+					<br/>					<div style='padding:10px'>
+					<img src="map04926/PRJNA158811.png" style='height:100%;width:100%;object-fit:contain'></img>
+					</div>
+					<br/>
+					<div class="wrapper"><input id="button_PRJNA158811" type=button value="Show Table" onclick="hide(button_PRJNA158811,tab_PRJNA158811)" />
+					<br/>
+					<table id="tab_PRJNA158811" style="display:none;" align="center">						<tr>
+							<th>orthology count</th>
+							<th>kegg orthology</th>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td> </td>						</tr>
+					</table>					<br/>
+					<a></a>
+					</div>
+					<br/>
+					<br/>
+				</div>
+				<div class="sample" style='height:auto;width:45%;'>
+					<h2 id="PRJNA232181"><center>PRJNA232181</center></h2>
+					<br/>					<div style='padding:10px'>
+					<img src="map04926/PRJNA232181.png" style='height:100%;width:100%;object-fit:contain'></img>
+					</div>
+					<br/>
+					<div class="wrapper"><input id="button_PRJNA232181" type=button value="Show Table" onclick="hide(button_PRJNA232181,tab_PRJNA232181)" />
+					<br/>
+					<table id="tab_PRJNA232181" style="display:none;" align="center">						<tr>
+							<th>orthology count</th>
+							<th>kegg orthology</th>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td> </td>						</tr>
+					</table>					<br/>
+					<a></a>
+					</div>
+					<br/>
+					<br/>
+				</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="footer">Produced by <a href="https://github.com/meb-team/MetaPathExplorer">MetaPathExplorer</a></div>
+	</body>
+</html>
+
+
+
+<script type="text/javascript">
+w3.includeHTML();
+</script>
