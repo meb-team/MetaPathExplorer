@@ -391,14 +391,15 @@ if($force){
 
     open (IN, "wget --no-verbose -O - http://rest.kegg.jp/get/br:br08901 |");
     open (OUT, ">$MetaPathExplorer_data/HTML/index-main.html");
+    print OUT "<ul>\n";
     while(<IN>){
         chomp;
         next if (/^#/);
         if(/^A(.+)/){
             $A{$1}='';
-            print OUT "</ul></li></ul>\n</a></li>\n" if($A > 0);
+            print OUT "</ul></li></ul>\n</li>\n" if($A > 0);
             $A++;
-            printf OUT ("<li><a name='A%s' href=\"javascript:visibilite('A%s')\" lvl='1'><img src=\"HTML/Fig/close.png\"></img> %s (%s.count)\n<ul id='A%s'>\n\t",
+            printf OUT ("<li><a name='A%s' href=\"javascript:visibilite('A%s')\" lvl='1'><img src=\"HTML/Fig/close.png\"/> %s (map%s.count)</a>\n<ul id='A%s'>\n\t",
                 $A,$A,$1,$1,$A);
             $B=1;
             $C=1;
@@ -407,18 +408,18 @@ if($force){
             $B{$1}='';
             my $Bname = "$1$2";
             print OUT "\t</ul></li>\n\t" if($B > 1);
-            printf OUT ("<li lvl='2' style=\"display:none;\"><a href=\"javascript:visibilite('A%sB%s');\"><img src=\"HTML/Fig/close.png\"> %s (%s.count)</a>\n\t<ul id='A%sB%s'>\n",
+            printf OUT ("<li lvl='2' style=\"display:none;\"><a href=\"javascript:visibilite('A%sB%s');\"><img src=\"HTML/Fig/close.png\"/> %s (map%s.count)</a>\n\t<ul id='A%sB%s'>\n",
                 $A,$B,$Bname,$Bname,$A,$B);
             $B++;
             $C=1;
         }
         elsif(/^C\s+(\d+)\s+(.+)/){
             $C{$1}='';
-            printf OUT ("\t\t<li lvl='3' style=\"display:none;\"><a name=\"%s\" href=\"HTML/pathway/map%s.html\">%s</a><img class=\"popup\" src=\"http://www.kegg.jp/kegg/misc/thumbnail/map%s.gif\"> %s (%s.count)</li>\n",$1,$1,$1,$1,$2,$1);
+            printf OUT ("\t\t<li lvl='3' style=\"display:none;\"><a name=\"%s\" href=\"HTML/pathway/map%s.html\">%s</a><img class=\"popup\" src=\"http://www.kegg.jp/kegg/misc/thumbnail/map%s.gif\"/> %s (map%s.count)</li>\n",$1,$1,$1,$1,$2,$1);
             $C++
         }
     }
-    print OUT "</ul></li></ul>\n</a></li>";
+    print OUT "</ul></li></ul>\n</li>\n</ul>";
     close IN;
     close OUT;
 
@@ -549,7 +550,7 @@ if($force){
             }
         }
         print OUT join("\t", $pathway, $definition,$description), "\n";
-        printf HTMLSUM ("<li><a href=\"HTML/pathway/%s.html\" style=\"display:none;\">%s</a><br/><a style=\"display:none;\" name=\"description\">%s (%s.percent)</a></li>\n",
+        printf HTMLSUM ("<li><a href=\"HTML/pathway/%s.html\" style=\"display:none;\">%s</a><br/><a style=\"display:none;\" name=\"description\">%s (%s.count)</a></li>\n",
         $pathway,$pathway,$definition,$pathway);
     }
     close(IN);
