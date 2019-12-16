@@ -1723,7 +1723,7 @@ print PATHREPORT join("\t", '#pathway', '#definition'),"\t";
 foreach(@sample){
     system("mkdir -p $outdir/$_");
     print PATHREPORT "\t";
-    print PATHREPORT join("\t","#$_: [Number of Ortholgous Present]","#$_: [Orthologous Present]");
+    print PATHREPORT join("\t","#$_: [Number of Ortholgous Present]","#$_: [Orthologous Present]", "#$_: KEGG Pathway URL" );
     open(PATHREPORTSAMPLE,">>$outdir/$_/pathway_report.url.tsv");
     print PATHREPORTSAMPLE join ("\t",'pathway', 'definition','list'),"\n";
     close PATHREPORTSAMPLE;
@@ -1743,12 +1743,13 @@ foreach my $PATH (sort keys %PATH2PATHWAY){
             $pathwayOrthologyCount = scalar(my @pathwayOrthologyList = @{$pathwayOrthologyListHash{$_}{$PATH}}) if exists $pathwayOrthologyListHash{$_}{$PATH}; 
             my $pathwayOrthologyList = ' ' ;
             $pathwayOrthologyList = join("\n",@pathwayOrthologyList) if scalar(@pathwayOrthologyList) > 0;
-            print PATHREPORT join ("\t","[$pathwayOrthologyCount]",'['.substitution($pathwayOrthologyList,'\n','|').']'),"\t";
+            my $colorPathwayUrl = "https://www.kegg.jp/kegg-bin/show_pathway?$PATH/".substitution("$pathwayOrthologyList\n",'\n',"%09".$OPT{'kocolor'}."/") ;
+            print PATHREPORT join ("\t","[$pathwayOrthologyCount]",'['.substitution($pathwayOrthologyList,'\n','|').']',$colorPathwayUrl),"\t";
             push @pathwayOrthologyCount, $pathwayOrthologyCount;
             push @pOrthologyList, $pathwayOrthologyList ;
             next if $pathwayOrthologyCount == 0 ;
             open(PATHREPORTSAMPLE,">>$outdir/$_/pathway_report.url.tsv");
-            print PATHREPORTSAMPLE join ("\t", $PATH, $definition, substitution($pathwayOrthologyList,"\n",'|')),"\n";
+            print PATHREPORTSAMPLE join ("\t", $PATH, $definition, substitution($pathwayOrthologyList,"\n",'|'),$colorPathwayUrl),"\n";
             close PATHREPORTSAMPLE;
         }
         print PATHREPORT "\n";
