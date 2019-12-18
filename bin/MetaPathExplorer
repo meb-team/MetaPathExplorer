@@ -1563,8 +1563,7 @@ elsif($OPT{entry} eq 'proteins'){
         $cmd = $tools{'usearch'}->{CMD} if($tools{'usearch'}->{REQUIRED});
         $cmd = $tools{'diamond'}->{CMD} if($tools{'diamond'}->{REQUIRED});
 
-        fasta_vs_uniref_kegg($file,$name.'ORF-aa',$cmd);
-
+        fasta_vs_uniref_kegg($file,$name,$cmd);
     }
 
     # ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
@@ -1742,8 +1741,14 @@ foreach my $PATH (sort keys %PATH2PATHWAY){
             my $pathwayOrthologyCount = 0;
             $pathwayOrthologyCount = scalar(my @pathwayOrthologyList = @{$pathwayOrthologyListHash{$_}{$PATH}}) if exists $pathwayOrthologyListHash{$_}{$PATH}; 
             my $pathwayOrthologyList = ' ' ;
-            $pathwayOrthologyList = join("\n",@pathwayOrthologyList) if scalar(@pathwayOrthologyList) > 0;
-            my $colorPathwayUrl = "https://www.kegg.jp/kegg-bin/show_pathway?$PATH/".substitution("$pathwayOrthologyList\n",'\n',"%09".$OPT{'kocolor'}."/") ;
+            my $colorPathwayUrl ; 
+            if(scalar(@pathwayOrthologyList) > 0){
+                $pathwayOrthologyList = join("\n",@pathwayOrthologyList) ;
+                $colorPathwayUrl = "https://www.kegg.jp/kegg-bin/show_pathway?$PATH/".substitution("$pathwayOrthologyList\n",'\n',"%09".$OPT{'kocolor'}."/") ;
+            } 
+            else {
+                $colorPathwayUrl = "https://www.kegg.jp/kegg-bin/show_pathway?$PATH/"
+            }
             print PATHREPORT join ("\t","[$pathwayOrthologyCount]",'['.substitution($pathwayOrthologyList,'\n','|').']',$colorPathwayUrl),"\t";
             push @pathwayOrthologyCount, $pathwayOrthologyCount;
             push @pOrthologyList, $pathwayOrthologyList ;
