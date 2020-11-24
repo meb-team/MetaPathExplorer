@@ -1,43 +1,44 @@
 <!-- <!DOCTYPE html> -->
 <html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src="HTML/js/w3.js"></script>
 <script src="HTML/js/MetaPathExplorer.js"></script>
-	<head>
-		<!-- En-tête de la page -->
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="HTML/style/style.css" />
-		<title>MetaPathExplorer</title>
-		<link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" />
-	</head>
-	<body>
-		 <!-- Corps de la page -->
-		<div class="header">
-			<!-- <div id="header_title"><img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" width="8%" height="8%">MetaPathExplorer Report</div> -->
-			<div id="header_title">MetaPathExplorer<br/>Report</div>
-			<div id="header_date">%date<br/></div>
-		</div>
-		<div id=wrapper>
-			<div class="summary"><h2>Pathway</h2>
-				<br/>
-				<input type="text" id="Search_pathway" onkeyup="Search_pathway()" placeholder="Search pathway">
-				<ul id="pathway_list">
-					<div w3-include-html="HTML/index-summary.html"></div>
-			    </ul>
-			</div>
+    <head>
+        <!-- En-tête de la page -->
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="HTML/style/style.css" />
+        <title>MetaPathExplorer</title>
+        <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" />
+        <script type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery("#index").load("HTML/index-summary.html");
+                jQuery("#main").load("HTML/index-main.html");
+            });
+        </script>
+    </head>
+    <body>
+         <!-- Corps de la page -->
+        <div class="header">
+            <!-- <div id="header_title"><img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" width="8%" height="8%">MetaPathExplorer Report</div> -->
+            <div id="header_title">MetaPathExplorer<br/>Report</div>
+            <div id="header_date">%date<br/></div>
+        </div>
+        <div id=wrapper>
+            <div class="summary"><h2>Pathway</h2>
+                <br/>
+                <input type="text" id="Search_pathway" onkeyup="Search_pathway()" placeholder="Search pathway">
+                <ul id="pathway_list">
+                    <div id="index"></div>
+                </ul>
+            </div>
 
-			<div class="main" class2="pathway">
-				<br/>
-				<br/>
-					<div w3-include-html="HTML/index-main.html"></div>
-			</div>
-		</div>
-			
-		<div class="footer">Produced by <a href="https://github.com/meb-team/MetaPathExplorer">MetaPathExplorer</a></div>
-
-	</body>
+            <div class="main" class2="pathway">
+                <br/>
+                <br/>
+                    <div id="main"></div>
+            </div>
+        </div>
+            
+        <div class="footer">Produced by <a href="https://github.com/meb-team/MetaPathExplorer">MetaPathExplorer</a></div>
+    </body>
 </html>
-
-
-<script>
-w3.includeHTML();
-</script>
