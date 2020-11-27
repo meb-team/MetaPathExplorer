@@ -583,7 +583,7 @@ my %clst2acc;
 
 warning('(Down)load UniRef Protein sequence file.');
 
-downloadFile($url) unless -e $UniRef;
+downloadFile($url) unless -e $UniRef || -e $UniRef.gz ;
 
 runcmd("gunzip $UniRef.gz") if -e "$UniRef.gz";
 error("'$UniRef' has zero size") if(-z $UniRef);
@@ -678,10 +678,13 @@ else{
     warning('Load taxonomic information for UniRef protein.');
 
     downloadFile(
-        'ftp://ftp.uniprot.org/pub/databases/uniprot//current_release/knowledgebase/complete/uniprot_trembl.dat.gz',
         'ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.dat.gz'
-    ) unless -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat";
-    
+    ) unless -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat" || -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat.gz" ;
+
+    downloadFile(
+        'ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_trembl.dat.gz'
+    ) unless -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat" || -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat.gz" ;
+
     runcmd("zcat $MetaPathExplorer_data/uniprot_sprot.dat.gz $MetaPathExplorer_data/uniprot_trembl.dat.gz | egrep '^ID|^AC|^OC' > $MetaPathExplorer_data/uniprot_sprot_trembl.dat") unless -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat";
         
     warning("Re-using '$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.dat'") if -e "$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.dat";
