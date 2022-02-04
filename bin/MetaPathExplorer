@@ -1654,7 +1654,7 @@ elsif($OPT{entry} eq 'matrix'){
         else{
             my $pst = 'n' ;
             my @line = split(/\t/);
-            for(my $i=1;$i<$#line;$i++){
+            for(my $i=1;$i<=$#line;$i++){
                 $KO{$header[$i]}{$line[0]}=$line[$i];
                 if($line[$i] > 0 && $pst eq 'n'){
                     $pst = 'y' ; 
