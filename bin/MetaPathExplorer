@@ -1697,17 +1697,6 @@ while(<KO2PATH>){
 }
 close KO2PATH;
 
-open(IN,"$MetaPathExplorer_data/HTML/index-base.html");
-open(OUT, ">$outdir/MetaPathExplorer.html");
-while(<IN>){
-    $_ =~ s/%Summary/$SUM/;
-    $_ =~ s/%Main/$MAIN/;
-    $_ =~ s/%date/$DATE/;
-    print OUT $_;
-}
-close IN;
-close OUT;
-
 
 # ××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
 # Genering pathway report
@@ -1828,51 +1817,60 @@ while(<KO2HIERARCHY>){
 close KO2HIERARCHY;
 
 open(IN, "$MetaPathExplorer_data/HTML/index-main.html");
-open(OUT, ">$outdir/HTML/index-main.html");
+my $index_main = "" ;
 while(<IN>){
     if(/([^\(]+).count/){
         my $new_line = $_ ;
         my $name = $1 ;
         if (/lvl='1'/ && exists($count_lvl1{$name})){
             $new_line =~ s/$name.count/$count_lvl1{$name}\/$count_max_lvl1{$name}/ ;
-            print OUT $new_line ; 
         }
         elsif (/lvl='2'/ && exists($count_lvl2{$name})){
             $new_line =~ s/$name.count/$count_lvl2{$name}\/$count_max_lvl2{$name}/ ;
-            print OUT $new_line ; 
         }
         elsif (/lvl='3'/){
             $new_line =~ s/$name.count/$count{$name}/ ;
-            print OUT $new_line ; 			
         }
         else {
             $new_line =~ s/\($name.count\)// ;
-            print OUT $new_line ;
         }
+        $index_main .= $new_line
     }
     else{
-        print OUT $_ ;
+        $index_main .= $_ 
     }
 }
 close(IN) ;
-close(OUT) ;
 
 open(IN, "$MetaPathExplorer_data/HTML/index-summary.html");
-open(OUT, ">$outdir/HTML/index-summary.html");
+my $index_summary = "" ;
 while(<IN>){
     if(/([^\(]+).count/){
         my $new_line = $_ ;
         my $name = $1 ;
         $new_line =~ s/$name.count/$count{$name}/ ;
-        print OUT $new_line ; 
+        $index_summary .= $new_line ; 
     }
     else{
-        print OUT $_ ;
+        $index_summary .= $_ ;
     }
 }
 close(IN) ;
 close(OUT) ;
 
+open(IN,"$MetaPathExplorer_data/HTML/index-base.html");
+open(OUT, ">$outdir/MetaPathExplorer.html");
+while(<IN>){
+    $_ =~ s/%Summary/$SUM/;
+    $_ =~ s/%Main/$MAIN/;
+    $_ =~ s/%date/$DATE/;
+    $_ =~ s/%SUMMARY%/$index_summary/ ;
+    $_ =~ s/%MAIN%/$index_main/ ;
+
+    print OUT $_;
+}
+close IN;
+close OUT;
 
 warning("\n×××××××××××××××××××××××××××××××××××××××××××××××××××××××××");
 warning("End of script.")
