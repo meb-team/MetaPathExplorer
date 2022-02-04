@@ -37,7 +37,7 @@ class KEGG(Browser):
         # Initializing 
         self._factory.is_html = True
         self.set_handle_robots(False)
-        self.open('https://www.kegg.jp/kegg/tool/map_pathway2.html')
+        self.open('https://www.kegg.jp/kegg/mapper/color.html')
         self.KEGG_STATE = 'initialized'
 
     def search_pathways(self, K0s, color, org):

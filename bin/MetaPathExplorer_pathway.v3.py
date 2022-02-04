@@ -36,7 +36,7 @@ import sys
 class KEGG_browser(mechanicalsoup.StatefulBrowser):
 	def KEGG_initialisation(self):
 		# Initializing 
-		self.open('https://www.kegg.jp/kegg/tool/map_pathway2.html')
+		self.open('https://www.kegg.jp/kegg/mapper/color.html')
 		self.KEGG_STATE = 'initialized'
 		sys.stderr.write(self.KEGG_STATE+'\n')
 
