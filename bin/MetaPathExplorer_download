@@ -399,16 +399,16 @@ if($force){
             $A{$1}='';
             print OUT "</ul></li></ul>\n</li>\n" if($A > 0);
             $A++;
-            printf OUT ("<li><a name='A%s' href=\"javascript:visibilite('A%s')\" lvl='1'><img src=\"HTML/Fig/close.png\"/> %s (map%s.count)</a>\n<ul id='A%s'>\n\t",
+            printf OUT ("<li><a name='A%s' href=\"javascript:visibilite('A%s')\" lvl='1'><img src=\"HTML/Fig/close.png\"/> %s (%s.count)</a>\n<ul id='A%s'>\n\t",
                 $A,$A,$1,$1,$A);
             $B=1;
             $C=1;
         }
-        elsif(/^B\s+([^:]+)(:*)/){
+        elsif(/^B\s+([^:]+)(:*.*)/){
             $B{$1}='';
             my $Bname = "$1$2";
             print OUT "\t</ul></li>\n\t" if($B > 1);
-            printf OUT ("<li lvl='2' style=\"display:none;\"><a href=\"javascript:visibilite('A%sB%s');\"><img src=\"HTML/Fig/close.png\"/> %s (map%s.count)</a>\n\t<ul id='A%sB%s'>\n",
+            printf OUT ("<li lvl='2' style=\"display:none;\"><a href=\"javascript:visibilite('A%sB%s');\"><img src=\"HTML/Fig/close.png\"/> %s (%s.count)</a>\n\t<ul id='A%sB%s'>\n",
                 $A,$B,$Bname,$Bname,$A,$B);
             $B++;
             $C=1;

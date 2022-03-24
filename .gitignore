@@ -2,7 +2,6 @@ MetaPathExplorer.log
 *.ini
 
 # files from data
-data/save
 data/uniref*.gz
 data/UniRef90.cluster.tsv
 data/orthology_UniRef*
