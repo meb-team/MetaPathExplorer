@@ -7341,7 +7341,7 @@ ko:K07765	MBTPS2; S2P endopeptidase [EC:3.4.24.85]
 ko:K07766	E3.6.1.52; diphosphoinositol-polyphosphate diphosphatase [EC:3.6.1.52]
 ko:K07767	KATNA1; katanin p60 ATPase-containing subunit A1 [EC:5.6.1.1]
 ko:K07768	senX3; two-component system, OmpR family, sensor histidine kinase SenX3 [EC:2.7.13.3]
-ko:K07769	nblS; two-component system, OmpR family, sensor histidine kinase NblS [EC:2.7.13.3]
+ko:K07769	nblS, dfr, dspA, hik33; two-component system, OmpR family, sensor histidine kinase NblS [EC:2.7.13.3]
 ko:K07770	cssR; two-component system, OmpR family, response regulator CssR
 ko:K07771	basR; two-component system, OmpR family, response regulator BasR
 ko:K07772	torR; two-component system, OmpR family, torCAD operon response regulator TorR
@@ -9417,7 +9417,7 @@ ko:K09901	K09901; uncharacterized protein
 ko:K09902	K09902; uncharacterized protein
 ko:K09903	pyrH; uridylate kinase [EC:2.7.4.22]
 ko:K09904	K09904; uncharacterized protein
-ko:K09905	B4GALT5; beta-1,4-galactosyltransferase 5 [EC:2.4.1.-]
+ko:K09905	B4GALT5; beta-1,4-galactosyltransferase 5 [EC:2.4.1.274 2.4.1.-]
 ko:K09906	epmC; elongation factor P hydroxylase [EC:1.14.-.-]
 ko:K09907	K09907; uncharacterized protein
 ko:K09908	K09908; uncharacterized protein
@@ -9628,9 +9628,9 @@ ko:K10112	msmX, msmK, malK, sugC, ggtA, msiK; multiple sugar transport system AT
 ko:K10117	msmE; raffinose/stachyose/melibiose transport system substrate-binding protein
 ko:K10118	msmF; raffinose/stachyose/melibiose transport system permease protein
 ko:K10119	msmG; raffinose/stachyose/melibiose transport system permease protein
-ko:K10120	K10120, msmE; fructooligosaccharide transport system substrate-binding protein
-ko:K10121	K10121, msmF; fructooligosaccharide transport system permease protein
-ko:K10122	K10122, msmG; fructooligosaccharide transport system permease protein
+ko:K10120	msmE; fructooligosaccharide transport system substrate-binding protein
+ko:K10121	msmF; fructooligosaccharide transport system permease protein
+ko:K10122	msmG; fructooligosaccharide transport system permease protein
 ko:K10123	feoC; putative ferrous iron transport protein C
 ko:K10124	bglH; carbohydrate-specific outer membrane porin
 ko:K10125	dctB; two-component system, NtrC family, C4-dicarboxylate transport sensor histidine kinase DctB [EC:2.7.13.3]
@@ -10996,7 +10996,7 @@ ko:K11517	HAO; (S)-2-hydroxy-acid oxidase [EC:1.1.3.15]
 ko:K11518	TOM40; mitochondrial import receptor subunit TOM40
 ko:K11519	DERL1; Derlin-1
 ko:K11520	manS; two-component system, OmpR family, manganese sensing sensor histidine kinase [EC:2.7.13.3]
-ko:K11521	K11521, manR; two-component system, OmpR family, manganese sensing response regulator
+ko:K11521	manR; two-component system, OmpR family, manganese sensing response regulator
 ko:K11522	pixG; two-component system, chemotaxis family, response regulator PixG
 ko:K11523	pixH; two-component system, chemotaxis family, response regulator PixH
 ko:K11524	pixI; positive phototaxis protein PixI
@@ -16690,7 +16690,7 @@ ko:K17314	treV; trehalose transport system ATP-binding protein
 ko:K17315	gtsA, glcE; glucose/mannose transport system substrate-binding protein
 ko:K17316	gtsB, glcF; glucose/mannose transport system permease protein
 ko:K17317	gtsC, glcG; glucose/mannose transport system permease protein
-ko:K17318	K17318, lplA; putative aldouronate transport system substrate-binding protein
+ko:K17318	lplA; putative aldouronate transport system substrate-binding protein
 ko:K17319	lplB; putative aldouronate transport system permease protein
 ko:K17320	lplC; putative aldouronate transport system permease protein
 ko:K17321	glpV; glycerol transport system substrate-binding protein
@@ -22881,7 +22881,7 @@ ko:K23540	GOLIM4; golgi integral membrane protein 4
 ko:K23541	TMEM165, GDT1; Ca2+/H+ antiporter, TMEM165/GDT1 family
 ko:K23542	TMEM199; TMEM199 family protein
 ko:K23543	CCDC115; coiled-coil domain-containing protein 115
-ko:K23544	SERINC1_3; serine incorporator 1/3
+ko:K23544	SERINC1; serine incorporator 1
 ko:K23545	yphF; sugar transport system substrate-binding protein
 ko:K23546	yphD; sugar transport system permease protein
 ko:K23547	yphE; sugar transport system ATP-binding protein
@@ -23514,7 +23514,7 @@ ko:K24173	MPND; MPN domain-containing protein
 ko:K24174	METTL4; N(6)-adenine-specific DNA methyltransferase [EC:2.1.1.72]
 ko:K24175	MFSD5; MFS transporter, MFS domain-containing protein family, molybdate-anion transporter
 ko:K24176	SERINC2; serine incorporator 2
-ko:K24177	SERINC4_5; serine incorporator 4/5
+ko:K24177	SERINC4; serine incorporator 4
 ko:K24178	TTC21A, IFT139A; tetratricopeptide repeat protein 21A
 ko:K24179	CYP72A61; cytochrome P450 family 72 subfamily A61 [EC:1.14.14.-]
 ko:K24180	mleP; malate permease and related proteins
@@ -24879,6 +24879,7 @@ ko:K25595	sznE, stzE; arginine Nomega-methyltransferase [EC:2.1.1.381]
 ko:K25596	E4.2.1.178; difructose-dianhydride-III synthase [EC:4.2.1.178]
 ko:K25597	creD; nitrosuccinate lyase [EC:4.3.99.5]
 ko:K25598	creM; 3-amino-2-hydroxy-4-methoxybenzoate diazotase [EC:6.7.1.1]
+ko:K25599	ltaP; lipoteichoic acid primase
 ko:K25600	mtcB; L-carnitine---corrinoid protein Co-methyltransferase [EC:2.1.1.383]
 ko:K25601	azpI; 6-diazo-5-oxo-L-norleucine Nalpha-acetyltranferase [EC:2.3.1.307]
 ko:K25602	tagK; D-tagatose-1-phosphate kinase [EC:2.7.1.234]
@@ -24888,12 +24889,59 @@ ko:K25605	BCL7; B-cell CLL/lymphoma 7 protein
 ko:K25606	DEFB; defensin, beta
 ko:K25612	BICRA, GLTSCR1; BRD4-interacting chromatin-remodeling complex-associated protein
 ko:K25613	BICRAL, GLTSCR1L; BRD4-interacting chromatin-remodeling complex-associated protein-like
+ko:K25617	csbB; lipoteichoic acid polyisoprenyl-phosphate beta-N-acetylglucosaminyltransferase [EC:2.4.-.-]
+ko:K25618	gtlA; lipoteichoic acid polyisoprenyl-phosphate galactosyltransferase [EC:2.4.-.-]
+ko:K25619	yfhO; lipoteichoic acid glycosylation protein
+ko:K25620	gtlB; lipoteichoic acid galactosyltransferase
 ko:K25621	chsH2; 3-oxo-4,17-pregnadiene-20-carboxyl-CoA hydratase alpha subunit [EC:4.2.1.-]
 ko:K25622	chsH1; 3-oxo-4,17-pregnadiene-20-carboxyl-CoA hydratase beta subunit [EC:4.2.1.-]
 ko:K25623	ltp2; 17-hydroxy-3-oxo-4-pregnene-20-carboxyl-CoA lyase [EC:4.1.3.-]
+ko:K25626	wbgX, aatB; UDP-4-keto-6-deoxy-D-glucose 4-transaminase [EC:2.6.1.-]
+ko:K25627	wbgY; AATGal transferase
 ko:K25634	hgdH; 2-oxoglutarate reductase [EC:1.1.1.399]
 ko:K25639	SUPT16H, SPT16; FACT complex subunit SPT16
 ko:K25640	MPIG6B; megakaryocyte and platelet inhibitory receptor G6b
 ko:K25641	dgk2; deoxyguanosine kinase [EC:2.7.1.113]
 ko:K25649	mgh; mannosylglycerate hydrolase [EC:3.2.1.170]
+ko:K25650	K25650; teichoic acid beta-1,3-glucosyltransferase [EC:2.4.1.-]
+ko:K25651	licD3; teichoic acid ribitol-phosphate transferase
+ko:K25652	K25652; teichoic acid N-acetylgalactosaminyltransferase [EC:2.4.1.-]
+ko:K25653	K25653; teichoic acid N-acetylgalactosaminyltransferase [EC:2.4.1.-]
+ko:K25654	licD2; teichoic acid cholinephosphotransferase [EC:2.7.8.-]
+ko:K25655	SERINC5; serine incorporator 5
 ko:K25656	cry, CRYD; cryptochrome
+ko:K25657	licA; choline kinase [EC:2.7.1.32]
+ko:K25658	licC; choline-phosphate cytidylyltransferase [EC:2.7.7.15]
+ko:K25659	K25659; teichoic acid polymerase [EC:2.4.1.-]
+ko:K25660	tacL; lipoteichoic acid ligase
+ko:K25661	SERINC3; serine incorporator 3
+ko:K25662	RNF212; E3 SUMO-protein ligase RNF212 [EC:2.3.2.-]
+ko:K25663	FEZ1; fasciculation and elongation protein zeta-1
+ko:K25664	NC; HIV-1 nucleocapsid protein
+ko:K25665	rev; HIV protein Rev
+ko:K25666	MA; HIV-1 matrix protein
+ko:K25667	p6gag; HIV-1 p6-gag
+ko:K25668	FEZ2; fasciculation and elongation protein zeta-2
+ko:K25669	tarP; poly(ribitiol-phosphate) beta-1,3-N-acetylglucosaminyltransferase [EC:2.4.1.-]
+ko:K25670	fusA; fructooligosaccharide transport system substrate-binding protein
+ko:K25671	fusC; fructooligosaccharide transport system permease protein
+ko:K25672	fusB; fructooligosaccharide transport system permease protein
+ko:K25673	ytcQ; polygalacturonan/rhamnogalacturonan transport system substrate-binding protein
+ko:K25674	yteP; polygalacturonan/rhamnogalacturonan transport system permease protein
+ko:K25675	ytcP; polygalacturonan/rhamnogalacturonan transport system permease protein
+ko:K25676	yesO; pectin-derived oligosaccharide transport system substrate-binding protein
+ko:K25677	yesP; pectin-derived oligosaccharide transport system permease protein
+ko:K25678	yesQ; pectin-derived oligosaccharide transport system permease protein
+ko:K25684	MSMB; beta-microseminoprotein
+ko:K25685	MSMP; prostate-associated microseminoprotein
+ko:K25686	MZB1; marginal zone B- and B1-cell-specific protein
+ko:K25687	NDNF; protein NDNF
+ko:K25688	NDP; norrin
+ko:K25689	NENF; neudesin
+ko:K25690	NMS; neuromedin S
+ko:K25691	NPS; neuropeptide S
+ko:K25692	NPVF; pro-FMRFamide-related neuropeptide VF
+ko:K25693	QRFP; orexigenic neuropeptide QRFP
+ko:K25694	SPX; spexin
+ko:K25695	VGF; neurosecretory protein VGF
+ko:K25696	PNOC; prepronociceptin

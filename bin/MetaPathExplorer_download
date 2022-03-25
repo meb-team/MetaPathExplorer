@@ -405,8 +405,8 @@ if($force){
             $C=1;
         }
         elsif(/^B\s+([^:]+)(:*.*)/){
-            $B{$1}='';
             my $Bname = "$1$2";
+            $B{$Bname}='';
             print OUT "\t</ul></li>\n\t" if($B > 1);
             printf OUT ("<li lvl='2' style=\"display:none;\"><a href=\"javascript:visibilite('A%sB%s');\"><img src=\"HTML/Fig/close.png\"/> %s (%s.count)</a>\n\t<ul id='A%sB%s'>\n",
                 $A,$B,$Bname,$Bname,$A,$B);
@@ -500,7 +500,26 @@ if($force){
                 if($line=~m/BR:ko/){$BRITE=$line;}
                 elsif($BRITE eq "KEGG Orthology (KO) [BR:ko00001]"){
                     if ($line eq '09190 Not Included in Pathway or Brite'){last;}
-                    $line=~/(\w+)\s(.+)/;
+                    # DAMIEN:
+                    # I added the following lines because the level are not present in "KEGG_orthology.txt"
+                    # and this leads to line duplication in the file "data/ko2hierarchy.tsv"
+                    #
+                    # Note: could it be a solution to:
+                    # Test the presence of "(\d{5})\s+" to catch the BRITE ID (eg "09100" for Metabolism)
+                    #       and check if this ID is present in one of you dictionnaries:
+                    #           --> lvl1; then lvl2 if yes; then lvl3 if yes
+                    #           --> if not, next line?
+                    #
+                    # In the last version of the file "data/ko2hierarchy.tsv" (2022-03-25 or 26)
+                    # 11 duplacations were present. I manually inspected them. They were caused
+                    # by the presence of "09112..." and "Dioxygenases...".
+                    # I did not generated again the file as it take hours to process the ~13200 K IDs ^^
+                    # but the duplicated lines are gone!
+                    if ($line eq '09180 Brite Hierarchies'){last;}
+                    if ($line eq '09112 Not included in regular maps'){last;}
+                    if ($line eq 'Dioxygenases [br01602.html]'){last;}
+
+                    $line=~/(\w+)\s+(.+)/;
                     if(exists $A{$2}){
                         $lvl1=$line;
                         $lvl++;
@@ -531,10 +550,10 @@ if($force){
                 }
             }
         }
-        close(K0)
+        close K0;
     }
-    runcmd("rm temp_ko_record") # get rid of the last iteration downloaded
-    close(IN);
+    runcmd("rm temp_ko_record"); # get rid of the last iteration downloaded
+    close IN;
 
     warning('Download KEGG Pathway list with definition');
     runcmd("mkdir -p $MetaPathExplorer_data/HTML");
@@ -573,218 +592,218 @@ else {
 }
 
 #××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××××
-warning('Recover UniRef data.');
-# DL UniRef db
-
-scalars
-my $UniReflvl="UniRef$OPT{UniRefID}";
-my $url="ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref$OPT{UniRefID}/uniref$OPT{UniRefID}.fasta.gz";
-my $UniRef=$MetaPathExplorer_data."uniref$OPT{UniRefID}.fasta";
-
-# hashes
-my %UniRef2KO;
-my %clst2acc;
-
-warning('(Down)load UniRef Protein sequence file.');
-
-downloadFile($url) unless -e $UniRef || -e "$UniRef.gz" ;
-
-runcmd("gunzip $UniRef.gz") if -e "$UniRef.gz";
-error("'$UniRef' has zero size") if(-z $UniRef);
-
-warning('(Down)load UniRef equivalence ID file.');
-downloadFile('ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/idmapping.dat.gz') unless -e "$MetaPathExplorer_data/idmapping.dat.gz";
-unless(-e "$MetaPathExplorer_data/$UniReflvl.cluster.tsv" && "$MetaPathExplorer_data/$UniReflvl.cluster.tsv.gz"){
-    open IDMAP, "zcat $MetaPathExplorer_data/idmapping.dat.gz |";
-    open (MAPOUT, ">$MetaPathExplorer_data/idmapping.tsv");
-    open (UniRef, ">$MetaPathExplorer_data/$UniReflvl.cluster.tsv");
-    while(<IDMAP>){
-        chomp;
-        if(/(\w+)\t(UniRef\d+)\t(\w+)/){
-            $clst2acc{$3}.="$1;" if $2 eq $UniReflvl;
-            print UniRef join ("\t",$1,$3),"\n" if $2 eq $UniReflvl;
-        }
-        if(/(\w+)\tKO\t(\w+)/){
-            $UniRef2KO{$1}=$2;
-            print MAPOUT join ("\t",$1,$2),"\n";
-        }
-    }
-    close IDMAP;
-    close MAPOUT;
-    close UniRef;
-};
-unless(%clst2acc or %UniRef2KO){
-    warning("Re-using: '$MetaPathExplorer_data/idmapping.tsv'");
-    open (MAP, "$MetaPathExplorer_data/idmapping.tsv");
-    while(<MAP>){
-        chomp;
-        my @split=split("\t");
-        $UniRef2KO{$split[0]}=$split[1];
-    }
-    close MAP;
-    warning("Re-using: '$MetaPathExplorer_data/$UniReflvl.cluster.tsv'");
-    runcmd("gunzip $MetaPathExplorer_data/$UniReflvl.cluster.tsv.gz") if -e "$MetaPathExplorer_data/$UniReflvl.cluster.tsv.gz";
-    open (CLSTR, "$MetaPathExplorer_data/$UniReflvl.cluster.tsv");
-    while(<CLSTR>){
-        chomp;
-        my @split=split("\t");
-        $clst2acc{$split[1]}.="$split[0];"
-    }
-    close CLSTR;
-}
-
-warning('Print UniRef_K0 protein file.');
-if($OPT{kingdoms} eq 'all'){
-
-    local $/ = '>';
-    open(IN,$UniRef);
-    (undef) = scalar <IN>;
-    local $/ = "\n>";
-
-    my $UniRef_KEGG=$MetaPathExplorer_data."orthology_$UniReflvl\_all.$DATE.fasta";
-    open(OUT,">$UniRef_KEGG");
-
-    while( my $record = <IN> ) {
-        my @lines = split "\n", $record;
-        pop @lines if $lines[-1] eq '>';
-        my $desc  = shift @lines;
-        $desc=~m/^\w+_(\w+)/;
-        next unless exists $UniRef2KO{$1};
-        next unless exists $currentK0{$UniRef2KO{$1}};
-        my $id="$UniRef2KO{$1}_$1";
-        my $sequence  = fasta_format(join("", @lines));
-        print OUT ">$id\n$sequence","\n";
-    }
-    close OUT;
-
-    my $dbpath ="$MetaPathExplorer_data/orthology_$UniReflvl\_all.$DATE.fasta";
-    my $cmd ;
-    $cmd = $tools{'blastp'}->{MAKE} if $tools{'blastp'}->{REQUIRED};
-    $cmd = $tools{'blastx'}->{MAKE} if $tools{'blastx'}->{REQUIRED};
-    $cmd = $tools{'usearch'}->{MAKE} if $tools{'usearch'}->{REQUIRED};
-    $cmd = $tools{'diamond'}->{MAKE} if $tools{'diamond'}->{REQUIRED};
-    $cmd =~ s/%d/$dbpath/g;
-
-    runcmd($cmd);
-    runcmd("gzip $UniRef");
-    warning("'$dbpath' : ready to be used.");
-    warning('Files database are ready. You can start the analysis.');
-}
-else{
-    # scalars
-    my $AC;
-
-    # hases
-    my %AC2OC;
-    my %ac2oc;
-    my %outfiles;
-
-    warning('Load taxonomic information for UniRef protein.');
-
-    downloadFile(
-        'ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.dat.gz'
-    ) unless -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat" || -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat.gz" ;
-
-    downloadFile(
-        'ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_trembl.dat.gz'
-    ) unless -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat" || -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat.gz" ;
-
-    runcmd("zcat $MetaPathExplorer_data/uniprot_sprot.dat.gz $MetaPathExplorer_data/uniprot_trembl.dat.gz | egrep '^ID|^AC|^OC' > $MetaPathExplorer_data/uniprot_sprot_trembl.dat") unless -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat";
-
-    warning("Re-using '$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.dat'") if -e "$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.dat";
-
-    unless(-e "$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.tsv"){
-        warning("Creating '$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.tsv'");
-        open (DAT, "$MetaPathExplorer_data/uniprot_sprot_trembl.dat");
-        open (AC2OC, ">$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.tsv");
-        while(<DAT>){
-            chomp;
-            if (/^AC\s+(\w+)/){
-                $AC = $1;
-            }
-            if (/^OC\s+(.+)/){
-                $ac2oc{$AC}.= $1;
-                if(/\.$/){
-                    print AC2OC join ("\t",$AC,$ac2oc{$AC}),"\n";
-
-                }
-
-            }
-        }
-        close DAT;
-        close AC2OC;
-    }
-
-    unless(%AC2OC){
-        open (AC2OC, "$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.tsv");
-        while(<AC2OC>){
-            chomp;
-            (my $AC,my $OC)=split(/\t/);
-            $OC=~m/(\w+)[;\.]/;
-            $AC2OC{$AC} .= "$1;";
-        }
-        close AC2OC;
-    }
-
-    my $K=join('-',@kingdoms);
-
-    warning('Print UniRef_K0 protein file.');
-    my $dbpath ="$MetaPathExplorer_data/orthology_$UniReflvl\_$K.fasta";
-
-    local $/ = '>';
-    open(IN,$UniRef);
-    (undef) = scalar <IN>;
-    local $/ = "\n>";
-
-    open(OUT,">$dbpath");
-
-    while( my $record = <IN> ) {
-        my @lines = split "\n", $record;
-        pop @lines if $lines[-1] eq '>';
-        my $desc  = shift @lines;
-        $desc=~m/^(\w+_(\w+))/;
-        my $id = $1 ;
-        my @clstmb=split(/;/,$clst2acc{$id}) if $clst2acc{$id};
-        $clstmb[0]=$1 unless $clst2acc{$id};
-        my $state = 0 ;
-        my @taxonomy;
-        foreach(@clstmb){
-            next unless exists $AC2OC{$_};
-            my @AC2OC=split(/;/,$AC2OC{$_});
-            foreach(@AC2OC){
-                push @taxonomy, $_;
-            }
-        }
-        foreach(uniq(@taxonomy)){
-            my $name='';
-            $name = 'arc' if $_ eq 'Archaea';
-            $name = 'bac' if $_ eq 'Bacteria';
-            $name = 'euk' if $_ eq 'Eukaryota';
-            $name = 'vir' if $_ eq 'Viruses';
-            next if $name eq '';
-            $state = 1 if $kingdoms{$name}->{USE};
-        }
-        next unless $state;
-        next unless exists $UniRef2KO{$2};
-        next unless exists $currentK0{$UniRef2KO{$2}};
-        $id="$UniRef2KO{$2}_$1";
-        my $sequence  = fasta_format(join("", @lines));
-        print OUT ">$id\n$sequence","\n";
-    }
-    close OUT;
-
-    my $cmd ;
-    $cmd = $tools{'blastp'}->{MAKE} if $tools{'blastp'}->{REQUIRED};
-    $cmd = $tools{'blastx'}->{MAKE} if $tools{'blastx'}->{REQUIRED};
-    $cmd = $tools{'usearch'}->{MAKE} if $tools{'usearch'}->{REQUIRED};
-    $cmd = $tools{'diamond'}->{MAKE} if $tools{'diamond'}->{REQUIRED};
-    $cmd =~ s/%d/$dbpath/g;
-
-    runcmd($cmd);
-    runcmd("gzip $UniRef");
-    warning("'$dbpath' : ready to be used.");
-    warning('Files database are ready. You can start the analysis.');
-}
-warning('End of script.')
+# warning('Recover UniRef data.');
+# # DL UniRef db
+#
+# scalars
+# my $UniReflvl="UniRef$OPT{UniRefID}";
+# my $url="ftp://ftp.uniprot.org/pub/databases/uniprot/uniref/uniref$OPT{UniRefID}/uniref$OPT{UniRefID}.fasta.gz";
+# my $UniRef=$MetaPathExplorer_data."uniref$OPT{UniRefID}.fasta";
+#
+# # hashes
+# my %UniRef2KO;
+# my %clst2acc;
+#
+# warning('(Down)load UniRef Protein sequence file.');
+#
+# downloadFile($url) unless -e $UniRef || -e "$UniRef.gz" ;
+#
+# runcmd("gunzip $UniRef.gz") if -e "$UniRef.gz";
+# error("'$UniRef' has zero size") if(-z $UniRef);
+#
+# warning('(Down)load UniRef equivalence ID file.');
+# downloadFile('ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/idmapping.dat.gz') unless -e "$MetaPathExplorer_data/idmapping.dat.gz";
+# unless(-e "$MetaPathExplorer_data/$UniReflvl.cluster.tsv" && "$MetaPathExplorer_data/$UniReflvl.cluster.tsv.gz"){
+#     open IDMAP, "zcat $MetaPathExplorer_data/idmapping.dat.gz |";
+#     open (MAPOUT, ">$MetaPathExplorer_data/idmapping.tsv");
+#     open (UniRef, ">$MetaPathExplorer_data/$UniReflvl.cluster.tsv");
+#     while(<IDMAP>){
+#         chomp;
+#         if(/(\w+)\t(UniRef\d+)\t(\w+)/){
+#             $clst2acc{$3}.="$1;" if $2 eq $UniReflvl;
+#             print UniRef join ("\t",$1,$3),"\n" if $2 eq $UniReflvl;
+#         }
+#         if(/(\w+)\tKO\t(\w+)/){
+#             $UniRef2KO{$1}=$2;
+#             print MAPOUT join ("\t",$1,$2),"\n";
+#         }
+#     }
+#     close IDMAP;
+#     close MAPOUT;
+#     close UniRef;
+# };
+# unless(%clst2acc or %UniRef2KO){
+#     warning("Re-using: '$MetaPathExplorer_data/idmapping.tsv'");
+#     open (MAP, "$MetaPathExplorer_data/idmapping.tsv");
+#     while(<MAP>){
+#         chomp;
+#         my @split=split("\t");
+#         $UniRef2KO{$split[0]}=$split[1];
+#     }
+#     close MAP;
+#     warning("Re-using: '$MetaPathExplorer_data/$UniReflvl.cluster.tsv'");
+#     runcmd("gunzip $MetaPathExplorer_data/$UniReflvl.cluster.tsv.gz") if -e "$MetaPathExplorer_data/$UniReflvl.cluster.tsv.gz";
+#     open (CLSTR, "$MetaPathExplorer_data/$UniReflvl.cluster.tsv");
+#     while(<CLSTR>){
+#         chomp;
+#         my @split=split("\t");
+#         $clst2acc{$split[1]}.="$split[0];"
+#     }
+#     close CLSTR;
+# }
+#
+# warning('Print UniRef_K0 protein file.');
+# if($OPT{kingdoms} eq 'all'){
+#
+#     local $/ = '>';
+#     open(IN,$UniRef);
+#     (undef) = scalar <IN>;
+#     local $/ = "\n>";
+#
+#     my $UniRef_KEGG=$MetaPathExplorer_data."orthology_$UniReflvl\_all.$DATE.fasta";
+#     open(OUT,">$UniRef_KEGG");
+#
+#     while( my $record = <IN> ) {
+#         my @lines = split "\n", $record;
+#         pop @lines if $lines[-1] eq '>';
+#         my $desc  = shift @lines;
+#         $desc=~m/^\w+_(\w+)/;
+#         next unless exists $UniRef2KO{$1};
+#         next unless exists $currentK0{$UniRef2KO{$1}};
+#         my $id="$UniRef2KO{$1}_$1";
+#         my $sequence  = fasta_format(join("", @lines));
+#         print OUT ">$id\n$sequence","\n";
+#     }
+#     close OUT;
+#
+#     my $dbpath ="$MetaPathExplorer_data/orthology_$UniReflvl\_all.$DATE.fasta";
+#     my $cmd ;
+#     $cmd = $tools{'blastp'}->{MAKE} if $tools{'blastp'}->{REQUIRED};
+#     $cmd = $tools{'blastx'}->{MAKE} if $tools{'blastx'}->{REQUIRED};
+#     $cmd = $tools{'usearch'}->{MAKE} if $tools{'usearch'}->{REQUIRED};
+#     $cmd = $tools{'diamond'}->{MAKE} if $tools{'diamond'}->{REQUIRED};
+#     $cmd =~ s/%d/$dbpath/g;
+#
+#     runcmd($cmd);
+#     runcmd("gzip $UniRef");
+#     warning("'$dbpath' : ready to be used.");
+#     warning('Files database are ready. You can start the analysis.');
+# }
+# else{
+#     # scalars
+#     my $AC;
+#
+#     # hases
+#     my %AC2OC;
+#     my %ac2oc;
+#     my %outfiles;
+#
+#     warning('Load taxonomic information for UniRef protein.');
+#
+#     downloadFile(
+#         'ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.dat.gz'
+#     ) unless -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat" || -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat.gz" ;
+#
+#     downloadFile(
+#         'ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_trembl.dat.gz'
+#     ) unless -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat" || -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat.gz" ;
+#
+#     runcmd("zcat $MetaPathExplorer_data/uniprot_sprot.dat.gz $MetaPathExplorer_data/uniprot_trembl.dat.gz | egrep '^ID|^AC|^OC' > $MetaPathExplorer_data/uniprot_sprot_trembl.dat") unless -e "$MetaPathExplorer_data/uniprot_sprot_trembl.dat";
+#
+#     warning("Re-using '$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.dat'") if -e "$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.dat";
+#
+#     unless(-e "$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.tsv"){
+#         warning("Creating '$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.tsv'");
+#         open (DAT, "$MetaPathExplorer_data/uniprot_sprot_trembl.dat");
+#         open (AC2OC, ">$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.tsv");
+#         while(<DAT>){
+#             chomp;
+#             if (/^AC\s+(\w+)/){
+#                 $AC = $1;
+#             }
+#             if (/^OC\s+(.+)/){
+#                 $ac2oc{$AC}.= $1;
+#                 if(/\.$/){
+#                     print AC2OC join ("\t",$AC,$ac2oc{$AC}),"\n";
+#
+#                 }
+#
+#             }
+#         }
+#         close DAT;
+#         close AC2OC;
+#     }
+#
+#     unless(%AC2OC){
+#         open (AC2OC, "$MetaPathExplorer_data/uniprot_sprot_trembl_ac2oc.tsv");
+#         while(<AC2OC>){
+#             chomp;
+#             (my $AC,my $OC)=split(/\t/);
+#             $OC=~m/(\w+)[;\.]/;
+#             $AC2OC{$AC} .= "$1;";
+#         }
+#         close AC2OC;
+#     }
+#
+#     my $K=join('-',@kingdoms);
+#
+#     warning('Print UniRef_K0 protein file.');
+#     my $dbpath ="$MetaPathExplorer_data/orthology_$UniReflvl\_$K.fasta";
+#
+#     local $/ = '>';
+#     open(IN,$UniRef);
+#     (undef) = scalar <IN>;
+#     local $/ = "\n>";
+#
+#     open(OUT,">$dbpath");
+#
+#     while( my $record = <IN> ) {
+#         my @lines = split "\n", $record;
+#         pop @lines if $lines[-1] eq '>';
+#         my $desc  = shift @lines;
+#         $desc=~m/^(\w+_(\w+))/;
+#         my $id = $1 ;
+#         my @clstmb=split(/;/,$clst2acc{$id}) if $clst2acc{$id};
+#         $clstmb[0]=$1 unless $clst2acc{$id};
+#         my $state = 0 ;
+#         my @taxonomy;
+#         foreach(@clstmb){
+#             next unless exists $AC2OC{$_};
+#             my @AC2OC=split(/;/,$AC2OC{$_});
+#             foreach(@AC2OC){
+#                 push @taxonomy, $_;
+#             }
+#         }
+#         foreach(uniq(@taxonomy)){
+#             my $name='';
+#             $name = 'arc' if $_ eq 'Archaea';
+#             $name = 'bac' if $_ eq 'Bacteria';
+#             $name = 'euk' if $_ eq 'Eukaryota';
+#             $name = 'vir' if $_ eq 'Viruses';
+#             next if $name eq '';
+#             $state = 1 if $kingdoms{$name}->{USE};
+#         }
+#         next unless $state;
+#         next unless exists $UniRef2KO{$2};
+#         next unless exists $currentK0{$UniRef2KO{$2}};
+#         $id="$UniRef2KO{$2}_$1";
+#         my $sequence  = fasta_format(join("", @lines));
+#         print OUT ">$id\n$sequence","\n";
+#     }
+#     close OUT;
+#
+#     my $cmd ;
+#     $cmd = $tools{'blastp'}->{MAKE} if $tools{'blastp'}->{REQUIRED};
+#     $cmd = $tools{'blastx'}->{MAKE} if $tools{'blastx'}->{REQUIRED};
+#     $cmd = $tools{'usearch'}->{MAKE} if $tools{'usearch'}->{REQUIRED};
+#     $cmd = $tools{'diamond'}->{MAKE} if $tools{'diamond'}->{REQUIRED};
+#     $cmd =~ s/%d/$dbpath/g;
+#
+#     runcmd($cmd);
+#     runcmd("gzip $UniRef");
+#     warning("'$dbpath' : ready to be used.");
+#     warning('Files database are ready. You can start the analysis.');
+# }
+warning('End of script.');
 
 }
