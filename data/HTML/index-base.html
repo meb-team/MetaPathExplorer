@@ -9,12 +9,6 @@
         <link rel="stylesheet" href="HTML/style/style.css" />
         <title>MetaPathExplorer</title>
         <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/6/68/Vegvisir.svg" />
-        <script type="text/javascript">
-            jQuery(document).ready(function(){
-                jQuery("#index").load("HTML/index-summary.html");
-                jQuery("#main").load("HTML/index-main.html");
-            });
-        </script>
     </head>
     <body>
          <!-- Corps de la page -->
@@ -28,14 +22,14 @@
                 <br/>
                 <input type="text" id="Search_pathway" onkeyup="Search_pathway()" placeholder="Search pathway">
                 <ul id="pathway_list">
-                    <div id="index"></div>
+                    <div id="index">%SUMMARY%</div>
                 </ul>
             </div>
 
             <div class="main" class2="pathway">
                 <br/>
                 <br/>
-                    <div id="main"></div>
+                    <div id="main">%MAIN%</div>
             </div>
         </div>
             
