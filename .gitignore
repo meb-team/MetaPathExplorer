@@ -1,0 +1,9 @@
+MetaPathExplorer.log
+*.ini
+
+# files from data
+data/uniref*.gz
+data/UniRef90.cluster.tsv
+data/orthology_UniRef*
+data/idmapping.dat.gz
+data/idmapping.tsv
